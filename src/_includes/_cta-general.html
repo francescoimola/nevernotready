@@ -1,0 +1,24 @@
+<!-- General CTA Card -->
+<section class="cta
+{% if page.url.startsWith('/websites') %} 
+cta--blue
+{% elseif page.url.startsWith('/emails') %} 
+cta--green
+{% elseif page.url.startsWith('/seo') %} 
+cta--green
+{% elseif page.url.startsWith('/about') %} 
+cta--green
+{% else %}
+cta--green
+{% endif %}">
+    <h2>Put a face to the name</h2>
+    <p>
+        Let's hop on a free 30 min call to discuss your project. I'll share advice and you can see if we're a good fit. No
+        strings attached.
+    </p>
+    <div class="button-wrapper">
+        <a href="https://calendly.com/nevernotready/30min" class="button" target="_blank" rel="noopener">
+            <span>Book your free call</span>
+        </a>
+    </div>
+</section>

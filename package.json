@@ -14,11 +14,14 @@
   "author": "5t3ph",
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.1",
     "@11tyrocks/eleventy-plugin-sass-lightningcss": "^1.2.0"
   },
   "browserslist": [
     "> 0.2%",
     "not dead"
-  ]
+  ],
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "cross-env": "^7.0.3"
+  }
 }

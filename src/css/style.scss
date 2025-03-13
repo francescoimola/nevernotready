@@ -1,12 +1,627 @@
-$color: rebeccapurple;
+/*! nevernotready.com | Francesco Imola */
 
-body {
-  font-family: system-ui;
-  background-color: #f9f9f9;
+// Variables
+$color-bg: #091b14;
+$color-text: #f6f6f6;
+$color-text-muted: rgba(246, 246, 246, 0.75);
+$color-text-subtle: rgba(246, 246, 246, 0.9);
+$color-accent-green: #bcd7a8;
+$color-accent-pink: #F4CFBE;
+$color-accent-blue: #B9D0E4;
+$color-bg-translucent: rgba(9, 27, 20, 0.9);
+$color-bg-transparent: rgba(9, 27, 20, 0.75);
+
+$space-xs: 0.25rem; // 4px
+$space-sm: 0.5rem; // 8px
+$space-md: 1rem; // 16px
+$space-lg: 1.5rem; // 24px
+$space-xl: 2rem; // 32px
+$space-2xl: 4rem; // 64px
+
+$radius: 0.3125rem;
+$container-width: min(32.5rem, 100% - 2rem);
+$transition: 150ms;
+
+$font-base: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, sans-serif;
+$font-size-base: clamp(0.875rem, calc(0.82rem + 0.13vw), 1rem);
+$font-size-small: clamp(0.75rem, calc(0.7rem + 0.13vw), 1rem);
+
+// Reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-h1 {
-  color: $color;
-  width: fit-content;
-  margin-inline: auto;
+html {
+  font-size: 16px;
+  font-size: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  line-height: 1.5;
+  font-family: $font-base;
+  font-size: $font-size-base;
+  font-weight: 400;
+  color: $color-text;
+  background-color: $color-bg;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 $space-xs;
+  font-weight: 600;
+  font-size: $font-size-base;
+  line-height: 1.2;
+  color: $color-text;
+}
+
+h2 {
+  margin-top: $space-md;
+}
+
+p {
+  margin: 0 0 $space-md;
+  color: $color-text-muted;
+  max-width: 65ch;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+  transition: color $transition ease-in-out allow-discrete;
+
+  &:hover,
+  &:focus-visible, &.uline {
+    text-decoration: underline;
+  }
+
+  &.uline:hover,
+  &.uline:focus-visible {
+    color: $color-text
+  }
+
+
+}
+
+small {
+  font-size: $font-size-small;
+  color: $color-text-muted;
+}
+
+.services ul{
+  color: $color-text-muted;
+  max-width: 65ch;
+  list-style-type: none;
+}
+
+li {
+  margin: 0 0 $space-xs;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Focus styles
+a,
+button {
+  &:focus-visible {
+    outline: 0.125rem solid $color-text;
+    outline-offset: 0.125rem;
+  }
+}
+
+// Layout
+.wrapper {
+  width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: $space-2xl 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2xl;
+}
+
+.footer-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: $container-width;
+  padding: 0 0 3rem;
+}
+
+// Navigation
+.nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  display: block;
+  padding: $space-xs;
+  margin: calc($space-xs * -1);
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.notion-avatar {
+  width: 2.1875rem;
+  height: 2.3125rem;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: $space-lg;
+  font-size: $font-size-small;
+
+  a {
+    position: relative;
+    color: $color-text-subtle;
+    padding: $space-xs;
+    margin: calc($space-xs * -1);
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0.0625rem;
+      bottom: 0;
+      left: $space-xs;
+      background-color: $color-text-subtle;
+      transition: all $transition ease-in-out allow-discrete;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      width: calc(100% - $space-sm);
+    }
+
+    // Active state styling
+    &.active::after {
+      width: calc(100% - $space-sm);
+    }
+  }
+
+  // Media query adjustments
+  @media (max-width: 768px) {
+    gap: $space-md;
+  }
+
+  @media (max-width: 480px) {
+    gap: $space-sm;
+  }
+}
+
+// Main Content
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: $space-lg;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: $space-xs;
+}
+
+// CTA Section
+.cta {
+  padding: $space-md;
+  border-radius: $radius;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+
+  &--green {
+    background-color: $color-accent-green;
+
+    h2,
+    p {
+      color: $color-bg;
+    }
+  }
+
+  &--pink {
+    background-color: $color-accent-pink;
+
+    h2,
+    p {
+      color: $color-bg;
+    }
+  }
+
+  &--blue {
+    background-color: $color-accent-blue;
+
+    h2,
+    p {
+      color: $color-bg;
+    }
+  }
+
+  > h2 {
+    margin-top: $space-xs;
+  }
+}
+
+// Buttons
+#newsletter {
+  .button-wrapper + small {
+    margin-top: $space-sm;
+  }
+}
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: $space-xs calc($space-sm + 1.125rem) $space-xs $space-sm;
+  background-color: $color-bg-translucent;
+  color: $color-text;
+  border-radius: $radius;
+  text-decoration: none;
+  font-size: $font-size-base;
+  transition: all $transition ease-in-out allow-discrete;
+  border: 0.0625rem solid transparent;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-text;
+    color: $color-bg;
+    text-decoration: none;
+    transform: translateY(-0.0625rem);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
+  // External link icon
+  &::after {
+    content: "";
+    position: absolute;
+    right: $space-sm;
+    width: 0.875rem;
+    height: 0.875rem;
+    background-color: $color-text;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.9348 13V19C18.9348 19.5304 18.7241 20.0391 18.349 20.4142C17.974 20.7893 17.4652 21 16.9348 21H5.93481C5.40438 21 4.89567 20.7893 4.5206 20.4142C4.14553 20.0391 3.93481 19.5304 3.93481 19V8C3.93481 7.46957 4.14553 6.96086 4.5206 6.58579C4.89567 6.21071 5.40438 6 5.93481 6H11.9348M15.9348 3H21.9348M21.9348 3V9M21.9348 3L10.9348 14' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.9348 13V19C18.9348 19.5304 18.7241 20.0391 18.349 20.4142C17.974 20.7893 17.4652 21 16.9348 21H5.93481C5.40438 21 4.89567 20.7893 4.5206 20.4142C4.14553 20.0391 3.93481 19.5304 3.93481 19V8C3.93481 7.46957 4.14553 6.96086 4.5206 6.58579C4.89567 6.21071 5.40438 6 5.93481 6H11.9348M15.9348 3H21.9348M21.9348 3V9M21.9348 3L10.9348 14' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    background-color: $color-bg;
+  }
+
+  // Light button variant
+  &--light {
+    background-color: $color-text-subtle;
+    color: $color-bg;
+
+    &::after {
+      background-color: $color-bg;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: $color-bg-transparent;
+      border-color: $color-text;
+      color: $color-text;
+
+      &::after {
+        background-color: $color-text;
+      }
+    }
+  }
+}
+
+@supports not ((mask-image: url()) or (-webkit-mask-image: url())) {
+  .button {
+    padding-right: $space-sm;
+
+    &::after {
+      content: " ↗";
+      position: static;
+      width: auto;
+      height: auto;
+      background: none;
+      margin-left: 0.125rem;
+    }
+  }
+}
+
+// Work Showcase
+.canvas {
+  padding: 1px;
+  margin: -1px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 20.2rem;
+  margin-top: $space-xs;
+  border-radius: $radius;
+  background-image: url(https://cdn.prod.website-files.com/67c5b664e63bc23229e6a933/67c5b8a588ec286d33191858_Frame-3.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $transition ease-in-out allow-discrete;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: none;
+  }
+
+  // Canvas focus style
+  &:focus-visible {
+    outline: 0.125rem solid $color-text;
+    outline-offset: 0.125rem;
+  }
+
+  // Subtle overlay effect on hover/focus
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-bg;
+    opacity: 0;
+    transition: all $transition ease-in-out allow-discrete;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    opacity: 0.1;
+  }
+
+  // Change action button when canvas is hovered/focused
+  &:hover,
+  &:focus-visible {
+    .action-button {
+      background-color: $color-bg-translucent;
+      border-color: $color-text;
+    }
+  }
+}
+
+.project-image {
+  display: flex;
+  flex-direction: column;
+  padding: $space-xl 0;
+  position: relative;
+  z-index: 1;
+
+  &__inner {
+    border-radius: $radius;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.action-button {
+  padding: calc($space-xs + 2px) calc($space-sm + 2px);
+  margin: -2px;
+  box-sizing: content-box;
+  position: absolute;
+  bottom: $space-md;
+  right: $space-md;
+  display: inline-flex;
+  align-items: center;
+  background-color: $color-bg-transparent;
+  color: $color-text;
+  border: 0.0625rem solid transparent;
+  border-radius: $radius;
+  -webkit-backdrop-filter: blur(0.3125rem);
+  backdrop-filter: blur(0.3125rem);
+  transition: all $transition ease-in-out allow-discrete;
+  z-index: 2;
+
+  &__text {
+    margin: 0;
+    font-size: $font-size-small;
+    color: $color-text;
+    white-space: nowrap;
+  }
+}
+
+// Footer
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  min-height: 45rem;
+  background-image: url(https://cdn.prod.website-files.com/67c5b664e63bc23229e6a933/67c5df3a30d199ce2994b88c_Footer%20Container.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.footer-text {
+  color: $color-text-muted;
+  font-size: $font-size-small;
+  line-height: 1;
+  letter-spacing: -0.00625rem;
+}
+
+.signature__icon {
+  width: 1.625rem;
+  height: 2.75rem;
+}
+
+// Font
+@font-face {
+  font-family: "Inter Variable";
+  src: url("/fonts/InterVariable.woff2") format("woff2"); // Variable
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter Variable";
+  src: url("/fonts/InterVariable-Italic.woff2") format("woff2"); // Variable Italic
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+// Accessibility utility
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 0.0625rem;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 0.0625rem;
+}
+
+// Responsive
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --space-2xl: 3rem;
+  }
+
+  .nav-links {
+    gap: $space-md;
+  }
+
+  .wrapper {
+    padding-inline: $space-md;
+  }
+
+  .main {
+    gap: $space-md;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    gap: $space-sm;
+  }
+
+  .wrapper {
+    padding-block: $space-xl;
+  }
+
+  .action-button {
+    bottom: $space-sm;
+    right: $space-sm;
+  }
+
+  .section {
+    gap: 0.125rem;
+  }
+}
+
+// Print
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .wrapper {
+    max-width: 100%;
+    padding: 1cm;
+  }
+
+  .nav-links,
+  .action-button,
+  .footer {
+    display: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000;
+    page-break-after: avoid;
+  }
+
+  p {
+    color: #333;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #000;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
 }
