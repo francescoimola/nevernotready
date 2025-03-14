@@ -24,7 +24,9 @@ permalink: "/"
     </p>
 </section>
 
-{% include "_cta-general.html" %}
+{% set link = "https://cal.com/francescoimola/intro" %}
+{% set cardColor = "green" %}
+{%- include "_cta-general.njk" -%}
 
 <!-- About Section -->
 <section class="section">
@@ -36,5 +38,5 @@ permalink: "/"
     </p>
 </section>
 
-{% include "_showcase-card.html" %}
-{% include "_newsletter.html" %}
+{%- include "_showcase-card.html" -%}
+{%- include "_newsletter.html" -%}
