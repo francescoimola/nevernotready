@@ -1,6 +1,9 @@
 /*! nevernotready.com | Francesco Imola */
 
-// Variables
+//
+// 1. CONFIGURATION
+// ----------------------------------
+// Colors
 $colors: (
   bg: #091b14,
   text: #f6f6f6,
@@ -13,6 +16,7 @@ $colors: (
   bg-transparent: rgba(9, 27, 20, 0.75)
 );
 
+// Spacing
 $spaces: (
   xs: 0.25rem, // 4px
   sm: 0.5rem,  // 8px
@@ -22,28 +26,38 @@ $spaces: (
   2xl: 4rem    // 64px
 );
 
-// Font variables instead of map to avoid comma issues with font stacks
+// Font variables
 $font-base: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 $font-size-base: clamp(0.875rem, calc(0.82rem + 0.13vw), 1rem);
 $font-size-small: clamp(0.75rem, calc(0.7rem + 0.13vw), 1rem);
 $font-weight-standard: 400;
 $font-weight-bold: 600;
 
+// Other measurements
 $radius: 0.3125rem;
 $container-width: min(32.5rem, 100% - 2rem);
 $transition: 150ms;
 $ext-icon: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.9348 13V19C18.9348 19.5304 18.7241 20.0391 18.349 20.4142C17.974 20.7893 17.4652 21 16.9348 21H5.93481C5.40438 21 4.89567 20.7893 4.5206 20.4142C4.14553 20.0391 3.93481 19.5304 3.93481 19V8C3.93481 7.46957 4.14553 6.96086 4.5206 6.58579C4.89567 6.21071 5.40438 6 5.93481 6H11.9348M15.9348 3H21.9348M21.9348 3V9M21.9348 3L10.9348 14' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 $ext-icon-size: 0.875rem;
 
+// Helper functions
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+@function space($key) {
+  @return map-get($spaces, $key);
+}
+
 // Mixins
 @mixin focus-visible {
-  outline: 0.125rem solid map-get($colors, text);
+  outline: 0.125rem solid color(text);
   outline-offset: 0.125rem;
 }
 
-@mixin icon-mask {
-  -webkit-mask-image: $ext-icon;
-  mask-image: $ext-icon;
+@mixin icon-mask($icon: $ext-icon) {
+  -webkit-mask-image: $icon;
+  mask-image: $icon;
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
@@ -53,11 +67,29 @@ $ext-icon-size: 0.875rem;
 }
 
 @mixin cta-color($color) {
-  background-color: map-get($colors, $color);
-  h2, p { color: map-get($colors, bg); }
+  background-color: color($color);
+  h2, p { color: color(bg); }
 }
 
-// Reset
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin smooth-transition {
+  transition: all $transition ease-in-out allow-discrete;
+  will-change: transform, opacity;
+}
+
+//
+// 2. RESET & BASE STYLES
+// ----------------------------------
 *,
 *::before,
 *::after {
@@ -75,12 +107,12 @@ html {
 
 body {
   min-height: 100%;
-  line-height: 1.5;
+  line-height: 1.6;
   font-family: $font-base;
   font-size: $font-size-base;
   font-weight: $font-weight-standard;
-  color: map-get($colors, text);
-  background-color: map-get($colors, bg);
+  color: color(text);
+  background-color: color(bg);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -88,23 +120,28 @@ img, svg {
   display: block;
   max-width: 100%;
   height: auto;
+  border-radius: space(xs)/1.618;
 }
 
-// Typography
+//
+// 3. TYPOGRAPHY
+// ----------------------------------
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 map-get($spaces, xs);
+  margin: 0 0 space(xs);
   font-weight: $font-weight-bold;
   font-size: $font-size-base;
   line-height: 1.2;
-  color: map-get($colors, text);
+  color: color(text);
 }
 
-h2 { margin-top: map-get($spaces, md); }
+h2 { margin-top: space(md); }
 
 p {
-  margin: 0 0 map-get($spaces, md);
-  color: map-get($colors, text-muted);
+  margin: 0 0 space(md);
+  color: color(text-muted);
   max-width: 65ch;
+
+  &:last-child { margin-bottom: 0; }
 }
 
 a {
@@ -118,7 +155,7 @@ a {
   }
 
   &.uline:hover, &.uline:focus-visible {
-    color: map-get($colors, text);
+    color: color(text);
   }
 
   &:focus-visible { @include focus-visible; }
@@ -126,34 +163,57 @@ a {
 
 small {
   font-size: $font-size-small;
-  color: map-get($colors, text-muted);
+  color: color(text-muted);
+}
+
+.content ul {
+  list-style-type:lower-roman; 
+  margin-left: space(md);
+  color: color(text-muted);
+
+  li:last-child { margin-bottom: space(sm); }
 }
 
 .services ul {
-  color: map-get($colors, text-muted);
+  color: color(text-muted);
   max-width: 65ch;
   list-style-type: none;
 }
 
 li {
-  margin: 0 0 map-get($spaces, xs);
+  margin: 0 0 space(xs);
   &:last-child { margin-bottom: 0; }
 }
 
 button:focus-visible { @include focus-visible; }
 
-// Layout
+//
+// 4. LAYOUT
+// ----------------------------------
 .wrapper {
   width: 100%;
   max-width: $container-width;
   margin: 0 auto;
-  padding: map-get($spaces, 2xl) 0;
-  display: flex;
-  flex-direction: column;
-  gap: map-get($spaces, 2xl);
+  padding: space(2xl) 0;
+  @include flex-column;
+  gap: space(2xl);
 }
 
-// Navigation
+.main {
+  @include flex-column;
+  width: 100%;
+  gap: space(lg);
+}
+
+section {
+  @include flex-column;
+  width: 100%;
+  gap: space(xs);
+}
+
+//
+// 5. NAVIGATION
+// ----------------------------------
 .nav {
   display: flex;
   width: 100%;
@@ -162,14 +222,14 @@ button:focus-visible { @include focus-visible; }
 
   &-links {
     display: flex;
-    gap: map-get($spaces, lg);
+    gap: space(lg);
     font-size: $font-size-small;
 
     a {
       position: relative;
-      color: map-get($colors, text-subtle);
-      padding: map-get($spaces, xs);
-      margin: calc(map-get($spaces, xs) * -1);
+      color: color(text-subtle);
+      padding: space(xs);
+      margin: calc(space(xs) * -1);
 
       &:hover { text-decoration: none; }
 
@@ -179,13 +239,13 @@ button:focus-visible { @include focus-visible; }
         width: 0;
         height: 0.0625rem;
         bottom: 0;
-        left: map-get($spaces, xs);
-        background-color: map-get($colors, text-subtle);
-        transition: all $transition ease-in-out allow-discrete;
+        left: space(xs);
+        background-color: color(text-subtle);
+        @include smooth-transition;
       }
 
       &:hover::after, &:focus::after, &.active::after {
-        width: calc(100% - map-get($spaces, sm));
+        width: calc(100% - space(sm));
       }
     }
   }
@@ -193,8 +253,8 @@ button:focus-visible { @include focus-visible; }
 
 .logo-link {
   display: block;
-  padding: map-get($spaces, xs);
-  margin: calc(map-get($spaces, xs) * -1);
+  padding: space(xs);
+  margin: calc(space(xs) * -1);
   &:hover { text-decoration: none; }
 }
 
@@ -203,47 +263,25 @@ button:focus-visible { @include focus-visible; }
   height: 2.3125rem;
 }
 
-.no-margin-bottom { margin-bottom: 0; }
-
-// Main Content
-.main {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: map-get($spaces, lg);
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: map-get($spaces, xs);
-}
-
-// Newsletter
-.newsletter .button-wrapper + small {
-  margin-top: map-get($spaces, sm);
-}
-
-.wide { width: 100%; }
-
-// Buttons
+//
+// 6. BUTTONS
+// ----------------------------------
 .button {
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: map-get($spaces, xs) calc(map-get($spaces, sm) + 1.125rem) map-get($spaces, xs) map-get($spaces, sm);
-  background-color: map-get($colors, bg-translucent);
-  color: map-get($colors, text);
+  padding: space(xs) calc(space(sm) + 1.125rem) space(xs) space(sm);
+  background-color: color(bg-translucent);
+  color: color(text);
   border-radius: $radius;
   text-decoration: none;
   font-size: $font-size-base;
-  transition: all $transition ease-in-out allow-discrete;
+  @include smooth-transition;
   border: 0.0625rem solid transparent;
 
   &:hover, &:focus-visible {
-    background-color: map-get($colors, text);
-    color: map-get($colors, bg);
+    background-color: color(text);
+    color: color(bg);
     text-decoration: none;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   }
@@ -254,79 +292,62 @@ section {
   &::after {
     content: "";
     position: absolute;
-    right: map-get($spaces, sm);
+    right: space(sm);
     width: $ext-icon-size;
     height: $ext-icon-size;
-    background-color: map-get($colors, text);
+    background-color: color(text);
     @include icon-mask;
   }
 
   &:hover::after, &:focus-visible::after {
-    background-color: map-get($colors, bg);
+    background-color: color(bg);
   }
 
   &.footer-button {
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    padding: map-get($spaces, md);
+    padding: space(md);
     font-weight: $font-weight-bold;
 
-    &::after { right: map-get($spaces, md); }
+    &::after { right: space(md); }
   }
 
   // Button variants
   &--onwhite {
-    background-color: map-get($colors, bg-translucent);
-    color: map-get($colors, text);
+    background-color: color(bg-translucent);
+    color: color(text);
 
-    &::after { background-color: map-get($colors, text-subtle); }
+    &::after { background-color: color(text-subtle); }
 
     &:hover, &:focus-visible {
-      background-color: map-get($colors, text-subtle);
-      border-color: map-get($colors, bg-translucent);
+      background-color: color(text-subtle);
+      border-color: color(bg-translucent);
 
-      &::after { background-color: map-get($colors, bg-translucent); }
+      &::after { background-color: color(bg-translucent); }
     }
   }
 
   &--light {
-    background-color: map-get($colors, text-subtle);
-    color: map-get($colors, bg);
+    background-color: color(text-subtle);
+    color: color(bg);
 
-    &::after { background-color: map-get($colors, bg); }
+    &::after { background-color: color(bg); }
 
     &:hover, &:focus-visible {
-      background-color: map-get($colors, bg-transparent);
-      border-color: map-get($colors, text);
-      color: map-get($colors, text);
+      background-color: color(bg-transparent);
+      border-color: color(text);
+      color: color(text);
 
-      &::after { background-color: map-get($colors, text); }
+      &::after { background-color: color(text); }
     }
   }
-}
-
-// CTA Section
-.cta {
-  padding: map-get($spaces, md);
-  border-radius: $radius;
-  display: flex;
-  flex-direction: column;
-  gap: map-get($spaces, xs);
-  background-color: map-get($colors, text);
-
-  > h2 { margin-top: map-get($spaces, xs); }
-
-  &--white { @include cta-color(text); }
-  &--green { @include cta-color(accent-green); }
-  &--pink { @include cta-color(accent-pink); }
-  &--blue { @include cta-color(accent-blue); }
 }
 
 // Fallback for browsers that don't support mask-image
 @supports not ((mask-image: url()) or (-webkit-mask-image: url())) {
   .button {
-    padding-right: map-get($spaces, sm);
+    padding-right: space(sm);
 
     &::after {
       content: " ↗";
@@ -339,49 +360,61 @@ section {
   }
 }
 
-// Work Showcase
+//
+// 7. CTA SECTIONS
+// ----------------------------------
+.cta {
+  margin-top: space(md);
+  padding: space(md);
+  border-radius: $radius;
+  @include flex-column;
+  gap: space(xs);
+  background-color: color(text);
+
+  > h2 { margin-top: space(xs); }
+
+  &--white { @include cta-color(text); }
+  &--green { @include cta-color(accent-green); }
+  &--pink { @include cta-color(accent-pink); }
+  &--blue { @include cta-color(accent-blue); }
+}
+
+//
+// 8. CANVAS/SHOWCASE
+// ----------------------------------
 .canvas {
   padding: 1px;
   margin: -1px;
   position: relative;
-  display: flex;
+  @include flex-center;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  aspect-ratio: 16 / 9; // Set a fixed aspect ratio
-  min-height: auto; // Remove fixed min-height
-  height: auto; // Let height be determined by aspect ratio
-  margin-top: map-get($spaces, xs);
+  aspect-ratio: 16 / 9;
+  height: auto;
+  margin-top: space(xs);
   border-radius: $radius;
-  background-image: url(https://cdn.prod.website-files.com/67c5b664e63bc23229e6a933/67c5b8a588ec286d33191858_Frame-3.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
-  transition: all $transition ease-in-out allow-discrete;
+  @include smooth-transition;
+  contain: layout style; // Performance optimization
 
   &:hover, &:focus-visible {
     text-decoration: none;
   }
 
-  &:focus-visible {
-    outline: 0.125rem solid map-get($colors, text);
-    outline-offset: 0.125rem;
-  }
+  &:focus-visible { @include focus-visible; }
 
   &::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: map-get($colors, bg);
+    inset: 0; // More concise than top/right/bottom/left
+    background-color: color(bg);
     opacity: 0;
-    transition: all $transition ease-in-out allow-discrete;
+    @include smooth-transition;
   }
 
   &:hover::after, &:focus-visible::after {
@@ -390,17 +423,21 @@ section {
 
   &:hover, &:focus-visible {
     .action-button {
-      background-color: map-get($colors, bg-translucent);
-      border-color: map-get($colors, text);
+      background-color: color(bg-translucent);
+      border-color: color(text);
     }
+  }
+  
+  // Add hardware acceleration
+  > div {
+    backface-visibility: hidden;
+    transform: translateZ(0);
   }
 }
 
 .project-image {
-  display: flex;
+  @include flex-center;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100%;
   padding: 0;
@@ -423,40 +460,41 @@ section {
 }
 
 .action-button {
-  padding: calc(map-get($spaces, xs) + 2px) calc(map-get($spaces, sm) + 2px);
+  padding: calc(space(xs) + 2px) calc(space(sm) + 2px);
   margin: -2px;
   box-sizing: content-box;
   position: absolute;
-  bottom: map-get($spaces, md);
-  right: map-get($spaces, md);
+  bottom: space(md);
+  right: space(md);
   display: inline-flex;
   align-items: center;
-  background-color: map-get($colors, bg-transparent);
-  color: map-get($colors, text);
+  background-color: color(bg-transparent);
+  color: color(text);
   border: 0.0625rem solid transparent;
   border-radius: $radius;
   -webkit-backdrop-filter: blur(0.3125rem);
   backdrop-filter: blur(0.3125rem);
-  transition: all $transition ease-in-out allow-discrete;
+  @include smooth-transition;
   z-index: 2;
 
   &__text {
     margin: 0;
     font-size: $font-size-small;
-    color: map-get($colors, text);
+    color: color(text);
     white-space: nowrap;
   }
 }
 
-// Footer
+//
+// 9. FOOTER
+// ----------------------------------
 footer {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   align-items: center;
   justify-content: flex-end;
   width: 100%;
   min-height: 45rem;
-  background-image: url(https://cdn.prod.website-files.com/67c5b664e63bc23229e6a933/67c5df3a30d199ce2994b88c_Footer%20Container.jpg);
+  background-image: url(/assets/footer-cover.jpg);
   background-position: center;
   background-size: cover;
 
@@ -468,23 +506,26 @@ footer {
     max-width: $container-width;
   }
 
-  .small-padding { padding: 0 0 map-get($spaces, md); }
-  .large-padding { padding: 0 0 map-get($spaces, 2xl); }
+  .small-padding { padding: 0 0 space(md); }
+  .large-padding { padding: 0 0 space(2xl); }
 
   .signature p {
-    color: map-get($colors, text-muted);
+    color: color(text-muted);
     font-size: $font-size-small;
     line-height: 1;
     letter-spacing: -0.00625rem;
+    margin-bottom: 0;
+  }
+
+  & svg {
+    width: space(lg);
+    height: auto;
   }
 }
 
-.signature__icon {
-  width: 1.625rem;
-  height: 2.75rem;
-}
-
-// Font
+//
+// 10. FONTS
+// ----------------------------------
 @font-face {
   font-family: "Inter Variable";
   src: url("/fonts/InterVariable.woff2") format("woff2");
@@ -501,7 +542,20 @@ footer {
   font-display: swap;
 }
 
-// Accessibility utility
+//
+// 11. UTILITIES
+// ----------------------------------
+.no-margin-bottom { margin-bottom: 0; }
+.wide { width: 100%; }
+.newsletter .button-wrapper + small { margin-top: space(sm); }
+.content { 
+  p {
+    margin-bottom: space(xs); }
+  & + img {
+    margin: 0 0 space(sm) 0;
+  }
+}
+
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -512,37 +566,41 @@ footer {
   width: 0.0625rem;
 }
 
-// Responsive
+
+//
+// 12. MEDIA QUERIES
+// ----------------------------------
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+    transition: none !important;
   }
 }
 
 @media (max-width: 768px) {
-  .nav-links { gap: map-get($spaces, md); }
-  .wrapper { padding-inline: map-get($spaces, md); }
-  .main { gap: map-get($spaces, md); }
+  .nav-links { gap: space(md); }
+  .wrapper { padding-inline: space(md); }
+  .main { gap: space(md); }
 }
 
 @media (max-width: 480px) {
-  .nav-links { gap: map-get($spaces, sm); }
-  .wrapper { padding-block: map-get($spaces, xl); }
+  .nav-links { gap: space(sm); }
+  .wrapper { padding-block: space(xl); }
   .action-button { 
-    bottom: map-get($spaces, sm);
-    right: map-get($spaces, sm);
+    bottom: space(sm);
+    right: space(sm);
   }
   section { gap: 0.125rem; }
   
-  .canvas {
-    aspect-ratio: 4 / 3; // Different aspect ratio for mobile if desired
-  }
+  .canvas { aspect-ratio: 4 / 3; }
 }
 
-// Print
+//
+// 13. PRINT STYLES
+// ----------------------------------
 @media print {
   body {
     background: #fff;
@@ -571,5 +629,141 @@ footer {
   p, h2, h3 {
     orphans: 3;
     widows: 3;
+  }
+}
+
+//
+// 14. SLIDEFRAME COMPONENT
+// ----------------------------------
+.slideframe {
+  position: fixed !important;
+  z-index: 99999 !important;
+  pointer-events: none !important;
+  
+  &--visible {
+    pointer-events: auto !important;
+    
+    .slideframe-generalclose {
+      visibility: visible !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    
+    .slideframe-container {
+      right: 0 !important;
+    }
+  }
+  
+  &-generalclose {
+    display: block !important;
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.25) !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transition: all 0.1s ease-out !important;
+    z-index: 99998 !important;
+  }
+  
+  &-container {
+    width: 95% !important;
+    height: 100% !important;
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: -100% !important;
+    transition: right 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 4px 0px !important;
+    z-index: 99999 !important;
+    
+    &-titlebar {
+      min-height: calc(space(xl) + space(xs)) !important; // 2.5rem
+      line-height: calc(space(xl) + space(xs)) !important; // 2.5rem
+      background: color(accent-pink) !important;
+      color: color(bg) !important;
+      -webkit-font-smoothing: antialiased !important;
+      display: flex !important;
+      font-family: $font-base !important;
+      font-size: $font-size-base !important;
+      font-weight: bold !important;
+      padding: space(sm) !important;
+      
+      strong {
+        font-weight: normal !important;
+        color: inherit !important;
+        font: inherit !important;
+      }
+    }
+    
+    &-frame {
+      border: none !important;
+      width: 100% !important;
+      height: calc(100% - (space(xl) + space(xs))) !important; // 100% - 2.5rem
+      background: color(bg) !important;
+    }
+    
+    &-titlebar-title {
+      flex-grow: 1 !important;
+      text-align: center !important;
+      padding: 0 space(md) !important; // 1rem
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      
+      &:before {
+        content: "\25CF";
+        position: absolute !important;
+        margin-left: calc(space(lg) * -1.17) !important; // -1.75rem
+        animation: sl-circle infinite 0.8s !important;
+        opacity: 0 !important;
+        transition: opacity 0.4s !important;
+      }
+    }
+  }
+}
+
+.slideframe-body {
+  &--noscroll {
+    overflow: hidden !important;
+  }
+  
+  &--loading * {
+    cursor: wait !important;
+    
+    .slideframe-container-titlebar-title:before {
+      opacity: 1 !important;
+      transform-origin: 50% 50% !important;
+    }
+  }
+}
+
+.slideframe-btn,
+.slideframe-btn:hover {
+  appearance: none !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+  height: 100% !important;
+  font-size: space(lg) !important; // 1.5rem
+  font-family: inherit !important;
+  color: inherit !important;
+  width: calc(space(xl) + space(xs)) !important; // 2.5rem
+  background: none !important;
+  border: none !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  border-radius: 0px !important;
+  line-height: inherit !important;
+}
+
+@keyframes sl-circle {
+  0%, 100% { transform: scale(0.7); }
+  50% { transform: scale(1.2); }
+}
+
+@media (max-width: 500px) {
+  .slideframe-container {
+    width: 100% !important;
   }
 }

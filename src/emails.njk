@@ -1,6 +1,57 @@
 ---
-layout: base.njk
+layout: _base.njk
 title: Emails | nevernotready
 description: Francesco Imola's design and marketing practice — websites, unignorable copy, and SEO that doesn't read like a marketing textbook. All at a fraction of agency prices.
 permalink: "/emails/"
 ---
+
+<!-- Intro -->
+<section class="section">
+    <h1>Making mailing lists do the impossible</h1>
+    <p>
+        Unignorable newsletters and pretty good email marketing
+        <i>*citation needed*</i>. I write the kind of emails your audience can actually relate to. The ones worth opening—not a
+            "hope you're well" in sight.
+    </p>
+    <div class="button-wrapper">
+        <a href="https://cal.com/francescoimola/intro" class="button button--light" target="_blank" rel="noopener" data-slideframe="true">
+            <span>Let's talk emails</span>
+        </a>
+    </div>
+</section>
+<!-- Value Proposition -->
+<section class="section services">
+    <h2>What I can help with</h2>
+    <ul>
+        <li>Regular newsletter writing</li>
+        <li>Website and blog writing</li>
+        <li>Email marketing audit</li>
+        <li>Platform set-up</li>
+    </ul>
+</section>
+{%- include "_showcase-card.html" -%}
+<!-- Values -->
+<section class="section">
+    <h2>Truth in marketing</h2>
+    <p class="no-margin-bottom">
+        Marketing, when done responsibly, is about connecting people with solutions to their problems. In my work, it also means
+        communicating value in the most positive but honest way, without the need for fine print.
+    </p>
+</section>
+<section class="section">
+    <h2>Challenging the norm</h2>
+    <p class="no-margin-bottom">
+        Asking questions helps me understand how to best help each client. Questions make space for better solutions, and real progress happens when we stand in that space open to rethinking old ideas.
+    </p>
+</section>
+<section class="section">
+    <h2>People first</h2>
+    <p class="no-margin-bottom">
+        Everything I put on the table has your customer base front and centre. Because of that, I’m better at helping you
+        build long-lasting relationships than earning you a quick buck. Loyalty > Sleaziness.
+    </p>
+</section>
+{%- include "_cta-faq.njk" -%}
+{% set link = "https://cal.com/francescoimola/intro" %}
+{% set cardColor = "pink" %}
+{%- include "_cta-general.njk" -%}

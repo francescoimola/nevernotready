@@ -1,6 +1,53 @@
 ---
-layout: base.njk
+layout: _base.njk
 title: SEO | nevernotready
 description: Francesco Imola's design and marketing practice — websites, unignorable copy, and SEO that doesn't read like a marketing textbook. All at a fraction of agency prices.
 permalink: "/seo/"
 ---
+
+<!-- Intro -->
+<section class="section">
+    <h1>SEO that won't read like a marketing textbook</h1>
+    <p>
+        Making the search engine gods smile upon your site with content people genuinely want to read. I'll handle the technical stuff too, like making your site faster and more accessible (which, fun fact, helps your rankings).
+    </p>
+    <div class="button-wrapper">
+        <a href="https://cal.com/francescoimola/intro" class="button button--light" target="_blank" rel="noopener" data-slideframe="true">
+            <span>Talk to me about SEO</span>
+        </a>
+    </div>
+</section>
+<!-- Value Proposition -->
+<section class="section services">
+    <h2>What I can help with</h2>
+    <ul>
+        <li>Blog posts and articles</li>
+        <li>Whole-site optimisation</li>
+        <li>Ongoing updates</li>
+        <li>SEO Audits</li>
+    </ul>
+</section>
+{%- include "_showcase-card.html" -%}
+<!-- Values -->
+<section class="section">
+    <h2>No more boring content</h2>
+    <p class="no-margin-bottom">
+        You know it when you see it: that article written just so daddy Google can rank the site higher. It always reads a bit dry and, frankly, can sound almost robotic. But it needn't be like that—I can show you how.
+    </p>
+</section>
+<section class="section">
+    <h2>Challenging the norm</h2>
+    <p class="no-margin-bottom">
+        Asking questions helps me understand how to best help each client. Questions make space for better solutions, and real progress happens when we stand in that space open to rethinking old ideas.
+    </p>
+</section>
+<section class="section">
+    <h2>Asynchronous first</h2>
+    <p class="no-margin-bottom">
+        Limiting synchronous work such as meetings lets me deliver great results without sacrificing work-life balance. Plus, working remotely means I can bring in external talent and expertise whenever needed.
+    </p>
+</section>
+{%- include "_cta-faq.njk" -%}
+{% set link = "https://cal.com/francescoimola/intro" %}
+{% set cardColor = "pink" %}
+{%- include "_cta-general.njk" -%}

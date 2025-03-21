@@ -2,13 +2,11 @@
 <html lang="en">
   <head>
     <title>{{ title }}</title>
-    {%- include "_meta.html" -%}
-    <link rel="preload" as="style" href="{{ '/css/style.css' | url }}"/>
+    {%- include "_meta.html" -%} <link rel="preload" as="style" href="{{ '/css/style.css' | url }}"/>
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}"/>
   </head>
   <body>
-    <div
-      class="wrapper">
+    <div class="wrapper">
       {%- include "_header.njk" -%}
       <!-- Main Content -->
       <main class="main" id="main">
@@ -16,6 +14,7 @@
       </main>
     </div>
     {%- include "_footer.njk" -%}
+    <script src="/assets/js/gradient-switcher.js" defer></script>
+    <script src="/assets/js/slideframe.js" defer></script>
   </body>
 </html>
-

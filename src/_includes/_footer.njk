@@ -1,24 +1,25 @@
 <!-- Footer -->
 <footer role="contentinfo">
+    {%- if not "Francesco Imola" in title -%}
     <div class="small-padding">
         <div class="wide">
                 <a
-                    href="mailto:francesco@nevernotready.club?subject=CV%20request"
+                    href="https://notbadnotbad.substack.com/welcome"
                     class="button button--light footer-button"
                     target="_blank"
                     rel="noopener">
-                    <span>Read my last newsletter</span>
+                    Read my last newsletter
                 </a>
             </div>
     </div>
     <div class="small-padding">
         <div class="wide">
                 <a
-                    href="mailto:francesco@nevernotready.club?subject=CV%20request"
+                    href="mailto:francesco@nevernotready.club"
                     class="button button--light footer-button"
                     target="_blank"
                     rel="noopener">
-                    <span>Ask me anything</span>
+                    Ask me anything
                 </a>
             </div>
     </div>
@@ -29,22 +30,17 @@
                     class="button button--light footer-button"
                     target="_blank"
                     rel="noopener">
-                    <span>Request my CV</span>
+                    Request my CV
                 </a>
             </div>
     </div>
+    {%- endif -%}
     <div class="signature large-padding">
         <p>
             Designed with love and anxiety in Folkestone, Kent
         </p>
         <div>
-            <img
-                src="https://cdn.prod.website-files.com/67c5b664e63bc23229e6a933/67c5de2e24da63e03b727a05_3.svg"
-                alt="Francesco signature"
-                class="signature__icon"
-                width="26"
-                height="44"
-                loading="lazy"/>
+            {%- include "_signature.html" -%}
         </div>
     </div>
 </footer>
