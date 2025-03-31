@@ -4,75 +4,58 @@ title: About | nevernotready
 description: Francesco Imola's design and marketing practice — websites, unignorable copy, and SEO that doesn't read like a marketing textbook. All at a fraction of agency prices.
 permalink: "/about/"
 ---
+{% from "_details.njk" import expandable %}
 
 <section class="section content">
-    <h1>Hello, it’s Francesco (he/they)</h1>
+    <h1>Hello, it's Francesco (he/they)</h1>
     <p>
-        I could have gone a long roundabout way to avoid introducing myself with a job title, but I find that rather
-        anti-climactic and ultimately it pays to be direct, so here goes:
+        I could have gone a roundabout way to avoid introducing myself with a job title, but I find that rather anti-climactic
+        so here goes:
     </p>
     <p>
-        I'm a design and communications generalist with a background in operations, events, marketing and art. I'm based in
-        Folkestone, England. For half a decade my work has helped 100s of department heads, creatives and business owners. Today, people hire me for 3 reasons:
+        I'm a marketing generalist with a background in design, copy, operations and events. I'm based in Kent, England. For
+        half a decade my work has helped 100s of department heads, creatives and business owners.
+    </p>
+</section>
+<section class="section content">
+    <h2>What I do best</h2>
+    <p>
+        I use design, words and strategy to get people to book you, buy from you, or attend your events. I can make sure that
+        you've got a strong foundation and your clients aren't left wondering what to do next.
+    </p>
+    <p>
+        Today, people hire me for 3 reasons:
     </p>
     <ul>
         <li>To clear their schedules of time-sucking projects</li>
-        <li>To help them focus on actual business and long-term growth</li>
+        <li>To help them focus on actual business and long-term growth</li>
         <li>And to bring clarity to their marketing chaos strategy</li>
     </ul>
 </section>
 <img src="/assets/Francesco.png" alt="TEDx Journeys project screenshot" loading="lazy"/>
-<section class="section content">
-    <h1>What I do best</h1>
-    <p>
-        I use design, words and strategy to get people to buy your stuff, book your time or attend your events. I can make sure
-        your foundations are strong, your audience is engaged and you're attracting leads even in your sleep. I can do so thanks to a broad understanding of multiple fields.
-    </p>
-</section>
-<section class="section content">
-    <h1>Don't trust generalists?</h1>
-    <p>
-        I feel you on that—not everyone values breadth over narrow focus.
-    </p>
-    <p>
-        Even I didn't at first!
-    </p>
-    <p>
-        For years I worried I was spreading myself too thin. Would my love of all things design and marketing and building and
-        creating make me useless?
-    </p>
-    <p>
-        But the truth is: the industry needs generalists more than it likes to admit.
-    </p>
-    <p>
-        The broader my expertise grows, the better prepared I'll be for whatever comes next. The best part? It's fulfilling
-        work, and I rarely get bored.
-    </p>
-</section>
-<section class="section content">
-    <h1>Why nevernotready?</h1>
-    <p>
-        Or better yet, why use “nevernotready” if I'm just a freelancer?
-    </p>
-    <p>
-        I've given my business a name for a couple of reasons:
-    </p>
+
+{{ expandable(
+    "Don't trust generalists?",
+    "I feel you on that. And that's because even I didn't at first! For years I worried I was spreading myself too thin. Would my love of all things design and marketing and building and creating make me useless?",
+    "<p>But somewhere along the way, reality hit:</p>
     <ul>
-        <li>The best way to show you're capable of creating a strong brand identity is to build one for yourself. Otherwise it's
-            like being an architect with the worst looking office you've ever seen—doesn't inspire confidence.</li>
-        <li>A brand name also helps me keep work and life separate. It gives "freelancing" its own container.</li>
-    </ul>
-    <p>
-        The word brings to mind conversations I've had with freelancers and business owners. They'd put off important but
-        time-consuming work because they were too busy with the day-to-day, like talking to clients or looking after staff.
-    </p>
-    <p>
-        They weren't ready. Ready to grow. Ready to pivot.
-    </p>
-    <p>
-        So that's where I come in: I help them get ready.
-    </p>
-</section>
+        <li>The industry needs generalists more than it likes to admit.</li>
+        <li>The broader my expertise grows, the better prepared I'll be for whatever comes next.</li>
+        <li>Not having that one hyper-specialised talent to ram down your throat means we can find more holistic answers to your questions, rather than diving straight into \"your SEO is broken, let me fix it\" sort of conversations that leave you wondering what you've just agreed to.</li>
+    </ul>",
+    "h2"
+) }}
+
+{{ expandable(
+    "Why nevernotready?",
+    "Or better yet, why use \"nevernotready\" if I'm just a freelancer? I've given my business a name for a couple of reasons.",
+    "<p>Because I believe that best way to show you're capable of creating a strong brand identity is to build one for yourself.Otherwise it's like being an architect with the worst looking office you've ever seen—doesn't inspire confidence. On top of that, a brand name also helps me keep work and life separate. It gives \"freelancing\" its own container.</p>
+    <p>The word brings to mind conversations I've had with freelancers and business owners. They'd put off important but time-consuming work because they were too busy with the day-to-day, like talking to clients or looking after staff.</p>
+    <p>They weren't ready. Ready to grow. Ready to pivot.</p>
+    <p>So that's where I come in: I help them get ready.</p>",
+    "h2"
+) }}
 {% set cardColor = "green" %}
 {% set getReady = true %}
 {%- include "_cta-general.njk" -%}
+<script src="/assets/js/expandable.js" defer></script>

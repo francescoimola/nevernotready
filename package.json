@@ -1,5 +1,5 @@
 {
-  "name": "11ty-sass-skeleton",
+  "name": "nevernotready",
   "version": "3.0.3",
   "description": "Featuring absolutely nothing beyond a base HTML5 template and the essential setup to watch and compile your Sass alongside 11ty.",
   "main": "index.html",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/5t3ph/11ty-sass-skeleton.git"
   },
-  "author": "5t3ph",
+  "author": "Francesco Imola",
   "license": "ISC",
   "dependencies": {
     "@11tyrocks/eleventy-plugin-sass-lightningcss": "^1.2.0"

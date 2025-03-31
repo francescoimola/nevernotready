@@ -1,0 +1,26 @@
+{# Expandable Content Macro #}
+{% macro expandable(heading, preview, content, headingLevel='h2') %}
+  <details class="expandable">
+    <summary>
+      <div class="summary-content">
+        <section class="section content">
+          <{{ headingLevel }}>{{ heading }}</{{ headingLevel }}>
+          <p>{{ preview }}</p>
+        </section>
+        <div class="expand-wrapper">
+          <span class="expand-indicator">Read more</span>
+        </div>
+      </div>
+    </summary>
+    <div class="details-content">
+      <div class="content-wrapper">
+        <section class="section content">
+          {{ content | safe }}
+        </section>
+      </div>
+      <div class="toggle-wrapper">
+        <span class="collapse-indicator">Show less</span>
+      </div>
+    </div>
+  </details>
+{% endmacro %}
