@@ -2,20 +2,25 @@
 <html lang="en">
   <head>
     <title>{{ title }}</title>
-    {%- include "_meta.html" -%} <link rel="preload" as="style" href="{{ '/css/style.css' | url }}"/>
-    <link rel="stylesheet" href="{{ '/css/style.css' | url }}"/>
-    <script src="/assets/js/expandable-init.js"></script>
+    {%- include "_meta.html" -%}
+    <!-- Resource hints -->
+    <link rel="preload" as="style" href="{{ '/css/style.css' | url }}"/>
+    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link
+    rel="stylesheet" href="{{ '/css/style.css' | url }}"/>
+    <!-- Semi-critical JS for text formatting -->
+    <script src="/assets/js/unorphanise.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
       {%- include "_header.njk" -%}
-      <!-- Main Content -->
       <main class="main" id="main">
         {{ content | safe }}
       </main>
     </div>
     {%- include "_footer.njk" -%}
-    <script src="/assets/js/gradient-switcher.js" defer></script>
+    {%- include "_randomgradient.njk" -%}
+    <script src="/assets/js/expandable-init.js" defer></script>
     <script src="/assets/js/slideframe.js" defer></script>
   </body>
 </html>

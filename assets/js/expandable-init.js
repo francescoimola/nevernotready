@@ -1,6 +1,5 @@
-/**
- * Accessible Expandable Content Implementation - Browser-Compatible Version
- */
+// Accessible Expandable Content Implementation - Browser-Compatible Version
+
 (function() {
   // Single function to handle DOM queries with optional context
   function $(selector, context) {

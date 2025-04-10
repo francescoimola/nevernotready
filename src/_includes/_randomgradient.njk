@@ -1,0 +1,49 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // List of available gradient images
+  var imgs = [
+    "gradient_1.jpg",
+    "gradient_2.jpg",
+    "gradient_3.jpg",
+    "gradient_4.jpg",
+    "gradient_5.jpg",
+    "gradient_6.jpg"
+  ];
+  
+  // Choose a random image from the list
+  var chosenImg = imgs[Math.random() * imgs.length | 0];
+  var imageUrl = "/assets/gradients/" + chosenImg;
+  
+  // Find all elements with the class "canvas"
+  var els = document.getElementsByClassName("canvas");
+  
+  // Preload the image using an off-DOM Image object
+  var preloaded = new Image();
+  preloaded.src = imageUrl;
+  
+  preloaded.onload = function() {
+    // Once the image is loaded, iterate over target elements
+    for (var i = 0; i < els.length; i++) {
+      // Set initial brightness to 0 to start dark
+      els[i].style.filter = "brightness(0)";
+      
+      // Set the background image now that it is loaded
+      els[i].style.backgroundImage = "url(" + imageUrl + ")";
+      
+      // Force the browser to register the current state (reflow)
+      void els[i].offsetWidth;
+      
+      // Set the transition property for filter
+      els[i].style.transition = "filter 1s ease-in-out";
+      
+      // Trigger the fade-in by transitioning brightness to 1
+      els[i].style.filter = "brightness(1)";
+    }
+  };
+  
+  // Optionally, handle error cases if the image fails to load.
+  preloaded.onerror = function() {
+    console.error("Background image failed to load: " + imageUrl);
+  };
+});
+</script>

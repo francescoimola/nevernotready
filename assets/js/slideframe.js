@@ -10,7 +10,7 @@ slideFrame = (e) => {
     '<div class="slideframe-generalclose"></div><div class="slideframe-container"><div class="slideframe-container-titlebar">' +
     '<button class="slideframe-container-titlebar-back slideframe-btn">&larr;</button><strong class="slideframe-container-tit' +
     'lebar-title">Title</strong><a href="#" target="_blank" class="slideframe-container-titlebar-external slideframe-btn">&ne' +
-    'arr;</a></div><iframe class="slideframe-container-frame" src=""></iframe></div>';
+    'arr;</a></div><iframe title="Show external site" class="slideframe-container-frame" src=""></iframe></div>';
   document.body.append(SFmain);
   const SFtitle = document.querySelector(
     ".slideframe-container-titlebar-title"

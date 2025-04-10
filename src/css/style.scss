@@ -1,6 +1,5 @@
 //
 // FOUNDATIONS
-// Variables, functions, mixins, and global configuration
 // ----------------------------------
 
 // Color Palette
@@ -19,16 +18,11 @@ $colors: (
 // Spacing Scale
 $spaces: (
   xs: 0.25rem,
-  // 4px
   sm: 0.5rem,
-  // 8px
   md: 1rem,
-  // 16px
   lg: 1.5rem,
-  // 24px
   xl: 2rem,
-  // 32px
-  2xl: 4rem // 64px,
+  2xl: 4rem
 );
 
 // Breakpoints
@@ -38,15 +32,14 @@ $breakpoints: (
 );
 
 // Typography
-$font-base: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI",
-  Roboto, sans-serif;
+$font-base: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 $font-size-base: clamp(0.875rem, calc(0.82rem + 0.13vw), 1rem);
 $font-size-small: clamp(0.75rem, calc(0.7rem + 0.13vw), 1rem);
 $font-weight-standard: 400;
 $font-weight-bold: 600;
 
 // Other Measurements
-$radius: 0.3125rem;
+$radius: 0.5rem;
 $container-width: min(32.5rem, 100% - 2rem);
 $transition: 150ms;
 $ext-icon: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.9348 13V19C18.9348 19.5304 18.7241 20.0391 18.349 20.4142C17.974 20.7893 17.4652 21 16.9348 21H5.93481C5.40438 21 4.89567 20.7893 4.5206 20.4142C4.14553 20.0391 3.93481 19.5304 3.93481 19V8C3.93481 7.46957 4.14553 6.96086 4.5206 6.58579C4.89567 6.21071 5.40438 6 5.93481 6H11.9348M15.9348 3H21.9348M21.9348 3V9M21.9348 3L10.9348 14' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -63,26 +56,22 @@ $ext-icon-size: 0.875rem;
   @return map-get($breakpoints, $key);
 }
 
-// Spacing and Sizing Utilities
-@function spacing-scale($base-space, $multiplier: 1) {
-  @return $base-space * $multiplier;
-}
-
 // Mixins
 @mixin responsive($breakpoint) {
-  @if $breakpoint == md {
-    @media (max-width: #{breakpoint(md)}) {
-      @content;
-    }
-  } @else if $breakpoint == sm {
-    @media (max-width: #{breakpoint(sm)}) {
-      @content;
-    }
+  @media (max-width: #{breakpoint($breakpoint)}) {
+    @content;
   }
 }
 
 @mixin transition($properties...) {
   transition: $properties $transition ease-in-out allow-discrete;
+}
+
+@mixin hover-focus {
+  &:hover,
+  &:focus-visible {
+    @content;
+  }
 }
 
 @mixin bg-cover {
@@ -91,12 +80,7 @@ $ext-icon-size: 0.875rem;
   background-size: cover;
 }
 
-@mixin flex(
-  $direction: row,
-  $justify: flex-start,
-  $align: left,
-  $wrap: nowrap
-) {
+@mixin flex($direction: row, $justify: flex-start, $align: left, $wrap: nowrap) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
@@ -123,32 +107,13 @@ $ext-icon-size: 0.875rem;
 
 @mixin cta-color($color) {
   background-color: color($color);
-  h2,
-  p {
+  h2, p {
     color: color(bg);
-  }
-}
-
-@mixin keyframes($name) {
-  @keyframes #{$name} {
-    @content;
-  }
-}
-
-// Specific Keyframe Animations
-@include keyframes(sl-circle) {
-  0%,
-  100% {
-    transform: scale(0.7);
-  }
-  50% {
-    transform: scale(1.2);
   }
 }
 
 //
 // RESET & BASE STYLES
-// Foundational styling for HTML elements
 // ----------------------------------
 *,
 *::before,
@@ -176,47 +141,17 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img,
-svg {
+img, svg {
   display: block;
   max-width: 100%;
   height: auto;
-  border-radius: calc(space(xs) / 1.618);
-}
-
-//
-// UTILITY CLASSES
-// Reusable utility classes for common styling needs
-// ----------------------------------
-.no-margin-bottom {
-  margin-bottom: 0;
-}
-.wide {
-  width: 100%;
-}
-.newsletter .button-wrapper + small {
-  margin-top: space(sm);
-}
-.visually-hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 0.0625rem;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 0.0625rem;
+  border-radius: $radius;
 }
 
 //
 // TYPOGRAPHY
-// Styling for text elements and content
 // ----------------------------------
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0 0 space(xs);
   font-weight: $font-weight-bold;
   font-size: $font-size-base;
@@ -232,6 +167,7 @@ p {
   margin: 0 0 space(md);
   color: color(text-muted);
   max-width: 65ch;
+  
   &:last-child {
     margin-bottom: 0;
   }
@@ -243,15 +179,18 @@ a {
   text-underline-offset: 0.2em;
   @include transition(color);
 
-  &:hover,
-  &:focus-visible,
-  &.uline {
+  @include hover-focus {
     text-decoration: underline;
   }
-  &.uline:hover,
-  &.uline:focus-visible {
-    color: color(text);
+  
+  &.uline {
+    text-decoration: underline;
+    
+    @include hover-focus {
+      color: color(text);
+    }
   }
+  
   &:focus-visible {
     @include focus-visible;
   }
@@ -267,6 +206,7 @@ small {
     list-style-type: lower-roman;
     margin-left: space(md);
     color: color(text-muted);
+    
     li:last-child {
       margin-bottom: space(sm);
     }
@@ -275,6 +215,7 @@ small {
   p {
     margin-bottom: space(xs);
   }
+  
   & + img {
     margin: 0 0 space(sm) 0;
   }
@@ -288,6 +229,7 @@ small {
 
 li {
   margin: 0 0 space(xs);
+  
   &:last-child {
     margin-bottom: 0;
   }
@@ -298,8 +240,32 @@ button:focus-visible {
 }
 
 //
+// UTILITY CLASSES
+// ----------------------------------
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.wide {
+  width: 100%;
+}
+
+.newsletter .button-wrapper + small {
+  margin-top: space(sm);
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 0.0625rem;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 0.0625rem;
+}
+
+//
 // LAYOUT
-// Global layout and grid-related styles
 // ----------------------------------
 .wrapper {
   width: 100%;
@@ -324,45 +290,44 @@ section {
 
 //
 // COMPONENTS
-// Reusable UI components and their variations
 // ----------------------------------
 
 // Navigation
 .nav {
   @include flex(row, space-between, center);
   width: 100%;
+}
 
-  &-links {
-    display: flex;
-    gap: space(lg);
-    font-size: $font-size-small;
+.nav-links {
+  display: flex;
+  gap: space(lg);
+  font-size: $font-size-small;
 
-    a {
-      position: relative;
-      color: color(text-subtle);
-      padding: space(xs);
-      margin: calc(space(xs) * -1);
+  a {
+    position: relative;
+    color: color(text-subtle);
+    padding: space(xs);
+    margin: calc(space(xs) * -1);
 
-      &:hover {
-        text-decoration: none;
-      }
+    &:hover {
+      text-decoration: none;
+    }
 
-      &::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 0.0625rem;
-        bottom: 0;
-        left: space(xs);
-        background-color: color(text-subtle);
-        @include transition(width);
-      }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0.0625rem;
+      bottom: 0;
+      left: space(xs);
+      background-color: color(text-subtle);
+      @include transition(width);
+    }
 
-      &:hover::after,
-      &:focus::after,
-      &.active::after {
-        width: calc(100% - space(sm));
-      }
+    &:hover::after,
+    &:focus::after,
+    &.active::after {
+      width: calc(100% - space(sm));
     }
   }
 }
@@ -371,6 +336,7 @@ section {
   display: block;
   padding: space(xs);
   margin: calc(space(xs) * -1);
+  
   &:hover {
     text-decoration: none;
   }
@@ -381,7 +347,7 @@ section {
   height: 2.3125rem;
 }
 
-// Buttons and CTAs
+// Buttons
 .button {
   position: relative;
   display: inline-flex;
@@ -395,8 +361,7 @@ section {
   @include transition(background-color, color, box-shadow);
   border: 0.0625rem solid transparent;
 
-  &:hover,
-  &:focus-visible {
+  @include hover-focus {
     background-color: color(text);
     color: color(bg);
     text-decoration: none;
@@ -417,9 +382,10 @@ section {
     @include icon-mask($color: color(text));
   }
 
-  &:hover::after,
-  &:focus-visible::after {
-    @include icon-mask($color: color(bg));
+  @include hover-focus {
+    &::after {
+      @include icon-mask($color: color(bg));
+    }
   }
 
   &.footer-button {
@@ -428,6 +394,7 @@ section {
     justify-content: space-between;
     padding: space(md);
     font-weight: $font-weight-bold;
+    
     &::after {
       right: space(md);
     }
@@ -437,14 +404,15 @@ section {
   &--onwhite {
     background-color: color(bg-translucent);
     color: color(text);
+    
     &::after {
       @include icon-mask($color: color(text-subtle));
     }
 
-    &:hover,
-    &:focus-visible {
+    @include hover-focus {
       background-color: color(text-subtle);
       border-color: color(bg-translucent);
+      
       &::after {
         @include icon-mask($color: color(bg-translucent));
       }
@@ -454,15 +422,16 @@ section {
   &--light {
     background-color: color(text-subtle);
     color: color(bg);
+    
     &::after {
       @include icon-mask($color: color(bg));
     }
 
-    &:hover,
-    &:focus-visible {
+    @include hover-focus {
       background-color: color(bg-transparent);
       border-color: color(text);
       color: color(text);
+      
       &::after {
         @include icon-mask($color: color(text));
       }
@@ -470,6 +439,7 @@ section {
   }
 }
 
+// CTA Section
 .cta {
   margin-top: space(md);
   padding: space(md);
@@ -482,17 +452,25 @@ section {
     margin-top: space(xs);
   }
 
-  &--white {
-    @include cta-color(text);
-  }
-  &--green {
-    @include cta-color(accent-green);
-  }
-  &--pink {
-    @include cta-color(accent-pink);
-  }
-  &--blue {
-    @include cta-color(accent-blue);
+  &--white { @include cta-color(text); }
+  &--green { @include cta-color(accent-green); }
+  &--pink { @include cta-color(accent-pink); }
+  &--blue { @include cta-color(accent-blue); }
+}
+
+// Fallback for browsers that don't support mask images
+@supports not ((mask-image: url()) or (-webkit-mask-image: url())) {
+  .button {
+    padding-right: space(sm);
+    
+    &::after {
+      content: " ↗";
+      position: static;
+      width: auto;
+      height: auto;
+      background: none;
+      margin-left: 0.125rem;
+    }
   }
 }
 
@@ -510,13 +488,13 @@ section {
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
-  @include transition(all);
+  @include transition(all, background-image);
   contain: layout style;
 
-  &:hover,
-  &:focus-visible {
+  @include hover-focus {
     text-decoration: none;
   }
+  
   &:focus-visible {
     @include focus-visible;
   }
@@ -535,8 +513,7 @@ section {
     opacity: 0.1;
   }
 
-  &:hover,
-  &:focus-visible {
+  @include hover-focus {
     .action-button {
       background-color: color(bg-translucent);
       border-color: color(text);
@@ -563,6 +540,7 @@ section {
     max-height: 90%;
     border-radius: $radius;
     overflow: hidden;
+    
     img {
       width: 100%;
       height: auto;
@@ -614,6 +592,7 @@ footer {
   .small-padding {
     padding: 0 0 space(md);
   }
+  
   .large-padding {
     padding: 0 0 space(2xl);
   }
@@ -638,11 +617,142 @@ footer {
 }
 
 //
-// SPECIFIC COMPONENTS
-// Unique UI components with complex interactions
+// EXPANDABLE COMPONENTS
 // ----------------------------------
+%horizontal-line {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: space(md);
 
-// Slideframe Component
+  &::before {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background-color: color(text-muted);
+    opacity: 0.3;
+    margin-right: space(md);
+  }
+}
+
+%indicator {
+  font-size: $font-size-small;
+  color: color(text-subtle);
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    color: color(text);
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    margin-left: space(sm);
+  }
+}
+
+.expandable {
+  margin-bottom: space(md);
+  width: 100%;
+  overflow: hidden;
+
+  summary {
+    list-style: none;
+    cursor: n-resize;
+    
+    &::-webkit-details-marker {
+      display: none;
+    }
+    
+    &:focus-visible {
+      outline: transparent;
+    }
+  }
+
+  .summary-content {
+    padding: 0;
+    position: relative;
+    
+    .section {
+      margin-bottom: 0;
+    }
+  }
+
+  .expand-wrapper {
+    @extend %horizontal-line;
+    cursor: pointer;
+    margin: space(xs);
+  }
+
+  .expand-indicator {
+    @extend %indicator;
+    
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+
+  .details-content {
+    padding: 0;
+    overflow: hidden;
+    transition: height 300ms ease-out;
+    height: 0;
+    
+    .section {
+      margin-top: 0;
+    }
+  }
+
+  &[open] {
+    .summary-content .expand-wrapper {
+      display: none;
+    }
+    
+    .details-content {
+      height: auto;
+    }
+  }
+
+  .content-wrapper {
+    margin-bottom: space(xs);
+  }
+
+  .toggle-wrapper {
+    @extend %horizontal-line;
+    cursor: pointer;
+    margin: space(xs);
+  }
+
+  .collapse-indicator {
+    @extend %indicator;
+    
+    &::after {
+      transform: rotate(-135deg);
+    }
+  }
+
+  // Polyfill fallback
+  .no-details & {
+    .details-content {
+      display: none;
+      height: 0;
+    }
+    
+    &.open .details-content {
+      display: block;
+      height: auto;
+    }
+  }
+}
+
+//
+// SLIDEFRAME COMPONENT
+// ----------------------------------
 .slideframe {
   position: fixed !important;
   z-index: 99999 !important;
@@ -761,150 +871,23 @@ footer {
   text-align: center !important;
   text-decoration: none !important;
   cursor: pointer !important;
-  border-radius: 0px !important;
+  border-radius: $radius;
   line-height: inherit !important;
-}
-
-// Expandable Content
-.expandable {
-  margin-bottom: space(md);
-  width: 100%;
-  overflow: hidden; // Contain the animation overflow
-
-  summary {
-    list-style: none;
-    cursor: n-resize;
-    &::-webkit-details-marker {
-      display: none;
-    }
-    
-    &:focus-visible {
-      outline: transparent;
-    } ;
-  }
-
-  .summary-content {
-    padding: 0;
-    position: relative;
-    .section {
-      margin-bottom: 0;
-    }
-  }
-
-  %horizontal-line {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-top: space(md);
-
-    &::before {
-      content: "";
-      flex-grow: 1;
-      height: 1px;
-      background-color: color(text-muted);
-      opacity: 0.3;
-      margin-right: space(md);
-    }
-  }
-
-  %indicator {
-    font-size: $font-size-small;
-    color: color(text-subtle);
-    display: inline-flex;
-    align-items: center;
-
-    &:hover {
-      color: color(text);
-    }
-
-    &::after {
-      content: "";
-      display: inline-block;
-      width: 0.5rem;
-      height: 0.5rem;
-      border-right: 1px solid currentColor;
-      border-bottom: 1px solid currentColor;
-      margin-left: space(sm);
-    }
-  }
-
-  .expand-wrapper {
-    @extend %horizontal-line;
-    cursor: pointer; // Explicitly add pointer cursor here
-    margin: space(xs);
-  }
-
-  .expand-indicator {
-    @extend %indicator;
-    &::after {
-      transform: rotate(45deg);
-    }
-  }
-
-  .details-content {
-    padding: 0;
-    overflow: hidden;
-    transition: height 300ms ease-out;
-    height: 0;
-    .section {
-      margin-top: 0;
-    }
-  }
-
-  &[open] {
-    .summary-content .expand-wrapper {
-      display: none;
-    }
-    .details-content {
-      height: auto;
-    } // Will be set dynamically by JS
-  }
-
-  .content-wrapper {
-    margin-bottom: space(xs);
-  }
-
-  .toggle-wrapper {
-    @extend %horizontal-line;
-    cursor: pointer; // Explicitly add pointer cursor here
-    margin: space(xs);
-  }
-
-  .collapse-indicator {
-    @extend %indicator;
-    &::after {
-      transform: rotate(-135deg);
-    }
-  }
-
-  // For the polyfill fallback
-  .no-details & {
-    .details-content {
-      display: none;
-      height: 0;
-    }
-    &.open .details-content {
-      display: block;
-      height: auto; // Will be set dynamically by JS
-    }
-  }
 }
 
 //
 // RESPONSIVE UTILITIES
-// Media queries and responsive adjustments
 // ----------------------------------
 @include responsive(md) {
-  .nav-links {
-    gap: space(md);
-  }
   .wrapper {
     padding-inline: space(md);
     gap: space(md);
   }
-  .main {
+  
+  .main, .nav-links {
     gap: space(md);
   }
+  
   .expandable {
     .toggle-wrapper,
     .expand-wrapper {
@@ -917,16 +900,20 @@ footer {
   .nav-links {
     gap: space(sm);
   }
+  
   .wrapper {
     padding-block: space(xl);
   }
+  
   .action-button {
     bottom: space(sm);
     right: space(sm);
   }
+  
   section {
     gap: 0.125rem;
   }
+  
   .canvas {
     aspect-ratio: 4 / 3;
   }
@@ -950,41 +937,39 @@ footer {
 
 //
 // PRINT STYLES
-// Styles for print media
 // ----------------------------------
 @media print {
   body {
     background: #fff;
     color: #000;
   }
+  
   .wrapper {
     max-width: 100%;
     padding: 1cm;
   }
+  
   .nav-links,
   .action-button,
   footer {
     display: none;
   }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  
+  h1, h2, h3, h4, h5, h6 {
     color: #000;
     page-break-after: avoid;
   }
+  
   p {
     color: #333;
   }
+  
   a {
     text-decoration: underline;
     color: #000;
   }
-  p,
-  h2,
-  h3 {
+  
+  p, h2, h3 {
     orphans: 3;
     widows: 3;
   }
@@ -992,7 +977,6 @@ footer {
 
 //
 // FONT DECLARATION
-// Web font imports
 // ----------------------------------
 @font-face {
   font-family: "Inter Variable";
