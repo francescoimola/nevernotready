@@ -1,26 +1,11 @@
 <!-- General CTA Card -->
-<section
-  class="{%- if cardColor === "blue" -%}
-  cta cta--blue
-  {%- elseif cardColor === "pink" -%}
-  cta cta--pink
-  {%- elseif cardColor === "green" -%}
-  cta cta--green
-  {%- elseif cardColor === "white" -%}
-  cta cta--white
-  {%- endif -%}"
->
-  <h2>{%- if getReady -%}Get ready{%- else -%}Put a face to the name{%- endif -%}</h2>
-  <p>Let's hop on a free 30 min call to discuss your project. I'll offer my advice and you can then see if we're a good fit. No strings attached.</p>
-  <div class="button-wrapper">
-    <a
-      href="https://cal.com/francescoimola/intro"
-      class="button {%- if cardColor === "white" -%}button--onwhite{%- endif -%}"
-      target="_blank"
-      rel="noopener"
-      data-slideframe="true"
-    >
-      <span>Book your free call</span>
-    </a>
-  </div>
+<section class="cta">
+<h2>
+  {%- if getReady -%}Get ready{%- else -%}Put a face to the name{%- endif -%}
+</h2>
+<p>Let's hop on a free 30 min call to discuss your project. I'll offer my advice and you can then see if we're a good
+  fit. No strings attached.</p>
+<a href="https://cal.com/francescoimola/intro" class="button" target="_blank" rel="noopener" data-slideframe="true">
+  <span>Book your free call</span>
+</a>
 </section>

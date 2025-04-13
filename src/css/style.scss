@@ -6,13 +6,14 @@
 $colors: (
   bg: #091b14,
   text: #f6f6f6,
-  text-muted: rgba(246, 246, 246, 0.75),
-  text-subtle: rgba(246, 246, 246, 0.9),
-  accent-green: #bcd7a8,
-  accent-pink: #f4cfbe,
-  accent-blue: #b9d0e4,
-  bg-translucent: rgba(9, 27, 20, 0.9),
-  bg-transparent: rgba(9, 27, 20, 0.75),
+  text-subtle: color-mix(in srgb, #f6f6f6 90%, #091b14),
+  text-muted: color-mix(in srgb, #f6f6f6 80%, #091b14),
+  links: color-mix(in hsl, currentColor 25%, hsl(94, 100%, 75%)),
+  accent-green: hsl(94, 37%, 75%),
+  accent-pink: hsl(19, 71%, 85%),
+  accent-blue: hsl(208, 44%, 81%),
+  bg-translucent: color-mix(in srgb, #091b14 90%, #f6f6f6),
+  bg-transparent: color-mix(in srgb, #091b14 75%, #f6f6f6),
 );
 
 // Spacing Scale
@@ -22,7 +23,7 @@ $spaces: (
   md: 1rem,
   lg: 1.5rem,
   xl: 2rem,
-  2xl: 4rem
+  2xl: 4rem,
 );
 
 // Breakpoints
@@ -32,44 +33,35 @@ $breakpoints: (
 );
 
 // Typography
-$font-base: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-base: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, sans-serif;
 $font-size-base: clamp(0.875rem, calc(0.82rem + 0.13vw), 1rem);
 $font-size-small: clamp(0.75rem, calc(0.7rem + 0.13vw), 1rem);
-$font-weight-standard: 400;
-$font-weight-bold: 600;
+$font-weight-standard: 375;
+$font-weight-bold: 575;
 
 // Other Measurements
-$radius: 0.5rem;
 $container-width: min(32.5rem, 100% - 2rem);
-$transition: 150ms;
-$ext-icon: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.9348 13V19C18.9348 19.5304 18.7241 20.0391 18.349 20.4142C17.974 20.7893 17.4652 21 16.9348 21H5.93481C5.40438 21 4.89567 20.7893 4.5206 20.4142C4.14553 20.0391 3.93481 19.5304 3.93481 19V8C3.93481 7.46957 4.14553 6.96086 4.5206 6.58579C4.89567 6.21071 5.40438 6 5.93481 6H11.9348M15.9348 3H21.9348M21.9348 3V9M21.9348 3L10.9348 14' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+$ext-icon: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-arrow-up-right'%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3C/svg%3E");
 $ext-icon-size: 0.875rem;
+$golden-ratio: 1.618;
 
 // Helper Functions
 @function color($key) {
   @return map-get($colors, $key);
 }
+
 @function space($key) {
   @return map-get($spaces, $key);
 }
+
 @function breakpoint($key) {
   @return map-get($breakpoints, $key);
 }
 
 // Mixins
 @mixin responsive($breakpoint) {
-  @media (max-width: #{breakpoint($breakpoint)}) {
-    @content;
-  }
-}
-
-@mixin transition($properties...) {
-  transition: $properties $transition ease-in-out allow-discrete;
-}
-
-@mixin hover-focus {
-  &:hover,
-  &:focus-visible {
+  @media only screen and (max-width: #{breakpoint($breakpoint)}) {
     @content;
   }
 }
@@ -80,36 +72,17 @@ $ext-icon-size: 0.875rem;
   background-size: cover;
 }
 
-@mixin flex($direction: row, $justify: flex-start, $align: left, $wrap: nowrap) {
+@mixin flex(
+  $direction: row,
+  $justify: flex-start,
+  $align: left,
+  $wrap: nowrap
+) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
-  align-items: $align;
+  align-content: $align;
   flex-wrap: $wrap;
-}
-
-@mixin icon-mask($icon: $ext-icon, $size: contain, $color: currentColor) {
-  -webkit-mask-image: $icon;
-  mask-image: $icon;
-  -webkit-mask-size: $size;
-  mask-size: $size;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  background-color: $color;
-}
-
-@mixin focus-visible {
-  outline: 0.125rem solid color(text);
-  outline-offset: 0.125rem;
-}
-
-@mixin cta-color($color) {
-  background-color: color($color);
-  h2, p {
-    color: color(bg);
-  }
 }
 
 //
@@ -136,27 +109,40 @@ body {
   font-family: $font-base;
   font-size: $font-size-base;
   font-weight: $font-weight-standard;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01" 1, "ss03" 1, "ss04" 1;
+  font-optical-sizing: auto;
   color: color(text);
   background-color: color(bg);
-  -webkit-font-smoothing: antialiased;
+
+  & *:focus-visible {
+    outline: 0.125rem solid color(text);
+    outline-offset: 0.125rem;
+  }
 }
 
-img, svg {
+img,
+svg {
   display: block;
   max-width: 100%;
   height: auto;
-  border-radius: $radius;
 }
 
 //
 // TYPOGRAPHY
 // ----------------------------------
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0 0 space(xs);
   font-weight: $font-weight-bold;
   font-size: $font-size-base;
   line-height: 1.2;
   color: color(text);
+  text-rendering: optimizeLegibility;
 }
 
 h2 {
@@ -164,10 +150,11 @@ h2 {
 }
 
 p {
-  margin: 0 0 space(md);
+  margin: 0 0 space(sm) 0;
   color: color(text-muted);
   max-width: 65ch;
-  
+  text-rendering: optimizeSpeed;
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -175,24 +162,20 @@ p {
 
 a {
   color: currentColor;
-  text-decoration: none;
+  text-decoration: underline;
   text-underline-offset: 0.2em;
-  @include transition(color);
 
-  @include hover-focus {
-    text-decoration: underline;
-  }
-  
-  &.uline {
-    text-decoration: underline;
-    
-    @include hover-focus {
-      color: color(text);
-    }
-  }
-  
+  &:hover,
   &:focus-visible {
-    @include focus-visible;
+    color: color(links);
+  }
+
+  h2 {
+    color: inherit;
+  }
+
+  &:after {
+    text-decoration: none;
   }
 }
 
@@ -201,21 +184,21 @@ small {
   color: color(text-muted);
 }
 
-.content {
-  ul {
-    list-style-type: lower-roman;
-    margin-left: space(md);
-    color: color(text-muted);
-    
-    li:last-child {
-      margin-bottom: space(sm);
-    }
-  }
+ul {
+  list-style-type: lower-roman;
+  margin-left: space(md);
+  color: color(text-muted);
 
+  li:last-child {
+    margin-bottom: space(sm);
+  }
+}
+
+.content {
   p {
     margin-bottom: space(xs);
   }
-  
+
   & + img {
     margin: 0 0 space(sm) 0;
   }
@@ -225,18 +208,15 @@ small {
   color: color(text-muted);
   max-width: 65ch;
   list-style-type: none;
+  margin-left: 0;
 }
 
 li {
   margin: 0 0 space(xs);
-  
+
   &:last-child {
     margin-bottom: 0;
   }
-}
-
-button:focus-visible {
-  @include focus-visible;
 }
 
 //
@@ -250,7 +230,7 @@ button:focus-visible {
   width: 100%;
 }
 
-.newsletter .button-wrapper + small {
+.button + small {
   margin-top: space(sm);
 }
 
@@ -267,19 +247,18 @@ button:focus-visible {
 //
 // LAYOUT
 // ----------------------------------
-.wrapper {
+.wrapper > * {
   width: 100%;
   max-width: $container-width;
-  margin: 0 auto;
+  margin: 0 auto 0 space(md);
   padding: space(2xl) 0;
   @include flex(column);
-  gap: space(2xl);
+  gap: calc(space(xl) + space(md));
 }
 
-.main {
+main {
   @include flex(column);
   width: 100%;
-  gap: space(lg);
 }
 
 section {
@@ -293,80 +272,65 @@ section {
 // ----------------------------------
 
 // Navigation
-.nav {
-  @include flex(row, space-between, center);
+header {
+  @include flex(row, flex-start, flex-start, wrap);
+  gap: space(xs);
   width: 100%;
-}
-
-.nav-links {
-  display: flex;
-  gap: space(lg);
-  font-size: $font-size-small;
+  background-color: color(text-subtle);
+  color: color(bg);
+  padding: space(sm) space(md);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 
   a {
-    position: relative;
-    color: color(text-subtle);
+    display: block;
     padding: space(xs);
     margin: calc(space(xs) * -1);
 
-    &:hover {
-      text-decoration: none;
+    svg {
+      width: auto;
+      height: calc(space(2xl) / $golden-ratio);
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 0.0625rem;
-      bottom: 0;
-      left: space(xs);
-      background-color: color(text-subtle);
-      @include transition(width);
-    }
-
-    &:hover::after,
-    &:focus::after,
-    &.active::after {
-      width: calc(100% - space(sm));
+    &:first-of-type:focus-visible {
+      outline: none;
     }
   }
-}
 
-.logo-link {
-  display: block;
-  padding: space(xs);
-  margin: calc(space(xs) * -1);
-  
-  &:hover {
-    text-decoration: none;
+  nav {
+    margin-top: space(xs);
+    display: flex;
+    gap: calc(space(xs) / 2);
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      color: currentColor;
+
+      li {
+        display: flex;
+
+        &:not(:first-child) {
+          margin-left: space(sm);
+        }
+      }
+
+      a.active {
+        font-weight: $font-weight-bold;
+        text-decoration: none;
+      }
+    }
   }
-}
-
-.notion-avatar {
-  width: 2.1875rem;
-  height: 2.3125rem;
 }
 
 // Buttons
-.button {
-  position: relative;
+a.button {
   display: inline-flex;
-  align-items: center;
-  padding: space(xs) calc(space(sm) + 1.125rem) space(xs) space(sm);
-  background-color: color(bg-translucent);
-  color: color(text);
-  border-radius: $radius;
-  text-decoration: none;
-  font-size: $font-size-base;
-  @include transition(background-color, color, box-shadow);
+  width: fit-content;
+  align-content: center;
   border: 0.0625rem solid transparent;
-
-  @include hover-focus {
-    background-color: color(text);
-    color: color(bg);
-    text-decoration: none;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
-  }
 
   &:active {
     box-shadow: none;
@@ -374,211 +338,29 @@ section {
 
   // External link icon
   &::after {
-    content: "";
-    position: absolute;
-    right: space(sm);
+    content: "\00a0 ↗";
+    position: static;
+    width: auto;
+    height: auto;
+    right: calc(space(xs) * $golden-ratio);
+    top: calc(space(xs) / $golden-ratio);
     width: $ext-icon-size;
     height: $ext-icon-size;
-    @include icon-mask($color: color(text));
-  }
-
-  @include hover-focus {
-    &::after {
-      @include icon-mask($color: color(bg));
-    }
-  }
-
-  &.footer-button {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    padding: space(md);
-    font-weight: $font-weight-bold;
-    
-    &::after {
-      right: space(md);
-    }
-  }
-
-  // Button variants
-  &--onwhite {
-    background-color: color(bg-translucent);
-    color: color(text);
-    
-    &::after {
-      @include icon-mask($color: color(text-subtle));
-    }
-
-    @include hover-focus {
-      background-color: color(text-subtle);
-      border-color: color(bg-translucent);
-      
-      &::after {
-        @include icon-mask($color: color(bg-translucent));
-      }
-    }
-  }
-
-  &--light {
-    background-color: color(text-subtle);
-    color: color(bg);
-    
-    &::after {
-      @include icon-mask($color: color(bg));
-    }
-
-    @include hover-focus {
-      background-color: color(bg-transparent);
-      border-color: color(text);
-      color: color(text);
-      
-      &::after {
-        @include icon-mask($color: color(text));
-      }
-    }
   }
 }
 
 // CTA Section
-.cta {
-  margin-top: space(md);
-  padding: space(md);
-  border-radius: $radius;
-  @include flex(column);
-  gap: space(xs);
-  background-color: color(text);
-
-  > h2 {
-    margin-top: space(xs);
-  }
-
-  &--white { @include cta-color(text); }
-  &--green { @include cta-color(accent-green); }
-  &--pink { @include cta-color(accent-pink); }
-  &--blue { @include cta-color(accent-blue); }
-}
-
-// Fallback for browsers that don't support mask images
-@supports not ((mask-image: url()) or (-webkit-mask-image: url())) {
-  .button {
-    padding-right: space(sm);
-    
-    &::after {
-      content: " ↗";
-      position: static;
-      width: auto;
-      height: auto;
-      background: none;
-      margin-left: 0.125rem;
-    }
-  }
-}
-
-// Canvas/Showcase
-.canvas {
-  padding: 1px;
-  margin: -1px space(xs) 0;
-  position: relative;
-  @include flex(column, center, center);
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  height: auto;
-  border-radius: $radius;
-  @include bg-cover;
-  overflow: hidden;
-  text-decoration: none;
-  cursor: pointer;
-  @include transition(all, background-image);
-  contain: layout style;
-
-  @include hover-focus {
-    text-decoration: none;
-  }
-  
-  &:focus-visible {
-    @include focus-visible;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: color(bg);
-    opacity: 0;
-    @include transition(opacity);
-  }
-
-  &:hover::after,
-  &:focus-visible::after {
-    opacity: 0.1;
-  }
-
-  @include hover-focus {
-    .action-button {
-      background-color: color(bg-translucent);
-      border-color: color(text);
-    }
-  }
-
-  > div {
-    backface-visibility: hidden;
-    transform: translateZ(0);
-  }
-}
-
-.project-image {
-  @include flex(column, center, center);
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  position: relative;
-  z-index: 1;
-
-  &__inner {
-    width: auto;
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: $radius;
-    overflow: hidden;
-    
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-  }
-}
-
-.action-button {
-  padding: calc(space(xs) + 2px) calc(space(sm) + 2px);
-  margin: -2px;
-  box-sizing: content-box;
-  position: absolute;
-  bottom: space(md);
-  right: space(md);
-  display: inline-flex;
-  align-items: center;
-  background-color: color(bg-transparent);
-  color: color(text);
-  border: 0.0625rem solid transparent;
-  border-radius: $radius;
-  -webkit-backdrop-filter: blur(0.3125rem);
-  backdrop-filter: blur(0.3125rem);
-  @include transition(all);
-  z-index: 2;
-
-  &__text {
-    margin: 0;
-    font-size: $font-size-small;
-    color: color(text);
-    white-space: nowrap;
-  }
+.cta > p {
+  margin-bottom: space(xs);
 }
 
 // Footer
 footer {
-  @include flex(column, flex-end, center);
   width: 100%;
+  @include flex(column);
+  gap: space(sm);
+  padding: space(md) 0 space(2xl) space(md);
+  justify-content: flex-end;
   min-height: 45rem;
   background-image: url(/assets/footer-cover.jpg);
   @include bg-cover;
@@ -589,20 +371,12 @@ footer {
     max-width: $container-width;
   }
 
-  .small-padding {
-    padding: 0 0 space(md);
-  }
-  
-  .large-padding {
-    padding: 0 0 space(2xl);
-  }
-
   .signature p {
     color: color(text-muted);
     font-size: $font-size-small;
     line-height: 1;
     letter-spacing: -0.00625rem;
-    margin-bottom: 0;
+    margin: space(md) 0 0 0;
   }
 
   svg {
@@ -622,7 +396,7 @@ footer {
 %horizontal-line {
   position: relative;
   display: flex;
-  align-items: center;
+  align-content: center;
   margin-top: space(md);
 
   &::before {
@@ -639,7 +413,7 @@ footer {
   font-size: $font-size-small;
   color: color(text-subtle);
   display: inline-flex;
-  align-items: center;
+  align-content: center;
 
   &:hover {
     color: color(text);
@@ -653,100 +427,6 @@ footer {
     border-right: 1px solid currentColor;
     border-bottom: 1px solid currentColor;
     margin-left: space(sm);
-  }
-}
-
-.expandable {
-  margin-bottom: space(md);
-  width: 100%;
-  overflow: hidden;
-
-  summary {
-    list-style: none;
-    cursor: n-resize;
-    
-    &::-webkit-details-marker {
-      display: none;
-    }
-    
-    &:focus-visible {
-      outline: transparent;
-    }
-  }
-
-  .summary-content {
-    padding: 0;
-    position: relative;
-    
-    .section {
-      margin-bottom: 0;
-    }
-  }
-
-  .expand-wrapper {
-    @extend %horizontal-line;
-    cursor: pointer;
-    margin: space(xs);
-  }
-
-  .expand-indicator {
-    @extend %indicator;
-    
-    &::after {
-      transform: rotate(45deg);
-    }
-  }
-
-  .details-content {
-    padding: 0;
-    overflow: hidden;
-    transition: height 300ms ease-out;
-    height: 0;
-    
-    .section {
-      margin-top: 0;
-    }
-  }
-
-  &[open] {
-    .summary-content .expand-wrapper {
-      display: none;
-    }
-    
-    .details-content {
-      height: auto;
-    }
-  }
-
-  .content-wrapper {
-    margin-bottom: space(xs);
-  }
-
-  .toggle-wrapper {
-    @extend %horizontal-line;
-    cursor: pointer;
-    margin: space(xs);
-  }
-
-  .collapse-indicator {
-    @extend %indicator;
-    
-    &::after {
-      transform: rotate(-135deg);
-    }
-  }
-
-  // Polyfill fallback
-  .no-details & {
-    .details-content {
-      display: none;
-      height: 0;
-    }
-    
-    &.open .details-content {
-      display: block;
-      height: auto;
-    }
   }
 }
 
@@ -871,7 +551,6 @@ footer {
   text-align: center !important;
   text-decoration: none !important;
   cursor: pointer !important;
-  border-radius: $radius;
   line-height: inherit !important;
 }
 
@@ -879,47 +558,40 @@ footer {
 // RESPONSIVE UTILITIES
 // ----------------------------------
 @include responsive(md) {
-  .wrapper {
-    padding-inline: space(md);
+  .wrapper > * {
     gap: space(md);
   }
-  
-  .main, .nav-links {
+
+  main {
     gap: space(md);
   }
-  
-  .expandable {
-    .toggle-wrapper,
-    .expand-wrapper {
-      margin-top: space(sm);
+
+  header {
+    gap: space(sm);
+    & ul {
+    margin-left: 0;
     }
+  }
+
+  .canvas {
+    margin-top: space(md);
   }
 }
 
 @include responsive(sm) {
-  .nav-links {
-    gap: space(sm);
+
+  header {
+    gap: space(xs);
   }
-  
-  .wrapper {
+
+  .wrapper > * {
     padding-block: space(xl);
   }
-  
-  .action-button {
-    bottom: space(sm);
-    right: space(sm);
-  }
-  
+
   section {
     gap: 0.125rem;
   }
-  
-  .canvas {
-    aspect-ratio: 4 / 3;
-  }
-}
 
-@media (max-width: 500px) {
   .slideframe-container {
     width: 100% !important;
   }
@@ -936,51 +608,12 @@ footer {
 }
 
 //
-// PRINT STYLES
-// ----------------------------------
-@media print {
-  body {
-    background: #fff;
-    color: #000;
-  }
-  
-  .wrapper {
-    max-width: 100%;
-    padding: 1cm;
-  }
-  
-  .nav-links,
-  .action-button,
-  footer {
-    display: none;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    color: #000;
-    page-break-after: avoid;
-  }
-  
-  p {
-    color: #333;
-  }
-  
-  a {
-    text-decoration: underline;
-    color: #000;
-  }
-  
-  p, h2, h3 {
-    orphans: 3;
-    widows: 3;
-  }
-}
-
-//
 // FONT DECLARATION
 // ----------------------------------
 @font-face {
   font-family: "Inter Variable";
-  src: url("/fonts/InterVariable.woff2") format("woff2");
+  src: url("/fonts/InterVariable.woff2") format("woff2 supports variations"),
+    url("/fonts/InterVariable.woff2") format("woff2-variations");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -988,7 +621,9 @@ footer {
 
 @font-face {
   font-family: "Inter Variable";
-  src: url("/fonts/InterVariable-Italic.woff2") format("woff2");
+  src: url("/fonts/InterVariable-Italic.woff2")
+      format("woff2 supports variations"),
+    url("/fonts/InterVariable-Italic.woff2") format("woff2-variations");
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;

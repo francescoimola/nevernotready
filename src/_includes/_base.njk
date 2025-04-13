@@ -12,15 +12,13 @@
     <script src="/assets/js/unorphanise.js" defer></script>
   </head>
   <body>
+    {%- include "_header.njk" -%}
     <div class="wrapper">
-      {%- include "_header.njk" -%}
-      <main class="main" id="main">
+      <main>
         {{ content | safe }}
       </main>
     </div>
     {%- include "_footer.njk" -%}
-    {%- include "_randomgradient.njk" -%}
-    <script src="/assets/js/expandable-init.js" defer></script>
     <script src="/assets/js/slideframe.js" defer></script>
   </body>
 </html>
