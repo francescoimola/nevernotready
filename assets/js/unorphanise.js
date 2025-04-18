@@ -89,4 +89,4 @@
   window.unorphanize = unorphanize;
 })(window, document);
 
-new unorphanize("p, li");
+new unorphanize("p, li, small");

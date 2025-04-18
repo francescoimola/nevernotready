@@ -17,11 +17,12 @@
     "@11tyrocks/eleventy-plugin-sass-lightningcss": "^1.2.0"
   },
   "browserslist": [
-    "> 0.2%",
+    "defaults",
     "not dead"
   ],
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.5.0"
   }
 }

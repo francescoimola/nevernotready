@@ -1,34 +1,41 @@
 <!-- Footer -->
-<footer role="contentinfo">
+<div class="footer-wrapper">
+  <img
+    data-src="https://res.cloudinary.com/dax6x2pto/image/upload/c_scale,w_auto/dpr_auto/v1744634418/footer-cover_youytd.png"
+    class="cld-responsive"
+    alt="blurry trees seen from a moving car"
+    loading="lazy"
+  />
+  <footer role="contentinfo">
     {%- if not "Francesco Imola" in title -%}
-        <a
-            href="https://notbadnotbad.substack.com/welcome"
-            class="button"
-            target="_blank"
-            rel="noopener">
-            Read my last newsletter
-        </a>
-        <a
-            href="mailto:francesco@nevernotready.club"
-            class="button"
-            target="_blank"
-            rel="noopener">
-            Ask me anything
-        </a>
-        <a
-            href="mailto:francesco@nevernotready.club?subject=CV%20request"
-            class="button"
-            target="_blank"
-            rel="noopener">
-            Request my CV
-        </a>
+    <a
+      href="https://notbadnotbad.substack.com/welcome"
+      class="button"
+      target="_blank"
+      rel="noopener"
+    >
+      Read my last newsletter
+    </a>
+    <a
+      href="mailto:francesco@nevernotready.club"
+      class="button"
+      target="_blank"
+      rel="noopener"
+    >
+      Ask me anything
+    </a>
+    <a
+      href="mailto:francesco@nevernotready.club?subject=CV%20request"
+      class="button"
+      target="_blank"
+      rel="noopener"
+    >
+      Request my CV
+    </a>
     {%- endif -%}
     <div class="signature">
-        <p>
-            Designed with love and anxiety in Folkestone, Kent
-        </p>
-        <div>
-            {%- include "_signature.html" -%}
-        </div>
+      <p>Designed with love and anxiety in Folkestone, Kent</p>
+      <div>{%- include "_signature.html" -%}</div>
     </div>
-</footer>
+  </footer>
+</div>

@@ -1,15 +1,22 @@
-//
-// FOUNDATIONS
-// ----------------------------------
+/*! 
+ * Main Stylesheet
+ * Author: Francesco Imola
+ */
 
-// Color Palette
+//
+// 1. ABSTRACTS
+// ----------------------------------
+// Variables, functions, mixins and maps that don't output CSS directly
+// These form the foundation of your styles
+
+// Color System
 $colors: (
   bg: #091b14,
   text: #f6f6f6,
   text-subtle: color-mix(in srgb, #f6f6f6 90%, #091b14),
   text-muted: color-mix(in srgb, #f6f6f6 80%, #091b14),
   links: color-mix(in hsl, currentColor 25%, hsl(94, 100%, 75%)),
-  accent-green: hsl(94, 37%, 75%),
+  accent-green: #bcd7a8,
   accent-pink: hsl(19, 71%, 85%),
   accent-blue: hsl(208, 44%, 81%),
   bg-translucent: color-mix(in srgb, #091b14 90%, #f6f6f6),
@@ -32,7 +39,7 @@ $breakpoints: (
   sm: 480px,
 );
 
-// Typography
+// Typography System
 $font-base: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI",
   Roboto, sans-serif;
 $font-size-base: clamp(0.875rem, calc(0.82rem + 0.13vw), 1rem);
@@ -66,28 +73,18 @@ $golden-ratio: 1.618;
   }
 }
 
-@mixin bg-cover {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-@mixin flex(
-  $direction: row,
-  $justify: flex-start,
-  $align: left,
-  $wrap: nowrap
-) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-content: $align;
-  flex-wrap: $wrap;
-}
+//
+// 2. VENDOR
+// ----------------------------------
+// Third-party styles, normalize, resets, etc.
+// No vendor styles in current file
 
 //
-// RESET & BASE STYLES
+// 3. BASE
 // ----------------------------------
+// Global element selectors, CSS reset/normalize, typography system, etc.
+
+// Reset
 *,
 *::before,
 *::after {
@@ -121,6 +118,7 @@ body {
   }
 }
 
+// Base Elements
 img,
 svg {
   display: block;
@@ -128,9 +126,21 @@ svg {
   height: auto;
 }
 
-//
-// TYPOGRAPHY
-// ----------------------------------
+figure {
+  display: flex;
+  flex-direction: column;
+  gap: space(xs);
+  width: 100%;
+}
+
+details > summary {
+  h2 {
+    display: inline;
+  }
+  gap: space(lg);
+}
+
+// Typography Base
 h1,
 h2,
 h3,
@@ -194,21 +204,12 @@ ul {
   }
 }
 
-.content {
-  p {
-    margin-bottom: space(xs);
-  }
-
-  & + img {
-    margin: 0 0 space(sm) 0;
-  }
+i {
+  font-style: italic;
 }
 
-.services ul {
-  color: color(text-muted);
-  max-width: 65ch;
-  list-style-type: none;
-  margin-left: 0;
+b {
+  font-weight: $font-weight-bold;
 }
 
 li {
@@ -219,61 +220,124 @@ li {
   }
 }
 
-//
-// UTILITY CLASSES
-// ----------------------------------
-.no-margin-bottom {
-  margin-bottom: 0;
+// Font Declaration
+@font-face {
+  font-family: "Inter Variable";
+  src: url("/fonts/InterVariable.woff2") format("woff2 supports variations"),
+    url("/fonts/InterVariable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
-.wide {
-  width: 100%;
-}
-
-.button + small {
-  margin-top: space(sm);
-}
-
-.visually-hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 0.0625rem;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 0.0625rem;
+@font-face {
+  font-family: "Inter Variable";
+  src: url("/fonts/InterVariable-Italic.woff2")
+      format("woff2 supports variations"),
+    url("/fonts/InterVariable-Italic.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
 }
 
 //
-// LAYOUT
+// 4. LAYOUT
 // ----------------------------------
+// Major layout components that structure the page (grid, container, etc.)
+
 .wrapper > * {
   width: 100%;
   max-width: $container-width;
-  margin: 0 auto 0 space(md);
+  margin: 0 space(md) 0 space(md);
   padding: space(2xl) 0;
-  @include flex(column);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: start;
+  flex-wrap: nowrap;
   gap: calc(space(xl) + space(md));
 }
 
 main {
-  @include flex(column);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: start;
+  flex-wrap: nowrap;
   width: 100%;
 }
 
 section {
-  @include flex(column);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: start;
+  flex-wrap: nowrap;
   width: 100%;
   gap: space(xs);
+
+  // Quote Component
+  & div.quote {
+    @extend img;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 100%;
+    background: color(bg-translucent);
+    padding: space(lg);
+
+    p,
+    small {
+      color: color(text);
+    }
+
+    > div {
+      margin-top: space(md);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-content: start;
+      flex-wrap: nowrap;
+      gap: space(xs) / $golden-ratio;
+    }
+  }
+
+  > a[href="/projects"] {
+    > span:last-child {
+      display: block;
+      margin-top: space(sm);
+    }
+  }
+}
+
+.no-limits {
+  max-width: revert;
+  width: calc(100vw - 2rem);
+  padding-right: space(md);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: space(sm);
+}
+
+.footer-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
 }
 
 //
-// COMPONENTS
+// 5. COMPONENTS
 // ----------------------------------
+// Specific UI components and patterns
 
-// Navigation
+// Navigation/Header
 header {
-  @include flex(row, flex-start, flex-start, wrap);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: start;
+  flex-wrap: wrap;
   gap: space(xs);
   width: 100%;
   background-color: color(text-subtle);
@@ -325,7 +389,7 @@ header {
   }
 }
 
-// Buttons
+// Buttons and Actions
 a.button {
   display: inline-flex;
   width: fit-content;
@@ -349,24 +413,36 @@ a.button {
   }
 }
 
-// CTA Section
-.cta > p {
-  margin-bottom: space(xs);
+// Service Lists
+.services ul {
+  color: color(text-muted);
+  max-width: 65ch;
+  list-style-type: none;
+  margin-left: 0;
 }
 
 // Footer
 footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  @include flex(column);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: left;
+  flex-wrap: nowrap;
   gap: space(sm);
   padding: space(md) 0 space(2xl) space(md);
   justify-content: flex-end;
   min-height: 45rem;
-  background-image: url(/assets/footer-cover.jpg);
-  @include bg-cover;
 
   > div {
-    @include flex(row, space-between, center);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: nowrap;
     width: 100%;
     max-width: $container-width;
   }
@@ -390,49 +466,7 @@ footer {
   height: 2.75rem;
 }
 
-//
-// EXPANDABLE COMPONENTS
-// ----------------------------------
-%horizontal-line {
-  position: relative;
-  display: flex;
-  align-content: center;
-  margin-top: space(md);
-
-  &::before {
-    content: "";
-    flex-grow: 1;
-    height: 1px;
-    background-color: color(text-muted);
-    opacity: 0.3;
-    margin-right: space(md);
-  }
-}
-
-%indicator {
-  font-size: $font-size-small;
-  color: color(text-subtle);
-  display: inline-flex;
-  align-content: center;
-
-  &:hover {
-    color: color(text);
-  }
-
-  &::after {
-    content: "";
-    display: inline-block;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-right: 1px solid currentColor;
-    border-bottom: 1px solid currentColor;
-    margin-left: space(sm);
-  }
-}
-
-//
-// SLIDEFRAME COMPONENT
-// ----------------------------------
+// Slideframe Component
 .slideframe {
   position: fixed !important;
   z-index: 99999 !important;
@@ -555,8 +589,42 @@ footer {
 }
 
 //
-// RESPONSIVE UTILITIES
+// 6. UTILITIES
 // ----------------------------------
+// Single-purpose utility classes that do one thing well
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.wide {
+  width: 100%;
+}
+
+p + .button {
+  margin-top: space(sm);
+}
+
+.button + small {
+  margin-top: space(sm);
+  max-width: 75%;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 0.0625rem;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 0.0625rem;
+}
+
+//
+// 7. RESPONSIVE
+// ----------------------------------
+// Media queries and responsive adjustments
+
 @include responsive(md) {
   .wrapper > * {
     gap: space(md);
@@ -569,17 +637,12 @@ footer {
   header {
     gap: space(sm);
     & ul {
-    margin-left: 0;
+      margin-left: 0;
     }
-  }
-
-  .canvas {
-    margin-top: space(md);
   }
 }
 
 @include responsive(sm) {
-
   header {
     gap: space(xs);
   }
@@ -588,12 +651,12 @@ footer {
     padding-block: space(xl);
   }
 
-  section {
-    gap: 0.125rem;
-  }
-
   .slideframe-container {
     width: 100% !important;
+  }
+
+  .button + small {
+    max-width: 95%;
   }
 }
 
@@ -605,26 +668,4 @@ footer {
     scroll-behavior: auto !important;
     transition: none !important;
   }
-}
-
-//
-// FONT DECLARATION
-// ----------------------------------
-@font-face {
-  font-family: "Inter Variable";
-  src: url("/fonts/InterVariable.woff2") format("woff2 supports variations"),
-    url("/fonts/InterVariable.woff2") format("woff2-variations");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter Variable";
-  src: url("/fonts/InterVariable-Italic.woff2")
-      format("woff2 supports variations"),
-    url("/fonts/InterVariable-Italic.woff2") format("woff2-variations");
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
 }
