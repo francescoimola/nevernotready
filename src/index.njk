@@ -8,36 +8,29 @@ permalink: "/"
 <main>
   <!-- Intro -->
   <section>
-    <h1>You've done the hard part. The business exists! And it works!</h1>
-    <p>
-      But you've been so busy that your digital presence hasn't kept up with who
-      you've become. Your website still thinks it's 2020 and your newsletter is
-      covered in cobwebs.
+    <h1>You've done the hard part.</h1>
+    <p>The business exists. And it works!</p>
+    <p>But you've been so busy that your website still thinks it's 2020 and your email marketing is covered in cowebs.
     </p>
+    <p>I solve two problems that keep amazing businesses like yours stuck:
+      marketing campaigns that keep falling to the bottom of your to-do list,
+      and websites that tell an old story about who you've become.</p>
+
     <p>
-      Let's get your online self caught up with the person who's out there
-      crushing it. No jargon, no convoluted systems that need a developer every
-      time you want to change a comma. Just a website and emails that feel like
-      you, the real you that exists now.
-    </p>
-    <a
+      <a
       href="https://cal.com/francescoimola/intro"
-      class="button"
-      target="_blank"
-      rel="noopener"
-    >
-      <span>Book a free consultation</span>
-    </a>
-    <small
-      ><i
-        >Let's hop on a quick call to discuss your project. I'll offer my advice
-        and you decide if we're a good fit. No strings attached.</i
-      ></small
-    >
+      data-slideframe="true">Book a free consultation</a> and let's get your brand on par with who's out there
+      crushing it—zero jargon and zero high-maintenance systems. I'll let you decide if we're a good fit.</p>
   </section>
 
+  {%- from "_showcase-card.njk" import showcaseCard -%}
+{%- set images = [
+  { src: "v1744642248/blueberry_ycximz.png", alt: "selection of works from Blueberry" },
+  { src: "v1745837882/how_to_be_good_c2melr.png", alt: "sarah's website" },
+  { src: "v1745570674/tedx_greenwich_hqmpqe.png", alt: "screenshot of the folks directory homepage" }
+] -%}
+{{ showcaseCard(images) }}
+
   {%- include "_testimonials.html" -%}
-  {%- include "_showcase-card.html" -%}
   {%- include "_newsletter.html" -%}
-  <main></main>
 </main>

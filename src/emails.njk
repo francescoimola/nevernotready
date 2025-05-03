@@ -4,50 +4,100 @@ title: Emails | nevernotready
 description: Francesco Imola's design and marketing practice — websites, unignorable copy, and SEO that doesn't read like a marketing textbook. All at a fraction of agency prices.
 permalink: "/emails/"
 ---
+
 <main>
-<!-- Intro -->
-<section class="section">
+  <!-- Intro -->
+  <section>
     <h1>Making mailing lists do the impossible</h1>
     <p>
-        Unignorable newsletters and pretty good email marketing
-        <i>*citation needed*</i>. I write the kind of emails your audience can actually relate to. The ones worth opening—not a
-            "hope you're well" in sight.
+      Unignorable newsletters and pretty good email marketing
+      <i>*citation needed*</i>. I write the kind of emails your audience can
+      actually relate to. The ones worth opening—not a "hope you're well" in
+      sight.
     </p>
     <div class="button-wrapper">
-        <a href="https://cal.com/francescoimola/intro" class="button button--light" target="_blank" rel="noopener" data-slideframe="true">
-            <span>Let's talk emails</span>
-        </a>
+      <a
+        href="https://cal.com/francescoimola/intro"
+        class="button button--light"
+        target="_blank"
+        rel="noopener"
+        data-slideframe="true"
+      >
+        <span>Let's talk emails</span>
+      </a>
     </div>
-</section>
-<!-- Value Proposition -->
-<section class="section services">
+  </section>
+  <!-- Value Proposition -->
+  <section class="section services">
     <h2>What I can help with</h2>
     <ul>
-        <li>Regular newsletter writing</li>
-        <li>Website and blog writing</li>
-        <li>Email marketing audit</li>
-        <li>Platform set-up</li>
+      <li>Regular newsletter writing</li>
+      <li>Website and blog writing</li>
+      <li>Email marketing audit</li>
+      <li>Platform set-up</li>
     </ul>
-</section>
-{%- include "_showcase-card.html" -%}
-<!-- Values -->
-<section class="section">
-    <h2>Truth in marketing</h2>
-    <p class="no-margin-bottom">
-        Marketing, when done responsibly, is about connecting people with solutions to their problems. In my work, it also means
-        communicating value in the most positive but honest way, without the need for fine print.</p>
-</section>
-<section class="section">
-    <h2>Playing the long game</h2>
-    <p class="no-margin-bottom">Because everything I do puts your business reality and your customers first, I'm better at eliminating headaches and bringing clarity than promising overnight profit. Quality systems over quick fixes.</p>
-</section>
-<section class="section">
-    <h2>Challenging the norm</h2>
-    <p class="no-margin-bottom">
-        Asking questions helps me understand how to best help each client. Questions make space for better solutions, and real progress happens when we stand in that space open to rethinking old ideas.
+  </section>
+
+  {%- from "_showcase-card.njk" import showcaseCard -%} {%- set images = [ {
+  src: "not_bad_with_quotes_tzqn5y.png", alt: "selection of works from
+  Blueberry" }, { src: "blueberry_emails_y93apo.png", alt: "sarah's website" },
+  { src: "uog_ftv_marketing_dym5lo.png", alt: "screenshot of the folks directory
+  homepage" } ] -%}
+  {{ showcaseCard(images) }}
+
+  <section class="whatyouget">
+    <h2>What you'll always get ↓</h2>
+    <div>
+      <div>
+        <h3>1. Marketing that just <i>feels</i> right</h3>
+        <p>
+          Can you picture that? People reaching out to you because they get what
+          you're selling, not because you've built them up with false
+          expectations. Fewer "that's not what I thought I was buying" moments
+          and more customers who stay because you've been honest from day one.
+        </p>
+      </div>
+      <div>
+        <h3>2. Questions that actually get you somewhere</h3>
+        <p>
+          I can't help it, I question things. I ask "why?" more than most people
+          out there. I can't imagine you paying me to just nod in agreement. Our
+          conversations might shake up ideas you've been stuck on for ages, or
+          tweak something small that's been bothering you. Either way, you won't
+          waste money on cookie-cutter advice.
+        </p>
+      </div>
+      <div>
+        <h3>3. Sustainable growth > quick wins</h3>
+        <p>
+          Working with me means you get someone who cares about your business
+          surviving next year, not just how much I can bill you this month. I
+          hate seeing brands waste money on flashy campaigns that fall apart by
+          winter. I build stuff that lasts. Your people will notice, and you can
+          stop feeling pressured to reinvent the wheel whenever a new social
+          platform pops up.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How much does a website cost</h2>
+    <p>
+      Bringing a site to life depends on its scale and the features you need. A
+      basic website starts from just £500.
     </p>
-</section>
-{%- include "_cta-faq.njk" -%}
-{% set link = "https://cal.com/francescoimola/intro" %}
-{%- include "_cta-general.njk" -%}
+    <p>
+      As a broad guideline, my prices are calculated according to how many days
+      a project will take to complete, based on a minimum day rate of £200.
+      Contact me for a personalised quote for your project.
+    </p>
+    <p>
+      I also offer non-stackable discounts on payment terms to all clients. For
+      more information, please see the concessions section on this page.
+    </p>
+  </section>
+
+  {%- include "_cta-faq.njk" -%} {%- set link =
+  "https://cal.com/francescoimola/intro" -%} {%- include "_cta-general.njk" -%}
 </main>

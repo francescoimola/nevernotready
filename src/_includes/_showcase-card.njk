@@ -1,0 +1,22 @@
+<!-- Work Showcase Section -->
+{%- macro showcaseCard(imagePaths) -%}
+{%- set baseUrl = "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/" -%}
+<section>
+  <h2>Work I'm proud of</h2>
+  <a href="/projects" aria-label="View selected projects">
+    <span class="no-limits">
+      {%- for path in imagePaths -%}
+      <span class="image-container">
+        <img
+          data-src="{{ baseUrl + path.src }}"
+          class="cld-responsive green"
+          alt="{{ path.alt }}"
+          loading="lazy"
+        />
+        <span class="overlay-text">See selected projects</span>
+      </span>
+      {%- endfor -%}
+    </span>
+  </a>
+</section>
+{%- endmacro -%}

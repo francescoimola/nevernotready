@@ -4,48 +4,80 @@ title: SEO | nevernotready
 description: Francesco Imola's design and marketing practice — websites, unignorable copy, and SEO that doesn't read like a marketing textbook. All at a fraction of agency prices.
 permalink: "/seo/"
 ---
+
 <main>
-<!-- Intro -->
-<section class="section">
+  <!-- Intro -->
+  <section>
     <h1>SEO that won't read like a marketing textbook</h1>
     <p>
-        Making the search engine gods smile upon your website with content people actually want to read. I'll handle the technical stuff too, like making your site more accessible—which, fun fact, help your rankings.
+      Making the search engine gods smile upon your website with content people
+      actually want to read. I'll handle the technical stuff too, like making
+      your site more accessible—which, fun fact, help your rankings.
     </p>
     <div class="button-wrapper">
-        <a href="https://cal.com/francescoimola/intro" class="button button--light" target="_blank" rel="noopener" data-slideframe="true">
-            <span>Talk to me about SEO</span>
-        </a>
+      <a
+        href="https://cal.com/francescoimola/intro"
+        class="button button--light"
+        target="_blank"
+        rel="noopener"
+        data-slideframe="true"
+      >
+        <span>Talk to me about SEO</span>
+      </a>
     </div>
-</section>
-<!-- Value Proposition -->
-<section class="section services">
+  </section>
+  <!-- Value Proposition -->
+  <section class="section services">
     <h2>What I can help with</h2>
     <ul>
-        <li>Blog posts and articles</li>
-        <li>Whole-site optimisation</li>
-        <li>Ongoing updates</li>
-        <li>SEO Audits</li>
+      <li>Blog posts and articles</li>
+      <li>Whole-site optimisation</li>
+      <li>Ongoing updates</li>
+      <li>SEO Audits</li>
     </ul>
-</section>
-{%- include "_showcase-card.html" -%}
-<!-- Values -->
-<section class="section">
-    <h2>No more boring content</h2>
-    <p class="no-margin-bottom">
-        You know it when you see it: that blog post written just so daddy Google can rank that page higher. Frankly, they always read kind of dry and robotic, but it needn't be like that—I can show you how.
-    </p>
-</section>
-<section class="section">
-    <h2>Asynchronous first</h2>
-    <p class="no-margin-bottom">
-        Limiting synchronous work such as meetings lets me deliver great results without sacrificing work-life balance. Plus, working remotely means I can bring in external talent and expertise whenever needed.
-    </p>
-</section>
-<section class="section">
-    <h2>Playing the long game</h2>
-    <p class="no-margin-bottom">Because everything I do puts your business reality and your customers first, I'm better at eliminating headaches and bringing clarity than promising overnight profit. Quality systems over quick fixes.</p>
-</section>
-{%- include "_cta-faq.njk" -%}
-{% set link = "https://cal.com/francescoimola/intro" %}
-{%- include "_cta-general.njk" -%}
-<main>
+  </section>
+
+  {%- from "_showcase-card.njk" import showcaseCard -%} {%- set images = [ {
+  src: "v1744642248/blueberry_ycximz.png", alt: "selection of works from
+  Blueberry" }, { src: "v1745837882/how_to_be_good_c2melr.png", alt: "sarah's
+  website" }, { src: "v1745570674/tedx_greenwich_hqmpqe.png", alt: "screenshot
+  of the folks directory homepage" } ] -%}
+  {{ showcaseCard(images) }}
+
+  <section class="whatyouget">
+    <h2>What you'll always get ↓</h2>
+    <div>
+      <div>
+        <h3>1. No more boring content</h3>
+        <p>
+          You know it when you see it: that blog post written just so daddy
+          Google can rank that page higher. Frankly, they always read kind of
+          dry and robotic, but it needn't be like that. I can show you how.
+        </p>
+      </div>
+      <div>
+        <h3>2. Asynchronous first</h3>
+        <p>
+          Limiting synchronous work such as meetings lets me deliver great
+          results without sacrificing work-life balance. Plus, working remotely
+          means I can bring in external talent and expertise whenever needed.
+        </p>
+      </div>
+      <div>
+        <h3>3. Sustainable growth > quick wins</h3>
+        <p>
+          Working with me means you get someone who cares about your business
+          surviving next year, not just how much I can bill you this month. I
+          hate seeing brands waste money on flashy campaigns that fall apart by
+          winter. I build stuff that lasts. Your people will notice, and you can
+          stop feeling pressured to reinvent the wheel whenever a new social
+          platform pops up.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {%- include "_cta-faq.njk" -%} {%- set link =
+  "https://cal.com/francescoimola/intro" -%} {%- include "_cta-general.njk" -%}
+  <main></main>
+</main>

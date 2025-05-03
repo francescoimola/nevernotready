@@ -1,3 +1,4 @@
+@use "sass:map";
 /*! 
  * Main Stylesheet
  * Author: Francesco Imola
@@ -11,16 +12,13 @@
 
 // Color System
 $colors: (
-  bg: #091b14,
-  text: #f6f6f6,
-  text-subtle: color-mix(in srgb, #f6f6f6 90%, #091b14),
-  text-muted: color-mix(in srgb, #f6f6f6 80%, #091b14),
-  links: color-mix(in hsl, currentColor 25%, hsl(94, 100%, 75%)),
-  accent-green: #bcd7a8,
-  accent-pink: hsl(19, 71%, 85%),
-  accent-blue: hsl(208, 44%, 81%),
-  bg-translucent: color-mix(in srgb, #091b14 90%, #f6f6f6),
-  bg-transparent: color-mix(in srgb, #091b14 75%, #f6f6f6),
+  bg: #f6f6f6,
+  text: hsl(129, 52%, 5%),
+  text-subtle: color-mix(in srgb, #061308 80%, #f6f6f6),
+  links: hsl(129, 100%, 19%),
+  links-subtle: hsl(129, 40%, 40%),
+  bg-translucent: color-mix(in srgb, #f6f6f6 95%, #061308),
+  bg-more-translucent: color-mix(in srgb, #f6f6f6 85%, #061308),
 );
 
 // Spacing Scale
@@ -39,31 +37,32 @@ $breakpoints: (
   sm: 480px,
 );
 
+// Other Measurements
+$container-width: min(55ch, 100% - 2rem);
+$ext-icon: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-arrow-up-right'%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3C/svg%3E");
+$ext-icon-size: 0.875rem;
+$major-third: 1.25;
+
 // Typography System
 $font-base: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI",
   Roboto, sans-serif;
-$font-size-base: clamp(0.875rem, calc(0.82rem + 0.13vw), 1rem);
-$font-size-small: clamp(0.75rem, calc(0.7rem + 0.13vw), 1rem);
-$font-weight-standard: 375;
-$font-weight-bold: 575;
-
-// Other Measurements
-$container-width: min(32.5rem, 100% - 2rem);
-$ext-icon: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-arrow-up-right'%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3C/svg%3E");
-$ext-icon-size: 0.875rem;
-$golden-ratio: 1.618;
+$font-size-base: clamp(1rem, 0.4783rem + 1.7391vw, 1rem);
+$font-size-large: calc($font-size-base * $major-third);
+$font-size-small: calc($font-size-base / $major-third);
+$font-weight-standard: 400;
+$font-weight-bold: 600;
 
 // Helper Functions
 @function color($key) {
-  @return map-get($colors, $key);
+  @return map.get($colors, $key);
 }
 
 @function space($key) {
-  @return map-get($spaces, $key);
+  @return map.get($spaces, $key);
 }
 
 @function breakpoint($key) {
-  @return map-get($breakpoints, $key);
+  @return map.get($breakpoints, $key);
 }
 
 // Mixins
@@ -72,12 +71,6 @@ $golden-ratio: 1.618;
     @content;
   }
 }
-
-//
-// 2. VENDOR
-// ----------------------------------
-// Third-party styles, normalize, resets, etc.
-// No vendor styles in current file
 
 //
 // 3. BASE
@@ -95,6 +88,7 @@ $golden-ratio: 1.618;
 
 html {
   font-size: 100%;
+  font-size: $font-size-base;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   height: 100%;
@@ -119,11 +113,16 @@ body {
 }
 
 // Base Elements
-img,
 svg {
   display: block;
   max-width: 100%;
   height: auto;
+  fill: color(text);
+}
+
+img {
+  @extend svg;
+  background-color: color(bg-translucent);
 }
 
 figure {
@@ -131,6 +130,10 @@ figure {
   flex-direction: column;
   gap: space(xs);
   width: 100%;
+
+  figcaption {
+    margin-top: space(sm);
+  }
 }
 
 details > summary {
@@ -149,8 +152,8 @@ h5,
 h6 {
   margin: 0 0 space(xs);
   font-weight: $font-weight-bold;
-  font-size: $font-size-base;
-  line-height: 1.2;
+  font-size: $font-size-large;
+  line-height: 1.6;
   color: color(text);
   text-rendering: optimizeLegibility;
 }
@@ -161,7 +164,7 @@ h2 {
 
 p {
   margin: 0 0 space(sm) 0;
-  color: color(text-muted);
+  color: color(text-subtle);
   max-width: 65ch;
   text-rendering: optimizeSpeed;
 
@@ -173,11 +176,11 @@ p {
 a {
   color: currentColor;
   text-decoration: underline;
-  text-underline-offset: 0.2em;
+  text-underline-offset: 0.2rem;
 
-  &:hover,
-  &:focus-visible {
-    color: color(links);
+  &:focus {
+    outline: auto;
+    outline-offset: 0.2rem;
   }
 
   h2 {
@@ -191,13 +194,13 @@ a {
 
 small {
   font-size: $font-size-small;
-  color: color(text-muted);
+  color: color(text-subtle);
 }
 
 ul {
   list-style-type: lower-roman;
   margin-left: space(md);
-  color: color(text-muted);
+  color: color(text-subtle);
 
   li:last-child {
     margin-bottom: space(sm);
@@ -275,39 +278,15 @@ section {
   flex-wrap: nowrap;
   width: 100%;
   gap: space(xs);
+}
 
-  // Quote Component
-  & div.quote {
-    @extend img;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    width: 100%;
-    background: color(bg-translucent);
-    padding: space(lg);
-
-    p,
-    small {
-      color: color(text);
-    }
-
-    > div {
-      margin-top: space(md);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-content: start;
-      flex-wrap: nowrap;
-      gap: space(xs) / $golden-ratio;
-    }
-  }
-
-  > a[href="/projects"] {
-    > span:last-child {
-      display: block;
-      margin-top: space(sm);
-    }
+section.work,
+a[href="/projects"],
+a[href^="http"] {
+  & > .inline-link {
+    display: inline-block;
+    margin-top: space(sm);
+    @extend a;
   }
 }
 
@@ -317,7 +296,81 @@ section {
   padding-right: space(md);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: space(sm);
+  grid-gap: space(md);
+  row-gap: space(2xl);
+
+  .span-two {
+    grid-column: span 2;
+    max-width: $container-width;
+  }  
+}
+
+.whatyouget {
+  h2, div {
+    margin-bottom: space(xl);
+  }
+
+  div:last-of-type {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    color: color(text-subtle);
+    margin-bottom: space(sm);
+  }
+}
+
+.quote {
+  @extend img;
+  background-color: color(bg-translucent);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: space(lg);
+
+  > div {
+    margin-top: space(md);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: start;
+    flex-wrap: nowrap;
+    gap: calc(space(xs) / $major-third);
+  }
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: color(links); // Solid green with transparency
+    color: color(bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 1;
+  }
+
+  &:hover .overlay-text {
+    opacity: 1;
+  }
 }
 
 .footer-wrapper {
@@ -331,7 +384,7 @@ section {
 // ----------------------------------
 // Specific UI components and patterns
 
-// Navigation/Header
+// Navigation bar
 header {
   display: flex;
   flex-direction: row;
@@ -340,12 +393,7 @@ header {
   flex-wrap: wrap;
   gap: space(xs);
   width: 100%;
-  background-color: color(text-subtle);
-  color: color(bg);
   padding: space(sm) space(md);
-  position: sticky;
-  top: 0;
-  z-index: 999;
 
   a {
     display: block;
@@ -354,23 +402,20 @@ header {
 
     svg {
       width: auto;
-      height: calc(space(2xl) / $golden-ratio);
-    }
-
-    &:first-of-type:focus-visible {
-      outline: none;
+      height: calc(space(2xl) / calc($major-third*$major-third));
+      fill: color(links);
     }
   }
 
   nav {
     margin-top: space(xs);
     display: flex;
-    gap: calc(space(xs) / 2);
 
     ul {
       list-style-type: none;
-      display: flex;
+      display: inline-flex;
       flex-direction: row;
+      align-items: flex-start;
       color: currentColor;
 
       li {
@@ -386,6 +431,23 @@ header {
         text-decoration: none;
       }
     }
+  }
+}
+
+.work {
+  padding-right: space(sm);
+  font-size: $font-size-small;
+
+  .role {
+    color: color(text-subtle);
+  }
+
+  figure figcaption {
+    font-weight: $font-weight-bold;
+  }
+
+  div:last-of-type {
+    padding-right: space(xs);
   }
 }
 
@@ -406,8 +468,8 @@ a.button {
     position: static;
     width: auto;
     height: auto;
-    right: calc(space(xs) * $golden-ratio);
-    top: calc(space(xs) / $golden-ratio);
+    right: calc(space(xs) * $major-third);
+    top: calc(space(xs) / $major-third);
     width: $ext-icon-size;
     height: $ext-icon-size;
   }
@@ -415,7 +477,7 @@ a.button {
 
 // Service Lists
 .services ul {
-  color: color(text-muted);
+  color: color(text-subtle);
   max-width: 65ch;
   list-style-type: none;
   margin-left: 0;
@@ -436,6 +498,7 @@ footer {
   padding: space(md) 0 space(2xl) space(md);
   justify-content: flex-end;
   min-height: 45rem;
+  color: color(bg-translucent);
 
   > div {
     display: flex;
@@ -448,7 +511,7 @@ footer {
   }
 
   .signature p {
-    color: color(text-muted);
+    color: color(bg-translucent);
     font-size: $font-size-small;
     line-height: 1;
     letter-spacing: -0.00625rem;
@@ -512,8 +575,8 @@ footer {
     &-titlebar {
       min-height: calc(space(xl) + space(xs)) !important;
       line-height: calc(space(xl) + space(xs)) !important;
-      background: color(accent-pink) !important;
-      color: color(bg) !important;
+      background: color(bg) !important;
+      color: color(text) !important;
       -webkit-font-smoothing: antialiased !important;
       display: flex !important;
       font-family: $font-base !important;
@@ -640,6 +703,14 @@ p + .button {
       margin-left: 0;
     }
   }
+
+  .work {
+    margin-bottom: space(lg);
+  }
+
+  .no-limits {
+    row-gap: space(sm);
+  }
 }
 
 @include responsive(sm) {
@@ -660,7 +731,40 @@ p + .button {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (hover: hover) and (pointer: fine) {
+  a:hover,
+  a:focus-visible {
+    text-decoration: none;
+    color: color(links);
+  }
+
+  section.work:hover > .inline-link,
+  section.work:focus-visible > .inline-link {
+    text-decoration: none;
+  }
+
+  section.work,
+  a[href="/projects"],
+  a[href^="http"] {
+    &:hover,
+    &:focus-visible {
+      & > .inline-link {
+        text-decoration: none;
+      }
+    }
+
+    img {
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    img:hover,
+    img:focus-visible {
+      background-color: color(links-subtle);
+    }
+  }
+}
+
+/* @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
@@ -669,3 +773,4 @@ p + .button {
     transition: none !important;
   }
 }
+ */
