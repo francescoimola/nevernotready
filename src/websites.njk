@@ -2,93 +2,96 @@
 layout: _base.njk
 title: Websites | nevernotready
 description: Francesco Imola's design and marketing practice — websites, unignorable copy, and SEO that doesn't read like a marketing textbook. All at a fraction of agency prices.
-permalink: "/websites/"
+permalink: '/websites/'
 cta-color: green
 ---
 
-<main>
-  <!-- Intro -->
-  <section>
-    <h1>Get a site people actually want to visit</h1>
-    <p>
-      Admit it, you deserve a website that works as hard as you do. A site that
-      loads faster than you can say “where's their email”. One that guides
-      people straight to what they need. No more going ‘round in circles.
-    </p>
-    <div class="button-wrapper">
-      <a
-        href="https://cal.com/francescoimola/intro"
-        class="button button--light"
-        target="_blank"
-        rel="noopener"
-        data-slideframe="true"
-      >
-        <span>Let's chat about your site</span>
-      </a>
-    </div>
-  </section>
-  <!-- Value Proposition -->
-  <section class="section services">
-    <h2>What I can help with</h2>
-    <ul>
-      <li>Website design</li>
-      <li>Site and content writing</li>
-      <li>Low-code development</li>
-      <li>Figma to Framer or Webflow</li>
-      <li>Website audits</li>
-    </ul>
-  </section>
+<!-- Intro -->
+<section class="max-width center pad-sides pad-bottom">
+  <h1>You deserve a site people actually want to visit</h1>
+  <p>
+    A website that's intuitive. Built to guide visitors, not send them going
+    'round in circles. One where visitors instantly find what they came for.
+    So they trust you more and find your offer a whole lot easier to say yes
+    to.
+  </p>
+  <div class="button-wrapper">
+    <a
+      href="https://cal.com/francescoimola/intro"
+      class="button button--light"
+      target="_blank"
+      rel="noopener"
+      data-slideframe="true"
+    >
+      <span>Let's chat about your site</span>
+    </a>
+  </div>
+</section>
 
-  {%- from "_showcase-card.njk" import showcaseCard -%} {%- set images = [ {
-  src: "tedx_greenwich_hqmpqe.png", alt: "selection of works from Blueberry" },
-  { src: "blueberry_website_kdo3jw.png", alt: "sarah's website" }, { src:
-  "how_to_feel_more_at_home_ud1nrf.png", alt: "screenshot of the folks directory
-  homepage" } ] -%}
-  {{ showcaseCard(images) }}
+<!-- Value Proposition -->
+<section class="max-width center pad-sides pad-bottom">
+  <h2>What I can help with</h2>
+  <ul class="services">
+    <li>Website design</li>
+    <li>Site and content writing</li>
+    <li>Low-code development</li>
+    <li>Figma to Framer or Webflow</li>
+    <li>Website audits</li>
+  </ul>
+</section>
 
-  <section class="whatyouget">
-    <h2>What you'll always get ↓</h2>
+<section class="whatyouget">
+  <h2>What you'll always get ↓</h2>
+  <div>
     <div>
-      <div>
-        <h3>1. Effortless updates</h3>
-        <p>You'll find your site quicker to update than making a pivot table in Excel. Trust me, I've seen people spend more time explaining changes to developers than just doing them themselves. I'll give you simple tools and quick tutorials for exactly what you need. So, when you need to launch that event a week early, you can do it straight away, not whenever your web person gets around to it.
-        </p>
-      </div>
-      <div>
-        <h3>2. Type that doesn't get in the way</h3>
-        <p>
-            When font choices are off, you can feel it—it all looks a bit out of
-            place. Not in my book. Typography, how words looks and feel is always top priority in my design. Great typography helps turn casual browsers into engaged readers and it’s why I carefully work with type to add depth.
-        </p>
-      </div>
-      <div>
-        <h3>3. Low-impact website, high-impact experience</h3>
-        <p>
-          Your website will reach more people and perform better by focusing on what
-      matters. Less data-heavy videos or battery-draining animations means you
-      get a more accessible design that’s also lighter on the planet.
-        </p>
-      </div>
+      <h3>1. Effortless updates</h3>
+      <p>
+        What if updating your site was quicker than making a pivot table in
+        Excel? I'll hand you tools simple enough to do exactly what you need. So
+        when you need to launch that event a week early, you can do it straight
+        away, not whenever your developer gets around to it.
+      </p>
     </div>
-  </section>
+    <div>
+      <h3>2. Type that doesn't get in the way</h3>
+      <p>
+        Typography helps people read your content. Like, really read it. That's
+        why I never treat it as an afterthought. When typography's done right,
+        visitors tend to stick around long enough to get your message, rather
+        than fighting with tiny text or clumsy spacing.
+      </p>
+    </div>
+    <div>
+      <h3>3. Look great without slowing anyone down</h3>
+      <p>
+        Imagine a website that loads faster, works on any device, and welcomes
+        everyone. Clean. Efficient. Built without bloated video or
+        battery-hungry effects. A site that's easier on your visitors and the
+        planet.
+      </p>
+    </div>
+  </div>
+</section>
 
-  <section>
-    <h2>How much does a website cost</h2>
-    <p>
-      Bringing a site to life depends on its scale and the features you need. A
-      basic one-pager starts from £400.
-    </p>
-    <p>
-      As a general rule, I calculated prices according to how many days a
-      project will take to complete, based on a minimum day rate of £175.
-    </p>
-    <p>
-      I also offer non-stackable discounts on payment terms to everyone. For
-      more information, please have a look at the <a href="/faqs#concessions">FAQs on concessions.</a></p>
-    <p>Any other questions, please <a href="/contact">contact me</a> for a quote.</p>
-  </section>
+<section>
+  <h2>How much does a website cost</h2>
+  <p>
+    Bringing a site to life depends on its scale and the features you need. A
+    basic one-pager starts from £400.
+  </p>
+  <p>
+    As a general rule, I calculate prices according to how many days a project
+    will take to complete, based on a minimum day rate of £175.
+  </p>
+  <p>
+    I also offer non-stackable discounts on payment terms to everyone. For more
+    information, please have a look at the
+    <a href="/faqs#concessions">FAQs on concessions.</a>
+  </p>
+  <p>
+    Any other questions, please <a href="/contact">contact me</a> for a quote.
+  </p>
+</section>
 
-  {%- include "_cta-faq.njk" -%} {%- set link =
-  "https://cal.com/francescoimola/intro" -%} {%- include "_cta-general.njk" -%}
-  <main></main>
-</main>
+{%- include "_cta-faq.njk" -%} {%- set link =
+"https://cal.com/francescoimola/intro" -%} {%- include "_cta-general.njk" -%}

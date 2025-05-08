@@ -1,50 +1,53 @@
-<!-- Header/Navigation -->
-<header role="banner">
-  <a
-    href="/"
-    class="{%- if page.url == '/' -%} active {%- endif -%}"
-    aria-label="home"
-    class="logo"
-  >
-    {%- include "_avatar.html" -%}
-  </a>
-  <nav aria-label="Main navigation">
-    <ul>
-      <li>
-        <a
-          href="/websites"
-          class="{%- if page.url.startsWith('/websites') -%} active {%- endif -%}"
-          >Websites</a
-        >
-      </li>
-      <li>
-        <a
-          href="/emails"
-          class="{%- if page.url.startsWith('/emails') -%} active {%- endif -%}"
-          >Emails</a
-        >
-      </li>
-      <li>
-        <a
-          href="/seo"
-          class="{%- if page.url.startsWith('/seo') -%} active {%- endif -%}"
-          >SEO</a
-        >
-      </li>
-      <li>
-        <a
-          href="/about"
-          class="{%- if page.url.startsWith('/about') -%} active {%- endif -%}"
-          >About</a
-        >
-      </li>
-      <li>
-        <a
-          href="/contact"
-          class="{%- if page.url.startsWith('/contact') -%} active {%- endif -%}"
-          >Contact</a
-        >
-      </li>
-    </ul>
-  </nav>
-</header>
+<div class="g-wrapper max-width center">
+  <header role="banner" class="pad-top pad-bottom">
+    <div>
+      <a
+        href="/"
+        class="{% if page.url == '/' %}active{% endif %}"
+        aria-label="home"
+      >
+        {%- include "_logo.html" -%}
+      </a>
+      <small>Francesco Imola's design and copywriting practice</small>
+    </div>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li>
+          <a
+            href="/websites"
+            class="{%- if page.url.startsWith('/websites') -%} active {%- endif -%}"
+            >Websites</a
+          >
+        </li>
+        <li>
+          <a
+            href="/emails"
+            class="{%- if page.url.startsWith('/emails') -%} active {%- endif -%}"
+            >Emails</a
+          >
+        </li>
+        <li>
+          <a
+            href="/seo"
+            class="{%- if page.url.startsWith('/seo') -%} active {%- endif -%}"
+            >SEO</a
+          >
+        </li>
+        <li>
+          <a
+            href="/about"
+            class="{%- if page.url.startsWith('/about') -%} active {%- endif -%}"
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            href="/contact"
+            class="{%- if page.url.startsWith('/contact') -%} active {%- endif -%}"
+            >Contact</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>

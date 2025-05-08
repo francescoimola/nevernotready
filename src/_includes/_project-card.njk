@@ -1,10 +1,10 @@
 {%- macro projectCard(role, description, image) -%}
-<section class="work">
+<div class="work">
   <figure>
     {% if image %}
       <img
         data-src="{{ image.src }}"
-        class="cld-responsive green"
+        class="cld-responsive white-bkg"
         alt="{{ image.alt }}"
         loading="lazy"
       />
@@ -14,10 +14,10 @@
     {% endif %}
   </figure>
   {% if role %}
-    <div class="role">{{ role }}</div>
+    <span class="role">{{ role }}</span>
   {% endif %}
   {% if description %}
-    <div>{{ description | safe }}</div>
+    <span class="description">{{ description | safe }}</span>
   {% endif %}
-</section>
+</div>
 {%- endmacro -%}

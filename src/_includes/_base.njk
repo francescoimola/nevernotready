@@ -18,20 +18,12 @@
   </head>
   <body>
     {%- include "_header.njk" -%}
-    <div class="wrapper">
+    <main>
       {{ content | safe }}
-    </div>
+    </main>
     {%- include "_footer.njk" -%}
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        new unorphanize("p, h2, h3, small, li, span");
-        new unorphanize( "h1", { companions: 2 } );
-      });
-
-      var cl = cloudinary.Cloudinary.new({cloud_name: "dax6x2pto"});
-      cl.responsive();
-    </script>
-    <script src="/assets/js/vanilla-unorphanize.min.js"></script>
-    <script src="/assets/js/slideFrame.min.js"></script>
+    <script> var cl = cloudinary.Cloudinary.new({ cloud_name: 'dax6x2pto' }); cl.responsive();</script>
+    <script src="/assets/js/vanilla-unorphanize.min.js" defer></script>
+    <script src="/assets/js/slideFrame.js" async></script>
   </body>
 </html>
