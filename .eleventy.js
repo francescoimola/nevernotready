@@ -1,4 +1,7 @@
 const eleventySass = require("@11tyrocks/eleventy-plugin-sass-lightningcss");
+const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
+const markdownItAttrs = require("markdown-it-attrs");
 
 module.exports = function (eleventyConfig) {
   if (eleventyConfig === null || eleventyConfig === undefined) {
@@ -6,6 +9,10 @@ module.exports = function (eleventyConfig) {
   }
 
   try {
+    let markdownItOptions = {
+    html: true
+    }
+    eleventyConfig.setLibrary("md", markdownIt(markdownItOptions).use(markdownItAnchor).use(markdownItAttrs))
     eleventyConfig.addPlugin(eleventySass);
     eleventyConfig.addPassthroughCopy("fonts");
     eleventyConfig.addPassthroughCopy("assets");

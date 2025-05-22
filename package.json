@@ -14,7 +14,10 @@
   "author": "Francesco Imola",
   "license": "ISC",
   "dependencies": {
-    "@11tyrocks/eleventy-plugin-sass-lightningcss": "^1.2.0"
+    "@11tyrocks/eleventy-plugin-sass-lightningcss": "^1.2.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-attrs": "^4.3.1"
   },
   "browserslist": [
     "defaults",

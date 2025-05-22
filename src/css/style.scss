@@ -185,7 +185,7 @@ small {
 }
 
 ul {
-  list-style-type: lower-roman;
+  list-style-type: disc;
   margin-left: map.get($spacing, md);
   color: map.get($colors, text-subtle);
   margin-block-start: 0;
@@ -352,6 +352,19 @@ section {
   }
   &:hover .overlay-text {
     opacity: 1;
+  }
+}
+
+.faq {
+  h2 {
+    @extend .light;
+  }
+
+  ul li {
+    display: revert;
+    &:not(:last-child) {
+      padding-bottom: map.get($spacing, sm);
+    }
   }
 }
 
