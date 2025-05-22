@@ -1,0 +1,13 @@
+{%- macro whatYouGet(items) -%}
+<section class="max-width center whatyouget pad-bottom">
+  <h2>What you'll always get ↓</h2>
+  <div>
+    {%- for item in items -%}
+    <div>
+      <h3>{{ item.title | safe }}</h3>
+      <p>{{ item.text | safe }}</p>
+    </div>
+    {%- endfor -%}
+  </div>
+</section>
+{%- endmacro -%}

@@ -2,68 +2,69 @@
 layout: _base.njk
 title: SEO | nevernotready
 description: Francesco Imola's design and marketing practice — websites, unignorable copy, and SEO that doesn't read like a marketing textbook. All at a fraction of agency prices.
-permalink: "/seo/"
+permalink: '/seo/'
 ---
 
-  <!-- Intro -->
-  <section>
-    <h1>So you want your website to show up in searches?</h1>
-    <p>What if it did <i>and</i> also said something useful? Get content Papa Google's gonna love without making your people cringe. Plus, I can make it fast and accessible so no one leaves before they see what you’re about.
-    </p>
-    <div class="button-wrapper">
-      <a
-        href="https://cal.com/francescoimola/intro"
-        class="button button--light"
-        target="_blank"
-        rel="noopener"
-        data-slideframe="true"
-      >
-        <span>Talk to me about SEO</span>
-      </a>
-    </div>
-  </section>
-  <!-- Value Proposition -->
-  <section class="section services">
-    <h2>What I can help with</h2>
-    <ul>
-      <li>Blog posts and articles</li>
-      <li>Whole-site optimisation</li>
-      <li>Ongoing updates</li>
-      <li>SEO Audits</li>
-    </ul>
-  </section>
+{%- from "_whatyouget.njk" import whatYouGet -%}
 
-  {%- from "_showcase-card.njk" import showcaseCard -%} {%- set images = [ {
-  src: "msp_nnncta.png", alt: "selection of works from
-  Blueberry" },
-  { src: "uog_ftv_marketing_dym5lo.png", alt: "sarah's
-  website" },
-  { src: "sarah_ql5qiz.png", alt: "screenshot
-  of the folks directory homepage" } ] -%}
-  {{ showcaseCard(images) }}
+<!-- Intro -->
+<section class="max-width center pad-bottom pad-top">
+  <h1>So you want your website to show up in searches?</h1>
+  <p>
+    What if it did <i>and</i> also said something useful? Get content Papa
+    Google's gonna love without making your people cringe. Plus, I can make it
+    fast and accessible so no one leaves before they see what you’re about.
+  </p>
+    <a
+      href="https://cal.com/francescoimola/intro"
+      class="button"
+      target="_blank"
+      rel="noopener"
+      data-slideframe="true"
+    >Talk to me about SEO</a>
+    <small>See if we click. Zero obligation.</small>
+</section>
 
-  <section class="whatyouget">
-    <h2>What you'll always get ↓</h2>
-    <div>
-      <div>
-        <h3>3. Long-term thinking > SEO tricks</h3>
-        <p>
-          I care if your business is still around next year, not just how much I can bill you this month. So while SEO gurus push for keyword-stuffed garbage (your visitors can tell!), I'll help you lay the groundwork for SEO that honors your audience and lets you skip the panic whenever Google does... whatever Google does next.
-        </p>
-      </div>
-      <div>
-        <h3>1. No more boring content</h3>
-        <p>You know it when you see it: that landing page written just so search engines can rank it higher. It feels dry. Robotic. Almost instantly forgettable. But it needn’t be like that, you can make it to Google's first page while keeping readers hooked. I’ll show you how.
-        </p>
-      </div>
-      <div>
-        <h3>2. Asynchronous first</h3>
-        <p>
-          Working primarily asynchronously means projects get turned around faster without sacrificing quality. You get thoughtful, focused work while saving money on unnecessary meetings. Plus, working remotely allows me to bring in specialised talent whenever your project needs it.
-        </p>
-      </div>
-    </div>
-  </section>
+<!-- Value Proposition -->
+<section class="max-width center pad-bottom">
+  <h2>What I can help with</h2>
+  <ul class="plain-list">
+    <li>Blog posts and articles</li>
+    <li>Whole-site optimisation</li>
+    <li>Ongoing updates</li>
+    <li>SEO Audits</li>
+  </ul>
+</section>
 
-  {%- include "_cta-faq.njk" -%} {%- set link =
-  "https://cal.com/francescoimola/intro" -%} {%- include "_cta-general.njk" -%}
+{%- set whatYouGetItems = [
+{ title: "1. Long-term thinking > SEO tricks", text: "I care if your business is still around next year, not just how much I
+        can bill you this month. So while SEO gurus push for keyword-stuffed
+        garbage (people can tell!), my work honors your audience and lets you skip the panic whenever
+        Google does... whatever Google does next." },
+{ title: "2. No more tasteless content", text: "You know it when you see it: that landing page written just so search
+        engines can rank it higher. It feels dry. Robotic. Almost instantly
+        forgettable. But it needn’t be like that, you can make it to Google's
+        first page while keeping readers hooked. I’ll show you how." },
+{ title: "3. Freedom from endless meetings", text: "Working primarily asynchronously means projects get turned around faster
+        without sacrificing quality. You get thoughtful, focused work while
+        saving money on unnecessary meetings. Plus, working remotely allows me
+        to bring in specialised talent whenever your project needs it." } ] -%}
+{{ whatYouGet(whatYouGetItems) }}
+
+{%- include "_cta-faq.njk" -%}
+
+<section class="max-width center pad-bottom">
+  <h2>See what I'm all about</h2>
+  <p>
+    Talk to me first. Tell me about your project, roadblocks, and what you've tried. Then decide if it makes sense to move forward togeteher.
+  </p>
+  <a
+    href="https://cal.com/francescoimola/intro"
+    class="button"
+    target="_blank"
+    rel="noopener"
+    data-slideframe="true"
+  >
+    <span>Book a free call</span>
+  </a>
+</section>

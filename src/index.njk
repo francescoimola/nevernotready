@@ -7,36 +7,35 @@ permalink: '/'
 
 {%- from "_project-card.njk" import projectCard -%}
 
-<div class="pad-sides pad-bottom">
-  <section class="max-width center">
-    <h1>You've done the hard part.</h1>
-    <p>The business exists. And it works!</p>
-    <p>
-      But you've been so unbelieavably busy that your website still thinks it's
-      2020 and your email marketing is thick with dust and cobwebs.
-    </p>
-    <span class="light">Recognize these roadblocks?</span>
-    <p>
-      Those marketing campaigns you've been meaning to put some work on keep
-      inevitably falling to the bottom of your to-do list.
-    </p>
-    <p>
-      Your website, so ambitious and bold at first, now tells an old story about
-      who you've become and it's starting to undermine your expertise.
-    </p>
-    <span class="light">These are exactly the problems I help you solve.</span>
-    <p>
-      Book a free 20-minute consultation and let's explore how your marketing can catch up with the person (or team) who's out there crushing it.</p>
-    <a
-      href="https://cal.com/francescoimola/intro"
-      class="button"
-      data-slideframe="true"
-      >Book a free consultation</a
-    ><small>You decide if we're a good fit, no strings attached.</small>
-  </section>
-</div>
+<section class="max-width center pad-bottom pad-top">
+  <h1>You've done the hard part.</h1>
+  <p>The business exists. And it works!</p>
+  <p>
+    But you've been so unbelieavably busy that your website still thinks it's
+    2020 and your email marketing is thick with dust and cobwebs.
+  </p>
+  <span class="light">Recognize these roadblocks?</span>
+  <p>
+    Those marketing campaigns you've been meaning to put some work on keep
+    inevitably falling to the bottom of your to-do list.
+  </p>
+  <p>
+    Your website, so ambitious and bold at first, now tells an old story about
+    who you've become and it's starting to undermine your expertise.
+  </p>
+  <span class="light">They're exactly the problems I help solve.</span>
+  <p>
+    Schedule a free one-to-one consultation (no committment) and let's see if your marketing is holding your business back—and what to do about it.
+  </p>
+  <a
+    href="https://cal.com/francescoimola/intro"
+    class="button"
+    data-slideframe="true"
+    >Book a free consultation</a
+  ><small>20 minutes to see if we're right for each other.</small>
+</section>
 
-<div class="text-on-img-wrapper">
+<section class="text-on-img-wrapper">
   <img
     data-src="https://res.cloudinary.com/dax6x2pto/image/upload/c_scale,w_auto/dpr_auto/footer-cover_youytd.png"
     class="cld-responsive"
@@ -47,10 +46,9 @@ permalink: '/'
     <div class="max-width center no-h-margin">
       <h2>I could be talking about figures</h2>
       <p>
-        About ROI, features on design magazines, or reviews from Silicon Valley
-        founders. But truth is, that's not the conversation I want to have.
+        About ROI, design awards, or reviews from Silicon Valley founders. But
+        truth is, that's not the work I do or the conversations I want to have.
       </p>
-
       <p>
         Behind every project I work on is a story about growth and about a gap.
         The gap between one's actual skills (or product) and how that person
@@ -65,9 +63,11 @@ permalink: '/'
       <p>
         Yet the more you grow, the more the story you're telling lags behind.
       </p>
-      <p>It's no one's fault. You're on the front line, busy doing the work,
+      <p>
+        It's no one's fault. You're on the front line, busy doing the work,
         looking after your customers, and making sure you and your team are
-        happy and productive.</p>
+        happy and productive.
+      </p>
       <h2>But here's the thing</h2>
       <p>
         What if your website is chipping away at your hard-earned credibility?
@@ -78,93 +78,89 @@ permalink: '/'
       <p>That's when you know you've got a problem.</p>
     </div>
   </div>
-</div>
+</section>
 
-<div class="grey pad-top pad-bottom pad-sides">
-  <section class="img-flex pad-top">
-    <div>
-      <div class="max-width pad-top">
-        <h2>These people got too good for their old marketing</h2>
-        <p>
-          Here are some people that recognised this gap and finally decided to
-          hire me. Some needed email campaigns that they never found time to
-          run. Others needed buttery-smooth event planning that reflected their
-          reputation. Many needed marketing operations that wouldn't fall apart
-          when things got busy.
-        </p>
-      </div>
+<section class="projects-showcase pad-bottom pad-sides">
+  <div>
+    <div class="max-width center">
+      <h2>These people got too good for their old marketing</h2>
+      <p>
+        Here are people that recognised this gap and finally decided to hire me. They needed campaigns they never had time to create. Websites with zero headaches. And marketing systems that wouln't collapse if busy.
+      </p>
     </div>
+  </div>
+
+  <section class="img-flex pad-top">
+    {{ projectCard(
+      role = "SEO Writing",
+      description = "Wrote SEO content that connected teachers with software that saved them
+        hours of classroom prep time, while boosting search rankings and
+        solidifying the app's reputation as a top-rated edtech product.",
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/v1745572369/msp_nnncta.png",
+        alt: "Image description",
+        title: "Mega Seating Plan"
+      }
+    ) }}
 
     {{ projectCard(
-    role = "SEO Writing",
-    description = "Wrote SEO content that connected teachers with software that saved them
-      hours of classroom prep time, while boosting search rankings and
-      solidifying the app's reputation as a top-rated edtech product.",
-    image = {
-      src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/v1745572369/msp_nnncta.png",
-      alt: "Image description",
-      title: "Mega Seating Plan"
-    }
-  ) }}
+      role = "Newsletter writing",
+      description = "A growing Substack newsletter where I give independent business owners
+        realistic alternatives to hustle culture through honest stories about my
+        own freelance struggles and successes.",
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/v1746052803/not_bad_with_quotes_tzqn5y.png",
+        alt: "Image description",
+        title: "Not Bad"
+      }
+    ) }}
 
     {{ projectCard(
-    role = "Newsletter writing",
-    description = "A growing Substack newsletter where I give independent business owners
-      realistic alternatives to hustle culture through honest stories about my
-      own freelance struggles and successes.",
-    image = {
-      src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/v1746052803/not_bad_with_quotes_tzqn5y.png",
-      alt: "Image description",
-      title: "Not Bad"
-    }
-  ) }}
+      role = "Website writing",
+      description = "Turned the website of a holistic coach from a wordy Google Doc into an SEO-ready business card that got her practice moving forward with ease, all while being super simple to update.",
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/v1745571992/sarah_ql5qiz.png",
+        alt: "Image description",
+        title: "Sarah Yuk Lan Brown"
+      }
+    ) }}
 
     {{ projectCard(
-    role = "Website writing",
-    description = "Turned the website of a holistic coach from a wordy Google Doc into an SEO-ready business card that got her practice moving forward with ease, all while being super simple to update.",
-    image = {
-      src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/v1745571992/sarah_ql5qiz.png",
-      alt: "Image description",
-      title: "Sarah Yuk Lan Brown"
-    }
-  ) }}
+      role = "Operations",
+      description = "Project managed the redesign of Blueberry's website and reengineered
+        internal operations—consolidating their tech stack and cutting marketing
+        costs by a third with no compromise to output.",
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/v1745841665/blueberry_website_kdo3jw.png",
+        alt: "Image description",
+        title: "Blueberry"
+      }
+    ) }}
 
     {{ projectCard(
-    role = "Operations",
-    description = "Project managed the redesign of Blueberry's website and reengineered
-      internal operations—consolidating their tech stack and cutting marketing
-      costs by a third with no compromise to output.",
-    image = {
-      src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/v1745841665/blueberry_website_kdo3jw.png",
-      alt: "Image description",
-      title: "Blueberry"
-    }
-  ) }}
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/v1745572127/tedx_greenwich_hqmpqe.png",
+        alt: "Image description",
+        title: "TEDx University of Greenwich"
+      },
+      role = "Landing page design",
+      description = "Built TEDx Greenwich's a landing page that simplified the attendee
+        experience and freed organizers to concentrate on the event instead of
+        answering logistical questions."
+    ) }}
 
     {{ projectCard(
-    image = {
-      src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/v1745572127/tedx_greenwich_hqmpqe.png",
-      alt: "Image description",
-      title: "TEDx University of Greenwich"
-    },
-    role = "Landing page design",
-    description = "Built TEDx Greenwich's a landing page that simplified the attendee
-      experience and freed organizers to concentrate on the event instead of
-      answering logistical questions."
-  ) }}
-
-    {{ projectCard(
-    image = {
-      src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/v1746050373/uog_ftv_marketing_dym5lo.png",
-      alt: "Image description",
-      title: "University of Greenwich"
-    },
-    role = "Content design and event facilitation",
-    description = "Kept students' spirit alive during COVID and elevated the reputation of Greenwich's
-      Film & TV programmes through targeted industry
-      updates, social media storytelling, and PR stories."
-  ) }}
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/v1746050373/uog_ftv_marketing_dym5lo.png",
+        alt: "Image description",
+        title: "University of Greenwich"
+      },
+      role = "Content design and event facilitation",
+      description = "Kept students' spirit alive during COVID and elevated the reputation of Greenwich's
+        Film & TV programmes through targeted industry
+        updates, social media storytelling, and PR stories."
+    ) }}
   </section>
-</div>
+</section>
 
 {%- include "_testimonials.html" -%} {%- include "_newsletter.html" -%}

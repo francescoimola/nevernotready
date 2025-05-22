@@ -5,33 +5,29 @@ description: Francesco Imola's design and marketing practice — websites, unign
 permalink: '/websites/'
 cta-color: green
 ---
+{%- from "_whatyouget.njk" import whatYouGet -%}
 
-<!-- Intro -->
-<section class="max-width center pad-sides pad-bottom">
+<section class="max-width center pad-bottom pad-top">
   <h1>You deserve a site people actually want to visit</h1>
   <p>
-    A website that's intuitive. Built to guide visitors, not send them going
-    'round in circles. One where visitors instantly find what they came for.
-    So they trust you more and find your offer a whole lot easier to say yes
+    A website that's intuitive. Built to guide people, not send them going
+    'round in circles. One where they instantly find what they came for, so they trust you more and find your offer a whole lot easier to say yes
     to.
   </p>
-  <div class="button-wrapper">
     <a
       href="https://cal.com/francescoimola/intro"
-      class="button button--light"
+      class="button"
       target="_blank"
       rel="noopener"
       data-slideframe="true"
-    >
-      <span>Let's chat about your site</span>
-    </a>
-  </div>
+    >Let's chat about your site</a>
+    <small>Chat first, commit later. Simple as.</small>
 </section>
 
 <!-- Value Proposition -->
-<section class="max-width center pad-sides pad-bottom">
-  <h2>What I can help with</h2>
-  <ul class="services">
+<section class="max-width center pad-bottom">
+  <h2>Things I can help with</h2>
+  <ul class="plain-list">
     <li>Website design</li>
     <li>Site and content writing</li>
     <li>Low-code development</li>
@@ -39,41 +35,16 @@ cta-color: green
     <li>Website audits</li>
   </ul>
 </section>
+</div>
 
-<section class="whatyouget">
-  <h2>What you'll always get ↓</h2>
-  <div>
-    <div>
-      <h3>1. Effortless updates</h3>
-      <p>
-        What if updating your site was quicker than making a pivot table in
-        Excel? I'll hand you tools simple enough to do exactly what you need. So
-        when you need to launch that event a week early, you can do it straight
-        away, not whenever your developer gets around to it.
-      </p>
-    </div>
-    <div>
-      <h3>2. Type that doesn't get in the way</h3>
-      <p>
-        Typography helps people read your content. Like, really read it. That's
-        why I never treat it as an afterthought. When typography's done right,
-        visitors tend to stick around long enough to get your message, rather
-        than fighting with tiny text or clumsy spacing.
-      </p>
-    </div>
-    <div>
-      <h3>3. Look great without slowing anyone down</h3>
-      <p>
-        Imagine a website that loads faster, works on any device, and welcomes
-        everyone. Clean. Efficient. Built without bloated video or
-        battery-hungry effects. A site that's easier on your visitors and the
-        planet.
-      </p>
-    </div>
-  </div>
-</section>
+{%- set whatYouGetItems = [
+  { title: "1. Effortless updates", text: "What if updating your site was quicker than making a pivot table in Excel? I'll hand you tools simple enough to do exactly what you need. So when you need to launch that event a week early, you can do it straight away, not whenever your developer gets around to it." },
+  { title: "2. Type that doesn't get in the way", text: "Typography helps people read your content. Like, really read it. That's why I never treat it as an afterthought. When typography's done right, visitors tend to stick around long enough to get your message, rather than fighting with tiny text or clumsy spacing." },
+  { title: "3. Look great without slowing anyone down", text: "Imagine a website that loads faster, works on any device, and welcomes everyone. Clean. Efficient. Built without bloated video or battery-hungry effects. A site that's easier on your visitors and the planet." }
+] -%}
+{{ whatYouGet(whatYouGetItems) }}
 
-<section>
+<section class="max-width center pad-bottom">
   <h2>How much does a website cost</h2>
   <p>
     Bringing a site to life depends on its scale and the features you need. A
@@ -93,5 +64,13 @@ cta-color: green
   </p>
 </section>
 
-{%- include "_cta-faq.njk" -%} {%- set link =
-"https://cal.com/francescoimola/intro" -%} {%- include "_cta-general.njk" -%}
+{%- include "_cta-faq.njk" -%}
+
+
+<section class="max-width center pad-bottom">
+<h2>Need a hand with your site? Let's chat</h2>
+<p>Let's have a quick chat to discuss your project. I'll offer my advice and you can decide decide if it makes sense to move forward.</p>
+<a href="https://cal.com/francescoimola/intro" class="button" target="_blank" rel="noopener" data-slideframe="true">
+  <span>Book a free call</span>
+</a>
+</section>

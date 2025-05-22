@@ -50,7 +50,7 @@ $line-heights: (
 
 $container-width: 58ch;
 $border-width: calc($unit / 4);
-$ext-icon-size: map-get($spacing, sm) + map-get($spacing, xs);
+$ext-icon-size: map.get($spacing, sm) + map.get($spacing, xs);
 
 // --- MIXINS ---
 @mixin flex-col($gap: null) {
@@ -79,19 +79,19 @@ html {
 
 body {
   min-height: 100%;
-  line-height: map-get($line-heights, base);
+  line-height: map.get($line-heights, base);
   font-family: $font-base;
-  font-size: map-get($font-sizes, clamp);
+  font-size: map.get($font-sizes, clamp);
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   font-feature-settings: 'ss01' 1, 'ss03' 1;
   font-optical-sizing: auto;
-  color: map-get($colors, text);
-  background-color: map-get($colors, bg);
+  color: map.get($colors, text);
+  background-color: map.get($colors, bg);
   overflow-x: hidden;
 
   & *:focus-visible {
-    outline: $border-width * 2 solid map-get($colors, text);
+    outline: $border-width * 2 solid map.get($colors, text);
     outline-offset: $border-width * 2;
   }
 }
@@ -100,38 +100,38 @@ svg, img {
   display: block;
   max-width: 100%;
   height: auto;
-  fill: map-get($colors, text);
+  fill: map.get($colors, text);
 }
 
-img.white-bkg { background-color: map-get($colors, bg); }
+img.white-bkg { background-color: map.get($colors, bg); }
 
 figure {
-  @include flex-col(map-get($spacing, xs));
+  @include flex-col(map.get($spacing, xs));
   width: 100%;
-  figcaption { margin-top: map-get($spacing, sm); }
+  figcaption { margin-top: map.get($spacing, sm); }
 }
 
 details > summary h2 { display: inline; }
-details > summary { gap: map-get($spacing, lg); }
+details > summary { gap: map.get($spacing, lg); }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 map-get($spacing, sm) 0;
+  margin: 0 0 map.get($spacing, sm) 0;
   font-weight: 600;
-  font-size: map-get($font-sizes, large);
-  line-height: map-get($line-heights, tight);
-  color: map-get($colors, text);
+  font-size: map.get($font-sizes, large);
+  line-height: map.get($line-heights, tight);
+  color: map.get($colors, text);
   text-rendering: optimizeLegibility;
 }
 
-h2 { margin-top: map-get($spacing, md); }
+h2 { margin-top: map.get($spacing, md); }
 h3 {
-  font-size: map-get($font-sizes, base);
-  line-height: map-get($line-heights, base);
+  font-size: map.get($font-sizes, base);
+  line-height: map.get($line-heights, base);
 }
 
 p {
-  margin: 0 0 map-get($spacing, sm) 0;
-  color: map-get($colors, text-subtle);
+  margin: 0 0 map.get($spacing, sm) 0;
+  color: map.get($colors, text-subtle);
   text-rendering: optimizeSpeed;
   &:last-child { margin-bottom: 0; }
 }
@@ -139,25 +139,25 @@ p {
 a {
   color: currentColor;
   text-decoration: underline;
-  text-underline-offset: map-get($spacing, xs);
+  text-underline-offset: map.get($spacing, xs);
   transition: all 50ms ease-in-out;
   &:focus { outline: auto; }
   h2 { color: inherit; }
 }
 
 small {
-  font-size: map-get($font-sizes, small);
-  color: map-get($colors, text-subtle);
+  font-size: map.get($font-sizes, small);
+  color: map.get($colors, text-subtle);
 }
 
 ul {
   list-style-type: lower-roman;
-  margin-left: map-get($spacing, md);
-  color: map-get($colors, text-subtle);
+  margin-left: map.get($spacing, md);
+  color: map.get($colors, text-subtle);
   margin-block-start: 0;
   margin-block-end: 0;
   padding-inline-start: 0;
-  li:last-child { margin-bottom: map-get($spacing, sm); }
+  li:last-child { margin-bottom: map.get($spacing, sm); }
 }
 
 i { font-style: italic; }
@@ -166,7 +166,7 @@ li { margin: 0 !important; display: inline-block; }
 
 .light {
   @extend h2;
-  color: map-get($colors, text-faint);
+  color: map.get($colors, text-faint);
 }
 
 // --- FONTS ---
@@ -190,17 +190,18 @@ li { margin: 0 !important; display: inline-block; }
 // --- LAYOUT ---
 main, .g-wrapper {
   @include flex-col();
-  justify-content: flex-start;
-  align-content: start;
+  justify-content: center;
+  align-content: center;
   flex-wrap: wrap;
+  width: 100%;
 }
 
-.center { margin: 0 auto; }
-.pad-top { padding-top: map-get($spacing, md); }
-.pad-sides { padding: 0 map-get($spacing, md); }
-.pad-bottom { padding-bottom: map-get($spacing, 2xl); }
-.max-width { max-width: $container-width; }
-.grey { background-color: map-get($colors, bg-translucent); }
+.center { margin: 0 auto;}
+.pad-top { padding-top: map.get($spacing, md); }
+.pad-sides { padding: 0 map.get($spacing, md); }
+.pad-bottom { padding-bottom: map.get($spacing, 2xl); }
+.max-width { max-width: $container-width;}
+.projects-showcase { background-color: map.get($colors, bg-translucent); padding-top: map.get($spacing, xl); }
 
 section {
   @include flex-col();
@@ -213,43 +214,43 @@ section {
 .no-h-margin h2:first-of-type { margin-top: 0; }
 
 .img-flex {
-  @include flex-row(map-get($spacing, md));
+  margin-top: map.get($spacing, lg);
+  @include flex-row(map.get($spacing, md));
   flex-wrap: wrap;
-  row-gap: map-get($spacing, xl);
+  row-gap: map.get($spacing, xl);
   > * { flex: 1 1 25%; }
-  div:first-of-type { flex-basis: 100%; }
 }
 
 .whatyouget {
-  h2, div { margin-bottom: map-get($spacing, lg); }
+  h2, div { margin-bottom: map.get($spacing, lg); }
   div:last-of-type { margin-bottom: 0; }
   h3 {
-    color: map-get($colors, text-subtle);
-    margin-bottom: map-get($spacing, sm);
+    color: map.get($colors, text-subtle);
+    margin-bottom: map.get($spacing, sm);
   }
 }
 
 .testimonials {
-  @include flex-col(map-get($spacing, sm));
+  @include flex-col(map.get($spacing, sm));
   .quote {
     width: 100%;
-    background-color: map-get($colors, bg-translucent);
+    background-color: map.get($colors, bg-translucent);
     @include flex-col();
     justify-content: space-between;
     flex-wrap: nowrap;
-    padding: map-get($spacing, lg);
+    padding: map.get($spacing, lg);
 
     > div {
-      @include flex-row(map-get($spacing, md));
-      margin-top: map-get($spacing, md);
+      @include flex-row(map.get($spacing, md));
+      margin-top: map.get($spacing, md);
       svg {
-        width: map-get($spacing, xl);
+        width: map.get($spacing, xl);
         height: auto;
-        fill: map-get($colors, links);
+        fill: map.get($colors, links);
       }
     }
     .credit {
-      @include flex-col(map-get($spacing, xs));
+      @include flex-col(map.get($spacing, xs));
       justify-content: flex-start;
       align-content: start;
       flex-wrap: nowrap;
@@ -264,8 +265,8 @@ section {
   .overlay-text {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-color: map-get($colors, links);
-    color: map-get($colors, bg);
+    background-color: map.get($colors, links);
+    color: map.get($colors, bg);
     @include flex-col();
     justify-content: center;
     align-items: center;
@@ -280,30 +281,30 @@ section {
 // --- COMPONENTS ---
 header {
   width: 100%;
-  @include flex-row(map-get($spacing, md));
+  @include flex-row(map.get($spacing, md));
   flex-wrap: wrap;
   align-items: start;
   justify-content: space-between;
 
   > div span {
     display: block;
-    margin-top: map-get($spacing, sm);
-    color: map-get($colors, text-faint);
+    margin-top: map.get($spacing, sm);
+    color: map.get($colors, text-faint);
   }
   a {
     display: block;
     svg {
-      width: calc(map-get($spacing, 2xl) * 6);
+      width: calc(map.get($spacing, 2xl) * 6);
       height: auto;
-      fill: map-get($colors, links);
+      fill: map.get($colors, links);
     }
   }
   nav ul {
     margin: 0;
     list-style-type: none;
-    @include flex-col(map-get($spacing, xs));
+    @include flex-col(map.get($spacing, xs));
     align-items: flex-start;
-    color: map-get($colors, text-subtle);
+    color: map.get($colors, text-subtle);
     padding: 0;
     max-height: 100%;
     a.active { font-weight: 600; }
@@ -311,10 +312,10 @@ header {
 }
 
 .work {
-  font-size: map-get($font-sizes, small);
-  @include flex-col(map-get($spacing, xs));
+  font-size: map.get($font-sizes, small);
+  @include flex-col(map.get($spacing, xs));
   flex-wrap: wrap;
-  .role { color: map-get($colors, text-subtle); }
+  .role { color: map.get($colors, text-subtle); }
   figure figcaption { font-weight: 600; }
 }
 
@@ -330,15 +331,15 @@ a.button {
     width: $ext-icon-size;
     height: $ext-icon-size;
     position: static;
-    right: map-get($spacing, xs);
-    top: calc(map-get($spacing, xs) / $perfect-fourth);
+    right: map.get($spacing, xs);
+    top: calc(map.get($spacing, xs) / $perfect-fourth);
   }
 }
 
-ul.services {
+ul.plain-list {
   @extend section;
-  gap: map-get($spacing, xs);
-  color: map-get($colors, text-subtle);
+  gap: map.get($spacing, xs);
+  color: map.get($colors, text-subtle);
   list-style-type: none;
   margin-left: 0;
 }
@@ -353,28 +354,28 @@ ul.services {
   height: min-content;
   img {
     filter: brightness(40%) saturate(125%);
-    height: calc(map-get($spacing, 2xl) * 12);
+    height: calc(map.get($spacing, 2xl) * 12);
   }
   .text-on-img {
     position: absolute;
     left: 0;
     width: 100%;
     height: max-content;
-    padding-bottom: map-get($spacing, lg);
-    h2, p { color: map-get($colors, bg-translucent); }
+    padding-bottom: map.get($spacing, lg);
+    h2, p { color: map.get($colors, bg-translucent); }
   }
 }
 
-.green-bkg { background-color: map-get($colors, text); }
+.green-bkg { background-color: map.get($colors, text); }
 
 // Footer
 footer {
   @extend .text-on-img;
   bottom: 0;
   .footer-content {
-    @include flex-col(map-get($spacing, sm));
+    @include flex-col(map.get($spacing, sm));
     justify-content: flex-end;
-    color: map-get($colors, bg-translucent);
+    color: map.get($colors, bg-translucent);
     .signature {
       @include flex-row();
       justify-content: space-between;
@@ -382,20 +383,20 @@ footer {
       width: 100%;
     }
     p {
-      color: map-get($colors, bg-translucent);
-      font-size: map-get($font-sizes, small);
-      margin: map-get($spacing, xs) 0 0 0;
+      color: map.get($colors, bg-translucent);
+      font-size: map.get($font-sizes, small);
+      margin: map.get($spacing, xs) 0 0 0;
     }
     svg {
-      width: map-get($spacing, lg);
+      width: map.get($spacing, lg);
       height: auto;
     }
   }
 }
 
 .signature__icon {
-  width: map-get($spacing, md) + map-get($spacing, sm);
-  height: map-get($spacing, lg) + map-get($spacing, sm);
+  width: map.get($spacing, md) + map.get($spacing, sm);
+  height: map.get($spacing, lg) + map.get($spacing, sm);
 }
 
 // --- SLIDEFRAME ---
@@ -442,16 +443,16 @@ footer {
     z-index: 99999 !important;
 
     &-titlebar {
-      min-height: map-get($spacing, xl) !important;
-      line-height: map-get($spacing, xl) !important;
-      background: map-get($colors, bg) !important;
-      color: map-get($colors, text) !important;
+      min-height: map.get($spacing, xl) !important;
+      line-height: map.get($spacing, xl) !important;
+      background: map.get($colors, bg) !important;
+      color: map.get($colors, text) !important;
       -webkit-font-smoothing: antialiased !important;
       display: flex !important;
       font-family: $font-base !important;
-      font-size: map-get($font-sizes, base) !important;
+      font-size: map.get($font-sizes, base) !important;
       font-weight: bold !important;
-      padding: map-get($spacing, sm) !important;
+      padding: map.get($spacing, sm) !important;
 
       strong {
         font-weight: normal !important;
@@ -463,14 +464,14 @@ footer {
     &-frame {
       border: none !important;
       width: 100% !important;
-      height: calc(100% - map-get($spacing, xl)) !important;
-      background: map-get($colors, bg) !important;
+      height: calc(100% - map.get($spacing, xl)) !important;
+      background: map.get($colors, bg) !important;
     }
 
     &-titlebar-title {
       flex-grow: 1 !important;
       text-align: center !important;
-      padding: 0 map-get($spacing, md) !important;
+      padding: 0 map.get($spacing, md) !important;
       white-space: nowrap !important;
       overflow: hidden !important;
       text-overflow: ellipsis !important;
@@ -478,7 +479,7 @@ footer {
       &:before {
         content: '\25CF';
         position: absolute !important;
-        margin-left: calc(map-get($spacing, lg) * -1) !important;
+        margin-left: calc(map.get($spacing, lg) * -1) !important;
         animation: sl-circle infinite 0.8s !important;
         opacity: 0 !important;
         transition: opacity 0.4s !important;
@@ -508,10 +509,10 @@ footer {
   display: block !important;
   flex-shrink: 0 !important;
   height: 100% !important;
-  font-size: map-get($spacing, lg) !important;
+  font-size: map.get($spacing, lg) !important;
   font-family: inherit !important;
   color: inherit !important;
-  width: map-get($spacing, xl) !important;
+  width: map.get($spacing, xl) !important;
   background: none !important;
   border: none !important;
   text-align: center !important;
@@ -523,8 +524,8 @@ footer {
 // --- UTILITIES ---
 .no-margin-bottom { margin-bottom: 0; }
 .wide { width: 100%; }
-p + .button { margin-top: map-get($spacing, sm); }
-.button + small { margin-top: map-get($spacing, sm); }
+p + .button { margin-top: map.get($spacing, sm); }
+.button + small { margin-top: map.get($spacing, sm); }
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -536,10 +537,10 @@ p + .button { margin-top: map-get($spacing, sm); }
 }
 
 // --- RESPONSIVE ---
-@media only screen and (max-width: map-get($breakpoints, md)) {
-  .work { margin-bottom: map-get($spacing, lg); }
+@media only screen and (max-width: map.get($breakpoints, md)) {
+  .work { margin-bottom: map.get($spacing, lg); }
 }
-@media only screen and (max-width: map-get($breakpoints, sm)) {
+@media only screen and (max-width: map.get($breakpoints, sm)) {
   .slideframe-container { width: 100% !important; }
   .button + small { max-width: 95%; }
 }
@@ -547,12 +548,12 @@ p + .button { margin-top: map-get($spacing, sm); }
   a:hover,
   a:focus-visible {
     text-decoration: none;
-    color: map-get($colors, links);
+    color: map.get($colors, links);
     outline: auto;
-    outline-offset: calc(map-get($spacing, xs) / $perfect-fourth);
+    outline-offset: calc(map.get($spacing, xs) / $perfect-fourth);
   }
   footer a:hover,
   footer a:focus-visible {
-    color: map-get($colors, links-subtle);
+    color: map.get($colors, links-subtle);
   }
 }

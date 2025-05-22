@@ -2,95 +2,70 @@
 layout: _base.njk
 title: Emails | nevernotready
 description: Francesco Imola's design and marketing practice — websites, unignorable copy, and SEO that doesn't read like a marketing textbook. All at a fraction of agency prices.
-permalink: "/emails/"
+permalink: '/emails/'
 ---
+{%- from "_whatyouget.njk" import whatYouGet -%}
 
-  <!-- Intro -->
-  <section>
-    <h1>Make your mailing list do a front flip</h1>
-    <p>
-      Pretty good newsletters and email marketing <i>*citation needed*</i>. I write the kind of emails your audience can
-      genuinely relate to. The ones they <i>open</i>, <i>read</i>, and <i>act</i> on. Not a "hope you're well" in
-      sight.
-    </p>
-    <div class="button-wrapper">
-      <a
-        href="https://cal.com/francescoimola/intro"
-        class="button button--light"
-        target="_blank"
-        rel="noopener"
-        data-slideframe="true"
-      >
-        <span>Let's talk emails</span>
-      </a>
-    </div>
-  </section>
-  <!-- Value Proposition -->
-  <section class="section services">
-    <h2>What I can help with</h2>
-    <ul>
-      <li>Regular newsletter writing</li>
-      <li>Website and blog writing</li>
-      <li>Email marketing audit</li>
-      <li>Platform set-up</li>
-    </ul>
-  </section>
+<section class="max-width center pad-bottom pad-top">
+  <h1>Make your mailing list do a front flip</h1>
+  <p>
+    I write pretty good newsletters and email marketing <i>*citation needed*</i>. The kind your audience can genuinely relate to. The ones
+    they <i>open</i>, <i>read</i>, and <i>act</i> on. Not a "synergetic" or "hope you're well"
+    in sight.
+  </p>
+    <a
+      href="https://cal.com/francescoimola/intro"
+      class="button"
+      target="_blank"
+      rel="noopener"
+      data-slideframe="true"
+    >Let's talk emails</a>
+    <small>A friendly chat to see if we should work together.</small>
+</section>
 
-  {%- from "_showcase-card.njk" import showcaseCard -%} {%- set images = [ {
-  src: "not_bad_with_quotes_tzqn5y.png", alt: "selection of works from
-  Blueberry" }, { src: "blueberry_emails_y93apo.png", alt: "sarah's website" },
-  { src: "uog_ftv_marketing_dym5lo.png", alt: "screenshot of the folks directory
-  homepage" } ] -%}
-  {{ showcaseCard(images) }}
+<!-- Value Proposition -->
+<section class="max-width center pad-bottom">
+  <h2>What I can help with</h2>
+  <ul class="plain-list">
+    <li>Newsletter writing</li>
+    <li>Nurturing campaigns</li>
+    <li>Email marketing audit</li>
+    <li>Platform set-up</li>
+  </ul>
+</section>
 
-  <section class="whatyouget">
-    <h2>What you'll always get ↓</h2>
-    <div>
-      <div>
-        <h3>1. Marketing that just <i>feels</i> right</h3>
-        <p>
-          Can you picture that? People reaching out to you because they get what
-          you're selling, not because you've built them up with false
-          expectations. Fewer "that's not what I thought I was buying" moments
-          and more customers who stay because you've been honest from day one.
-        </p>
-      </div>
-      <div>
-        <h3>2. Questions that get you somewhere</h3>
-        <p>
-          I can't help it, I question things. I can't imagine you paying me to just nod in agreement. Our
-          conversations might shake up ideas you've been stuck on for ages, or
-          tweak something that's been bothering you. Either way, you won't
-          waste money on cookie-cutter email marketing advice.
-        </p>
-      </div>
-      <div>
-        <h3>3. Sustainable growth over quick wins</h3>
-        <p>
-          I hate seeing brands waste money on flashy campaigns that fall apart by
-          winter. I think long term. Your customers will notice (oh trust me, they will!), and you can
-          stop feeling pressured to reinvent the wheel every single time a new marketing trend pops up.
-        </p>
-      </div>
-    </div>
-  </section>
+{%- set whatYouGetItems = [
+{ title: "1. Marketing that just *feels* right",
+text: "Can you picture that? People reaching out to you because they get what
+you're selling, not because you've built them up with false expectations. Fewer
+that's-not-what-I-thought-I-was-buying moments and more customers who stay
+because you've been honest from day one." },
+{ title: "2. Questions that get you places",
+text: "I can't help it, I question things. I can't imagine you paying
+me to just nod in agreement. Our conversations might shake up ideas, or tweak something that's been bothering you. Either way, you
+won't waste money on cookie-cutter email marketing advice." },
+{ title: "3. Sustainable growth over quick wins",
+text: "I hate seeing brands waste money on
+flashy campaigns that fall apart by winter. I think long term. Your customers
+will notice (oh trust me, they will!), and you can stop feeling pressured to
+reinvent the wheel every single time a new marketing trend pops up." } ] -%}
+{{ whatYouGet(whatYouGetItems) }}
 
-  <section>
-    <h2>How much does a website cost</h2>
-    <p>
-      Bringing a site to life depends on its scale and the features you need. A
-      basic website starts from just £500.
-    </p>
-    <p>
-      As a broad guideline, my prices are calculated according to how many days
-      a project will take to complete, based on a minimum day rate of £200.
-      Contact me for a personalised quote for your project.
-    </p>
-    <p>
-      I also offer non-stackable discounts on payment terms to all clients. For
-      more information, please see the concessions section on this page.
-    </p>
-  </section>
+{%- include "_cta-faq.njk" -%}
 
-  {%- include "_cta-faq.njk" -%} {%- set link =
-  "https://cal.com/francescoimola/intro" -%} {%- include "_cta-general.njk" -%}
+<section class="max-width center pad-bottom">
+  <h2>An email for you, one for you, and one for you too!</h2>
+  <p>
+    Emails for everyone. Want in? Book a free 20 min call to discuss your
+    project. I'll offer my advice and you can decide if we're a good fit.
+  </p>
+  <a
+    href="https://cal.com/francescoimola/intro"
+    class="button"
+    target="_blank"
+    rel="noopener"
+    data-slideframe="true"
+  >
+    <span>Book a free call</span>
+  </a>
+</section>
