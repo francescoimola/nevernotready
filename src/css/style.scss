@@ -8,7 +8,8 @@
 // --- VARIABLES & MAPS ---
 $perfect-fourth: 1.333;
 $unit: 0.25rem;
-$font-base: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-base: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  Roboto, sans-serif;
 
 $colors: (
   bg: #f6f6f6,
@@ -18,7 +19,7 @@ $colors: (
   links: #00610f,
   links-subtle: #3d8f49,
   bg-translucent: color-mix(in srgb, #f6f6f6 95%, #061308),
-  bg-more-translucent: color-mix(in srgb, #f6f6f6 85%, #061308)
+  bg-more-translucent: color-mix(in srgb, #f6f6f6 85%, #061308),
 );
 
 $spacing: (
@@ -27,12 +28,12 @@ $spacing: (
   md: $unit * 4,
   lg: $unit * 6,
   xl: $unit * 10,
-  2xl: $unit * 16
+  2xl: $unit * 16,
 );
 
 $breakpoints: (
-  md: 768px,
-  sm: 480px
+  md: 820px,
+  sm: 480px,
 );
 
 $font-sizes: (
@@ -40,35 +41,46 @@ $font-sizes: (
   small: 1rem * 0.85,
   large: 1rem * $perfect-fourth,
   xl: 1rem * $perfect-fourth * $perfect-fourth,
-  clamp: clamp(1rem, 0.4783rem + 1.7391vw, 1rem)
+  clamp: clamp(1rem, calc(0.4783rem + 1.7391vw), 1rem),
 );
 
 $line-heights: (
   base: 1 + calc($perfect-fourth / 2),
-  tight: 1 + calc($perfect-fourth / 3)
+  tight: 1 + calc($perfect-fourth / 3),
 );
 
 $container-width: 58ch;
 $border-width: calc($unit / 4);
 $ext-icon-size: map.get($spacing, sm) + map.get($spacing, xs);
+$shadow-inset: inset 0 0 10px rgba(255, 255, 255, 0.08);
+$shadow-outset: 1px 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-outset-blurred: 1px 2px 4px rgba(0, 0, 0, 0.05);
 
 // --- MIXINS ---
 @mixin flex-col($gap: null) {
   display: flex;
   flex-direction: column;
-  @if $gap { gap: $gap; }
+  @if $gap {
+    gap: $gap;
+  }
 }
 
 @mixin flex-row($gap: null) {
   display: flex;
   flex-direction: row;
-  @if $gap { gap: $gap; }
+  @if $gap {
+    gap: $gap;
+  }
 }
 
 // --- RESET & BASE ---
 *,
 *::before,
-*::after { box-sizing: border-box; margin: 0; padding: 0; }
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html {
   font-size: 100%;
@@ -96,25 +108,39 @@ body {
   }
 }
 
-svg, img {
+svg,
+img {
   display: block;
   max-width: 100%;
   height: auto;
   fill: map.get($colors, text);
 }
 
-img.white-bkg { background-color: map.get($colors, bg); }
+img.white-bkg {
+  background-color: map.get($colors, bg);
+}
 
 figure {
   @include flex-col(map.get($spacing, xs));
   width: 100%;
-  figcaption { margin-top: map.get($spacing, sm); }
+  figcaption {
+    margin-top: map.get($spacing, sm);
+  }
 }
 
-details > summary h2 { display: inline; }
-details > summary { gap: map.get($spacing, lg); }
+details > summary h2 {
+  display: inline;
+}
+details > summary {
+  gap: map.get($spacing, lg);
+}
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0 0 map.get($spacing, sm) 0;
   font-weight: 600;
   font-size: map.get($font-sizes, large);
@@ -123,7 +149,9 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
 }
 
-h2 { margin-top: map.get($spacing, md); }
+h2 {
+  padding-top: map.get($spacing, md);
+}
 h3 {
   font-size: map.get($font-sizes, base);
   line-height: map.get($line-heights, base);
@@ -133,7 +161,9 @@ p {
   margin: 0 0 map.get($spacing, sm) 0;
   color: map.get($colors, text-subtle);
   text-rendering: optimizeSpeed;
-  &:last-child { margin-bottom: 0; }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 a {
@@ -141,8 +171,12 @@ a {
   text-decoration: underline;
   text-underline-offset: map.get($spacing, xs);
   transition: all 50ms ease-in-out;
-  &:focus { outline: auto; }
-  h2 { color: inherit; }
+  &:focus {
+    outline: auto;
+  }
+  h2 {
+    color: inherit;
+  }
 }
 
 small {
@@ -157,12 +191,21 @@ ul {
   margin-block-start: 0;
   margin-block-end: 0;
   padding-inline-start: 0;
-  li:last-child { margin-bottom: map.get($spacing, sm); }
+  li:last-child {
+    margin-bottom: map.get($spacing, sm);
+  }
 }
 
-i { font-style: italic; }
-b { font-weight: 600; }
-li { margin: 0 !important; display: inline-block; }
+i {
+  font-style: italic;
+}
+b {
+  font-weight: 600;
+}
+li {
+  margin: 0 !important;
+  display: inline-block;
+}
 
 .light {
   @extend h2;
@@ -180,7 +223,8 @@ li { margin: 0 !important; display: inline-block; }
 }
 @font-face {
   font-family: 'Inter Variable';
-  src: url('/fonts/InterVariable-Italic.woff2') format('woff2 supports variations'),
+  src: url('/fonts/InterVariable-Italic.woff2')
+      format('woff2 supports variations'),
     url('/fonts/InterVariable-Italic.woff2') format('woff2-variations');
   font-weight: 100 900;
   font-style: italic;
@@ -188,7 +232,8 @@ li { margin: 0 !important; display: inline-block; }
 }
 
 // --- LAYOUT ---
-main, .g-wrapper {
+main,
+.g-wrapper {
   @include flex-col();
   justify-content: center;
   align-content: center;
@@ -196,12 +241,30 @@ main, .g-wrapper {
   width: 100%;
 }
 
-.center { margin: 0 auto;}
-.pad-top { padding-top: map.get($spacing, md); }
-.pad-sides { padding: 0 map.get($spacing, md); }
-.pad-bottom { padding-bottom: map.get($spacing, 2xl); }
-.max-width { max-width: $container-width;}
-.projects-showcase { background-color: map.get($colors, bg-translucent); padding-top: map.get($spacing, xl); }
+.center {
+  margin: 0 auto;
+  padding: 0 clamp(0.001rem, 1rem - 1vw, 2rem);
+}
+.pad-top {
+  padding-top: map.get($spacing, md);
+}
+.pad-sides {
+  padding: 0 map.get($spacing, md);
+}
+.pad-bottom {
+  padding-bottom: map.get($spacing, 2xl);
+}
+.max-width {
+  max-width: $container-width;
+}
+.projects-showcase {
+  background-color: map.get($colors, bg-translucent);
+  padding-top: map.get($spacing, xl);
+  img {
+    border-radius: map.get($spacing, xs);
+    box-shadow: $shadow-outset-blurred;
+  }
+}
 
 section {
   @include flex-col();
@@ -211,19 +274,24 @@ section {
   width: 100%;
 }
 
-.no-h-margin h2:first-of-type { margin-top: 0; }
-
 .img-flex {
   margin-top: map.get($spacing, lg);
   @include flex-row(map.get($spacing, md));
   flex-wrap: wrap;
   row-gap: map.get($spacing, xl);
-  > * { flex: 1 1 25%; }
+  > * {
+    flex: 1 1 25%;
+  }
 }
 
 .whatyouget {
-  h2, div { margin-bottom: map.get($spacing, lg); }
-  div:last-of-type { margin-bottom: 0; }
+  h2,
+  div {
+    margin-bottom: map.get($spacing, lg);
+  }
+  div:last-of-type {
+    margin-bottom: 0;
+  }
   h3 {
     color: map.get($colors, text-subtle);
     margin-bottom: map.get($spacing, sm);
@@ -261,10 +329,17 @@ section {
 .image-container {
   position: relative;
   display: block;
-  img { display: block; width: 100%; height: auto; }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
   .overlay-text {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: map.get($colors, links);
     color: map.get($colors, bg);
     @include flex-col();
@@ -275,7 +350,9 @@ section {
     transition: opacity 0.2s ease-in-out;
     z-index: 1;
   }
-  &:hover .overlay-text { opacity: 1; }
+  &:hover .overlay-text {
+    opacity: 1;
+  }
 }
 
 // --- COMPONENTS ---
@@ -307,7 +384,9 @@ header {
     color: map.get($colors, text-subtle);
     padding: 0;
     max-height: 100%;
-    a.active { font-weight: 600; }
+    a.active {
+      font-weight: 600;
+    }
   }
 }
 
@@ -315,8 +394,12 @@ header {
   font-size: map.get($font-sizes, small);
   @include flex-col(map.get($spacing, xs));
   flex-wrap: wrap;
-  .role { color: map.get($colors, text-subtle); }
-  figure figcaption { font-weight: 600; }
+  .role {
+    color: map.get($colors, text-subtle);
+  }
+  figure figcaption {
+    font-weight: 600;
+  }
 }
 
 a.button {
@@ -325,7 +408,9 @@ a.button {
   padding-right: 5px;
   align-content: center;
   border: $border-width solid transparent;
-  &:active { box-shadow: none; }
+  &:active {
+    box-shadow: none;
+  }
   &::after {
     content: '\00a0 ↗';
     width: $ext-icon-size;
@@ -351,27 +436,91 @@ ul.plain-list {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: min-content;
-  img {
-    filter: brightness(40%) saturate(125%);
-    height: calc(map.get($spacing, 2xl) * 12);
-  }
-  .text-on-img {
+  height: max-content;
+  min-height: 100vh;
+  padding: calc(map.get($spacing, 2xl) * 2) 0;
+
+  &::before {
+    content: '';
     position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
-    height: max-content;
-    padding-bottom: map.get($spacing, lg);
-    h2, p { color: map.get($colors, bg-translucent); }
+    height: 100%;
+    background-image: url('https://res.cloudinary.com/dax6x2pto/image/upload/c_scale,w_auto/dpr_auto/dithered-image_1_uj6nwu.png');
+    background-size: cover;
+    filter: brightness(50%) saturate(125%);
   }
 }
 
-.green-bkg { background-color: map.get($colors, text); }
+// Message section
+.imessage {
+  position: relative;
+  background-color: map.get($colors, bg-translucent);
+  border-radius: map.get($spacing, xs);
+  display: flex;
+  flex-direction: column;
+  padding: map.get($spacing, md);
+
+  & p {
+    line-height: map.get($line-heights, tight);
+    max-width: 75%;
+    padding: map.get($spacing, sm) map.get($spacing, md);
+    position: relative;
+    word-wrap: break-word;
+    margin: 0.5rem 0;
+    width: fit-content;
+    -moz-box-shadow: $shadow-inset, $shadow-outset;
+    -webkit-box-shadow: $shadow-inset, $shadow-outset;
+    box-shadow: $shadow-inset, $shadow-outset;
+
+    &::before,
+    &::after {
+      bottom: -0.1rem;
+      content: '';
+      height: map.get($spacing, md);
+      position: absolute;
+    }
+
+    &.from-me {
+      border-radius: map.get($spacing, sm) map.get($spacing, sm) 0
+        map.get($spacing, sm);
+      align-self: flex-end;
+      background-color: map.get($colors, links);
+      color: map.get($colors, bg);
+    }
+
+    &.from-them {
+      border-radius: map.get($spacing, sm) map.get($spacing, sm)
+        map.get($spacing, sm) 0;
+      align-items: flex-start;
+      background-color: map.get($colors, bg);
+      color: map.get($colors, text);
+      margin: 0.5rem 0;
+    }
+
+    &.no-margin-bottom {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.invert-bkg {
+  background-color: map.get($colors, text);
+}
 
 // Footer
 footer {
-  @extend .text-on-img;
-  bottom: 0;
+  padding-bottom: map.get($spacing, lg);
+  h2,
+  p {
+    color: map.get($colors, bg-translucent);
+  }
+  p.light {
+    color: map.get($colors, bg-more-translucent);
+    font-weight: 400;
+  }
+
   .footer-content {
     @include flex-col(map.get($spacing, sm));
     justify-content: flex-end;
@@ -522,10 +671,18 @@ footer {
 }
 
 // --- UTILITIES ---
-.no-margin-bottom { margin-bottom: 0; }
-.wide { width: 100%; }
-p + .button { margin-top: map.get($spacing, sm); }
-.button + small { margin-top: map.get($spacing, sm); }
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+.wide {
+  width: 100%;
+}
+p + .button {
+  margin-top: map.get($spacing, sm);
+}
+.button + small {
+  margin-top: map.get($spacing, sm);
+}
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -538,12 +695,32 @@ p + .button { margin-top: map.get($spacing, sm); }
 
 // --- RESPONSIVE ---
 @media only screen and (max-width: map.get($breakpoints, md)) {
-  .work { margin-bottom: map.get($spacing, lg); }
+  .work {
+    margin-bottom: map.get($spacing, lg);
+  }
+
+  .img-flex {
+    > * {
+      flex: 1 1 40%;
+    }
+  }
 }
+
 @media only screen and (max-width: map.get($breakpoints, sm)) {
-  .slideframe-container { width: 100% !important; }
-  .button + small { max-width: 95%; }
+  .slideframe-container {
+    width: 100% !important;
+  }
+  .button + small {
+    max-width: 95%;
+  }
+
+  .img-flex {
+    > * {
+      flex: 1 1 100%;
+    }
+  }
 }
+
 @media (hover: hover) and (pointer: fine) {
   a:hover,
   a:focus-visible {
