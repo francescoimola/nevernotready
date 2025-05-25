@@ -37,6 +37,7 @@ permalink: '/'
 
 <section class="text-on-img-wrapper">
   <div class="max-width center">
+    <h2>Who this is for</h2>
     <div class="imessage">
       <p class="from-me">What makes you think you're a good fit for us?</p>
       <p class="from-them">
@@ -66,7 +67,7 @@ permalink: '/'
   </div>
 </section>
 
-<section class="projects-showcase pad-bottom pad-sides" id="work">
+<div class="projects-showcase pad-bottom pad-sides" id="work">
   <div>
     <div class="max-width center">
       <h2>These people got too good for their old marketing</h2>
@@ -78,7 +79,7 @@ permalink: '/'
     </div>
   </div>
 
-  <section class="img-flex pad-top">
+  <section class="pad-top">
     {{ projectCard(
       role = "SEO Writing",
       description = "Wrote SEO content that connected teachers with software that saved them
@@ -89,6 +90,16 @@ permalink: '/'
         alt: "a Mega Seating Plan blog post showing up in the first page of Google",
         title: "Mega Seating Plan"
       }
+    ) }}
+
+    {{ projectCard(
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/folks_okskqh.png",
+        alt: "folks directory website screenshot",
+        title: "Folks Directory"
+      },
+      role = "Co-founder",
+      description = "Bootstrapping a directory of independent creatives and small businesses in the Folkestone, Kent: a community-driven project that helps local creatve people find and support each other."
     ) }}
 
     {{ projectCard(
@@ -127,6 +138,16 @@ permalink: '/'
 
     {{ projectCard(
       image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/blueberry_emails_y93apo.png",
+        alt: "screenshot of a newsletter edition alongside screenshot of subject line in an inbox",
+        title: "Blueberry"
+      },
+      role = "Email marketing",
+      description = "Redesigned, launched and regularly wrote two of Blueberry's newsletters, each offering bite-sized creative inspiration with a handpicked selection of talents, projects and trends."
+    ) }}
+
+    {{ projectCard(
+      image = {
         src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/v1745572127/tedx_greenwich_hqmpqe.png",
         alt: "screenshot of the TEDx Universty Greenwich 2019 website",
         title: "TEDx University of Greenwich"
@@ -148,8 +169,18 @@ permalink: '/'
         Film & TV programmes through targeted industry
         updates, social media storytelling, and PR stories."
     ) }}
+
+    {{ projectCard(
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/greenwich_galleries_design_g7uxs1.png",
+        alt: "poster for an exhibition at the University of Greenwich Galleries",
+        title: "University of Greenwich Galleries"
+      },
+      role = "Communications design",
+      description = "Designed and co-edited communications and assets for the University of Greenwich Galleries, including posters, social media posts, and press releases, to widen the reach of our exhibitions and events."
+    ) }}
   </section>
-</section>
+</div>
 
 {%- include "_testimonials.html" -%}
 

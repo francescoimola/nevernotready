@@ -20,6 +20,7 @@ $colors: (
   links-subtle: #3d8f49,
   bg-translucent: color-mix(in srgb, #f6f6f6 95%, #061308),
   bg-more-translucent: color-mix(in srgb, #f6f6f6 85%, #061308),
+  border: color-mix(in srgb, #f6f6f6 70%, #061308),
 );
 
 $spacing: (
@@ -50,11 +51,8 @@ $line-heights: (
 );
 
 $container-width: 58ch;
-$border-width: calc($unit / 4);
+$border-width: calc($unit / 4) * $perfect-fourth; // 0.333rem
 $ext-icon-size: map.get($spacing, sm) + map.get($spacing, xs);
-$shadow-inset: inset 0 0 10px rgba(255, 255, 255, 0.08);
-$shadow-outset: 1px 1px 2px rgba(0, 0, 0, 0.05);
-$shadow-outset-blurred: 1px 2px 4px rgba(0, 0, 0, 0.05);
 
 // --- MIXINS ---
 @mixin flex-col($gap: null) {
@@ -103,8 +101,8 @@ body {
   overflow-x: hidden;
 
   & *:focus-visible {
-    outline: $border-width * 2 solid map.get($colors, text);
-    outline-offset: $border-width * 2;
+    outline: $border-width solid map.get($colors, text);
+    outline-offset: $border-width;
   }
 }
 
@@ -114,17 +112,26 @@ img {
   max-width: 100%;
   height: auto;
   fill: map.get($colors, text);
+
+  &.give-border {
+    border: $border-width solid map.get($colors, border);
+    border-radius: map.get($spacing, xs);
+  }
 }
 
-img.white-bkg {
-  background-color: map.get($colors, bg);
+img {
+  & .white-bkg {
+    background-color: map.get($colors, bg);
+  }
 }
 
 figure {
   @include flex-col(map.get($spacing, xs));
   width: 100%;
+
   figcaption {
     margin-top: map.get($spacing, sm);
+    font-size: map.get($font-sizes, small);
   }
 }
 
@@ -243,7 +250,7 @@ main,
 
 .center {
   margin: 0 auto;
-  padding: 0 clamp(0.001rem, 1rem - 1vw, 2rem);
+  padding: 0 clamp(0rem, 1rem - 1vw, 2rem);
 }
 .pad-top {
   padding-top: map.get($spacing, md);
@@ -262,8 +269,19 @@ main,
   padding-top: map.get($spacing, xl);
   img {
     border-radius: map.get($spacing, xs);
-    box-shadow: $shadow-outset-blurred;
+    background-color: map.get($colors, bg);
+    border: $border-width solid map.get($colors, border);
   }
+
+  section {
+  margin-top: map.get($spacing, lg);
+  @include flex-row(map.get($spacing, lg));
+  flex-wrap: wrap;
+  row-gap: map.get($spacing, 2xl);
+  > * {
+    flex: 1 1 25%;
+  }
+}
 }
 
 section {
@@ -272,16 +290,6 @@ section {
   align-content: start;
   flex-wrap: nowrap;
   width: 100%;
-}
-
-.img-flex {
-  margin-top: map.get($spacing, lg);
-  @include flex-row(map.get($spacing, md));
-  flex-wrap: wrap;
-  row-gap: map.get($spacing, xl);
-  > * {
-    flex: 1 1 25%;
-  }
 }
 
 .whatyouget {
@@ -303,25 +311,34 @@ section {
   .quote {
     width: 100%;
     background-color: map.get($colors, bg-translucent);
+    border: $border-width solid map.get($colors, border);
+    border-radius: map.get($spacing, xs);
     @include flex-col();
     justify-content: space-between;
     flex-wrap: nowrap;
+    align-items: stretch;
     padding: map.get($spacing, lg);
 
     > div {
       @include flex-row(map.get($spacing, md));
       margin-top: map.get($spacing, md);
+
       svg {
-        width: map.get($spacing, xl);
-        height: auto;
-        fill: map.get($colors, links);
+        display: block;
+        width: auto;
+        height: 100%;
+        flex: 1 1 10%;
+        border: $border-width solid map.get($colors, border);
+        border-radius: map.get($spacing, xs);
       }
-    }
-    .credit {
-      @include flex-col(map.get($spacing, xs));
-      justify-content: flex-start;
-      align-content: start;
-      flex-wrap: nowrap;
+
+      .credit {
+        @include flex-col(map.get($spacing, xs));
+        flex: 1 1 100%;
+        justify-content: flex-start;
+        align-content: start;
+        flex-wrap: nowrap;
+      }
     }
   }
 }
@@ -349,9 +366,6 @@ section {
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
     z-index: 1;
-  }
-  &:hover .overlay-text {
-    opacity: 1;
   }
 }
 
@@ -447,11 +461,16 @@ ul.plain-list {
   overflow: hidden;
   @include flex-col();
   justify-content: center;
-  align-items: center;
+  align-items: left;
   width: 100%;
   height: max-content;
   min-height: 100vh;
-  padding: calc(map.get($spacing, 2xl) * 2) 0;
+  padding: calc(map.get($spacing, 2xl)) 0;
+
+  > div > h2 {
+    position: relative;
+    color: map.get($colors, bg);
+  }
 
   &::before {
     content: '';
@@ -462,7 +481,7 @@ ul.plain-list {
     height: 100%;
     background-image: url('https://res.cloudinary.com/dax6x2pto/image/upload/c_scale,w_auto/dpr_auto/dithered-image_1_uj6nwu.png');
     background-size: cover;
-    filter: brightness(50%) saturate(125%);
+    filter: brightness(60%) saturate(130%);
   }
 }
 
@@ -473,7 +492,8 @@ ul.plain-list {
   border-radius: map.get($spacing, xs);
   display: flex;
   flex-direction: column;
-  padding: map.get($spacing, md);
+  padding: map.get($spacing, xl);
+  border: $border-width solid map.get($colors, border);
 
   & p {
     line-height: map.get($line-heights, tight);
@@ -483,9 +503,7 @@ ul.plain-list {
     word-wrap: break-word;
     margin: 0.5rem 0;
     width: fit-content;
-    -moz-box-shadow: $shadow-inset, $shadow-outset;
-    -webkit-box-shadow: $shadow-inset, $shadow-outset;
-    box-shadow: $shadow-inset, $shadow-outset;
+    border: $border-width solid map.get($colors, border);
 
     &::before,
     &::after {
@@ -601,7 +619,7 @@ footer {
     bottom: 0 !important;
     right: -100% !important;
     transition: right 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 4px 0px !important;
+    border: $border-width solid map.get($colors, border);
     z-index: 99999 !important;
 
     &-titlebar {
@@ -696,15 +714,6 @@ p + .button {
 .button + small {
   margin-top: map.get($spacing, sm);
 }
-.visually-hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: $border-width;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: $border-width;
-}
 
 // --- RESPONSIVE ---
 @media only screen and (max-width: map.get($breakpoints, md)) {
@@ -712,7 +721,7 @@ p + .button {
     margin-bottom: map.get($spacing, lg);
   }
 
-  .img-flex {
+  .projects-showcase section {
     > * {
       flex: 1 1 40%;
     }
@@ -727,10 +736,14 @@ p + .button {
     max-width: 95%;
   }
 
-  .img-flex {
+  .projects-showcase section {
     > * {
       flex: 1 1 100%;
     }
+  }
+
+  .pad-sides {
+    padding: 0 map.get($spacing, md);
   }
 }
 
@@ -745,5 +758,9 @@ p + .button {
   footer a:hover,
   footer a:focus-visible {
     color: map.get($colors, links-subtle);
+  }
+
+  .image-container:hover .overlay-text {
+    opacity: 1;
   }
 }
