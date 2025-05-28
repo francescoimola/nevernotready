@@ -16,8 +16,8 @@ $colors: (
   text: #061308,
   text-subtle: color-mix(in srgb, #061308 80%, #f6f6f6),
   text-faint: color-mix(in srgb, #061308 70%, #f6f6f6),
-  links: #00610f,
-  links-subtle: #3d8f49,
+  links: hsl(129, 100%, 19%),
+  links-subtle: hsl(129, 40%, 66%),
   bg-translucent: color-mix(in srgb, #f6f6f6 95%, #061308),
   bg-more-translucent: color-mix(in srgb, #f6f6f6 85%, #061308),
   border: color-mix(in srgb, #f6f6f6 70%, #061308),
@@ -104,6 +104,10 @@ body {
     outline: $border-width solid map.get($colors, text);
     outline-offset: $border-width;
   }
+}
+
+main {
+  padding-bottom: map.get($spacing, xl);
 }
 
 svg,
@@ -274,14 +278,14 @@ main,
   }
 
   section {
-  margin-top: map.get($spacing, lg);
-  @include flex-row(map.get($spacing, lg));
-  flex-wrap: wrap;
-  row-gap: map.get($spacing, 2xl);
-  > * {
-    flex: 1 1 25%;
+    margin-top: map.get($spacing, lg);
+    @include flex-row(map.get($spacing, lg));
+    flex-wrap: wrap;
+    row-gap: map.get($spacing, 2xl);
+    > * {
+      flex: 1 1 25%;
+    }
   }
-}
 }
 
 section {
@@ -413,6 +417,8 @@ header {
     max-height: 100%;
     a.active {
       font-weight: 600;
+      text-decoration: underline;
+      text-decoration-style: wavy;
     }
   }
 }
@@ -435,9 +441,6 @@ a.button {
   padding-right: 5px;
   align-content: center;
   border: $border-width solid transparent;
-  &:active {
-    box-shadow: none;
-  }
   &::after {
     content: '\00a0 ↗';
     width: $ext-icon-size;
@@ -505,14 +508,6 @@ ul.plain-list {
     width: fit-content;
     border: $border-width solid map.get($colors, border);
 
-    &::before,
-    &::after {
-      bottom: -0.1rem;
-      content: '';
-      height: map.get($spacing, md);
-      position: absolute;
-    }
-
     &.from-me {
       border-radius: map.get($spacing, sm) map.get($spacing, sm) 0
         map.get($spacing, sm);
@@ -536,47 +531,68 @@ ul.plain-list {
   }
 }
 
-.invert-bkg {
-  background-color: map.get($colors, text);
-}
-
 // Footer
 footer {
-  padding-bottom: map.get($spacing, lg);
+  background-image: url('https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/footer_q7nces.png');
+  background-position: left 0% bottom 0%;
+  background-size: cover;
+  min-height: fit-content;
+  height: clamp(33rem, 100vh, 101vh);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+
   h2,
-  p {
-    color: map.get($colors, bg-translucent);
-  }
-  p.light {
-    color: map.get($colors, bg-more-translucent);
-    font-weight: 400;
-  }
+    p,
+    a, span {
+      color: map.get($colors, bg-translucent);
+      margin: map.get($spacing, xs) 0 0 0;
+      font-size: map.get($font-sizes, base);
+      text-align: center;
+    }
+
+  .logo {
+      width: 100%;
+      height: auto;
+      fill: map.get($colors, bg);
+      margin-bottom: map.get($spacing, 2xl);
+      mix-blend-mode: soft-light;
+    }
 
   .footer-content {
+    position: relative;
+    overflow: hidden;
     @include flex-col(map.get($spacing, sm));
     justify-content: flex-end;
+    align-items: center;
+    gap: map.get($spacing, xl);
     color: map.get($colors, bg-translucent);
+    padding: map.get($spacing, md) clamp(0rem, 2rem - 1vw, map.get($spacing, sm));
+
     .signature {
       @include flex-row();
       justify-content: space-between;
-      align-content: center;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: map.get($spacing, sm) map.get($spacing, xl);
       width: 100%;
     }
-    p {
-      color: map.get($colors, bg-translucent);
-      font-size: map.get($font-sizes, small);
-      margin: map.get($spacing, xs) 0 0 0;
-    }
-    svg {
-      width: map.get($spacing, lg);
-      height: auto;
+
+    .f-innergroup {
+      @include flex-col(map.get($spacing, sm));
+      justify-content: flex-start;
+      align-items: center;
+      gap: map.get($spacing, xs);
+
+      h2,
+      a {
+        margin: 0;
+        padding: 0;
+      }
     }
   }
-}
-
-.signature__icon {
-  width: map.get($spacing, md) + map.get($spacing, sm);
-  height: map.get($spacing, lg) + map.get($spacing, sm);
 }
 
 // --- SLIDEFRAME ---
@@ -726,6 +742,17 @@ p + .button {
       flex: 1 1 40%;
     }
   }
+
+  footer .footer-content {
+    padding-right: 0;
+    padding-left: 0;
+
+     .signature {
+    @include flex-col();
+    justify-content: center;
+    align-items:center;
+    }
+  }
 }
 
 @media only screen and (max-width: map.get($breakpoints, sm)) {
@@ -748,13 +775,13 @@ p + .button {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  a:hover,
+  a:hover, a.active:hover, a.active:focus-visible,
   a:focus-visible {
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-style: wavy;
     color: map.get($colors, links);
-    outline: auto;
-    outline-offset: calc(map.get($spacing, xs) / $perfect-fourth);
   }
+
   footer a:hover,
   footer a:focus-visible {
     color: map.get($colors, links-subtle);
