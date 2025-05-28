@@ -391,7 +391,6 @@ header {
   width: 100%;
   @include flex-row(map.get($spacing, md));
   flex-wrap: wrap;
-  align-items: start;
   justify-content: space-between;
 
   > div span {
@@ -411,10 +410,9 @@ header {
     margin: 0;
     list-style-type: none;
     @include flex-col(map.get($spacing, xs));
-    align-items: flex-start;
     color: map.get($colors, text-subtle);
     padding: 0;
-    max-height: 100%;
+
     a.active {
       font-weight: 600;
       text-decoration: underline;
@@ -439,7 +437,7 @@ a.button {
   display: inline-flex;
   width: max-content;
   padding-right: 5px;
-  align-content: center;
+  justify-content: center;
   border: $border-width solid transparent;
   &::after {
     content: '\00a0 ↗';
@@ -464,7 +462,7 @@ ul.plain-list {
   overflow: hidden;
   @include flex-col();
   justify-content: center;
-  align-items: left;
+  align-items: center;
   width: 100%;
   height: max-content;
   min-height: 100vh;
@@ -524,25 +522,22 @@ ul.plain-list {
       color: map.get($colors, text);
       margin: 0.5rem 0;
     }
-
-    &.no-margin-bottom {
-      margin-bottom: 0;
-    }
   }
 }
 
 // Footer
 footer {
   background-image: url('https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto/dpr_auto/footer_q7nces.png');
-  background-position: left 0% bottom 0%;
+  background-position: left 0% top 99%;
   background-size: cover;
   min-height: fit-content;
   height: clamp(33rem, 100vh, 101vh);
   display: flex;
   width: 100%;
   flex-direction: column;
+  align-items: stretch;
   justify-content: space-between;
-  overflow: hidden;
+  gap: map.get($spacing, 2xl);
 
   h2,
     p,
@@ -550,40 +545,25 @@ footer {
       color: map.get($colors, bg-translucent);
       margin: map.get($spacing, xs) 0 0 0;
       font-size: map.get($font-sizes, base);
-      text-align: center;
     }
 
   .logo {
-      width: 100%;
-      height: auto;
       fill: map.get($colors, bg);
-      margin-bottom: map.get($spacing, 2xl);
       mix-blend-mode: soft-light;
     }
 
   .footer-content {
-    position: relative;
-    overflow: hidden;
+    width: 100%;
     @include flex-col(map.get($spacing, sm));
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: stretch;
     gap: map.get($spacing, xl);
     color: map.get($colors, bg-translucent);
-    padding: map.get($spacing, md) clamp(0rem, 2rem - 1vw, map.get($spacing, sm));
-
-    .signature {
-      @include flex-row();
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: map.get($spacing, sm) map.get($spacing, xl);
-      width: 100%;
-    }
 
     .f-innergroup {
       @include flex-col(map.get($spacing, sm));
       justify-content: flex-start;
-      align-items: center;
+      align-items: stretch;
       gap: map.get($spacing, xs);
 
       h2,
@@ -718,12 +698,6 @@ footer {
 }
 
 // --- UTILITIES ---
-.no-margin-bottom {
-  margin-bottom: 0;
-}
-.wide {
-  width: 100%;
-}
 p + .button {
   margin-top: map.get($spacing, sm);
 }
@@ -740,17 +714,6 @@ p + .button {
   .projects-showcase section {
     > * {
       flex: 1 1 40%;
-    }
-  }
-
-  footer .footer-content {
-    padding-right: 0;
-    padding-left: 0;
-
-     .signature {
-    @include flex-col();
-    justify-content: center;
-    align-items:center;
     }
   }
 }
@@ -785,9 +748,5 @@ p + .button {
   footer a:hover,
   footer a:focus-visible {
     color: map.get($colors, links-subtle);
-  }
-
-  .image-container:hover .overlay-text {
-    opacity: 1;
   }
 }
