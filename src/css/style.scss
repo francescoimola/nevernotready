@@ -433,7 +433,7 @@ header {
   }
 }
 
-a.button {
+.button {
   display: inline-flex;
   width: max-content;
   padding-right: 5px;
@@ -758,6 +758,6 @@ p + .button {
 
   footer a:hover,
   footer a:focus-visible {
-    color: map.get($colors, links-subtle);
+    color: currentColor;
   }
 }
