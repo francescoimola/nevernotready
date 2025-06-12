@@ -560,7 +560,7 @@ footer {
 
   .logo {
       fill: map.get($colors, bg);
-      mix-blend-mode: soft-light;
+      mix-blend-mode:overlay;
     }
 
   .footer-content {
