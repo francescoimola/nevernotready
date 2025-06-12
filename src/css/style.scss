@@ -10,6 +10,7 @@ $perfect-fourth: 1.333;
 $unit: 0.25rem;
 $font-base: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI',
   Roboto, sans-serif;
+$transition-speed: 150ms;
 
 $colors: (
   bg: #f6f6f6,
@@ -179,9 +180,9 @@ p {
 
 a {
   color: currentColor;
-  text-decoration: underline;
+  text-decoration: calc($unit/3) underline map.get($colors, links);
   text-underline-offset: map.get($spacing, xs);
-  transition: all 50ms ease-in-out;
+  transition: all $transition-speed ease-in-out;
   &:focus {
     outline: auto;
   }
@@ -312,6 +313,7 @@ section {
 
 .testimonials {
   @include flex-col(map.get($spacing, sm));
+  margin-top: map.get($spacing, md);
   .quote {
     width: 100%;
     background-color: map.get($colors, bg-translucent);
@@ -347,32 +349,6 @@ section {
   }
 }
 
-.image-container {
-  position: relative;
-  display: block;
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  .overlay-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: map.get($colors, links);
-    color: map.get($colors, bg);
-    @include flex-col();
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-    z-index: 1;
-  }
-}
-
 .faq {
   h2 {
     @extend .light;
@@ -404,19 +380,24 @@ header {
       width: calc(map.get($spacing, 2xl) * 6);
       height: auto;
       fill: map.get($colors, links);
+      transition: all $transition-speed ease-in-out;
     }
   }
-  nav ul {
-    margin: 0;
-    list-style-type: none;
-    @include flex-col(map.get($spacing, xs));
-    color: map.get($colors, text-subtle);
-    padding: 0;
+  nav {
+    width: 4rem;
+    margin-right: 1rem;
+      ul {
+      margin: 0;
+      list-style-type: none;
+      @include flex-col(map.get($spacing, xs));
+      color: map.get($colors, text-subtle);
+      padding: 0;
 
-    a.active {
-      font-weight: 600;
-      text-decoration: underline;
-      text-decoration-style: wavy;
+      a.active {
+        font-weight: 600;
+        text-decoration: underline;
+        text-decoration-style: wavy;
+      }
     }
   }
 }
@@ -738,20 +719,21 @@ p + .button {
   }
 
   .projects-showcase section {
+    gap: map.get($spacing, md);
     > * {
       flex: 1 1 100%;
     }
   }
 
   .pad-sides {
-    padding: 0 map.get($spacing, md);
+    padding-right: map.get($spacing, md);
+    padding-left: map.get($spacing, md);
   }
 }
 
 @media (hover: hover) and (pointer: fine) {
   a:hover, a.active:hover, a.active:focus-visible,
   a:focus-visible {
-    text-decoration: underline;
     text-decoration-style: wavy;
     color: map.get($colors, links);
   }
@@ -760,4 +742,14 @@ p + .button {
   footer a:focus-visible {
     color: currentColor;
   }
+
+  header a svg{
+    &:hover{
+      filter: blur(2px);
+    }
+  }
+}
+
+@view-transition {
+  navigation: auto;
 }
