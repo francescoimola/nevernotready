@@ -180,7 +180,7 @@ p {
 
 a {
   color: currentColor;
-  text-decoration: calc($unit/3) underline map.get($colors, links);
+  text-decoration: calc($unit/($perfect-fourth*2)) underline currentColor;
   text-underline-offset: map.get($spacing, xs);
   transition: all $transition-speed ease-in-out;
   &:focus {
@@ -734,6 +734,7 @@ p + .button {
 @media (hover: hover) and (pointer: fine) {
   a:hover, a.active:hover, a.active:focus-visible,
   a:focus-visible {
+    text-decoration-color: map.get($colors, links);
     text-decoration-style: wavy;
     color: map.get($colors, links);
   }
@@ -741,6 +742,7 @@ p + .button {
   footer a:hover,
   footer a:focus-visible {
     color: currentColor;
+    text-decoration-color: currentColor;
   }
 
   header a svg{
