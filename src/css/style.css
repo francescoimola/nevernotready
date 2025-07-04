@@ -115,7 +115,6 @@ p:last-child {
 
 a {
   color: currentColor;
-  -webkit-text-decoration: 0.0833333333rem underline hsl(129, 100%, 19%);
   -webkit-text-decoration: 0.0937734434rem underline currentColor;
           text-decoration: 0.0937734434rem underline currentColor;
   text-underline-offset: 0.25rem;
