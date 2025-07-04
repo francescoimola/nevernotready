@@ -159,6 +159,7 @@ h6 {
   line-height: map.get($line-heights, tight);
   color: map.get($colors, text);
   text-rendering: optimizeLegibility;
+  text-wrap: balance;
 }
 
 h2 {
@@ -173,6 +174,8 @@ p {
   margin: 0 0 map.get($spacing, sm) 0;
   color: map.get($colors, text-subtle);
   text-rendering: optimizeSpeed;
+  text-wrap: pretty;
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -180,7 +183,7 @@ p {
 
 a {
   color: currentColor;
-  text-decoration: calc($unit/($perfect-fourth*2)) underline currentColor;
+  text-decoration: calc($unit/($perfect-fourth * 2)) underline currentColor;
   text-underline-offset: map.get($spacing, xs);
   transition: all $transition-speed ease-in-out;
   &:focus {
@@ -386,7 +389,7 @@ header {
   nav {
     width: 4rem;
     margin-right: 1rem;
-      ul {
+    ul {
       margin: 0;
       list-style-type: none;
       @include flex-col(map.get($spacing, xs));
@@ -450,7 +453,7 @@ ul.plain-list {
   min-height: 100vh;
   padding: calc(map.get($spacing, 2xl)) 0;
 
-  >img {
+  > img {
     pointer-events: none;
     position: absolute;
     object-fit: cover;
@@ -474,30 +477,31 @@ ul.plain-list {
   border-radius: map.get($spacing, xs);
   display: flex;
   flex-direction: column;
-  padding: map.get($spacing, xl);
+  align-items: flex-start;
+  padding: map.get($spacing, lg);
   border: $border-width solid map.get($colors, border);
+  overflow-wrap: break-word;
 
   & p {
     line-height: map.get($line-heights, tight);
     max-width: 75%;
     padding: map.get($spacing, sm) map.get($spacing, md);
     position: relative;
-    word-wrap: break-word;
     margin: 0.5rem 0;
-    width: fit-content;
     border: $border-width solid map.get($colors, border);
+    text-wrap: revert;
 
     &.from-me {
-      border-radius: map.get($spacing, sm) map.get($spacing, sm) 0
-        map.get($spacing, sm);
+      border-radius: map.get($spacing, md) map.get($spacing, md) 0
+        map.get($spacing, md);
       align-self: flex-end;
       background-color: map.get($colors, links);
       color: map.get($colors, bg);
     }
 
     &.from-them {
-      border-radius: map.get($spacing, sm) map.get($spacing, sm)
-        map.get($spacing, sm) 0;
+      border-radius: map.get($spacing, md) map.get($spacing, md)
+        map.get($spacing, md) 0;
       align-items: flex-start;
       background-color: map.get($colors, bg);
       color: map.get($colors, text);
@@ -520,7 +524,7 @@ footer {
   justify-content: space-between;
   gap: map.get($spacing, 2xl);
 
-  >img {
+  > img {
     pointer-events: none;
     position: absolute;
     object-fit: cover;
@@ -532,17 +536,18 @@ footer {
   }
 
   h2,
-    p,
-    a, span {
-      color: map.get($colors, bg-translucent);
-      margin: map.get($spacing, xs) 0 0 0;
-      font-size: map.get($font-sizes, base);
-    }
+  p,
+  a,
+  span {
+    color: map.get($colors, bg-translucent);
+    margin: map.get($spacing, xs) 0 0 0;
+    font-size: map.get($font-sizes, base);
+  }
 
   .logo {
-      fill: map.get($colors, bg);
-      mix-blend-mode:overlay;
-    }
+    fill: map.get($colors, bg);
+    mix-blend-mode: overlay;
+  }
 
   .footer-content {
     width: 100%;
@@ -619,7 +624,6 @@ footer {
       display: flex !important;
       font-family: $font-base !important;
       font-size: map.get($font-sizes, base) !important;
-      font-weight: bold !important;
       padding: map.get($spacing, sm) !important;
 
       strong {
@@ -732,7 +736,9 @@ p + .button {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  a:hover, a.active:hover, a.active:focus-visible,
+  a:hover,
+  a.active:hover,
+  a.active:focus-visible,
   a:focus-visible {
     text-decoration-color: map.get($colors, links);
     text-decoration-style: wavy;
@@ -745,8 +751,8 @@ p + .button {
     text-decoration-color: currentColor;
   }
 
-  header a svg{
-    &:hover{
+  header a svg {
+    &:hover {
       filter: blur(2px);
     }
   }
