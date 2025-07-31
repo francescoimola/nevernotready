@@ -9,8 +9,19 @@ permalink: "/faqs/"
 
 
 # Common questions
-Find answers to commonly asked questions about how I work
+Find answers to commonly asked questions about how I work, including ballpark fees, project communication and concessions.
 
+</section>
+
+<section class="max-width center pad-bottom faq">
+
+## Who's behind nevernotready
+
+I'm Francesco Imola, a designer and marketer from Kent, England.
+
+I drag busy businesses into the present with design and words that show who they've become, not who they wanted to be years ago. My work replaces their DIY fixes and makes it clear what they're really selling.
+
+I've previously worked with teams from [University of Greenwich](https://www.gre.ac.uk/las/design), [Mega Seating Plan](https://www.seatingplan.com/), and [Blueberry](https://blueberrycreatives.co.uk/), in both B2B and B2C enviroments.
 
 </section>
 
@@ -89,6 +100,30 @@ I'm committed to doing quality work, and meeting deadlines often hinges on on ho
 I'm flexible about how to keep in touch during a project. If you're worried about missing emails, or maybe you flinch at the very thought of following up on something that was said four emails ago, I got you.
 
 I can set up private Slack and Trello boards for real-time progress and communication at no extra cost. And if email works for you, great! Your project, your choice.
+
+</section>
+
+<section class="max-width center pad-bottom faq">
+
+## Why should I trust a generalist?
+
+Look, even I didn't trust people who openly claimed to be "generalists" at first! For years I worried I was spreading myself too thin. Would my love of all things design and marketing and building and creating make me useless?
+
+But somewhere along the way, reality hit: the industry needs generalists more than it likes to admit. And the inferred benefit is, because generalists don't have that one hyper-specialised talent to ram down your throat, they can help you find more holistic answers to you questions. Forget those "your SEO is broken, let me fix it" sort of conversations that leave you wondering what you've just agreed to.
+
+</section>
+
+<section class="max-width center pad-bottom faq">
+
+## Why nevernotready?
+
+Or better yet, why use "nevernotready" if I'm just a freelancer? I've given my business a name for a couple of reasons.
+
+I believe that the best way to show you're capable of creating a strong brand identity is to build one for yourself. Otherwise it's like being an architect with a dingy-looking office—doesn't inspire confidence. On top of that, a brand name also helps me keep work and life separate. It gives "freelancing" its own container.
+
+The word brings to mind conversations I've had with freelancers and business owners who would put off important but time-consuming work because they were too busy with the day-to-day (like looking after staff).
+
+They weren't ready. Ready to shout "this is us now!" from the rooftops. Ready to tell it like it is. Ready to pivot. So that's where I come in: I help them get ready.
 
 </section>
 

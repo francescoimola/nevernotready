@@ -1,0 +1,127 @@
+---
+layout: _base.njk
+title: Selected projects | nevernotready
+description: These people got too good for their old marketing. Thankfully, they eventually recognised it and decided to hire me.
+permalink: '/portfolio/'
+---
+
+{%- from "_project-card.njk" import projectCard -%}
+
+<section class="max-width center pad-bottom pad-top">
+	<h1>These people got too good for their old marketing</h1>
+    	<p style="text-wrap: balance">
+        	Thankfully, they eventually recognised it and decided to hire me. I helped them run campaigns they never had time for, refresh their website with
+        	zero headaches, and build marketing back-ends that wouldn't collapse if busy.
+        </p>
+</section>
+
+<section class="max-width center projects-showcase">
+      {{ projectCard(
+      role = "Web design, UX writing, creative direction",
+      description = "Here were all the right ingredients, special art workshops, real impact and top reviews. But the Make & Mind website wasn't telling that story so I gave its copy and design a complete overhaul. Currently in final production.",
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/make_and_mind_website_mockup_nnlbuj.png",
+        alt: "work-in-porgess mockups of the Make & Mind website",
+        title: "Make & Mind"
+      }
+    )}}
+    {{ projectCard(
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/folks_okskqh.png",
+        alt: "folks directory website screenshot",
+        title: "Folks Directory"
+      },
+      role = "Co-founder",
+      description = "Bootstrapping a directory of independent creatives and small businesses in the Folkestone, Kent: a community-driven project that helps local creative people find and support each other."
+    ) }}
+      {{ projectCard(
+      role = "SEO Writing",
+      description = "Wrote SEO content that connected teachers with software that saved them
+        hours of classroom prep time, while boosting search rankings and
+        solidifying the app's reputation as a top-rated edtech product.",
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/v1745572369/msp_nnncta.png",
+        alt: "a Mega Seating Plan blog post showing up in the first page of Google",
+        title: "Mega Seating Plan"
+      }
+    ) }}
+
+      {{ projectCard(
+      role = "Newsletter writing",
+      description = "A growing Substack newsletter where I give independent business owners
+        realistic alternatives to hustle culture through honest stories about my
+        own freelance struggles and successes.",
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/v1746052803/not_bad_with_quotes_tzqn5y.png",
+        alt: "Not Bad newsletter logo alongside comments from readers and screenshots of subject lines",
+        title: "Not Bad"
+      }
+    ) }}
+
+      {{ projectCard(
+      role = "Website writing",
+      description = "Turned the website of a holistic coach from a wordy Google Doc into an SEO-ready business card that got her practice moving forward with ease, all while being super simple to update.",
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/v1745571992/sarah_ql5qiz.png",
+        alt: "screenshot of Sarah Yuk Lan Brown's website alongside an extract of my writing",
+        title: "Sarah Yuk Lan Brown"
+      }
+    ) }}
+
+      {{ projectCard(
+      role = "Operations",
+      description = "Project managed the redesign of Blueberry's website and reengineered
+        internal operations—consolidating their tech stack and cutting marketing
+        costs by a third with no compromise to output.",
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/v1745841665/blueberry_website_kdo3jw.png",
+        alt: "screeenshot of Blueberry's new website",
+        title: "Blueberry"
+      }
+    ) }}
+
+      {{ projectCard(
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/blueberry_emails_y93apo.png",
+        alt: "screenshot of a newsletter edition alongside screenshot of subject line in an inbox",
+        title: "Blueberry"
+      },
+      role = "Email marketing",
+      description = "Redesigned, launched and regularly wrote two of Blueberry's newsletters, each offering bite-sized creative inspiration with a handpicked selection of talents, projects and trends."
+    ) }}
+
+      {{ projectCard(
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/v1745572127/tedx_greenwich_hqmpqe.png",
+        alt: "screenshot of the TEDx Universty Greenwich 2019 website",
+        title: "TEDx University of Greenwich"
+      },
+      role = "Landing page design",
+      description = "Built TEDx Greenwich's a landing page that simplified the attendee
+        experience and freed organizers to concentrate on the event instead of
+        answering logistical questions."
+    ) }}
+
+      {{ projectCard(
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/v1746050373/uog_ftv_marketing_dym5lo.png",
+        alt: "selection of pr stories, social media posts, and industry updates I created for the University of Greenwich",
+        title: "University of Greenwich"
+      },
+      role = "Content design and event facilitation",
+      description = "Kept students' spirit alive during COVID and elevated the reputation of Greenwich's
+        Film & TV programmes through targeted industry
+        updates, social media storytelling, and PR stories."
+    ) }}
+
+      {{ projectCard(
+      image = {
+        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/greenwich_galleries_design_g7uxs1.png",
+        alt: "poster for an exhibition at the University of Greenwich Galleries",
+        title: "University of Greenwich Galleries"
+      },
+      role = "Communications design",
+      description = "Designed and co-edited communications and assets for the University of Greenwich Galleries, including posters, social media posts, and press releases, to widen the reach of our exhibitions and events."
+    ) }}
+    </section>
+  </div>

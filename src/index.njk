@@ -5,224 +5,132 @@ description: Websites, copy, and SEO that doesn't read like a marketing textbook
 permalink: '/'
 ---
 
-{%- from "_project-card.njk" import projectCard -%}
+<img
+  src="https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/hpchar.svg_qx3rm2.svg"
+  alt="character in hot air balloon"
+  class="max-width center hero"
+  loading="lazy"
+  decoding="async"
+/>
 
-<section class="max-width center pad-bottom pad-top">
+<section class="max-width center pad-bottom">
   <h1>You've done the hard part.</h1>
   <p>
-    The business exists. And it works! But you've been so busy that your website
-    still thinks it's 2020 and your newsletter is thick with dust and cobwebs.
+    The business is OFF. THE. GROUND. And it works! But you've been so busy that
+    your website still thinks it's 2020 and your newsletter is thick with
+    cobwebs.
   </p>
-  <h2 class="light">Sounds familiar?</h2>
-  <p>
-    Those marketing campaigns you've been meaning to put some work into keep
-    inevitably falling to the bottom of your to-do list.
-  </p>
-  <p>
-    Your website, so ambitious and bold at first, now tells an old story... who you were, not who you've become. It's starting to undermine your expertise.
-  </p>
-  <h2 class="light">These are exactly the problems I help solve.</h2>
-  <p>
-    Schedule a free one-to-one consultation and let's see if your marketing is
-    holding your business back (and what to do about it).
-  </p>
-  <a
-    href="https://cal.com/francescoimola/intro"
-    class="button"
-    data-slideframe="true"
-    >Book a free consultation</a
-  ><small>20 minutes to see if we're right for each other.</small>
-</section>
-
-<section class="text-on-img-wrapper">
-  <img
-    src="https://res.cloudinary.com/dax6x2pto/image/upload/e_blur:2000,q_1,w_100/trees.png"
-    srcset="
-      https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_480,f_auto,q_auto/trees.png   480w,
-      https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_768,f_auto,q_auto/trees.png   768w,
-      https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_1024,f_auto,q_auto/trees.png 1024w,
-      https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_1440,f_auto,q_auto/trees.png 1440w
-    "
-    sizes="100vw"
-    alt=""
-    loading="lazy"
-    width="1440"
-    height="1080"
-    decoding="async"
-  />
-
-  <div class="max-width center">
-    <h2>Who this is for</h2>
-    <div class="imessage">
-      <p class="from-me no-wrap">What makes you think you're a good fit for us?</p>
-      <p class="from-them no-wrap">
-        Every project I work on has the same pattern. Say you're a consultant
-        whose services have evolved. A growing team with new talent. Or a
-        charity whose mission got sharper
-      </p>
-      <p class="from-me no-wrap">mmm, yeah?</p>
-      <p class="from-them no-wrap">
-        Way too often, the more you grow, the more the story you're telling lags
-        behind
-      </p>
-      <p class="from-me no-wrap">I mean sure, I'm with you but I'm busy running a business here</p>
-      <p class="from-them no-wrap">
-        Exactly! It's no one's fault, you're doing the work and marketing can't
-        always be the priority.
-      </p>
-      <p class="from-me no-wrap">So is it really that big a deal? &#x1F914;</p>
-      <p class="from-them no-wrap" style="margin-bottom: 0">
-        It starts to be if your site is chipping away at your credibility. If
-        you're losing users because your marketing's tired. Or you're
-        underselling your impact
-      </p>
-      <p class="from-them no-wrap">That's when you know you've got a problem</p>
-      <p class="from-me no-wrap"><i>typing...</i></p>
-    </div>
-  </div>
-</section>
-
-<div class="projects-showcase pad-bottom pad-sides" id="work">
-  <div>
-    <div class="max-width center">
-      <h2>These people got too good for their old marketing</h2>
-      <p style="text-wrap:balance">
-        Here are people that recognised this gap and finally decided to hire me.
-        They needed campaigns they never had time to create. Websites with zero
-        headaches. And marketing systems that wouldn't collapse if busy.
-      </p>
-    </div>
+  <h2 class="light">Does this sound familiar?</h2>
+  <ol>
+    <li>
+      Your website, once so bold and ambitious, now tells an old story... who
+      you were, not who you've become.
+    </li>
+    <li>
+      That newsletter you've been meaning to put some work into keeps inevitably
+      falling to the bottom of your to-do list.
+    </li>
+    <li>Your marketing is starting to undermine your expertise.</li>
+  </ol>
+  <div class="button-group" id="choiceButtons">
+    <button type="button" onclick="showField('yesField')">
+      Ouch, that might be me
+    </button>
+    <button type="button" class="secondary" onclick="showField('noField')">
+      Nope, you're way off
+    </button>
   </div>
 
-  <section class="pad-top">
-    {{ projectCard(
-      role = "Web design, UX writing, creative direction",
-      description = "Here were all the right ingredients, special art workshops, real impact and top reviews. But their website wasn't telling that story so I gave its copy and design a complete overhaul. Currently in final production.",
-      image = {
-        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/make_and_mind_website_mockup_nnlbuj.png",
-        alt: "work-in-porgress mockups of the Make & Mind website",
-        title: "Make & Mind"
-      }
-    ) }}
-    {{ projectCard(
-      role = "SEO Writing",
-      description = "Wrote SEO content that connected teachers with software that saved them
-        hours of classroom prep time, while boosting search rankings and
-        solidifying the app's reputation as a top-rated edtech product.",
-      image = {
-        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/v1745572369/msp_nnncta.png",
-        alt: "a Mega Seating Plan blog post showing up in the first page of Google",
-        title: "Mega Seating Plan"
-      }
-    ) }}
-
-    {# {{ projectCard(
-      image = {
-        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/folks_okskqh.png",
-        alt: "folks directory website screenshot",
-        title: "Folks Directory"
-      },
-      role = "Co-founder",
-      description = "Bootstrapping a directory of independent creatives and small businesses in the Folkestone, Kent: a community-driven project that helps local creative people find and support each other."
-    ) }} #}
-
-    {{ projectCard(
-      role = "Newsletter writing",
-      description = "A growing Substack newsletter where I give independent business owners
-        realistic alternatives to hustle culture through honest stories about my
-        own freelance struggles and successes.",
-      image = {
-        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/v1746052803/not_bad_with_quotes_tzqn5y.png",
-        alt: "Not Bad newsletter logo alongside comments from readers and screenshots of subject lines",
-        title: "Not Bad"
-      }
-    ) }}
-
-    {{ projectCard(
-      role = "Website writing",
-      description = "Turned the website of a holistic coach from a wordy Google Doc into an SEO-ready business card that got her practice moving forward with ease, all while being super simple to update.",
-      image = {
-        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/v1745571992/sarah_ql5qiz.png",
-        alt: "screenshot of Sarah Yuk Lan Brown's website alongside an extract of my writing",
-        title: "Sarah Yuk Lan Brown"
-      }
-    ) }}
-
-    {{ projectCard(
-      role = "Operations",
-      description = "Project managed the redesign of Blueberry's website and reengineered
-        internal operations—consolidating their tech stack and cutting marketing
-        costs by a third with no compromise to output.",
-      image = {
-        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/v1745841665/blueberry_website_kdo3jw.png",
-        alt: "screeenshot of Blueberry's new website",
-        title: "Blueberry"
-      }
-    ) }}
-
-    {{ projectCard(
-      image = {
-        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/blueberry_emails_y93apo.png",
-        alt: "screenshot of a newsletter edition alongside screenshot of subject line in an inbox",
-        title: "Blueberry"
-      },
-      role = "Email marketing",
-      description = "Redesigned, launched and regularly wrote two of Blueberry's newsletters, each offering bite-sized creative inspiration with a handpicked selection of talents, projects and trends."
-    ) }}
-
-    {{ projectCard(
-      image = {
-        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/v1745572127/tedx_greenwich_hqmpqe.png",
-        alt: "screenshot of the TEDx Universty Greenwich 2019 website",
-        title: "TEDx University of Greenwich"
-      },
-      role = "Landing page design",
-      description = "Built TEDx Greenwich's a landing page that simplified the attendee
-        experience and freed organizers to concentrate on the event instead of
-        answering logistical questions."
-    ) }}
-
-    {{ projectCard(
-      image = {
-        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/v1746050373/uog_ftv_marketing_dym5lo.png",
-        alt: "selection of pr stories, social media posts, and industry updates I created for the University of Greenwich",
-        title: "University of Greenwich"
-      },
-      role = "Content design and event facilitation",
-      description = "Kept students' spirit alive during COVID and elevated the reputation of Greenwich's
-        Film & TV programmes through targeted industry
-        updates, social media storytelling, and PR stories."
-    ) }}
-
-    {{ projectCard(
-      image = {
-        src: "https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/greenwich_galleries_design_g7uxs1.png",
-        alt: "poster for an exhibition at the University of Greenwich Galleries",
-        title: "University of Greenwich Galleries"
-      },
-      role = "Communications design",
-      description = "Designed and co-edited communications and assets for the University of Greenwich Galleries, including posters, social media posts, and press releases, to widen the reach of our exhibitions and events."
-    ) }}
-  </section>
-</div>
-
-{%- include "_testimonials.html" -%}
-
-<div class="pad-top pad-bottom">
-  <section class="pad-top max-width center">
-    <h2 class="pad-top">Join Not Bad</h2>
+  <section id="yesField" style="display: none" class="pop">
+    <h2>This stuff’s hard, but that’s exactly why I’m here.</h2>
     <p>
-      The twice-monthly mailing list where independent business owners get
-      realistic alternatives to hustle culture.
+      Schedule a free one-to-one and let's see if your marketing is holding your
+      business back (and what to do about it).
+    </p>
+    <a
+      href="https://calendar.app.google/bHUuF8ir5oacMvLb6"
+      class="ext-link"
+      data-slideframe="true"
+      >Book a free consultation</a
+    >
+    <small style="display: block"
+      >20 minutes to see if we're right for each other.</small
+    >
+  </section>
+
+  <section id="noField" style="display: none" class="pop">
+    <h2>Not quite right? I'm not offended</h2>
+    <p>
+      May your website always be sharp and your to-do list short. Still glad you
+      came by. Feel free to go to leave now, ciao 👋
+    </p>
+    <p>
+      Still here? Fine, here's something to pass the time: go sign up to my
+      newsletter! It's full of personal lessons, useful links, and encouragement
+      for folks (like you, like me) running a small business.
     </p>
     <a
       href="https://notbadnotbad.substack.com/"
-      class="button"
+      class="ext-link"
       target="_blank"
       rel="noopener"
+      >Lemme read it first</a
     >
-      <span>Lemme read it first</span>
-    </a>
-    <small>Read by 1,400+ people monthly</small>
+    <small style="display: block">100% free and proudly independent</small>
   </section>
-</div>
+</section>
+
+<section class="max-width center pad-bottom">
+  <h2 class="light">Why here, why now</h2>
+  <p>
+    Past the 12k active satellites orbiting Earth, somewhere out there in the interstellar shorelessness, there's your
+    <i>North Star</i>. You've walked this far with it on your compass and there's been immense growth since.
+  </p>
+  <p>Everything about your business is in place now.</p>
+  <p>Or so it seems.</p>
+  <p>Yet even with all the hard work. All the luck on your side. While you've been on the frontline building on your foundations, kneading dough and baking those loaves. Even then, your story has been lagging behind—most likely.</p>
+  <p>Your website slowly chipping away at your hard-earned credibility as you spent most of your marketing budget showering your social media followers with hit and miss content like there's no tomorrow. And your newsletter... <i>which</i> newsletter?</p>
+  <p>It might be hard to put a finger on how, or why. But we can turn this around.</p>
+  <p>There's no formula for garanteed success (we both know it), but there are ways to increase your odds and I know a couple. Let me take care of them.</p>
+  <a
+      href="/portfolio"
+      class="link"
+      target="_blank"
+      rel="noopener"
+      >Browse selected projects</a
+    >
+</section>
+
+{%- include "_testimonials.html" -%}
+
+<figure class="max-width center pad-bottom pad-top">
+    <img
+            src="https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/francesco_kngh32.png"
+            class="give-border"
+            alt="close up of Francesco"
+            loading="lazy"
+            decoding="async"
+          />
+        <figcaption>I know it helps to put a face to the name. This is me, hello!</figcaption>
+    </figure>
+
+<script defer>
+  function showField(fieldId) {
+    var yes = document.getElementById('yesField');
+    var no = document.getElementById('noField');
+    var btns = document.getElementById('choiceButtons');
+    yes.style.display = 'none';
+    no.style.display = 'none';
+    btns.style.overflow = 'hidden';
+    btns.style.opacity = '0';
+    setTimeout(function () {
+      btns.style.height = '0px';
+    }, 300);
+    setTimeout(function () {
+      btns.parentNode.removeChild(btns);
+      var section = document.getElementById(fieldId);
+      section.style.display = 'block';
+      section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 700);
+  }
+</script>

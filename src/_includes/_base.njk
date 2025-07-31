@@ -16,7 +16,7 @@
   </head>
   <body>
     {%- include "_header.njk" -%}
-    <main>
+    <main class="{% if page.url != '/' %}pad-top{% endif %}">
       {{ content | safe }}
     </main>
     {%- include "_footer.njk" -%}
