@@ -1,60 +1,56 @@
-<div class="g-wrapper">
-  <header role="banner" class="max-width center pad-top">
-    <div>
-      <a
-        href="/"
-        class="{% if page.url == '/' %}active{% endif %}"
-        aria-label="home"
-      >
-        {%- include "_logo.html" -%}
-      </a>
-      <small>openness, wit, and good design</small>
-    </div>
-    <nav aria-label="Main navigation">
-      <ul>
-        <li>
-          <a
-            href="/"
-            class="{%- if page.url == '/' -%} active {%- endif -%}"
-            >Home</a
-          >
-        </li>
-        <li>
-          <a
-            href="/portfolio"
-            class="{%- if page.url.startsWith('/portfolio') -%} active {%- endif -%}"
-            >Portfolio</a
-          >
-        </li>
-        <li>
-          <a
-            href="/websites"
-            class="{%- if page.url.startsWith('/websites') -%} active {%- endif -%}"
-            >Websites</a
-          >
-        </li>
-        <li>
-          <a
-            href="/emails"
-            class="{%- if page.url.startsWith('/emails') -%} active {%- endif -%}"
-            >Emails</a
-          >
-        </li>
-        <li>
-          <a
-            href="/faqs"
-            class="{%- if page.url.startsWith('/faqs') -%} active {%- endif -%}"
-            >FAQ</a
-          >
-        </li>
-        <li>
-          <a
-            href="/contact"
-            class="{%- if page.url.startsWith('/contact') -%} active {%- endif -%}"
-            >Contact</a
-          >
-        </li>
-      </ul>
-    </nav>
-  </header>
-</div>
+<header role="banner" class="max-width center pad-top">
+	<div>
+		<a
+			href="/"
+			class="{% if page.url == '/' %}active{% endif %}"
+			aria-label="home"
+		>
+			{%- include "_logo.html" -%}
+		</a>
+		<small>openness, wit, and good design</small>
+	</div>
+	<nav aria-label="Main navigation">
+		<ul>
+			<li class="no-wrap">
+				<a href="/" class="{%- if page.url == '/' -%} active {%- endif -%}"
+					>Home</a
+				>
+			</li>
+			<li class="no-wrap">
+				<a
+					href="/portfolio"
+					class="{%- if page.url.startsWith('/portfolio') -%} active {%- endif -%}"
+					>Portfolio</a
+				>
+			</li>
+			<li class="no-wrap">
+				<a
+					href="/websites"
+					class="{%- if page.url.startsWith('/websites') -%} active {%- endif -%}"
+					>Websites</a
+				>
+			</li>
+			<li class="no-wrap">
+				<a
+					href="/emails"
+					class="{%- if page.url.startsWith('/emails') -%} active {%- endif -%}"
+					>Emails</a
+				>
+			</li>
+			<li class="no-wrap">
+				<a
+					href="/faqs"
+					class="{%- if page.url.startsWith('/faqs') -%} active {%- endif -%}"
+					>FAQ</a
+				>
+			</li>
+			<li class="no-wrap">
+				<a
+					href="/contact"
+					class="{%- if page.url.startsWith('/contact') -%} active {%- endif -%}"
+					>Contact</a
+				>
+			</li>
+		</ul>
+	</nav>
+</header>

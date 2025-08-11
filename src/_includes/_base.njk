@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>{{ title }}</title>
-    {%- include "_meta.html" -%}
-    <!-- Resource hints -->
-    <link rel="preload" as="style" href="{{ '/css/style.css' | url }}" />
-    <link
-      rel="preload"
-      href="/fonts/InterVariable.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
-  </head>
-  <body>
-    {%- include "_header.njk" -%}
-    <main class="{% if page.url != '/' %}pad-top{% endif %}">
-      {{ content | safe }}
-    </main>
-    {%- include "_footer.njk" -%}
-    <script src="/assets/app.min.js" defer></script>
-  </body>
+	<head>
+		<title>{{ title }}</title>
+		{%- include "_meta.html" -%}
+		<!-- Resource hints -->
+		<link rel="preload" as="style" href="{{ '/css/style.css' | url }}" />
+		<link
+			rel="preload"
+			href="/fonts/InterVariable.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
+	</head>
+	<body>
+				{%- include "_header.njk" -%}
+				<main class="{% if page.url != '/' %}pad-top{% endif %}">
+					{{ content | safe }}
+				</main>
+			{%- include "_footer.njk" -%}
+		<script src="/assets/app.min.js" defer></script>
+	</body>
 </html>

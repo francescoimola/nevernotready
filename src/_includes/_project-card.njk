@@ -18,7 +18,7 @@
     <span class="role">{{ role }}</span>
   {% endif %}
   {% if description %}
-    <span class="description">{{ description | safe }}</span>
+    <span class="description prevent-orphan">{{ description | safe }}</span>
   {% endif %}
 </div>
 {%- endmacro -%}
