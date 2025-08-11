@@ -1,20 +1,95 @@
 @charset "UTF-8";
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, .light, .faq h2, .faq .light, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, ul.plain-list, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+.light,
+.faq h2,
+.faq .light,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+ul.plain-list,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -23,15 +98,28 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, ul.plain-list {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+ul.plain-list {
   display: block;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
-blockquote:before, blockquote:after, q:before, q:after {
+blockquote:before, blockquote:after,
+q:before,
+q:after {
   content: none;
 }
 
@@ -78,7 +166,15 @@ body *:focus-visible {
   outline-offset: 3.236px;
 }
 
-h1, h2, .light, .faq h2, .faq .light, h3, h4, h5, h6 {
+h1,
+h2,
+.light,
+.faq h2,
+.faq .light,
+h3,
+h4,
+h5,
+h6 {
   margin: 0 0 0.5rem;
   font-weight: 600;
   font-size: 1.3rem;
@@ -123,6 +219,27 @@ a:focus {
 a h2, a .light, a .faq h2, .faq a h2 {
   color: inherit;
 }
+a[href^=tel] {
+  color: inherit;
+  text-decoration: none;
+}
+a[href^=http] {
+  display: inline-block;
+  width: -moz-max-content;
+  width: max-content;
+  padding-right: 5px;
+  justify-content: center;
+  border: 1.618px solid transparent;
+  cursor: pointer;
+}
+a[href^=http]::after {
+  content: " ↗";
+  display: inline-block;
+  inset: 0.1875468867rem 0.25rem auto auto;
+  width: 0.75rem;
+  height: 0.75rem;
+  text-decoration: none;
+}
 
 small {
   font-size: 0.875rem;
@@ -138,12 +255,14 @@ b {
   font-weight: 600;
 }
 
-ul, ol {
+ul,
+ol {
   margin: 0 0 0 1rem;
   padding: 0;
   color: color-mix(in srgb, #061308 80%, #f6f6f6);
 }
-ul li:last-child, ol li:last-child {
+ul li:last-child,
+ol li:last-child {
   margin-bottom: 0.5rem;
 }
 
@@ -160,7 +279,8 @@ li {
   margin: 0;
 }
 
-svg, img {
+svg,
+img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -168,7 +288,8 @@ svg, img {
   image-rendering: crisp-edges;
   opacity: 0.99;
 }
-svg.give-border, img.give-border {
+svg.give-border,
+img.give-border {
   border: 1.618px solid color-mix(in srgb, #f6f6f6 75%, #061308);
   border-radius: 0.25rem;
 }
@@ -200,7 +321,9 @@ details > summary h2, details > summary .light, details > summary .faq h2, .faq 
   display: inline;
 }
 
-main, section, ul.plain-list {
+main,
+section,
+ul.plain-list {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -294,7 +417,13 @@ footer section, footer ul.plain-list {
   align-items: flex-start;
   color: color-mix(in srgb, #f6f6f6 97%, #061308);
 }
-footer section h2, footer ul.plain-list h2, footer section .light, footer ul.plain-list .light, footer section .faq h2, .faq footer section h2, footer section p, footer ul.plain-list p, footer section a, footer ul.plain-list a, footer section span, footer ul.plain-list span {
+footer section h2, footer ul.plain-list h2, footer section .light, footer ul.plain-list .light, footer section .faq h2, .faq footer section h2,
+footer section p,
+footer ul.plain-list p,
+footer section a,
+footer ul.plain-list a,
+footer section span,
+footer ul.plain-list span {
   margin: 0.25rem 0 0;
   font-size: 0.875rem;
   color: color-mix(in srgb, #f6f6f6 97%, #061308);
@@ -310,7 +439,9 @@ footer section .f-innergroup, footer ul.plain-list .f-innergroup {
   justify-content: flex-start;
   align-items: stretch;
 }
-footer section .f-innergroup h2, footer ul.plain-list .f-innergroup h2, footer section .f-innergroup .light, footer ul.plain-list .f-innergroup .light, footer section .f-innergroup a, footer ul.plain-list .f-innergroup a {
+footer section .f-innergroup h2, footer ul.plain-list .f-innergroup h2, footer section .f-innergroup .light, footer ul.plain-list .f-innergroup .light,
+footer section .f-innergroup a,
+footer ul.plain-list .f-innergroup a {
   margin: 0;
   padding: 0;
 }
@@ -389,7 +520,8 @@ button.secondary:hover, button.secondary:focus-visible {
   font-size: revert;
 }
 
-.whatyouget h2, .whatyouget .light, .whatyouget div {
+.whatyouget h2, .whatyouget .light,
+.whatyouget div {
   margin-bottom: 1.5rem;
 }
 .whatyouget div:last-of-type {
@@ -556,23 +688,6 @@ button.secondary:hover, button.secondary:focus-visible {
 
 .light, .faq h2, .faq .light {
   color: color-mix(in srgb, #061308 65%, #f6f6f6);
-}
-
-.ext-link {
-  display: inline-flex;
-  width: -moz-max-content;
-  width: max-content;
-  padding-right: 5px;
-  justify-content: center;
-  border: 1.618px solid transparent;
-  cursor: pointer;
-}
-.ext-link::after {
-  content: " ↗";
-  position: static;
-  inset: 0.1875468867rem 0.25rem auto auto;
-  width: 0.75rem;
-  height: 0.75rem;
 }
 
 ul.plain-list {
