@@ -47,14 +47,13 @@ Here is how the scale of a project affects rates:
 
 ## Do you offer concessions? {#concessions}
 
-I understand project fees can be a lot to take in. Rest assured, most of the work I do is carried through to generate returns for your business. This means the result should make you money, rather than cost you money, and will typically pay for itself.
+I understand project fees can be a lot to take in but rest assured, the work I do is almost always carried through to generate returns for your business. This means the result should make you money, rather than cost you money, and will typically pay for itself.
 
-I'm always open to discussing options and finding a pricing structure that fits, especially for businesses engaged in social justice with tighter budgets. And if you're struggling financially, I'd be happy to chat payment plans, whatever the nature of your business.
+I'm always open to discussing options and finding a pricing structure that fits, especially for businesses engaged in social and environmental justice with tighter budgets. And if you're struggling financially, I'm happy to chat payment plans, whatever the nature of your business.
 
-Below are some of the discounts I offer to all clients:
+Below are some of the non-stackable discounts I offer to all clients:
 
-- Split it in 3: All invoices over £750 can be paid in 3 easy instalments at 0% interest.
-- Pay on time: Get a 5% discount is available for payments made within 5 days of the invoice date.
+- Split it in 3: All invoices over £500 can be paid in 3 easy instalments at 0% interest.
 - Pay early: Get a 10% discount if you pay your invoice in full before the work is carried out.
 
 </section>
@@ -107,9 +106,9 @@ I can set up private Slack and Trello boards for real-time progress and communic
 
 ## Why should I trust a generalist?
 
-Look, even I didn't trust people who openly claimed to be "generalists" at first! For years I worried I was spreading myself too thin. Would my love of all things design and marketing and building and creating make me useless?
+Look, at first even I didn't trust people who openly claim to be "generalists". Growing up, everyone told me to specialise, find a niche, and get great at it. But I didn't do that. And so for years I worried I was spreading myself too thin. Would my love of all things design and marketing and building and creating make me useless?
 
-But somewhere along the way, reality hit: the industry needs generalists more than it likes to admit. And the inferred benefit is, because generalists don't have that one hyper-specialised talent to ram down your throat, they can help you find more holistic answers to you questions. Forget those "your SEO is broken, let me fix it" sort of conversations that leave you wondering what you've just agreed to.
+Somewhere along the way, reality hit: the industry needs generalists more than it likes to admit. And the inferred benefit is, because as a marketing generalist I don't have that one hyper-specialised talent to ram down your throat, I can help you find more holistic answers to your questions.
 
 </section>
 
