@@ -1,8 +1,4 @@
 @charset "UTF-8";
-/*!
- * Main Stylesheet
- * Author: Francesco Imola
- */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -48,6 +44,16 @@ table {
   border-spacing: 0;
 }
 
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
 html {
   font-size: 100%;
   height: 100%;
@@ -62,12 +68,11 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden scroll;
-  font-family: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: clamp(0.8rem, 1.1vw, 1.2rem);
+  font-size: clamp(0.875rem, 1.1vw, 1.2rem);
   font-weight: 400;
   line-height: 1.6665;
   letter-spacing: -0.015em;
-  font-feature-settings: "ss01" 1, "ss03" 1;
+  font-feature-settings: "ss01" 1, "ss03" 1, "cv10" 1, "cv05" 1, "cv06" 1, "cv08" 1, "cv11" 1;
   font-optical-sizing: auto;
   color: hsl(129, 52%, 5%);
   background: #f6f6f6;
@@ -77,20 +82,6 @@ body *:focus-visible {
   outline-offset: 3.236px;
 }
 
-@font-face {
-  font-family: "Inter Variable";
-  src: url("/fonts/InterVariable.woff2") format("woff2 supports variations"), url("/fonts/InterVariable.woff2") format("woff2-variations");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Inter Variable";
-  src: url("/fonts/InterVariable-Italic.woff2") format("woff2 supports variations"), url("/fonts/InterVariable-Italic.woff2") format("woff2-variations");
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
 h1, h2, .light, .faq h2, .faq .light, h3, h4, h5, h6 {
   margin: 0 0 0.5rem;
   font-weight: 600;
@@ -138,7 +129,7 @@ a h2, a .light, a .faq h2, .faq a h2 {
 }
 
 small {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: color-mix(in srgb, #061308 80%, #f6f6f6);
 }
 
@@ -204,7 +195,7 @@ figure {
 }
 figure figcaption {
   margin-top: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 details > summary {
@@ -261,7 +252,7 @@ header {
 header > div span {
   display: block;
   margin-top: 0.5rem;
-  color: color-mix(in srgb, #061308 60%, #f6f6f6);
+  color: color-mix(in srgb, #061308 65%, #f6f6f6);
 }
 header a svg {
   width: 12rem;
@@ -273,7 +264,7 @@ header a svg {
 }
 header nav {
   border-bottom: 1.618px solid color-mix(in srgb, #f6f6f6 75%, #061308);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 header nav ul {
   display: flex;
@@ -310,7 +301,7 @@ footer section, footer ul.plain-list {
 }
 footer section h2, footer ul.plain-list h2, footer section .light, footer ul.plain-list .light, footer section .faq h2, .faq footer section h2, footer section p, footer ul.plain-list p, footer section a, footer ul.plain-list a, footer section span, footer ul.plain-list span {
   margin: 0.25rem 0 0;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: color-mix(in srgb, #f6f6f6 97%, #061308);
 }
 footer section .logo, footer ul.plain-list .logo {
@@ -336,7 +327,7 @@ button {
   background: #00610f;
   color: #f6f6f6;
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   text-align: inherit;
   word-break: break-word;
   box-shadow: none;
@@ -569,7 +560,7 @@ button.secondary:hover, button.secondary:focus-visible {
 }
 
 .light, .faq h2, .faq .light {
-  color: color-mix(in srgb, #061308 60%, #f6f6f6);
+  color: color-mix(in srgb, #061308 65%, #f6f6f6);
 }
 
 .ext-link {
@@ -619,7 +610,7 @@ p + .link {
     text-decoration: underline;
   }
   header a svg:hover {
-    outline: 0.809px solid color-mix(in srgb, #061308 60%, #f6f6f6);
+    outline: 0.809px solid color-mix(in srgb, #061308 65%, #f6f6f6);
     outline-offset: 3.236px;
     border-radius: 0.25rem;
   }
@@ -640,7 +631,7 @@ p + .link {
     max-width: 95%;
   }
   button {
-    font-size: unset;
+    font-size: 0.875rem;
   }
   header nav ul {
     gap: 0.809rem;
