@@ -310,6 +310,14 @@ a {
     border: $border-width solid transparent;
     cursor: pointer;
 
+    &:not(.unpadded) {
+      margin-top: map.get($spacing, sm);
+    }
+
+    + small {
+      margin-top: map.get($spacing, sm);
+    }
+
     &::after {
       content: '\00a0 ↗';
       display: inline-block;
@@ -647,15 +655,6 @@ button {
       @include flex(row, map.get($spacing, md));
       margin-top: map.get($spacing, md);
 
-      svg {
-        display: block;
-        width: auto;
-        height: 100%;
-        flex: 1 1 10%;
-        border: calc($border-width/2) solid map.get($colors, border);
-        border-radius: map.get($spacing, xs);
-      }
-
       .credit {
         @include flex(column, map.get($spacing, xs));
         flex: 1 1 100%;
@@ -820,16 +819,6 @@ ul.plain-list {
   margin-left: 0;
   color: map.get($colors, text-subtle);
   list-style: none;
-}
-
-p + .ext-link,
-p + .link {
-  margin-top: map.get($spacing, sm);
-}
-
-.ext-link + small,
-.link + small {
-  margin-top: map.get($spacing, sm);
 }
 
 // ===================================

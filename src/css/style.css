@@ -232,6 +232,12 @@ a[href^=http] {
   border: 1.618px solid transparent;
   cursor: pointer;
 }
+a[href^=http]:not(.unpadded) {
+  margin-top: 0.5rem;
+}
+a[href^=http] + small {
+  margin-top: 0.5rem;
+}
 a[href^=http]::after {
   content: " ↗";
   display: inline-block;
@@ -555,14 +561,6 @@ button.secondary:hover, button.secondary:focus-visible {
   gap: 1rem;
   margin-top: 1rem;
 }
-.testimonials .quote > div svg {
-  display: block;
-  width: auto;
-  height: 100%;
-  flex: 1 1 10%;
-  border: 0.809px solid color-mix(in srgb, #f6f6f6 75%, #061308);
-  border-radius: 0.25rem;
-}
 .testimonials .quote > div .credit {
   display: flex;
   flex-direction: column;
@@ -695,16 +693,6 @@ ul.plain-list {
   margin-left: 0;
   color: color-mix(in srgb, #061308 80%, #f6f6f6);
   list-style: none;
-}
-
-p + .ext-link,
-p + .link {
-  margin-top: 0.5rem;
-}
-
-.ext-link + small,
-.link + small {
-  margin-top: 0.5rem;
 }
 
 @media (hover: hover) and (pointer: fine) {
