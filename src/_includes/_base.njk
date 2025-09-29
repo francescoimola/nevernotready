@@ -1,19 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>{{ title }}</title>
-		{%- include "_meta.html" -%}
-		<link rel="preload" as="style" href="{{ '/css/style.css' | url }}" />
-		<link rel="preconnect" href="https://rsms.me/">
-		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-		<link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
-	</head>
-	<body>
-				{%- include "_header.njk" -%}
-				<main class="{% if page.url != '/' %}pad-top{% endif %}">
-					{{ content | safe }}
-				</main>
-			{%- include "_footer.njk" -%}
-		<script src="/assets/app.min.js" defer></script>
-	</body>
+  {% include "_head.njk" %}
+  <body class="index">
+    <div class="split-container">
+      <section class="column">
+		{% if page.url == '/'%}
+			<h1 class="welcome-header">
+			Things with pixels and words made by
+			<i><a href="/">Francesco Imola</a></i> from a seaside town in Kent.
+			</h1>
+			<div><a href="/wayfinding">Wayfinding</a>, <a href="/colophon">Colophon</a></div>
+		{% else %}
+			<h1 class="welcome-header"><a href="/">← Back</a></i></h1>
+		{% endif %}
+      </section>
+
+	  {% if page.url == '/' %}
+      <section class="column">
+        <a href="/hello" class="button column card">
+          <h1 class="welcome-header">Services</h1>
+          <p>Web design, copy and email marketing</p>
+        </a>
+      </section>
+
+      <section class="column ">
+        <a href="/playground" class="button column card">
+          <h1 class="welcome-header">Playground</h1>
+          <p>My projects and writing</p>
+        </a>
+      </section>
+
+      {% elif page.url != '/wayfinding'%}
+
+      <section class="column wayfinding">
+        <a href="/hello" class="welcome-header card">About my business</a>
+        <a href="/websites" class="welcome-header card">Web Design</a>
+        <a href="/emails" class="welcome-header card">Email Marketing</a>
+        <a href="/playground" class="welcome-header card">Art and personal projects</a>
+        <a href="/contact" class="welcome-header card">Get in touch</a>
+      </section>
+
+	  {% else %}
+
+	  <section class="column wayfinding">
+		<a href="/hello" class="welcome-header card">About my business</a>
+		<a href="/websites" class="welcome-header card">Web Design</a>
+		<a href="/emails" class="welcome-header card">Email Marketing</a>
+		<a href="/playground" class="welcome-header card">Art and personal projects</a>
+		<a href="/contact" class="welcome-header card">Get in touch</a>
+	  </section>
+
+      {% endif %}
+    </div>
+  </body>
 </html>

@@ -1,5 +1,5 @@
 ---
-layout: _base.njk
+layout: _base-hello.njk
 title: About | nevernotready
 description: Everything you need to know about me and my work.
 permalink: "/faqs/"
