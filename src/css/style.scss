@@ -706,6 +706,7 @@ button {
 .button-group {
   @include flex(row, map.get($spacing, sm));
   margin-top: map.get($spacing, md);
+  flex-wrap: wrap;
   justify-content: start;
   align-items: stretch;
   overflow: hidden;
@@ -982,6 +983,14 @@ ul.plain-list {
     }
   }
 
+  body.split-screen {
+    padding-top: map.get($spacing, lg);
+  }
+
+  header {
+    padding-bottom: map.get($spacing, lg);
+  }
+
   // Hide desktop nav on mobile
   .nav-desktop {
     display: none;
@@ -991,6 +1000,11 @@ ul.plain-list {
   .nav-mobile {
     display: block;
     padding-top: map.get($spacing, md);
+  }
+
+  nav {
+    padding: map.get($spacing, sm) map.get($spacing, sm) 0 0;
+    border-top: $border-width solid map.get($colors, border);
   }
 }
 
@@ -1003,11 +1017,6 @@ ul.plain-list {
     max-width: 95%;
   }
 
-  // Ensures 14px minimum
-  header nav ul {
-    gap: calc(map.get($spacing, sm) * $golden-ratio);
-  }
-
   .projects-showcase {
     gap: map.get($spacing, md);
 
@@ -1015,6 +1024,14 @@ ul.plain-list {
       flex: 1 1 100%;
     }
   }
+
+  nav {
+    width: 100%;
+    ul {
+    gap: calc(map.get($spacing, sm));
+    font-size: calc($font-base / 1.15);
+  }
+}
 }
 
 // ===================================
