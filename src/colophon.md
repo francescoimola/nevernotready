@@ -1,6 +1,6 @@
 ---
 layout: _base.njk
-title: Colophon - {{ pkg.author }}
+title: Colophon - Francesco Imola
 description: Everything you need to know about this website
 permalink: "/colophon/"
 ---

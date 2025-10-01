@@ -1,6 +1,6 @@
 ---
 layout: _base.njk
-title: Wayfinding - {{ pkg.author }}
+title: Wayfinding - Francesco Imola
 description: Where everything is
 permalink: '/wayfinding/'
 navtitle: Wayfinding

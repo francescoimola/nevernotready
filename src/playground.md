@@ -1,6 +1,6 @@
 ---
 layout: _base.njk
-title: Playground - {{ pkg.author }}
+title: Playground - Francesco Imola
 description: The playground is getting a fresh coat of paint
 permalink: "/playground/"
 navtitle: Playground

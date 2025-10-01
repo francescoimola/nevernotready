@@ -1,6 +1,6 @@
 ---
 layout: _base.njk
-title: FAQs - {{ pkg.author }}
+title: FAQs - Francesco Imola
 description: Everything you need to know about me and my work.
 permalink: "/faqs/"
 navtitle: FAQs
