@@ -64,6 +64,8 @@ main,
 section {
   @include flex;
   width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
   justify-content: flex-start;
   align-content: start;
   flex-wrap: nowrap;
@@ -77,6 +79,10 @@ section {
   padding-inline: clamp(0.5rem, 3vw, 4rem);
   box-sizing: border-box;
   align-items: flex-start;
+
+  > * {
+    min-width: 0;
+  }
 
   header {
     position: sticky;

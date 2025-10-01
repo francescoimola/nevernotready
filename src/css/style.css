@@ -280,6 +280,7 @@ ol li:last-child {
 
 ol {
   list-style: decimal;
+  padding-left: 0.25rem;
 }
 ol li {
   display: list-item;
@@ -755,6 +756,11 @@ button.secondary:hover, button.secondary:focus-visible {
   border: 1.618px solid color-mix(in srgb, #f9f3f3 75%, #061308);
   border-radius: 0.25rem;
 }
+@media only screen and (max-width: 480px) {
+  .testimonials .quote {
+    padding: 1rem;
+  }
+}
 .testimonials .quote > div {
   display: flex;
   flex-direction: row;
@@ -949,10 +955,6 @@ ul.plain-list {
   margin-left: 0;
   color: color-mix(in srgb, #061308 80%, #f9f3f3);
   list-style: none;
-}
-
-.center {
-  margin: 0 auto;
 }
 
 @view-transition {

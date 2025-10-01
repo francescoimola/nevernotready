@@ -90,6 +90,10 @@
     border: $border-width solid map.get($colors, border);
     border-radius: map.get($spacing, xs);
 
+    @media only screen and (max-width: map.get($breakpoints, sm)) {
+      padding: map.get($spacing, md);
+    }
+
     >div {
       @include flex(row, map.get($spacing, md));
 

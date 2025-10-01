@@ -52,6 +52,8 @@ p {
   color: map.get($colors, text-subtle);
   text-rendering: optimizeSpeed;
   text-wrap: pretty;
+  overflow-wrap: break-word;
+  word-break: break-word;
 
   &:last-child {
     margin-bottom: 0;
@@ -88,7 +90,7 @@ a {
 
   &[href^='http'], &[href^='mailto'] {
     display: inline-block;
-    width: max-content;
+    max-width: 100%;
     padding-right: 5px;
     justify-content: center;
     border: $border-width solid transparent;
@@ -135,6 +137,7 @@ ol {
 
 ol {
   list-style: decimal;
+  padding-left: map.get($spacing, xs);
 
   li {
     display: list-item;
