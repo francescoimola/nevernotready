@@ -17,10 +17,7 @@ The design was drafted directly on the webpage using VS Code, with help from Cla
 
 This website was previously two websites, everything business-related used to sit at nevernotready.club, and the rest at francescoimola.com. I have since recognised the value of my multidisciplnary practice and have redesigned this site to accomodate more of what I do and have to share.
 
-## Typography
-
-Fonts in use:
-
+## Fonts in use
 [Inter by Rasmus Anderssons](https://rsms.me/inter/) <br>For titles, headings and body text
 
 [Instrument Serif by Fuenzalida, Egstad, Hooge, and De Caluwé](https://github.com/Instrument/instrument-serif) <br>For italic text

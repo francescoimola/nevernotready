@@ -51,9 +51,6 @@ p {
   margin: 0 0 map.get($spacing, md) 0;
   color: map.get($colors, text-subtle);
   text-rendering: optimizeSpeed;
-  text-wrap: pretty;
-  overflow-wrap: break-word;
-  word-break: break-word;
 
   &:last-child {
     margin-bottom: 0;

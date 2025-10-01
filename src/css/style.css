@@ -205,7 +205,6 @@ p {
   margin: 0 0 1rem 0;
   color: color-mix(in srgb, #061308 80%, #f9f3f3);
   text-rendering: optimizeSpeed;
-  text-wrap: pretty;
 }
 p:last-child {
   margin-bottom: 0;
@@ -236,8 +235,7 @@ a[href^=tel] {
 }
 a[href^=http], a[href^=mailto] {
   display: inline-block;
-  width: -moz-max-content;
-  width: max-content;
+  max-width: 100%;
   padding-right: 5px;
   justify-content: center;
   border: 1.618px solid transparent;
@@ -350,6 +348,7 @@ section {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 0;
   justify-content: flex-start;
   align-content: start;
   flex-wrap: nowrap;
@@ -363,6 +362,9 @@ section {
   padding-inline: clamp(0.5rem, 3vw, 4rem);
   box-sizing: border-box;
   align-items: flex-start;
+}
+.split-screen > * {
+  min-width: 0;
 }
 .split-screen header {
   position: sticky;
@@ -644,7 +646,6 @@ button {
   font-size: clamp(1rem, 1.3vw, 1.2rem);
   font-family: inherit;
   text-align: inherit;
-  word-break: break-word;
   box-shadow: none;
   cursor: pointer;
   transition: all 150ms ease-in-out;
