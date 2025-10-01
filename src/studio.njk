@@ -1,0 +1,96 @@
+---
+layout: _base.njk
+title: Francesco Imola's design & marketing practice
+description: Delightful things with pixels and words made by Francesco Imola from a seaside town in Kent.
+permalink: '/studio/'
+---
+
+<section class="max-width center pad-bottom">
+	<h2>You've done the hard part.</h2>
+	<p>
+		The business is off the ground. And it works! But you've been so busy that
+		your website still thinks it's 2020 and your newsletter is thick with
+		cobwebs.
+	</p>
+	<p>Sound familiar?</p>
+	<p>Here's where I come in: I'll help you</p>
+	<ol>
+		<li>Turn your bloated website into a business card with superpowers, and that you can finally update without a
+			Master's.</li>
+		<li>Reclaim lost days spent making reels no one watches, and get you set up with an email marketing strategy
+			that perfectly fits your schedule.</li>
+		<li>Stop feeling sorry for your marketing, and starts seeing results.</li>
+	</ol>
+	<div class="button-group" id="choiceButtons">
+		<button type="button" onclick="showField('yesField')">
+			Say less, where do I sign?
+		</button>
+		<button type="button" class="secondary" onclick="showField('noField')">
+			Actually, no thanks
+		</button>
+	</div>
+
+	<section id="yesField" style="display: none" class="pop">
+		<h2>I knew you were serious!</h2>
+		<p>
+			Schedule a free 1-to-1 to learn where your marketing has gone out of control (and what to do about it).
+		</p>
+		<a href="https://calendar.app.google/bHUuF8ir5oacMvLb6" data-slideframe="true">Book a free consultation</a>
+		<p style="display: block">20 minutes to see if we're right for each other.</p>
+	</section>
+
+	<section id="noField" style="display: none" class="pop">
+		No worries, I've got a bunch more sales copy for you to look through ↓
+	</section>
+</section>
+
+<img src="https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/hpchar.svg_qx3rm2.svg"
+	alt="character in hot air balloon" class="max-width center hero pad-bottom pad-top" loading="lazy"
+	decoding="async" />
+
+<section class="max-width center pad-bottom">
+	<h2 class="light">Simple is nearly always better</h2>
+	<p>You've bult a proper business. You've got customers, reviews, a van, a schedule crammed full, maybe even a waiting list.</p>
+	<p>So why does your marketing feel broken?</p>
+	<p>
+		While you've been running things, your website's gotten stale and your marketing budget's going to content that barely works.
+	</p>
+	<p>You're exhausted. Staring at the ceiling. What more should I do?</p>
+	<p>Nothing more. You need LESS. You need someone to strip away what's not working and leave you with something you can maintain and grow without
+		burning out.</p>
+	<p>
+		<a href="/portfolio" class="link" target="_blank" rel="noopener">Here's what that looks like</a> for people I've
+		worked with.
+	</p>
+</section>
+
+{%- include "_testimonials.html" -%}
+
+<figure class="max-width center pad-bottom pad-top">
+	<img src="https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/francesco_kngh32.png"
+		class="give-border" alt="close up of Francesco" loading="lazy" decoding="async" />
+	<figcaption>
+		Put a face to the name. Hello!
+	</figcaption>
+</figure>
+
+<script defer>
+	function showField(fieldId) {
+		var yes = document.getElementById('yesField');
+		var no = document.getElementById('noField');
+		var btns = document.getElementById('choiceButtons');
+		yes.style.display = 'none';
+		no.style.display = 'none';
+		btns.style.overflow = 'hidden';
+		btns.style.opacity = '0';
+		setTimeout(function () {
+			btns.style.height = '0px';
+		}, 300);
+		setTimeout(function () {
+			btns.parentNode.removeChild(btns);
+			var section = document.getElementById(fieldId);
+			section.style.display = 'block';
+			section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+		}, 700);
+	}
+</script>

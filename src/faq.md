@@ -1,11 +1,11 @@
 ---
-layout: _base-hello.njk
-title: About | nevernotready
+layout: _base.njk
+title: About {{ pkg.author }}
 description: Everything you need to know about me and my work.
 permalink: "/faqs/"
 ---
 
-<section class="max-width center pad-bottom pad-top">
+<section class="max-width center pad-bottom">
 
 
 # Common questions
@@ -15,9 +15,9 @@ Find answers to commonly asked questions about how I work, including ballpark fe
 
 <section class="max-width center pad-bottom faq">
 
-## Who's behind nevernotready
+## Who's Francesco
 
-I'm Francesco Imola, a designer and marketer from Kent, England.
+I am a designer and marketer from Kent, England.
 
 I drag busy businesses into the present with design and words that show who they've become, not who they wanted to be years ago. My work replaces their DIY fixes and makes it clear what they're really selling.
 
@@ -109,20 +109,6 @@ I can set up private Slack and Trello boards for real-time progress and communic
 Look, at first even I didn't trust people who openly claim to be "generalists". Growing up, everyone told me to specialise, find a niche, and get great at it. But I didn't do that. And so for years I worried I was spreading myself too thin. Would my love of all things design and marketing and building and creating make me useless?
 
 Somewhere along the way, reality hit: the industry needs generalists more than it likes to admit. And the inferred benefit is, because as a marketing generalist I don't have that one hyper-specialised talent to ram down your throat, I can help you find more holistic answers to your questions.
-
-</section>
-
-<section class="max-width center pad-bottom faq">
-
-## Why nevernotready?
-
-Or better yet, why use "nevernotready" if I'm just a freelancer? I've given my business a name for a couple of reasons.
-
-I believe that the best way to show you're capable of creating a strong brand identity is to build one for yourself. Otherwise it's like being an architect with a dingy-looking office—doesn't inspire confidence. On top of that, a brand name also helps me keep work and life separate. It gives "freelancing" its own container.
-
-The word brings to mind conversations I've had with freelancers and business owners who would put off important but time-consuming work because they were too busy with the day-to-day (like looking after staff).
-
-They weren't ready. Ready to shout "this is us now!" from the rooftops. Ready to tell it like it is. Ready to pivot. So that's where I come in: I help them get ready.
 
 </section>
 

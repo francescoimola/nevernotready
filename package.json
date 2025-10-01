@@ -1,7 +1,7 @@
 {
-  "name": "nevernotready",
+  "name": "Francesco Imola",
   "version": "3.0.3",
-  "description": "Featuring absolutely nothing beyond a base HTML5 template and the essential setup to watch and compile your Sass alongside 11ty.",
+  "description": "Delightful things with pixels and words made by Francesco Imola from a seaside town in Kent.",
   "main": "index.html",
   "scripts": {
     "start": "eleventy --serve",

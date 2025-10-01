@@ -1,56 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% include "_head.njk" %}
-  <body class="index">
-    <div class="split-container">
-      <section class="column">
+{% include "_head.njk" %}
+
+<body class="split-screen">
+	<header class="space-between">
 		{% if page.url == '/'%}
-			<h1 class="welcome-header">
-			Things with pixels and words made by
-			<i><a href="/">Francesco Imola</a></i> from a seaside town in Kent.
-			</h1>
-			<div><a href="/wayfinding">Wayfinding</a>, <a href="/colophon">Colophon</a></div>
+		<h1>
+			Delightful things with pixels and words made by Francesco Imola from a seaside town
+			in Kent.
+		</h1>
+
+		{% elif "/wayfinding" in page.url or "/colophon" in page.url or "/playground" in page.url%}
+		<h1 class="no-wrap">
+			<a href="/">{{ pkg.author }}</a> > {{ page.fileSlug }}
+		</h1>
+
 		{% else %}
-			<h1 class="welcome-header"><a href="/">← Back</a></i></h1>
+		{%- include "_header.njk" -%}
 		{% endif %}
-      </section>
 
-	  {% if page.url == '/' %}
-      <section class="column">
-        <a href="/hello" class="button column card">
-          <h1 class="welcome-header">Services</h1>
-          <p>Web design, copy and email marketing</p>
-        </a>
-      </section>
+		{% if page.url == '/' or "/wayfinding" in page.url or "/colophon" in page.url or "/playground" in page.url%}
 
-      <section class="column ">
-        <a href="/playground" class="button column card">
-          <h1 class="welcome-header">Playground</h1>
-          <p>My projects and writing</p>
-        </a>
-      </section>
+		<div>
+			<nav class="nav-desktop" aria-label="Main navigation">
+				<ul>
+					<li class="no-wrap">
+						<a href="/wayfinding">Wayfinding</a>
+					</li>
+					<li class="no-wrap">
+						<a href="/colophon">Colophon</a>
+					</li>
+					<li class="no-wrap">
+						<a href="/contact">Contact</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		{% endif %}
 
-      {% elif page.url != '/wayfinding'%}
+	</header>
 
-      <section class="column wayfinding">
-        <a href="/hello" class="welcome-header card">About my business</a>
-        <a href="/websites" class="welcome-header card">Web Design</a>
-        <a href="/emails" class="welcome-header card">Email Marketing</a>
-        <a href="/playground" class="welcome-header card">Art and personal projects</a>
-        <a href="/contact" class="welcome-header card">Get in touch</a>
-      </section>
+	{% if page.url == "/" %}
 
-	  {% else %}
+	<div class="space-between add-gap">
+		<div class="space-between">
+			<a href="/studio" class="button space-between">
+				<h1>Studio</h1>
+				<p>Web design, copy and email marketing</p>
+			</a>
+		</div>
 
-	  <section class="column wayfinding">
-		<a href="/hello" class="welcome-header card">About my business</a>
-		<a href="/websites" class="welcome-header card">Web Design</a>
-		<a href="/emails" class="welcome-header card">Email Marketing</a>
-		<a href="/playground" class="welcome-header card">Art and personal projects</a>
-		<a href="/contact" class="welcome-header card">Get in touch</a>
-	  </section>
+		<div class="space-between">
+			<a href="/playground" class="button space-between">
+				<h1>Playground</h1>
+				<p>My projects and writing</p>
+			</a>
+		</div>
 
-      {% endif %}
-    </div>
-  </body>
+		{% if page.url == '/' or "/wayfinding" in page.url or "/colophon" in page.url or "/playground" in page.url%}
+		<nav class="nav-mobile" aria-label="Main navigation">
+			<ul>
+				<li class="no-wrap">
+					<a href="/wayfinding">Wayfinding</a>
+				</li>
+				<li class="no-wrap">
+					<a href="/colophon">Colophon</a>
+				</li>
+				<li class="no-wrap">
+					<a href="/contact">Contact</a>
+				</li>
+			</ul>
+		</nav>
+		{% endif %}
+	</div>
+
+	{% else %}
+	<div>
+		<div>
+			<main>{{ content | safe }}</main>
+
+			{% if "/wayfinding" in page.url or "/colophon" in page.url or "/playground" in page.url%}
+			<nav class="nav-mobile" aria-label="Main navigation">
+				<ul>
+					<li class="no-wrap">
+						<a href="/wayfinding">Wayfinding</a>
+					</li>
+					<li class="no-wrap">
+						<a href="/colophon">Colophon</a>
+					</li>
+					<li class="no-wrap">
+						<a href="/contact">Contact</a>
+					</li>
+				</ul>
+			</nav>
+			{% else %}
+			{%- include "_footer-hello.njk" -%}
+		</div>
+		{% endif %}
+	</div>
+
+	{% endif %}
+	{% if page.url == '/' %}
+<div id="rebrand-modal" class="modal">
+	<div>
+		<p>This site was formerly</p>
+		<p><b>nevernotready.club</b></p>
+		<p>and it is now</p>
+		<p><b>francescoimola.com</b></p>
+		<p>Same work, same person, I'm just finally online under my own name.</p>
+		<button onclick="document.getElementById('rebrand-modal').style.display='none'">Makes sense, lemme in</button>
+	</div>
+</div>
+<script>
+	window.addEventListener('load', function() {
+		setTimeout(function() {
+			document.getElementById('rebrand-modal').style.display = 'flex';
+		}, 500);
+	});
+</script>
+{% endif %}
+	<script src="/assets/app.min.js" defer></script>
+</body>
+
 </html>
