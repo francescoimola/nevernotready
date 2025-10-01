@@ -3,6 +3,7 @@ layout: _base.njk
 title: Wayfinding - {{ pkg.author }}
 description: Where everything is
 permalink: '/wayfinding/'
+navtitle: Wayfinding
 ---
 <section class="wayfinding-wrapper">
 

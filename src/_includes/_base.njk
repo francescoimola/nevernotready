@@ -4,17 +4,10 @@
 
 <body class="split-screen">
 	<header class="space-between">
-		{% if page.url == '/'%}
-		<h1>
-			Delightful things with pixels and words made by Francesco Imola from a seaside town
-			in Kent.
-		</h1>
-
-		{% elif "/wayfinding" in page.url or "/colophon" in page.url or "/playground" in page.url%}
-		<h1 class="no-wrap">
-			<a href="/">{{ pkg.author }}</a> > {{ page.fileSlug }}
-		</h1>
-
+		{% if page.url == '/' %}
+		{%- include "_header-home.njk" -%}
+		{% elif "/wayfinding" in page.url or "/colophon" in page.url or "/playground" in page.url %}
+		{%- include "_header-wayfinding.njk" -%}
 		{% else %}
 		{%- include "_header.njk" -%}
 		{% endif %}
@@ -101,24 +94,14 @@
 
 	{% endif %}
 	{% if page.url == '/' %}
-<div id="rebrand-modal" class="modal">
-	<div>
-		<p>This site was formerly</p>
-		<p><b>nevernotready.club</b></p>
-		<p>and it is now</p>
-		<p><b>francescoimola.com</b></p>
-		<p>Same work, same person, I'm just finally online under my own name.</p>
-		<button onclick="document.getElementById('rebrand-modal').style.display='none'">Makes sense, lemme in</button>
+	<div id="rebrand-modal" class="modal">
+		<div>
+			<p>This site was formerly <b>nevernotready.club</b> and it is now <b>francescoimola.com</b></p>
+			<p>Same work, same person, I'm just finally online under my own name.</p>
+			<button onclick="closeModal()">Makes sense, lemme in</button>
+		</div>
 	</div>
-</div>
-<script>
-	window.addEventListener('load', function() {
-		setTimeout(function() {
-			document.getElementById('rebrand-modal').style.display = 'flex';
-		}, 500);
-	});
-</script>
-{% endif %}
+	{% endif %}
 	<script src="/assets/app.min.js" defer></script>
 </body>
 

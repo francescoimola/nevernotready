@@ -1,7 +1,48 @@
-<h1 class="no-wrap">
-	<a href="/">{{ pkg.author }}</a> > {{ page.fileSlug }}
-</h1>
-<nav aria-label="Main navigation">
+<div class="header-with-menu">
+	<div class="header-row">
+		<h1 class="no-wrap">
+			<a href="/">{{ pkg.author }}</a><br>
+			{{ navtitle | default(title) }}
+		</h1>
+
+		<!-- Mobile menu toggle -->
+		<details id="mobile-menu" class="nav-mobile">
+			<summary aria-label="Toggle menu">
+				<span id="hamburger">
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+			</summary>
+		</details>
+	</div>
+
+	<nav aria-label="Main navigation" class="mobile-nav-menu" id="mobile-nav-menu">
+		<ul>
+			<li class="no-wrap">
+				<a href="/studio">Studio</a>
+			</li>
+			<li class="no-wrap">
+				<a href="/portfolio">Portfolio</a>
+			</li>
+			<li class="no-wrap">
+				<a href="/websites">Websites</a>
+			</li>
+			<li class="no-wrap">
+				<a href="/emails">Emails</a>
+			</li>
+			<li class="no-wrap">
+				<a href="/faqs">FAQs</a>
+			</li>
+			<li class="no-wrap">
+				<a href="/contact">Contact</a>
+			</li>
+		</ul>
+	</nav>
+</div>
+
+<!-- Desktop nav -->
+<nav aria-label="Main navigation" class="nav-desktop">
 	<ul>
 		<li class="no-wrap">
 			<a href="/studio">Studio</a>
@@ -16,7 +57,7 @@
 			<a href="/emails">Emails</a>
 		</li>
 		<li class="no-wrap">
-			<a href="/faqs">FAQ</a>
+			<a href="/faqs">FAQs</a>
 		</li>
 		<li class="no-wrap">
 			<a href="/contact">Contact</a>

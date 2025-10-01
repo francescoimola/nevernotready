@@ -1,0 +1,145 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// ===================================
+// COMPONENTS: Header
+// ===================================
+
+nav ul {
+  @include flex(row, map.get($spacing, md));
+  margin: 0;
+  justify-content: stretch;
+  align-items: flex-start;
+  color: map.get($colors, text-subtle);
+
+  li:last-child {
+    margin-bottom: revert;
+  }
+}
+
+.header-with-menu {
+  width: 100%;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: map.get($spacing, md);
+}
+
+.mobile-nav-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+
+  &.open {
+    max-height: 500px;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: map.get($spacing, sm);
+  }
+
+  @media only screen and (max-width: map.get($breakpoints, md)) {
+    margin: map.get($spacing, sm) 0 map.get($spacing, sm) 0;
+    padding: map.get($spacing, md) map.get($spacing, sm) 0 0;
+    border-top: $border-width solid map.get($colors, border);
+  }
+}
+
+// Hamburger menu styles
+#hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, xs);
+  cursor: pointer;
+  padding: 0 map.get($spacing, sm) 0 0;
+
+  span {
+    display: block;
+    width: map.get($spacing, lg);
+    height: calc($border-width * 1.5);
+    background: map.get($colors, text);
+    transition: all $transition-speed ease-in-out;
+    border-radius: $unit;
+  }
+}
+
+#mobile-menu {
+  summary {
+    list-style: none;
+    cursor: pointer;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  // Animate hamburger to X when open
+  &[open] #hamburger {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 999;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.5);
+	align-items: center;
+	justify-content: center;
+  padding-inline: map.get($spacing, sm);
+
+	&>div {
+		@include flex(column, map.get($spacing, sm));
+    justify-content: center;
+    align-items: center;
+		padding: map.get($spacing, md);
+		background: map.get($colors, bg);
+		border: $border-width dotted map.get($colors, text);
+		border-radius: map.get($spacing, sm);
+		text-align: center;
+    max-width: calc($container-width / 1.333);
+
+		p {
+			margin: 0;
+			color: map.get($colors, text-subtle);
+		}
+
+		button {
+			margin-top: map.get($spacing, md);
+      width: fit-content;
+		}
+	}
+}
+
+// Responsive Header Styles
+@media only screen and (max-width: map.get($breakpoints, md)) {
+  header {
+    padding-bottom: map.get($spacing, lg);
+  }
+
+  // Hide desktop nav on mobile
+  .nav-desktop {
+    display: none;
+  }
+
+  // Show mobile nav
+  .nav-mobile {
+    display: block;
+    padding: map.get($spacing, md) 0;
+  }
+}

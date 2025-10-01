@@ -1,8 +1,9 @@
 ---
 layout: _base.njk
-title: About {{ pkg.author }}
+title: FAQs - {{ pkg.author }}
 description: Everything you need to know about me and my work.
 permalink: "/faqs/"
+navtitle: FAQs
 ---
 
 <section class="max-width center pad-bottom">
@@ -13,7 +14,7 @@ Find answers to commonly asked questions about how I work, including ballpark fe
 
 </section>
 
-<section class="max-width center pad-bottom faq">
+<section class="max-width center pad-bottom faqs">
 
 ## Who's Francesco
 
@@ -25,7 +26,7 @@ I've previously worked with teams from [University of Greenwich](https://www.gre
 
 </section>
 
-<section class="max-width center pad-bottom faq">
+<section class="max-width center pad-bottom faqs">
 
 ## Do prices change based on project size?
 
@@ -43,7 +44,7 @@ Here is how the scale of a project affects rates:
 
 </section>
 
-<section class="max-width center pad-bottom faq">
+<section class="max-width center pad-bottom faqs">
 
 ## Do you offer concessions? {#concessions}
 
@@ -58,7 +59,7 @@ Below are some of the non-stackable discounts I offer to all clients:
 
 </section>
 
-<section class="max-width center pad-bottom faq">
+<section class="max-width center pad-bottom faqs">
 
 ## Are meetings free?
 
@@ -70,7 +71,7 @@ One hour consultations start at £45, with the final price depending on the amou
 
 </section>
 
-<section class="max-width center pad-bottom faq">
+<section class="max-width center pad-bottom faqs">
 
 ## How do you quote projects?
 
@@ -82,7 +83,7 @@ Providing the brief and project scope remain unchanged, the quoted price is all 
 
 </section>
 
-<section class="max-width center pad-bottom faq">
+<section class="max-width center pad-bottom faqs">
 
 ## Can you work to a deadline?
 
@@ -92,7 +93,7 @@ I'm committed to doing quality work, and meeting deadlines often hinges on on ho
 
 </section>
 
-<section class="max-width center pad-bottom faq">
+<section class="max-width center pad-bottom faqs">
 
 ## What if I'm worried about email overload?
 
@@ -102,7 +103,7 @@ I can set up private Slack and Trello boards for real-time progress and communic
 
 </section>
 
-<section class="max-width center pad-bottom faq">
+<section class="max-width center pad-bottom faqs">
 
 ## Why should I trust a generalist?
 
@@ -112,7 +113,7 @@ Somewhere along the way, reality hit: the industry needs generalists more than i
 
 </section>
 
-<section class="max-width center pad-bottom faq">
+<section class="max-width center pad-bottom faqs">
 
 ## Can we meet in person?
 

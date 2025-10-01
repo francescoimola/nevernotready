@@ -7,12 +7,15 @@
 <meta name="description" content="{{ description }}" />
 {%- endif -%}
 
+<!-- Canonical URL -->
+<link rel="canonical" href="https://francescoimola.com{{ page.url }}" />
+
 <!-- Open Graph / Social Media -->
 <meta property="og:title" content="{{ title }}" />
-<meta property="og:site_name" content=" Francesco Imola" />
+<meta property="og:site_name" content="Francesco Imola" />
 <meta
   property="og:url"
-  content="https://www.francescoimola.com/{{ permalink }}"
+  content="https://francescoimola.com{{ page.url }}"
 />
 <meta property="og:description" content="{{ description }}" />
 <meta property="og:type" content="website" />

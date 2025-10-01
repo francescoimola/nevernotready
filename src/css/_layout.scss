@@ -1,0 +1,193 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// ===================================
+// Media
+// ===================================
+
+svg,
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  fill: map.get($colors, text);
+  image-rendering: crisp-edges;
+  opacity: $opacity-fix;
+
+  &.give-border {
+    border: $border-width solid map.get($colors, border);
+    border-radius: map.get($spacing, xs);
+  }
+}
+
+img.hero {
+  min-width: calc(map.get($spacing, 2xl) * $icon-scale);
+  max-width: 25vw;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+figure {
+  @include flex(column, map.get($spacing, xs));
+  width: 100%;
+
+  figcaption {
+    margin-top: map.get($spacing, sm);
+  }
+}
+
+details>summary {
+  gap: map.get($spacing, lg);
+
+  h2 {
+    display: inline;
+  }
+}
+
+.ascii-art {
+  font-family: monospace;
+  color: currentColor;
+  white-space: pre;
+  overflow-x: auto;
+  padding-block: map.get($spacing, lg);
+
+  @media (max-width: map.get($breakpoints, sm)) {
+    font-size: calc($font-base * 0.75);
+  }
+}
+
+// ===================================
+// LAYOUT
+// ===================================
+
+main,
+section {
+  @include flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-content: start;
+  flex-wrap: nowrap;
+}
+
+.split-screen {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  gap: map.get($spacing, md);
+  padding-inline: clamp(0.5rem, 3vw, 4rem);
+  box-sizing: border-box;
+  align-items: flex-start;
+
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    align-self: start;
+
+    h1 {
+      max-width: calc($container-width / 2);
+    }
+
+    &.space-between {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      height: calc(100vh - #{map.get($spacing, xl) * 2});
+    }
+  }
+
+  .space-between {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+
+    &.add-gap {
+      gap: map.get($spacing, md);
+      padding-bottom: map.get($spacing, xl);
+
+        @media only screen and (max-width: map.get($breakpoints, md)) {
+          padding-bottom: map.get($spacing, md);
+        }
+    }
+  }
+
+  a.space-between {
+    text-decoration: none;
+    padding: map.get($spacing, md);
+    background: map.get($colors, bg);
+    border: $border-width solid map.get($colors, border);
+    border-radius: map.get($spacing, xs);
+    transition: all $transition-speed ease-in-out;
+
+    * {
+      transition: all $transition-speed ease-in-out;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: map.get($colors, links);
+
+      &,
+      * {
+        color: map.get($colors, bg);
+      }
+    }
+
+    >p {
+      width: 100%;
+      border-top: $border-width dotted map.get($colors, border);
+      color: map.get($colors, text-subtle);
+      padding-top: map.get($spacing, xs);
+    }
+  }
+
+  b {
+    font-weight: 600;
+  }
+
+  @media only screen and (max-width: map.get($breakpoints, md)) {
+    grid-template-columns: 1fr;
+
+    header.space-between {
+      position: revert;
+      height: 100%;
+    }
+  }
+}
+
+.wayfinding-wrapper {
+  gap: map.get($spacing, sm);
+
+  a {
+    font-weight: 600;
+  }
+}
+
+.nav-mobile {
+  display: none;
+}
+
+.pad-top {
+  padding-top: map.get($spacing, md);
+}
+
+.pad-bottom {
+  padding-bottom: map.get($spacing, 2xl);
+}
+
+.max-width {
+  max-width: $container-width;
+}
+
+body.split-screen {
+  padding-top: calc(map.get($spacing, xl) + map.get($spacing, sm));
+
+  @media only screen and (max-width: map.get($breakpoints, md)) {
+    padding-top: map.get($spacing, lg);
+  }
+}

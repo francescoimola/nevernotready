@@ -3,6 +3,7 @@ layout: _base.njk
 title: Playground - {{ pkg.author }}
 description: The playground is getting a fresh coat of paint
 permalink: "/playground/"
+navtitle: Playground
 ---
 
 ## The playground is getting a fresh coat of paint

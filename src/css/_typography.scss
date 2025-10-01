@@ -1,0 +1,148 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// ===================================
+// Typography
+// ===================================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 map.get($spacing, sm);
+  font-weight: 600;
+  font-size: $font-large;
+  letter-spacing: $letter-spacing-large;
+  line-height: $line-height-base;
+  color: map.get($colors, text);
+  text-rendering: optimizeLegibility;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: $font-xl;
+  font-weight: 500;
+  letter-spacing: $letter-spacing-xl;
+  line-height: $line-height-tight;
+
+
+  a {
+    text-decoration: none;
+    color: map.get($colors, links);
+  }
+}
+
+h2 {
+  padding-top: map.get($spacing, md);
+
+  &:first-of-type {
+    padding-top: map.get($spacing, xs);
+  }
+}
+
+h3 {
+  font-size: $font-base;
+  line-height: $line-height-base;
+}
+
+p {
+  margin: 0 0 map.get($spacing, md) 0;
+  color: map.get($colors, text-subtle);
+  text-rendering: optimizeSpeed;
+  text-wrap: pretty;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  width: fit-content;
+  color: currentColor;
+  text-decoration: calc($unit/($perfect-fourth * 2)) underline;
+  text-underline-offset: map.get($spacing, xs);
+  transition: all $transition-speed ease-in-out;
+
+  &:hover,
+  &:focus-visible,
+  &.active:hover,
+  &.active:focus-visible {
+    color: map.get($colors, links);
+    text-decoration-color: map.get($colors, links);
+  }
+
+  &:focus {
+    outline: auto;
+  }
+
+  h2 {
+    color: inherit;
+  }
+
+  &[href^='tel'] {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &[href^='http'], &[href^='mailto'] {
+    display: inline-block;
+    width: max-content;
+    padding-right: 5px;
+    justify-content: center;
+    border: $border-width solid transparent;
+    cursor: pointer;
+
+    &:not(.unpadded) {
+      margin-top: map.get($spacing, sm);
+    }
+
+    +p {
+      margin-top: map.get($spacing, sm);
+    }
+
+    &::after {
+      content: '\00a0 ↗';
+      display: inline-block;
+      inset: calc(map.get($spacing, xs) / $perfect-fourth) map.get($spacing, xs) auto auto;
+      width: $ext-icon-size;
+      height: $ext-icon-size;
+      text-decoration: none;
+    }
+  }
+}
+
+i {
+  font-style: italic;
+  font-weight: inherit;
+}
+
+b {
+  font-weight: 600;
+}
+
+ul,
+ol {
+  margin: 0 0 0 map.get($spacing, md);
+  padding: 0;
+  color: map.get($colors, text-subtle);
+
+  li:last-child {
+    margin-bottom: map.get($spacing, sm);
+  }
+}
+
+ol {
+  list-style: decimal;
+
+  li {
+    display: list-item;
+    padding-bottom: map.get($spacing, sm);
+  }
+}
+
+li {
+  display: inline-block;
+  margin: 0;
+}

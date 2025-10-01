@@ -1,0 +1,47 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// ===================================
+// COMPONENTS: Buttons
+// ===================================
+
+button {
+  padding: map.get($spacing, sm) map.get($spacing, md);
+  border: none;
+  border-radius: map.get($spacing, xs);
+  background: map.get($colors, links);
+  color: map.get($colors, bg);
+  font-size: $font-base;
+  font-family: inherit;
+  text-align: inherit;
+  word-break: break-word;
+  box-shadow: none;
+  cursor: pointer;
+  transition: all $transition-speed ease-in-out;
+
+  &:hover,
+  &:focus-visible {
+    background: map.get($colors, links-subtle);
+  }
+
+  &.secondary {
+    background: map.get($colors, bg-translucent);
+    color: map.get($colors, text-subtle);
+    border: $border-width solid map.get($colors, border);
+
+    &:hover,
+    &:focus-visible {
+      background: map.get($colors, bg-more-translucent);
+    }
+  }
+}
+
+.button-group {
+  @include flex(row, map.get($spacing, sm));
+  margin-top: map.get($spacing, md);
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: stretch;
+  overflow: hidden;
+  transition: opacity 0.3s, height 0.5s cubic-bezier(0.4, 2, 0.6, 1);
+}
