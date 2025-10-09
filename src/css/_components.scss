@@ -121,8 +121,10 @@
   }
 
   >div:first-of-type {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     align-items: baseline;
     gap: map.get($spacing, xs);
     margin-bottom: map.get($spacing, sm);
