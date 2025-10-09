@@ -1,0 +1,30 @@
+{%- macro imgTag(src, alt='', critical=false, width=null, height=null, classes='') -%}
+  {%- if not src -%}
+    {# nothing to do #}
+  {%- else -%}
+    {%- set classList = classes | default('') | trim -%}
+
+    {# For deferred images, add image-placeholder to the class list #}
+    {%- if not critical -%}
+      {%- if classList != '' -%}
+        {%- set classList = (classList ~ ' image-placeholder') | trim -%}
+      {%- else -%}
+        {%- set classList = 'image-placeholder' -%}
+      {%- endif -%}
+    {%- endif -%}
+
+    {# Output tag with explicit attributes to avoid unintended escaping #}
+    {%- if critical -%}
+      <img src="{{ src }}" alt="{{ alt }}"
+        {%- if width %} width="{{ width }}"{% endif %}
+        {%- if height %} height="{{ height }}"{% endif %}
+        {%- if classList != '' %} class="{{ classList }}"{% endif %}
+        loading="eager" decoding="async">
+    {%- else -%}
+      <img data-src="{{ src }}" alt="{{ alt }}"
+        {%- if width %} width="{{ width }}"{% endif %}
+        {%- if height %} height="{{ height }}"{% endif %}
+        {%- if classList != '' %} class="{{ classList }}"{% endif %}>
+    {%- endif -%}
+  {%- endif -%}
+{%- endmacro -%}

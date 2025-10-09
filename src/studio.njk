@@ -45,9 +45,8 @@ navtitle: Studio
 	</section>
 </section>
 
-<img src="https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/hpchar.svg_qx3rm2.svg"
-	alt="character in hot air balloon" class="max-width center hero pad-bottom pad-top" loading="lazy"
-	decoding="async" />
+{%- from "_img.njk" import imgTag %}
+{{ imgTag('https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/hpchar.svg_qx3rm2.svg', 'character in hot air balloon', false, null, null, 'max-width center hero pad-bottom pad-top') }}
 
 <section class="max-width center pad-bottom">
 	<h2 class="light">Simple is nearly always better</h2>
@@ -68,8 +67,7 @@ navtitle: Studio
 {%- include "_testimonials.njk" -%}
 
 <figure class="max-width center pad-bottom pad-top">
-	<img src="https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/francesco_kngh32.png"
-		class="give-border" alt="close up of Francesco" loading="lazy" decoding="async" />
+	{{ imgTag('https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/francesco_kngh32.png', 'close up of Francesco', false, null, null, 'give-border') }}
 	<figcaption>
 		Put a face to the name. Hello!
 	</figcaption>

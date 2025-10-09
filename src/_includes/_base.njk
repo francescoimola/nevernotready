@@ -102,6 +102,9 @@
 		</div>
 	</div>
 	{% endif %}
+	{% if "/playground" in page.url or "/studio" in page.url or page.url == '/' %}
+	<script src="/assets/lazy-images.js" defer></script>
+	{% endif %}
 	<script src="/assets/app.min.js" defer></script>
 </body>
 

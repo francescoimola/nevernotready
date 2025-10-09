@@ -1,0 +1,23 @@
+{%- macro playgroundProject(title, year, link, description, images) -%}
+<div class="work playground">
+  <div>
+    {% if link %}
+      <h3><a href="{{ link }}" class="unpadded">{{ title }}</a></h3>
+    {% else %}
+      <h3>{{ title }}</h3>
+    {% endif %}
+    <span class="year">{{ year }}</span>
+  </div>
+  {% if description %}
+    <p>{{ description }}</p>
+  {% endif %}
+  {% if images and images.length > 0 %}
+    <div class="image-scroll">
+      {% for image in images %}
+        {# Use data-src so we can control when the browser fetches remote images #}
+        <img data-src="{{ image.src }}" alt="{{ image.alt }}" class="image-placeholder">
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+{%- endmacro -%}

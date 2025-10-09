@@ -1,14 +1,9 @@
+{%- from "_img.njk" import imgTag -%}
 {%- macro projectCard(role, description, image) -%}
 <div class="work">
   <figure>
     {% if image %}
-      <img
-        width="100%"
-        height="auto"
-        src="{{ image.src }}"
-        alt="{{ image.alt }}"
-        loading="lazy"
-      />
+      {{ imgTag(image.src, image.alt, false, null, null, 'give-border') }}
       {% if image.title %}
         <figcaption>{{ image.title }}</figcaption>
       {% endif %}
