@@ -8,11 +8,13 @@ navtitle: Playground
 
 {% import "./_includes/_playground-project.njk" as project %}
 
-<h2>Projects</h2>
-<p class="pad-bottom">This is a temporary collection of projects and experiments I've run between 2015 and today. I plan
-  to use this page as a living portfolio of my creatve work, but I'd love to also expand it in more playful directions
+<h2>Art and other creative experiments</h2>
+<p class="pad-top">This is the side of my practice that's in constant transformation. Currently, this page is home to a collection of creative projects and experiments I've run since 2015.</p>
+<p class="pad-bottom">I'd love to expand it in more playful directions
   in the future. If you have any ideas, or if you are interested in collaborating, please <a href="/contact/">get in
     touch</a>.</p>
+
+<h2 class="top-divider pad-bottom">Projects</h2>
 
 {{ project.playgroundProject(
 title = "Odd & Wonderful",
@@ -119,19 +121,6 @@ description = "Exhibition essay for 'Feed Your Demons and Meet the Ally'"
 ) }}
 
 {{ project.playgroundProject(
-title = "Photography on Harbor Review",
-year = "2020",
-link = "https://www.harbor-review.com/issue-4-self",
-description = "Image 'Untitled(2)' was published in Issue 04: 'Self' of Harbor Review, an independent online space and
-publication for poetry and art.",
-images = [
-{ src:
-"https://images.squarespace-cdn.com/content/v1/5b92faa55417fcf7915a7792/1576605216760-8PQXIOFCJDLTFFROM3TB/image-asset.jpeg",
-alt: "Still photo of a road, half the frame obscured by a light leak" }
-]
-) }}
-
-{{ project.playgroundProject(
 title = "Three Years",
 year = "2019",
 link = "https://www.google.co.uk/books/edition/_/zxGKDwAAQBAJ?hl=en&kptab=overview",
@@ -196,11 +185,10 @@ with forklift render"
 title = "Concert Photographer at Getintothis",
 year = "2017",
 link = "https://www.getintothis.co.uk/search/Francesco+Imola",
-description = "Captured shots of concerts in Liverpool and the Merseyside area. My gig photography portfolio includes
-artists like Nas, Idles, Real Estates, Tom Grennan, Nathan Fake, and Stealing Sheep.",
+description = "Captured shots of concerts in Liverpool and the Merseyside area. My gig photography portfolio includes Nas, Idles, Real Estates, Tom Grennan, Nathan Fake, and Stealing Sheep.",
 images = [
 { src: "https://poetic-banoffee-3c755a.netlify.app/content/media/Concert-Photographer-at-Getintothis-1.jpg", alt:
-"Band dancing on stage with sparkly outfits" },
+"Stealing Sheep bandmates dancing on stage with sparkly outfits" },
 { src: "https://poetic-banoffee-3c755a.netlify.app/content/media/Concert-Photographer-at-Getintothis-2.jpg", alt:
 "Member of Real Estate performing live" },
 { src: "https://poetic-banoffee-3c755a.netlify.app/content/media/Concert-Photographer-at-Getintothis-3.jpg", alt:
@@ -254,6 +242,19 @@ images = [
 { src: "https://poetic-banoffee-3c755a.netlify.app/content/media/How-to-feel-more-at-home-3.jpg", alt: "Mobile
 screenshot of
 'How to Feel More at Home' artwork" }
+]
+) }}
+
+{{ project.playgroundProject(
+title = "Photography on Harbor Review",
+year = "2020",
+link = "https://www.harbor-review.com/issue-4-self",
+description = "Image 'Untitled(2)' was published in Issue 04: 'Self' of Harbor Review, an independent online space and
+publication for poetry and art.",
+images = [
+{ src:
+"https://images.squarespace-cdn.com/content/v1/5b92faa55417fcf7915a7792/1576605216760-8PQXIOFCJDLTFFROM3TB/image-asset.jpeg",
+alt: "Still photo of a road, half the frame obscured by a light leak" }
 ]
 ) }}
 

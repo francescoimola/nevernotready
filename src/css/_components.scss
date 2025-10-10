@@ -108,12 +108,24 @@
     flex: 0 0 auto;
     width: auto;
     height: calc(map.get($spacing, 2xl) * 4);
-    transition: opacity $transition-speed ease-in-out;
     border: $border-width solid map.get($colors, border);
     border-radius: map.get($spacing, xs);
+    cursor: zoom-in;
+    opacity: 1;
 
-    &:hover {
-      opacity: 0.85;
+    &:focus {
+      position: fixed;
+      inset: 0;
+      width: auto;
+      height: auto;
+      max-width: 90vw;
+      max-height: 90vh;
+      margin: auto;
+      z-index: 1000;
+      outline: none;
+      cursor: zoom-out;
+      opacity: 1;
+      box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.8);
     }
   }
 
