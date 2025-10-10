@@ -2,7 +2,8 @@
   <title>{{ title }}</title>
   {%- include "_meta.njk" -%}
   <link rel="preload" as="style" href="{{ '/css/style.css' | url }}" />
-  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="preconnect" href="https://rsms.me" crossorigin />
+  <link rel="preload" href="https://rsms.me/inter/font-files/InterVariable.woff2?v=4.1" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
   <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">

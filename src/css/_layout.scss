@@ -196,3 +196,8 @@ body.split-screen {
     padding-top: map.get($spacing, lg);
   }
 }
+
+.top-divider {
+  padding-top: map.get($spacing, md);
+  border-top: $border-width solid map.get($colors, border);
+}

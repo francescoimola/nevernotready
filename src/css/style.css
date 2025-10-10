@@ -157,10 +157,21 @@ body {
   font-optical-sizing: auto;
   color: #061308;
   background: #f9f3f3;
+  scrollbar-width: auto;
+  scrollbar-color: color-mix(in srgb, #f9f3f3 75%, #061308) transparent;
 }
 body *:focus-visible {
   outline: 1.618px solid #061308;
   outline-offset: 3.236px;
+}
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, #f9f3f3 75%, #061308);
 }
 
 h1,
@@ -471,6 +482,11 @@ body.split-screen {
   }
 }
 
+.top-divider {
+  padding-top: 1rem;
+  border-top: 1.618px solid color-mix(in srgb, #f9f3f3 75%, #061308);
+}
+
 nav ul {
   display: flex;
   flex-direction: row;
@@ -744,7 +760,21 @@ button.secondary:hover, button.secondary:focus-visible {
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
-  margin-top: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, #f9f3f3 75%, #061308) transparent;
+}
+.image-scroll::-webkit-scrollbar {
+  height: 0.25rem;
+}
+.image-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.image-scroll::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, #f9f3f3 75%, #061308);
+}
+.image-scroll picture {
+  flex: 0 0 auto;
+  display: inline-block;
 }
 .image-scroll img {
   aspect-ratio: auto;

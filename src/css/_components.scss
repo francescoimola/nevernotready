@@ -79,7 +79,25 @@
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
-  margin-top: map.get($spacing, md);
+  scrollbar-width: thin;
+  scrollbar-color: map.get($colors, border) transparent;
+
+  &::-webkit-scrollbar {
+    height: $unit;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: map.get($colors, border);
+  }
+
+  picture {
+    flex: 0 0 auto;
+    display: inline-block;
+  }
 
   img {
     aspect-ratio: auto;

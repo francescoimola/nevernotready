@@ -169,9 +169,23 @@ body {
   font-optical-sizing: auto;
   color: map.get($colors, text);
   background: map.get($colors, bg);
+  scrollbar-width: auto;
+  scrollbar-color: map.get($colors, border) transparent;
 
   *:focus-visible {
     outline: $border-width solid map.get($colors, text);
     outline-offset: calc($border-width * 2);
+  }
+
+  &::-webkit-scrollbar {
+    width: $unit;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: map.get($colors, border);
   }
 }

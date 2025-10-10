@@ -14,7 +14,13 @@
   {% if images and images.length > 0 %}
     <div class="image-scroll">
       {% for image in images %}
-        <img src="{{ image.src }}" alt="{{ image.alt }}">
+        {% set imageName = image.src | split('/') | last | split('.') | first %}
+        {% set imageExt = image.src | split('.') | last | lower %}
+        {% set fallbackFormat = 'png' if imageExt == 'png' else 'jpeg' %}
+        <picture>
+          <source type="image/webp" srcset="/assets/images/{{ imageName }}.webp">
+          <img src="/assets/images/{{ imageName }}.{{ fallbackFormat}}" alt="{{ image.alt }}" loading="lazy" decoding="async">
+        </picture>
       {% endfor %}
     </div>
   {% endif %}
