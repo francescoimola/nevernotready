@@ -25,8 +25,8 @@
     const mobileNavMenu = document.getElementById('mobile-nav-menu');
 
     if (mobileMenu && mobileNavMenu) {
-      mobileMenu.addEventListener('toggle', function(e) {
-        if (e.target.open) {
+      mobileMenu.addEventListener('toggle', function() {
+        if (mobileMenu.open) {
           mobileNavMenu.classList.add('open');
         } else {
           mobileNavMenu.classList.remove('open');
@@ -55,7 +55,8 @@
     setTimeout(function () {
       btns.parentNode.removeChild(btns);
       const section = document.getElementById(fieldId);
-      section.style.display = 'block';
+      section.classList.remove('hidden');
+      section.style.display = ''; // Clear the inline display:none
       section.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 700);
   }

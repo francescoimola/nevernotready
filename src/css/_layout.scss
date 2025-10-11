@@ -32,7 +32,7 @@ figure {
   width: 100%;
 
   figcaption {
-    margin-top: map.get($spacing, sm);
+    margin-top: calc(map.get($spacing, sm) + $border-width);
   }
 }
 
