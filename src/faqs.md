@@ -6,39 +6,15 @@ permalink: "/faqs/"
 navtitle: FAQs
 ---
 
-<section class="max-width center pad-bottom">
+<section class=" pad-bottom">
 
 
-# Common questions
+## Common questions
 Find answers to commonly asked questions about how I work, including ballpark fees, project communication and concessions.
 
 </section>
 
-<section class="max-width center pad-bottom faqs">
-
-## Who's Francesco
-
-I’m Francesco, a designer and copywriter based in Kent.
-
-I spent over five years helping galleries and grassroots non-profits platform emerging creatives, keeping students engaged as universities collapsed into Zoom chaos, and marketing for a talent agency in one of the UK's most competitive industries.
-
-Now I help ambitious small businesses with websites and email marketing that work without wasting their time or compromising their values.
-
-I've previously helped people and teams from University of Greenwich, Mega Seating Plan, and Blueberry Creatives, in both B2B and B2C enviroments.
-
-</section>
-
-<section class="max-width center pad-bottom faqs">
-
-## What are your prices?
-
-<p><a href="/assets/Services Menu - Francesco Imola.pdf" target="_blank" rel="noopener">Download my Services Menu</a>. It goes over everything you need to know.</p>
-
-<p>To follow up and discuss an exact quote for your project, please <a href="/contact">contact me</a>. It's free.</p>
-
-</section>
-
-<section class="max-width center pad-bottom faqs">
+<section class=" pad-bottom faqs">
 
 ## Do prices change based on project size?
 
@@ -46,7 +22,7 @@ Smaller projects may sometimes take longer to set-up and coordinate relative to 
 
 </section>
 
-<section class="max-width center pad-bottom faqs">
+<section class=" pad-bottom faqs">
 
 ## Do you offer concessions? {#concessions}
 
@@ -61,7 +37,7 @@ Below are some of the non-stackable discounts I offer to everyone:
 
 </section>
 
-<section class="max-width center pad-bottom faqs">
+<section class=" pad-bottom faqs">
 
 ## Are meetings free?
 
@@ -73,7 +49,7 @@ One hour consultations start at £45.
 
 </section>
 
-<section class="max-width center pad-bottom faqs">
+<section class=" pad-bottom faqs">
 
 ## How do you quote projects?
 
@@ -85,7 +61,7 @@ Providing the brief and project scope remain unchanged, the quoted price is all 
 
 </section>
 
-<section class="max-width center pad-bottom faqs">
+<section class=" pad-bottom faqs">
 
 ## Can you work to a deadline?
 
@@ -95,7 +71,7 @@ I'm committed to doing quality work, and meeting deadlines often hinges on on ho
 
 </section>
 
-<section class="max-width center pad-bottom faqs">
+<section class=" pad-bottom faqs">
 
 ## What if I'm worried about email overload?
 
@@ -105,7 +81,7 @@ I can set up private Slack and Trello boards for real-time progress and communic
 
 </section>
 
-<section class="max-width center pad-bottom faqs">
+<section class=" pad-bottom faqs">
 
 ## Why should I trust a generalist?
 
@@ -115,7 +91,7 @@ Somewhere along the way, reality hit: the industry needs generalists more than i
 
 </section>
 
-<section class="max-width center pad-bottom faqs">
+<section class=" pad-bottom faqs">
 
 ## Can we meet in person?
 

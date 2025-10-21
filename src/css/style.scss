@@ -1,17 +1,12 @@
 // ===================================
 // Atlantic Pet - Main Stylesheet
 // ===================================
-// Modular SCSS architecture for maintainability
+// Streamlined SCSS architecture
 
 @use 'variables';
-@use 'reset';
-@use 'typography';
+@use 'base';
 @use 'layout';
-@use 'header';
-@use 'footer';
-@use 'buttons';
 @use 'components';
-@use 'utilities';
 
 // ===================================
 // EXPERIMENTAL

@@ -19,7 +19,7 @@
         {% set fallbackFormat = 'png' if imageExt == 'png' else 'jpeg' %}
         <picture>
           <source type="image/webp" srcset="/assets/images/{{ imageName }}.webp">
-          <img src="/assets/images/{{ imageName }}.{{ fallbackFormat}}" alt="{{ image.alt }}" loading="lazy" decoding="async" tabindex="0">
+          <img src="/assets/images/{{ imageName }}.{{ fallbackFormat}}" alt="{{ image.alt }}" loading="lazy" decoding="async">
         </picture>
       {% endfor %}
     </div>

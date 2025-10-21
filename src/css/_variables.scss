@@ -54,7 +54,7 @@ $colors: (
 );
 
 // Layout
-$container-width: 60ch;
+$container-width: 54ch;
 $border-width: $golden-ratio * 1px;
 $ext-icon-size: map.get($spacing, sm) + map.get($spacing, xs);
 $transition-speed: 150ms;

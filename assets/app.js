@@ -35,32 +35,6 @@
     }
   }
 
-  // Studio Page - Button Interaction
-  function showField(fieldId) {
-    const yes = document.getElementById('yesField');
-    const no = document.getElementById('noField');
-    const btns = document.getElementById('choiceButtons');
-
-    if (!yes || !no || !btns) return;
-
-    yes.style.display = 'none';
-    no.style.display = 'none';
-    btns.style.overflow = 'hidden';
-    btns.style.opacity = '0';
-
-    setTimeout(function () {
-      btns.style.height = '0px';
-    }, 300);
-
-    setTimeout(function () {
-      btns.parentNode.removeChild(btns);
-      const section = document.getElementById(fieldId);
-      section.classList.remove('hidden');
-      section.style.display = ''; // Clear the inline display:none
-      section.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 700);
-  }
-
   // Rebrand Modal
   function closeModal() {
     const modal = document.getElementById('rebrand-modal');
@@ -83,7 +57,6 @@
   }
 
   // Make functions globally available for onclick attributes
-  window.showField = showField;
   window.closeModal = closeModal;
 
   // Initialize on page load
