@@ -73,6 +73,10 @@ section {
   align-content: start;
   flex-wrap: nowrap;
   max-width: $container-width;
+
+  @media only screen and (max-width: map.get($breakpoints, md)) {
+    margin-top: map.get($spacing, md);
+  }
 }
 
 .split-screen {
@@ -247,6 +251,10 @@ nav ul {
   &.open {
     max-height: 500px;
     border-color: map.get($colors, text-subtle);
+    opacity: 1;
+    visibility: visible;
+    margin-top: map.get($spacing, md);
+    padding: map.get($spacing, md) map.get($spacing, sm) map.get($spacing, lg) 0;
   }
 
   ul {
@@ -267,14 +275,6 @@ nav ul {
     z-index: 100;
     opacity: 0;
     visibility: hidden;
-
-    &.open {
-      border-color: map.get($colors, text-subtle);
-      opacity: 1;
-      visibility: visible;
-      margin-top: map.get($spacing, md);
-      padding: map.get($spacing, md) map.get($spacing, sm) map.get($spacing, md) 0;
-    }
   }
 }
 

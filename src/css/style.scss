@@ -1,16 +1,9 @@
-// ===================================
-// Atlantic Pet - Main Stylesheet
-// ===================================
-// Streamlined SCSS architecture
+// Main Stylesheet
 
 @use 'variables';
 @use 'base';
 @use 'layout';
 @use 'components';
-
-// ===================================
-// EXPERIMENTAL
-// ===================================
 
 @view-transition {
   navigation: auto;
