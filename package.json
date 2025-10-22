@@ -5,9 +5,8 @@
   "main": "index.html",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "npm run download-images && eleventy && npm run minify:js",
-    "minify:js": "terser assets/app.js -o public/assets/app.js -c -m",
-    "download-images": "node download-remote-images.js"
+    "build": "eleventy && npm run minify:js",
+    "minify:js": "terser assets/app.js -o public/assets/app.js -c -m"
   },
   "repository": {
     "type": "git",
@@ -28,8 +27,6 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-img": "^6.0.4",
-    "cross-env": "^7.0.3",
-    "dotenv": "^16.5.0",
     "terser": "^5.44.0"
   }
 }

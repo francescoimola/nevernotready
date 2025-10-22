@@ -3,9 +3,9 @@
     "allow": [
       "Read(//c/Users/frnim/Downloads/**)",
       "Bash(python:*)",
-      "Bash(npm run download-images:*)",
       "Bash(npm run build:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []

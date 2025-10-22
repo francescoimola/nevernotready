@@ -3,6 +3,15 @@ node_modules
 
 # build artifacts
 public
+.claude
+.vscode
+
+# Prevent VS Code Live Sass Compiler from cluttering source
+src/css/*.css
+src/css/*.css.map
+
+# Eleventy cache (safe to delete, rebuilds automatically)
+.cache
 
 # secrets and errors
 .env
