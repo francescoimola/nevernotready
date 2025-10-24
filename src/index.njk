@@ -3,5 +3,51 @@ layout: _base.njk
 title: Francesco Imola
 description: Building bridges across the murky waters of art, design, marketing, and community events.
 permalink: '/'
+navtitle: Home
 ---
+{%- from "_cta-section.njk" import ctaSection -%}
 
+<section class="pad-bottom cap-width">
+	<div class="simple-sb-flex">
+		<h2>Where I can help</h2>
+		<a href="/services" class="light">See all services</a>
+	</div>
+	<p>I partner with small businesses and freelancers to work both in and on their marketing. As a team of (almost
+		always) one, I can be a versatile extension of your team without the agency overheads.</p>
+	<div class="side-by-grid pad-top-lg">
+		<div>
+			<h3>Done for you</h3>
+			<p>I design, write, and build your website or email campaigns and hand you something simple to maintain. No endless revisions or agency markup</p>
+		</div>
+		<div>
+			<h3>Consultations</h3>
+			<p>Space to figure out the best path forward. We dig into your challenges, the things that are working, those that are not, and the opportunities to simplify.</p>
+		</div>
+		<div>
+			<h3>Guided work</h3>
+			<p>We work side-by-side in focused body-doubling sessions to reflect, plan,
+				troubleshoot, and make solid progress. New sessions are currently being planned</p>
+		</div>
+		<div>
+			<h3>Ongoing partnerships</h3>
+			<p>For clients who need more than project work, I'm open to ongoing part-time arrangements where we build momentum together over months and years.</p>
+		</div>
+	</div>
+</section>
+
+<section class="pad-bottom cap-width give-border selected-work-card">
+	<a href="/portfolio">
+		<h2>Explore selected projects. <span class="light">A mix of my best work, thinking and making from the last
+				decade.</span></h2>
+		<img src="https://res.cloudinary.com/dax6x2pto/image/upload/ezgif.com-optipng_pao87g.png"
+			alt="Project demonstration">
+	</a>
+</section>
+
+{%- include "_testimonials.njk" -%}
+
+{{ ctaSection(
+"Ready to work together?",
+"Schedule a free 30-minute call to see if we're right for each other",
+"Book a free intro"
+) }}

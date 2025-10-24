@@ -5,7 +5,7 @@ description: Where everything is
 permalink: '/wayfinding/'
 navtitle: Wayfinding
 ---
-<section class="wayfinding-wrapper pad-bottom">
+<section class="pad-bottom">
 
 [About my business](/studio) <br>The basics about work you can hire me for
 

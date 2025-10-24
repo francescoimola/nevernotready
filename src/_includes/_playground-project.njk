@@ -1,8 +1,8 @@
 {%- macro playgroundProject(title, year, link, description, images) -%}
 <div class="work playground">
-  <div>
+  <div class="cap-width">
     {% if link %}
-      <h3><a href="{{ link }}" class="unpadded">{{ title }}</a></h3>
+      <h3><a href="{{ link }}">{{ title }}</a></h3>
     {% else %}
       <h3>{{ title }}</h3>
     {% endif %}

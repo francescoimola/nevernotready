@@ -9,7 +9,6 @@ $golden-ratio: 1.618;
 $perfect-fourth: 1.333;
 $opacity-fix: 0.99; // Prevents rendering issues
 $icon-scale: 4.5;
-$logo-scale: 3;
 
 // Typography
 $font-base: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -18,15 +17,17 @@ $font-base: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 $scale-ratio: 1.414; // Type scale ratio
 
 $font-base: clamp(1rem, 1.3vw, 1.2rem);
+$font-sm: calc($font-base / $scale-ratio);
 $font-large: calc($font-base * $scale-ratio);
 $font-xl: calc($font-large * $scale-ratio);
 
-$line-height-base: 1.5;
-$line-height-tight: 1.2;
+$lh-base: 1.5;
+$lh-tight: 1.3;
+$lh-packed: 1.2;
 
-$letter-spacing-base: -0.015em;
-$letter-spacing-large: -0.025em;
-$letter-spacing-xl: -0.035em;
+$letter-spacing-base: -0.009em;
+$letter-spacing-large: calc($letter-spacing-base * $golden-ratio);
+$letter-spacing-xl: calc($letter-spacing-large * $golden-ratio);
 
 // Spacing
 $unit: 0.25rem;
@@ -44,7 +45,7 @@ $colors: (
   bg: #f9f3f3,
   text: #061308,
   text-subtle: color-mix(in srgb, #061308 80%, #f9f3f3),
-  text-faint: color-mix(in srgb, #061308 65%, #f9f3f3),
+  text-more-subtle: color-mix(in srgb, #061308 65%, #f9f3f3),
   links: #00610f,
   links-subtle: #86cb90,
   red: #ff6149,
@@ -55,13 +56,14 @@ $colors: (
 
 // Layout
 $container-width: 54ch;
-$border-width: $golden-ratio * 1px;
+$border-width: thin;
 $ext-icon-size: map.get($spacing, sm) + map.get($spacing, xs);
-$transition-speed: 150ms;
+$header-height: 3rem;
 
 // Breakpoints
 $breakpoints: (
   md: 820px,
+  base: 600px,
   sm: 480px,
 );
 

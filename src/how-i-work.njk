@@ -5,30 +5,35 @@ description: My approach to marketing that actually works without burning you ou
 permalink: '/how-i-work/'
 navtitle: How I work
 ---
+{%- from "_cta-section.njk" import ctaSection -%}
 
-<section class=" pad-bottom">
-	<h2>The one problem I'm here for</h2>
-	<p>You've done the scary part. The business exists. And it works!</p>
-	<p>Great, step two: sort out your marketing. Post daily. Run ads. Network. Be relentless. Chase the algorithm. Buy the course. Rinse, repeat, burn out.</p>
-	<p>It's in the name of the game, you tell yourself.</p>
-	<p>But whose game?</p>
-	<p>You're <i>this</i> close to getting it right. If only there were ways your audience could actually find you—without you having to always fight an algorithm or feeling so stretched thin.</p>
+<section class="pad-bottom separator">
+	<h2>You've done the scary part</h2>
+	<p>The business exists. And it works!</p>
+	<p>Great, step two: sort out your marketing. Post daily. Run ads. Network. Be relentless. Chase the algorithm. Buy the course.</p>
+	<p>Rinse, repeat, burn out.</p>
+	<p>If only there were ways your audience could actually find you, without you having to always fight an algorithm or feeling so stretched thin.</p>
 	<p>Good news: there are.</p>
 </section>
 
-<section class=" pad-bottom pop">
-	<h2>What I can do</h2>
+<section class="pad-bottom pop cap-width">
+	<h2 class="cap-width">What I can do</h2>
 	<p>I can help you untangle the chaos in your marketing, strip away what's not working, and build something you can grow without burning out.</p>
-	<p>We start with a free 30-min call. You tell me what's not working, I tell you if I can help. If we're a fit, we pick ONE thing to tackle first. Then I:</p>
+	<p>We start with a free 30-min call. You tell me what's not working, I tell you if I can help. If we're a fit, we pick ONE thing to tackle first.</p>
+	<p>From there, I can:</p>
 	<ol>
-		<li><b>Do it for you</b> (design, write, build)</li>
-		<li><b>Work on it with you</b> (do-it-together sessions)</li>
-		<li><b>Help you find clarity</b> (consultations, workshops) </li>
+		<li><b>Do it for you</b></li>
+		<li><b>Work on it with you</b></li>
+		<li><b>Help you find clarity</b></li>
 	</ol>
-	<p><a href="/services">Explore services & pricing</a> →</p>
+	<div class="buttons-wrapper pad-top-md">
+		<a href="/services" class="button-like invert">Explore services & pricing</a>
+		<a href="/portfolio">See portfolio</a>
+	</div>
+
 </section>
 
-<section class=" pad-bottom">
+<section class="pad-bottom cap-width">
 	<h2>What I won't do</h2>
 	<ul class="plain-list">
 		<li>• Promise to "transform your brand"</li>
@@ -37,14 +42,48 @@ navtitle: How I work
 		<li>• Push you to do more than you can handle</li>
 		<li>• Lock you into a long-term retainer</li>
 	</ul>
-	<p class="pad-top">Rather than aiming for something massive and overwhelming that will fall apart the moment you take a week off, we work with the time, energy, and budget you've got, and build something sustainable from there.</p>
+	<p class="pad-top-md">Rather than aiming for something massive and overwhelming that will fall apart the moment you take a week off, we work with the time, energy, and budget you've got, and build something sustainable from there.</p>
 </section>
 
-<section class="pad-bottom pop invert">
-	<h2>Sound about right?</h2>
-	<p>If this approach makes sense to you, let's talk.</p>
+<section class="pad-bottom cap-width">
+	<h2>What to expect</h2>
 	<p>
-		<a data-cal-link="francescoimola/intro" data-cal-namespace="intro"
-				data-cal-config='{"layout":"month_view","theme":"light"}' style="cursor: pointer;" class="unpadded">Book a free intro</a> →</p>
-	<p>Need to think it over? <a href="/services">See what I offer first</a></p>
+		For larger projects—like building a website or a writing a full nurturing campaign—here's a general blueprint of how we'll work together. Smaller engagements like consultations are much more intuitive and flexible.
+	</p>
+
+	<div class="side-by-grid pad-top-lg">
+		<div>
+			<h3>1. Discovery</h3>
+			<p>
+				After we got to know each other and mapped out a timeline, we'll dig into research, explore what your audience needs, and gather everything necessary to move forward.
+			</p>
+		</div>
+	
+		<div>
+			<h3>2. Collaboration</h3>
+			<p>
+				Once we have a clear direction, I'll design or draft initial concepts for your review. I'll refine the work based on your feedback until we land on something that feels right.
+			</p>
+		</div>
+	
+		<div>
+			<h3>3. Production</h3>
+			<p>
+				Whether it's building a website, finalizing email templates, or preparing deliverables, I'll bring everything together and present it for your feedback before we finalize.
+			</p>
+		</div>
+	
+		<div>
+			<h3>4. Launch & support</h3>
+			<p>
+				Once everything is live or delivered, I'll make sure things are running smoothly. For ongoing projects, this might mean monitoring performance and making adjustments as needed.
+			</p>
+		</div>
+	</div class="side-by-grid pad-top-md">
 </section>
+
+{{ ctaSection(
+"Sound about right?",
+"If you're ready to take the next step, let's talk.",
+"Schedule a free intro"
+) }}

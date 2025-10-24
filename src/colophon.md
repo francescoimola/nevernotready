@@ -3,6 +3,7 @@ layout: _base.njk
 title: Colophon - Francesco Imola
 description: Everything you need to know about this website
 permalink: "/colophon/"
+navtitle: Colophon
 ---
 
 ## About
@@ -24,8 +25,10 @@ This site was created and is maintained by a single person. To improve the relia
 The use of LLMs carries a carbon footprint. While this site’s code is efficient and powered by renewable energy, I acknowledge that such measures won't erase the environmental cost of using AI in the first place.
 
 ## Fonts in use
-[Inter by Rasmus Anderssons](https://rsms.me/inter/) <br>For titles, headings and body text
 
-[Instrument Serif by Fuenzalida, Egstad, Hooge, and De Caluwé](https://github.com/Instrument/instrument-serif) <br>For italic text
+[Ronzino by Collletttivo](https://www.collletttivo.it/typefaces/ronzino)
+
+A new open-source spin on the legendary, cult-classic Arial, Ronzino improves on Arial's many drawbacks while retaining a similar information-driven feeling—while staying sort of nondescript. Collletttivo is a team of Italian designers. I felt it important to pay homage to my home country through typography, the core ingredient of this website.
 
 <p class="pad-bottom"></p>
+<br>

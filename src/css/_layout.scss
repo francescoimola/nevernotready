@@ -18,23 +18,16 @@ img {
   fill: map.get($colors, text);
   image-rendering: webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  opacity: $opacity-fix;
-
-  &.give-border {
-    border: $border-width solid map.get($colors, text-faint);
-    border-radius: map.get($spacing, xs);
-  }
 }
 
-img.hero {
-  min-width: calc(map.get($spacing, 2xl) * $icon-scale);
-  max-width: 25vw;
-  margin: 0 auto;
-  object-fit: contain;
+.logo {
+  height: clamp(1.618rem, 3vw, 2.617rem);
+  width: auto;
+  max-width: revert;
 }
 
 figure {
-  @include flex(column, map.get($spacing, xs));
+  @include flex(column, map.get($spacing, sm));
   width: 100%;
 
   figcaption {
@@ -50,326 +43,321 @@ details>summary {
   }
 }
 
-.ascii-art {
-  font-family: monospace;
-  color: currentColor;
-  white-space: pre;
-  overflow-x: auto;
-  padding-block: map.get($spacing, lg);
-
-  @media (max-width: map.get($breakpoints, sm)) {
-    font-size: calc($font-base * 0.75);
-  }
-}
-
 // ===================================
 // LAYOUT
 // ===================================
 
-main,
-section {
+main {
   @include flex;
   justify-content: flex-start;
   align-content: start;
   flex-wrap: nowrap;
-  max-width: $container-width;
-
-  @media only screen and (max-width: map.get($breakpoints, md)) {
-    margin-top: map.get($spacing, md);
-  }
-}
-
-.split-screen {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   width: 100%;
-  padding-inline: clamp(0.5rem, 4vw, 2rem);
-  box-sizing: border-box;
-  align-items: flex-start;
+  position: relative;
+  z-index: 1;
 
-  >* {
-    min-width: 0;
-  }
-
-  header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    position: sticky;
+  &::before {
+    content: '';
+    position: fixed;
+    left: clamp(0.25rem, 2vw, 1rem);
     top: 0;
-    left: 0;
-
-    &.cap-height {
-      height: calc(100vh - (map.get($spacing, md)) * 2);
-      width: 100%;
-    }
-
-    h1 {
-      max-width: calc($container-width / 2);
-      margin: 0;
-    }
+    height: 100vh;
+    border-left: $border-width dotted map.get($colors, text-more-subtle);
+    z-index: -1;
   }
 
-  .page-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    gap: map.get($spacing, md);
-
-    @media only screen and (min-width: map.get($breakpoints, md)) {
-      height: 100%;
-    }
-
-    @media only screen and (max-width: map.get($breakpoints, md)) {
-      padding-bottom: map.get($spacing, md);
-      height: 100%;
-    }
-  }
-
-  .card-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    padding: map.get($spacing, md);
-    background: map.get($colors, bg);
-    border: $border-width solid map.get($colors, text-faint);
-    border-radius: map.get($spacing, xs);
-    transition: all $transition-speed ease-in-out;
-
-    * {
-      transition: all $transition-speed ease-in-out;
-    }
-
-    &:hover,
-    &:focus-visible {
-      background: map.get($colors, links);
-
-      &,
-      * {
-        color: map.get($colors, bg);
-      }
-    }
-
-    > p {
-      width: 100%;
-      color: map.get($colors, text-subtle);
-    }
-  }
-
-  b {
-    font-weight: 600;
-  }
-
-  @media only screen and (max-width: map.get($breakpoints, md)) {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 0;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(-1 * clamp(0.25rem, 2vw, 1rem));
+    width: 100vw;
+    border-top: $border-width dotted map.get($colors, text-more-subtle);
+    pointer-events: none;
   }
 }
 
-.main-wrapper, .page-content {
+.margin-fix {
+  padding-right: map.get($spacing, sm);
+}
+
+section {
+  position: relative;
+}
+
+.home-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
-  justify-items: end;
-}
+  text-decoration: none;
+  padding: map.get($spacing, md);
+  background: map.get($colors, bg);
+  border: $border-width solid map.get($colors, text-subtle);
+  border-radius: map.get($spacing, xs);
 
-.wayfinding-wrapper {
-  gap: map.get($spacing, sm);
+  &:hover,
+  &:focus-visible {
+    background: map.get($colors, links);
 
-  a {
-    font-weight: 600;
+    &,
+    * {
+      color: map.get($colors, bg);
+    }
+  }
+
+  >p {
+    width: 100%;
+    color: map.get($colors, text-subtle);
   }
 }
 
-.nav-mobile {
-  display: none;
+.pad-top-md {
+  margin-top: map.get($spacing, md);
 }
 
-.pad-top {
-  padding-top: map.get($spacing, md);
+.pad-top-sm {
+  margin-top: map.get($spacing, sm);
+}
+
+.pad-top-lg {
+  margin-top: map.get($spacing, lg);
 }
 
 .pad-bottom {
-  padding-bottom: map.get($spacing, 2xl);
+  margin-bottom: map.get($spacing, 2xl);
 }
 
-body.split-screen {
-  padding-block: map.get($spacing, md);
-
-  @media only screen and (max-width: map.get($breakpoints, md)) {
-    justify-content: flex-start;
-    padding-block: map.get($spacing, md);
-  }
+.pad-bottom-large {
+  margin-bottom: calc(map.get($spacing, xl) * 4);
 }
 
 .top-divider {
-  border-top: $border-width solid map.get($colors, text-subtle);
+  border-top: $border-width dotted map.get($colors, text-subtle);
+}
+
+.intro-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+
+  img {
+    width: clamp(10rem, 10vw, 15rem);
+    height: auto;
+  }
+}
+
+.page-margins {
+  margin: map.get($spacing, sm) 0 0 clamp(0.25rem, 2vw, 1rem);
+  padding: map.get($spacing, sm) clamp(0.5rem, 4vw, 2rem) map.get($spacing, md) clamp(0.25rem, 2vw, 1rem);
 }
 
 // ===================================
 // HEADER
 // ===================================
 
-nav ul {
-  @include flex(row, map.get($spacing, md));
-  margin: 0;
-  justify-content: stretch;
-  align-items: flex-start;
-  color: map.get($colors, text-subtle);
-
-  li:last-child {
-    margin-bottom: revert;
-  }
-}
-
-.header-with-menu {
-  width: 100%;
-  position: relative;
-}
-
-.header-row {
+header {
+  padding-inline: clamp(0.25rem, 2vw, 1rem);
+  padding-block: clamp(0.5rem, 1.25vh, 1rem);
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: map.get($spacing, xl);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
   width: 100%;
-  gap: map.get($spacing, md);
-}
+  background: map.get($colors, bg);
+  border-top: $border-width solid map.get($colors, text-more-subtle);
 
-.mobile-nav-menu {
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-
-  &.open {
-    max-height: 500px;
-    border-color: map.get($colors, text-subtle);
-    opacity: 1;
-    visibility: visible;
-    margin-top: map.get($spacing, md);
-    padding: map.get($spacing, md) map.get($spacing, sm) map.get($spacing, lg) 0;
-  }
-
-  ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: map.get($spacing, sm);
-  }
-
+  // Fixed height on mobile for predictable positioning
   @media only screen and (max-width: map.get($breakpoints, md)) {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: map.get($colors, bg);
-    margin: 0;
-    padding: 0 map.get($spacing, sm) 0 0;
-    border-top: $border-width solid transparent;
-    z-index: 100;
-    opacity: 0;
-    visibility: hidden;
+    height: $header-height;
+    padding-block: 0;
   }
 }
 
-// Hamburger menu styles
-#hamburger {
-  display: flex;
-  flex-direction: column;
-  gap: map.get($spacing, xs);
-  cursor: pointer;
-  padding: map.get($spacing, md) map.get($spacing, sm) 0 0;
+nav {
+  margin: 0;
+  width: 100%;
+  @include flex(row, 0);
+  justify-content: space-between;
+  align-items: center;
 
-  span {
-    display: block;
-    width: map.get($spacing, lg);
-    height: calc($border-width * 1.5);
-    background: map.get($colors, text);
-    transition: all $transition-speed ease-in-out;
-    border-radius: $unit;
+  *{
+    white-space: nowrap;
+  }
+
+  .logo-plus-nav {
+    @include flex(row, map.get($spacing, lg));
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+    @media only screen and (max-width: map.get($breakpoints, md)) {
+      justify-content: space-between;
+    }
+  }
+
+  .home-icon {
+    width: map.get($spacing, md);
+    height: auto;
+    padding-top: map.get($spacing, xs);
+  }
+
+  .nav-links {
+    justify-content: center;
+    align-items: center;
+    @include flex(row, map.get($spacing, sm));
+    flex-wrap: nowrap;
+
+    *:not(:last-child)::after {
+      content: ",";
+      text-decoration: none;
+      display: inline-block;
+    }
+  }
+
+  // Mobile menu hidden by default
+  .mobile-menu {
+    display: none;
+  }
+
+  // Show desktop nav by default
+  .desktop-nav {
+    display: flex;
+  }
+
+  // Mobile breakpoint
+  @media only screen and (max-width: map.get($breakpoints, md)) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: block;
+      position: relative;
+    }
+
+    .home-icon {
+        display: none;
+        visibility: hidden;
+      }
   }
 }
 
-#mobile-menu {
+// ===================================
+// MOBILE MENU COMPONENTS
+// ===================================
+
+.mobile-menu {
   summary {
     list-style: none;
     cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 
     &::-webkit-details-marker {
       display: none;
     }
   }
 
-  // Animate hamburger to X when open
-  &[open] #hamburger {
-    span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
+  .hamburger {
+    @include flex(column, calc(map.get($spacing, xs) / $perfect-fourth));
+    justify-content: center;
+    width: map.get($spacing, lg);
+    height: map.get($spacing, lg);
+    cursor: pointer;
+
+    span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: map.get($colors, text);
+      will-change: transform, opacity;
     }
+  }
+
+  &[open] .hamburger {
+    span:first-child {
+      transform: translateY(calc(map.get($spacing, xs) / $golden-ratio + 3px)) rotate(45deg);
+    }
+
     span:nth-child(2) {
       opacity: 0;
     }
-    span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
+
+    span:last-child {
+      transform: translateY(calc(-1 * (map.get($spacing, xs) / 2 + 1px))) rotate(-45deg);
+    }
+  }
+
+  .mobile-menu-panel {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: $header-height;
+    background: map.get($colors, bg);
+    border-top: $border-width solid map.get($colors, text-more-subtle);
+    padding: map.get($spacing, md) map.get($spacing, md) map.get($spacing, xl) map.get($spacing, md);
+    overflow: hidden;
+    @include flex(row, map.get($spacing, md));
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .mobile-menu-links {
+      @include flex(column, map.get($spacing, sm));
+      justify-content: flex-start;
+      align-items: flex-start;
     }
   }
 }
 
-.modal {
-	display: none;
-	position: fixed;
-	z-index: 999;
-	inset: 0;
-	background: rgba(0, 0, 0, 0.5);
-	align-items: center;
-	justify-content: center;
-  padding-inline: map.get($spacing, sm);
+.secondary-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  @extend .pad-bottom-large;
+  gap: map.get($spacing, xl);
+  flex-wrap: wrap;
+  position: relative;
 
-	&>div {
-		@include flex(column, map.get($spacing, sm));
-    justify-content: center;
-    align-items: center;
-		padding: map.get($spacing, md);
-		background: map.get($colors, bg);
-		border: $border-width dotted map.get($colors, text);
-		border-radius: map.get($spacing, sm);
-		text-align: center;
-    max-width: calc($container-width / 1.333);
-
-		p {
-			margin: 0;
-			color: map.get($colors, text-subtle);
-		}
-
-		button {
-			margin-top: map.get($spacing, md);
-      width: fit-content;
-		}
-	}
+  @media only screen and (max-width: map.get($breakpoints, md)) {
+    margin-bottom: map.get($spacing, xl);
+  }
 }
 
-// Responsive Header Styles
-@media only screen and (max-width: map.get($breakpoints, md)) {
-  .split-screen header {
-    padding-bottom: map.get($spacing, lg);
-    position: revert;
-  }
+.secondary-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: map.get($spacing, xs);
+  margin-top: map.get($spacing, xs);
 
-  // Hide desktop nav on mobile
-  .nav-desktop {
+  @media only screen and (max-width: calc(map.get($breakpoints, md)*1.333)) {
     display: none;
     visibility: hidden;
   }
+}
 
-  // Show mobile nav
-  .nav-mobile {
-    display: block;
-    visibility: visible;
+.separator {
+  padding-bottom: map.get($spacing, md);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: calc(map.get($spacing, 2xl)* -1);
+    bottom: 0;
+    width: 150vw;
+    border-bottom: $border-width dotted map.get($colors, text-more-subtle);
   }
 }
 
@@ -378,46 +366,36 @@ nav ul {
 // ===================================
 
 footer {
-  width: 100%;
-  min-height: fit-content;
-  margin: 0;
-  padding: 0;
-  border-top: $border-width solid map.get($colors, text-subtle);
-  max-width: $container-width;
+  border-top: $border-width solid map.get($colors, links);
+  padding: map.get($spacing, 2xl) clamp(0.5rem, 4vw, 2rem) calc(map.get($spacing, 2xl)*2);
+  @include flex(column, map.get($spacing, lg));
+  justify-content: flex-start;
+  align-items: start;
+  background: map.get($colors, links);
+  position: relative;
+  z-index: 2;
+  color: map.get($colors, bg);
 
-  section {
-    @include flex(column, map.get($spacing, xl));
-    justify-content: flex-end;
-    align-items: flex-start;
+  a:hover {
+    color: map.get($colors, bg-more-translucent);
+    text-decoration-color: map.get($colors, bg-more-translucent);
+  }
 
-    a:hover,
-    a:focus-visible {
-      color: map.get($colors, bg-more-translucent);
-      text-decoration-color: map.get($colors, bg-more-translucent);
-    }
+  h2, p, a, small {
+    color: map.get($colors, bg);
+  }
 
-    h2,
-    p,
-    a,
-    span {
-      margin: map.get($spacing, xs) 0 0;
-    }
+  .f-innergroup {
+    @include flex(column, map.get($spacing, sm));
+    gap: map.get($spacing, xs);
+    justify-content: flex-start;
+    align-items: stretch;
 
-    .logo {
-      fill: map.get($colors, bg);
-    }
-
-    .f-innergroup {
-      @include flex(column, map.get($spacing, sm));
-      gap: map.get($spacing, xs);
-      justify-content: flex-start;
-      align-items: stretch;
-
-      h2,
-      a {
-        margin: 0;
-        padding: 0;
-      }
+    p:first-of-type {
+      margin: 0;
+      padding: 0;
+      color: map.get($colors, bg);
+      font-weight: 500;
     }
   }
 }

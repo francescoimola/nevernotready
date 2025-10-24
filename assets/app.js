@@ -19,22 +19,6 @@
     } catch (error) {}
   }
 
-  // Mobile Menu Toggle
-  function initMobileMenu() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileNavMenu = document.getElementById('mobile-nav-menu');
-
-    if (mobileMenu && mobileNavMenu) {
-      mobileMenu.addEventListener('toggle', function() {
-        if (mobileMenu.open) {
-          mobileNavMenu.classList.add('open');
-        } else {
-          mobileNavMenu.classList.remove('open');
-        }
-      });
-    }
-  }
-
   // Rebrand Modal
   function closeModal() {
     const modal = document.getElementById('rebrand-modal');
@@ -56,6 +40,33 @@
     }
   }
 
+  // Copy email to clipboard with visual feedback
+  function initEmailCopy() {
+    const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
+
+    mailtoLinks.forEach(link => {
+      link.addEventListener('click', async function(e) {
+        e.preventDefault();
+
+        const email = this.getAttribute('href').replace('mailto:', '');
+
+        try {
+          await navigator.clipboard.writeText(email);
+
+          // Show success feedback
+          const originalText = this.textContent;
+          this.textContent = 'Email copied!';
+
+          setTimeout(() => {
+            this.textContent = originalText;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    });
+  }
+
   // Make functions globally available for onclick attributes
   window.closeModal = closeModal;
 
@@ -63,12 +74,12 @@
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function() {
       unorphanize();
-      initMobileMenu();
+      initEmailCopy();
     });
     window.addEventListener('load', initRebrandModal);
   } else {
     unorphanize();
-    initMobileMenu();
+    initEmailCopy();
     initRebrandModal();
   }
 })();

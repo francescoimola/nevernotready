@@ -10,9 +10,10 @@
 // BUTTONS
 // ===================================
 
-button {
-  padding: map.get($spacing, sm) map.get($spacing, md);
-  border: none;
+button,
+.button-like {
+  padding: map.get($spacing, xs) map.get($spacing, sm);
+  border: $border-width solid map.get($colors, links);
   border-radius: map.get($spacing, xs);
   background: map.get($colors, links);
   color: map.get($colors, bg);
@@ -21,7 +22,10 @@ button {
   text-align: inherit;
   box-shadow: none;
   cursor: pointer;
-  transition: all $transition-speed ease-in-out;
+  text-decoration: none;
+  width: fit-content;
+  display: inline-block;
+  height: fit-content;
 
   &:hover,
   &:focus-visible {
@@ -29,9 +33,9 @@ button {
   }
 
   &.secondary {
-    background: map.get($colors, bg-translucent);
+    background: map.get($colors, bg);
     color: map.get($colors, text-subtle);
-    border: $border-width solid map.get($colors, text-faint);
+    border: $border-width solid map.get($colors, text-subtle);
 
     &:hover,
     &:focus-visible {
@@ -40,14 +44,29 @@ button {
   }
 }
 
-.button-group {
-  @include flex(row, map.get($spacing, sm));
-  margin-top: map.get($spacing, md);
+.invert {
+  background: map.get($colors, bg);
+  color: map.get($colors, text);
+  border: $border-width solid map.get($colors, text-subtle);
+
+  &:hover,
+  &:focus-visible {
+    background: map.get($colors, text-subtle);
+    color: map.get($colors, bg);
+  }
+}
+
+.buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: map.get($spacing, sm);
   flex-wrap: wrap;
-  justify-content: start;
-  align-items: stretch;
-  overflow: hidden;
-  transition: opacity 0.3s, height 0.5s cubic-bezier(0.4, 2, 0.6, 1);
+  justify-content: flex-start;
+  align-items: center;
+
+  a:not(.button-like) {
+    margin-left: map.get($spacing, sm);
+  }
 }
 
 // ===================================
@@ -56,37 +75,28 @@ button {
 
 .pop {
   padding: map.get($spacing, md) map.get($spacing, md) calc(map.get($spacing, md) * $perfect-fourth) map.get($spacing, md);
-  margin-bottom: map.get($spacing, 2xl);
-  background: map.get($colors, bg-translucent);
-  border: $border-width solid map.get($colors, text-faint);
+  background: map.get($colors, bg);
+  border-radius: map.get($spacing, xs);
+  border: $border-width solid map.get($colors, text-subtle);
   border-radius: map.get($spacing, xs);
 
-  h2:first-of-type {
-    padding-top: 0;
-    margin-top: 0;
-  }
-
-  &.invert {
-    background: map.get($colors, links);
-    *{color: map.get($colors, bg);
-    }
-    a:hover {
-      text-decoration-color: map.get($colors, links-subtle);
-    }
-  }
-
-  &.small-margin {
-    margin-bottom: map.get($spacing, lg);
+  h2 {
+    margin-bottom: map.get($spacing, sm);
   }
 }
 
 .projects-showcase {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: map.get($spacing, xl);
+  column-gap: map.get($spacing, xl);
+  row-gap: map.get($spacing, 2xl);
 
   img {
-    background: map.get($colors, bg-translucent);
-    border: $border-width solid map.get($colors, text-faint);
+    background: map.get($colors, bg);
+    border: $border-width solid map.get($colors, text-subtle);
     border-radius: map.get($spacing, xs);
   }
 
@@ -111,6 +121,7 @@ button {
   justify-content: flex-start;
   gap: map.get($spacing, sm);
   flex-wrap: wrap;
+  max-width: $container-width;
 
   .role {
     color: map.get($colors, text-subtle);
@@ -118,11 +129,11 @@ button {
 
   .year {
     font-weight: 500;
-    color: map.get($colors, text-faint);
+    color: map.get($colors, text-more-subtle);
   }
 
   figure figcaption {
-    font-weight: 600;
+    font-weight: 500;
     font-size: revert;
   }
 
@@ -171,7 +182,7 @@ button {
     flex: 0 0 auto;
     width: auto;
     height: calc(map.get($spacing, 2xl) * 4);
-    border: $border-width solid map.get($colors, text-faint);
+    border: $border-width solid map.get($colors, text-subtle);
     border-radius: map.get($spacing, xs);
     opacity: 1;
   }
@@ -191,7 +202,10 @@ button {
 
 .playground {
   gap: 0;
+  column-gap: map.get($spacing, lg);
   margin-bottom: map.get($spacing, xl);
+  flex-direction: column;
+
 
   h3 {
     margin-bottom: 0;
@@ -230,36 +244,28 @@ button {
   }
 }
 
-.testimonials {
-  @include flex(column, map.get($spacing, sm));
+.quote {
+  @include flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: stretch;
 
-  .quote {
-    @include flex;
-    width: 100%;
-    padding: map.get($spacing, lg);
-    justify-content: space-between;
-    align-items: stretch;
-    background: map.get($colors, bg-translucent);
-    border: $border-width solid map.get($colors, text-faint);
-    border-radius: map.get($spacing, xs);
+  @media only screen and (max-width: map.get($breakpoints, sm)) {
+    padding: map.get($spacing, md);
+  }
 
-    @media only screen and (max-width: map.get($breakpoints, sm)) {
-      padding: map.get($spacing, md);
-    }
+  >div {
+    @include flex(row, map.get($spacing, md));
 
-    >div {
-      @include flex(row, map.get($spacing, md));
+    .credit {
+      @include flex(column, map.get($spacing, xs));
+      flex: 1 1 100%;
+      justify-content: flex-start;
+      align-content: start;
+      flex-wrap: nowrap;
 
-      .credit {
-        @include flex(column, map.get($spacing, xs));
-        flex: 1 1 100%;
-        justify-content: flex-start;
-        align-content: start;
-        flex-wrap: nowrap;
-
-        p {
-          margin: 0;
-        }
+      p {
+        margin: 0;
       }
     }
   }
@@ -267,7 +273,7 @@ button {
 
 .faqs {
   h2 {
-    color: map.get($colors, text-faint);
+    color: map.get($colors, text-more-subtle);
   }
 
   ul li {
@@ -290,22 +296,30 @@ button {
 // UTILITIES
 // ===================================
 
+.invert-bg{
+  background: map.get($colors, text);
+  h2, p {
+    color: map.get($colors, bg);
+  }
+
+  a {
+    border: $border-width solid map.get($colors, bg);
+  }
+}
+.cap-width {
+  max-width: $container-width;
+}
+
+.cap-width-sm {
+  max-width: calc($container-width / $golden-ratio);
+}
+
 .hidden {
   display: none;
 }
 
 .light {
-  margin: 0 0 map.get($spacing, sm);
-  font-weight: 600;
-  font-size: $font-large;
-  letter-spacing: $letter-spacing-large;
-  line-height: $line-height-base;
-  text-rendering: optimizeLegibility;
-  color: map.get($colors, text-faint);
-
-  &:first-of-type {
-    padding-top: map.get($spacing, xs);
-  }
+  color: map.get($colors, text-more-subtle);
 }
 
 ul.plain-list {
@@ -334,30 +348,33 @@ ul.services-list {
 
 .side-by-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: map.get($spacing, lg);
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: map.get($spacing, md);
 
-  .grid-item {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: map.get($spacing, lg);
-    align-items: start;
-  }
-
-  @media only screen and (max-width: map.get($breakpoints, md)) {
-    .grid-item {
-      grid-template-columns: 1fr;
-      gap: map.get($spacing, xs);
-    }
-
-    figure.grid-item {
-      max-width: 50%;
-      height: auto;
-    }
+  >div {
+    padding: map.get($spacing, md);
+    border: $border-width solid map.get($colors, text-subtle);
+    border-radius: map.get($spacing, xs);
+    background: map.get($colors, bg);
+    @include flex(column, map.get($spacing, xs));
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
   }
 }
 
-// Pricing grid
+.simple-sb-flex {
+  @include flex(row, map.get($spacing, lg));
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+
+  * {
+    margin-bottom: map.get($spacing, md);
+  }
+}
+
 .pricing-grid {
   display: grid;
   gap: map.get($spacing, xs);
@@ -368,24 +385,76 @@ ul.services-list {
   grid-template-columns: 2fr 1fr;
   gap: map.get($spacing, md);
   padding: map.get($spacing, sm);
-  border-bottom: $border-width dashed map.get($colors, text-faint);
+  border-bottom: $border-width dashed map.get($colors, text-more-subtle);
   align-items: center;
 
   &.pricing-header {
     font-weight: bold;
-    border-bottom: $border-width solid map.get($colors, text-faint);
+    border-bottom: $border-width solid map.get($colors, text-more-subtle);
+    grid-template-columns: 1fr 1fr;
   }
 
   span:last-child {
     text-align: right;
   }
+}
 
-  @media only screen and (max-width: map.get($breakpoints, sm)) {
-    grid-template-columns: 1fr;
-    gap: map.get($spacing, xs);
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  padding-inline: map.get($spacing, sm);
 
-    span:last-child {
-      text-align: left;
+  &>div {
+    @include flex(column, map.get($spacing, sm));
+    justify-content: center;
+    align-items: center;
+    padding: map.get($spacing, md);
+    background: map.get($colors, bg);
+    border: $border-width dotted map.get($colors, text);
+    border-radius: map.get($spacing, sm);
+    text-align: center;
+    max-width: calc($container-width / 1.618);
+
+    p {
+      margin: 0;
+      color: map.get($colors, text-subtle);
+    }
+
+    p:last-of-type {
+      margin-bottom: map.get($spacing, md);
+    }
+  }
+}
+
+.give-border {
+  border: $border-width solid map.get($colors, text-subtle);
+  border-radius: map.get($spacing, xs);
+}
+
+.selected-work-card {
+  background: map.get($colors, bg);
+  h2 {
+    width: fit-content;
+    padding: map.get($spacing, md) map.get($spacing, md) 0 map.get($spacing, md);
+    max-width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  &:hover {
+    background: map.get($colors, links);
+    h2 {
+      color: map.get($colors, bg);
+    }
+    .light {
+      color: map.get($colors, bg-more-translucent);
     }
   }
 }

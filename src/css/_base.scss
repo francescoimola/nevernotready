@@ -122,8 +122,8 @@ blockquote,
 q {
   quotes: none;
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content: none;
   }
 }
@@ -134,18 +134,73 @@ table {
 }
 
 // ===================================
+// Load Fonts
+// ===================================
+@font-face {
+  font-family: 'Ronzino';
+  src: url('/assets/fonts/Ronzino-Regular.woff2') format('woff2'),
+    url('/assets/fonts/Ronzino-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ronzino';
+  src: url('/assets/fonts/Ronzino-Oblique.woff2') format('woff2'),
+    url('/assets/fonts/Ronzino-Oblique.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ronzino';
+  src: url('/assets/fonts/Ronzino-MediumOblique.woff2') format('woff2'),
+    url('/assets/fonts/Ronzino-MediumOblique.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ronzino';
+  src: url('/assets/fonts/Ronzino-Medium.woff2') format('woff2'),
+    url('/assets/fonts/Ronzino-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ronzino';
+  src: url('/assets/fonts/Ronzino-BoldOblique.woff2') format('woff2'),
+    url('/assets/fonts/Ronzino-BoldOblique.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ronzino';
+  src: url('/assets/fonts/Ronzino-Bold.woff2') format('woff2'),
+    url('/assets/fonts/Ronzino-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// ===================================
 // Root elements
 // ===================================
 
 :root {
-  font-family: Inter, sans-serif;
-  font-feature-settings: 'liga' 1, 'calt' 1;
+  font-family: Ronzino, sans-serif;
 }
 
-@supports (font-variation-settings: normal) {
-  :root {
-    font-family: InterVariable, sans-serif;
-  }
+html,
+body {
+  overflow-x: hidden;
 }
 
 html {
@@ -166,19 +221,16 @@ body {
   overflow-x: hidden;
   font-size: $font-base;
   font-weight: 400;
-  line-height: $line-height-base;
+  line-height: $lh-base;
   letter-spacing: $letter-spacing-base;
-  font-feature-settings: 'ss01' 1, 'ss03' 1, 'cv10' 1, 'cv05' 1, 'cv06' 1,
-    'cv11' 1;
-  font-optical-sizing: auto;
   color: map.get($colors, text);
-  background: map.get($colors, bg);
+  background: map.get($colors, bg-translucent);
   scrollbar-width: auto;
   scrollbar-color: map.get($colors, text-subtle) transparent;
 
-  *:focus-visible {
-    outline: $border-width solid map.get($colors, text);
-    outline-offset: calc($border-width * 2);
+  *:focus-visible, *:focus {
+    outline: $border-width dotted map.get($colors, links);
+    outline-offset: map.get($spacing, xs);
   }
 
   &::-webkit-scrollbar {
@@ -204,21 +256,21 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 map.get($spacing, sm);
-  font-weight: 600;
+  margin: 0 0 map.get($spacing, md) 0;
+  font-weight: 500;
   font-size: $font-large;
   letter-spacing: $letter-spacing-large;
-  line-height: $line-height-base;
+  line-height: $lh-tight;
   color: map.get($colors, text);
   text-rendering: optimizeLegibility;
 }
 
 h1 {
   font-size: $font-xl;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: $letter-spacing-xl;
-  line-height: $line-height-tight;
-
+  line-height: $lh-packed;
+  margin: 0;
 
   a {
     text-decoration: none;
@@ -226,27 +278,26 @@ h1 {
   }
 }
 
-h2 {
-  padding-top: map.get($spacing, md);
-
-  &:first-of-type {
-    padding-top: map.get($spacing, xs);
-  }
-}
-
 h3 {
   font-size: $font-base;
-  line-height: $line-height-base;
+  line-height: $lh-base;
 }
 
 p {
   margin: 0 0 map.get($spacing, md) 0;
   color: map.get($colors, text-subtle);
   text-rendering: optimizeSpeed;
+  max-width: $container-width;
 
   &:last-child {
     margin-bottom: 0;
   }
+}
+
+small, .small-link {
+  font-size: $font-sm;
+  line-height: $lh-base;
+  color: map.get($colors, text-subtle);
 }
 
 a {
@@ -254,7 +305,6 @@ a {
   color: currentColor;
   text-decoration: calc($unit/($perfect-fourth * 2)) underline;
   text-underline-offset: map.get($spacing, xs);
-  transition: all $transition-speed ease-in-out;
 
   &:hover,
   &:focus-visible,
@@ -277,26 +327,15 @@ a {
     text-decoration: none;
   }
 
-  &[href^='http'], &[href^='mailto'] {
+  &[href^='http']:not(.no-ext-icon){
     display: inline-block;
     max-width: 100%;
-    padding-right: 5px;
     justify-content: center;
-    border: $border-width solid transparent;
     cursor: pointer;
-
-    &:not(.unpadded) {
-      margin-top: map.get($spacing, sm);
-    }
-
-    +p {
-      margin-top: map.get($spacing, sm);
-    }
 
     &::after {
       content: '\00a0 ↗';
       display: inline-block;
-      inset: calc(map.get($spacing, xs) / $perfect-fourth) map.get($spacing, xs) auto auto;
       width: $ext-icon-size;
       height: $ext-icon-size;
       text-decoration: none;
@@ -310,7 +349,7 @@ i {
 }
 
 b {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 ul,

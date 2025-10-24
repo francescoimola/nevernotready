@@ -22,9 +22,12 @@ navtitle: Contact
     </p>
 </section>
 
-<section class=" pad-bottom">
-    <h2>Book a free 1:1 intro</h2>
-    <p>If you're not into back-and-forth emails before meeting people in person, you can book a free meeting to speak to me directly.</p>
-    <p><a data-cal-link="francescoimola/intro" data-cal-namespace="intro"
-			data-cal-config='{"layout":"month_view","theme":"light"}' style="cursor: pointer;">Book a call</a></p>
-</section>
+{%- from "_cta-section.njk" import ctaSection -%}
+
+{{ ctaSection(
+"Book a free 1:1 intro",
+"If you're not into back-and-forth emails before meeting people in person, you can book a free meeting to speak to me directly.",
+"Schedule an introduction",
+false
+) }}
+

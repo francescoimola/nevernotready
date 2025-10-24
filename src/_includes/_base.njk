@@ -2,91 +2,32 @@
 <html lang="en">
 {% include "_head.njk" %}
 
-<body class="split-screen">
-	<header {% if page.url != '/' or "/wayfinding" in page.url %} class="cap-height" {% endif %}>
-		{% if page.url == '/' %}
-		{%- include "_header-home.njk" -%}
-		{% elif "/wayfinding" in page.url or "/colophon" in page.url or "/playground" in page.url %}
-		{%- include "_header-wayfinding.njk" -%}
-		{% else %}
+<body>
+	<header>
 		{%- include "_header.njk" -%}
-		{% endif %}
-
-		{% if page.url == '/' or "/wayfinding" in page.url or "/colophon" in page.url or "/playground" in page.url%}
-
-		<div class="nav-desktop">
-			<nav aria-label="Main navigation">
-				<ul>
-					<li class="no-wrap">
-						<a href="/wayfinding">Wayfinding</a>
-					</li>
-					<li class="no-wrap">
-						<a href="/colophon">Colophon</a>
-					</li>
-					<li class="no-wrap">
-						<a href="/contact">Contact</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-		{% endif %}
-
 	</header>
 
-	{% if page.url == "/" %}
-
-	<div class="page-content">
-		<a href="/studio" class="card-button">
-			<h1>Studio</h1>
-			<p>Web design, copy and email marketing</p>
-		</a>
-
-		<a href="/playground" class="card-button">
-			<h1>Playground</h1>
-			<p>Art, writing, and everything else</p>
-		</a>
-
-		{% if page.url == '/' or "/wayfinding" in page.url or "/colophon" in page.url or "/playground" in page.url%}
-		<nav class="nav-mobile" aria-label="Main navigation">
-			<ul>
-				<li class="no-wrap">
-					<a href="/wayfinding">Wayfinding</a>
-				</li>
-				<li class="no-wrap">
-					<a href="/colophon">Colophon</a>
-				</li>
-				<li class="no-wrap">
-					<a href="/contact">Contact</a>
-				</li>
-			</ul>
-		</nav>
-		{% endif %}
-	</div>
-
-	{% else %}
-		<div class="main-wrapper">
-			<main>{{ content | safe }}</main>
-			{% if "/playground" in page.url %}{%- include "_footer-personal.njk" -%}{% endif %}
-
-			{% if "/wayfinding" in page.url or "/colophon" in page.url or "/playground" in page.url%}
-			<nav class="nav-mobile" aria-label="Main navigation">
-				<ul>
-					<li class="no-wrap">
-						<a href="/wayfinding">Wayfinding</a>
-					</li>
-					<li class="no-wrap">
-						<a href="/colophon">Colophon</a>
-					</li>
-					<li class="no-wrap">
-						<a href="/contact">Contact</a>
-					</li>
-				</ul>
-			</nav>
-			{% else %}
-			{%- include "_footer-hello.njk" -%}
+	<main class="page-margins">
+		<div class="margin-fix">
+			<div {%if page.url =='/' %} class="intro-wrapper pad-bottom" {% endif %}>
+				<div class="secondary-header">
+					{%if page.url != '/' %}
+						<h1>{{ navtitle }}</h1>
+					{% else %}
+					<h1 class="cap-width-sm">Delightful things with pixels and words made by Francesco Imola from a seaside town in Kent.</h1>
+					{% endif %}
+					<div class="secondary-links">{% include "_links.njk" %}</div>
+				</div>
+				{%if page.url == '/' %}
+				{% include "_intro.njk" %}
+				{% endif %}
+			</div>
+			{{ content | safe }}
 		</div>
-		{% endif %}
-	{% endif %}
+	</main>
+
+	{%- include "_footer-hello.njk" -%}
+
 	{% if page.url == '/' %}
 	<div id="rebrand-modal" class="modal">
 		<div>
@@ -96,9 +37,10 @@
 		</div>
 	</div>
 	{% endif %}
+
 	<script src="/assets/app.js" defer></script>
-	{% if "/playground" not in page.url and "/wayfinding" not in page.url and "/colophon" not in page.url and page.url != "/" %}
-		<script src="/assets/cal.js" defer></script>
+	{% if "/playground" not in page.url and "/colophon" not in page.url %}
+	<script src="/assets/cal.js" defer></script>
 	{% endif %}
 </body>
 

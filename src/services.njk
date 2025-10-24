@@ -5,8 +5,9 @@ description: What I offer and what it costs. Website design, email marketing, co
 permalink: '/services/'
 navtitle: Services & Pricing
 ---
+{%- from "_cta-section.njk" import ctaSection -%}
 
-<section class="pad-bottom">
+<section class="pad-bottom separator">
   <h2>What I offer and what it costs</h2>
   <p>Imagine marketing that works and feels right. People reaching out to you because they just <i>*get*</i> what you're
     selling.</p>
@@ -17,9 +18,9 @@ navtitle: Services & Pricing
 </section>
 
 <!-- Website Consulting Sessions -->
-<section id="consulting" class="pop small-margin">
+<section id="consulting" class="pop cap-width">
   <h2>Website consultation</h2>
-  <p>Each session is 1 hour and includes a 1-2-1 chat, a pre-session deep dive, a website review, a short questionnaire,
+  <p>Each session is 1 hour and includes a 1:1 chat, a pre-session deep dive, a website review, a short questionnaire,
     and follow-up notes.</p>
   <div class="pricing-grid">
     <div class="pricing-row pricing-header">
@@ -39,14 +40,12 @@ navtitle: Services & Pricing
 </section>
 
 <!-- Website Design & Copywriting -->
-<section id="website-design" class="pop small-margin">
+<section id="website-design" class="pop cap-width pad-top-md">
   <h2>Web Design, Writing & Development</h2>
-  <p>You get a website that's intuitive and built to guide people, not send them around in circles. One that helps you
-    build trust and makes your offer a whole lot easier to say yes to. You'll be able to update it quicker than making scrambled eggs. Because I'll hand you tools simple enough to do
-    exactly what
-    you need.</p>
+  <p>Get an intuitive website built to guide people, not send them around in circles. A site that helps you
+    build trust and makes your offer a whole lot easier to say yes to. Stupid quick to update and look after, no monthly maintenance fees attached.</p>
 
-  <div class="pricing-grid pad-top">
+  <div class="pricing-grid pad-top-md">
     <div class="pricing-row pricing-header">
       <span>What you get</span>
       <span>Investment (from)</span>
@@ -65,12 +64,12 @@ navtitle: Services & Pricing
     </div>
   </div>
 
-  <p><br>Each project includes one revision, with more available for an additional fee. You'll get an exact quote before we start.</p>
+  <p><br>Websites are build either on Framer or Webflow. Each project includes one revision, with more available for an additional fee. You'll get an exact quote before we start.</p>
 
 </section>
 
 <!-- Email Marketing -->
-<section id="email-marketing" class="pop small-margin">
+<section id="email-marketing" class="pop cap-width pad-top-md">
   <h2>Email marketing</h2>
   <p>Emails are the backbone of your marketing. They get your message right to your audience AND you can automate them in the background while you focus on other things. A solid email strategy means sustainable growth over quick wins.
   </p>
@@ -93,40 +92,40 @@ navtitle: Services & Pricing
 </section>
 
 <!-- Do-it-Together Sessions -->
-<section id="do-it-together" class="pop small-margin">
+<section id="do-it-together" class="pop cap-width pad-top-md pad-bottom">
   <h2>Do-it-together sessions</h2>
-  <p>Supportive 3-hour sessions to focus, plan, work side-by-side, and make progress. You'll also get a bespoke 90-day
-    plan to sustain momentum.</p>
+  <p>Group body-doubling sessions to work side-by-side, focus, and make progress in a supportive environment. Perfect for tackling tasks like website updates, email writing, or business admin.</p>
   <div class="pricing-grid">
     <div class="pricing-row pricing-header">
-      <span>Sessions</span>
+      <span>Upcoming sessions</span>
       <span>Investment</span>
     </div>
     <div class="pricing-row">
-      <span>One session</span>
-      <span>£75</span>
-    </div>
-    <div class="pricing-row">
-      <span>Four sessions (1 x season)</span>
-      <span>£260</span>
+      <span>TBC</span>
+      <span>(sliding scale) £5-20</span>
     </div>
   </div>
+  <p><br>Sessions are currently being planned. <a href="/contact">Get in touch</a> if you'd like to be notified when they launch.</p>
 </section>
 
 <!-- Payment Information -->
-<section class="pad-top pad-bottom">
+<section class="pad-top-md pad-bottom">
   <h2>Are prices flexible?</h2>
   <p>Sessions are priced as shown. Website and email projects are estimates, with the final cost depending on scope, timeline, and level of client involvement. You'll get an exact quote before we start.</p>
   <p>I offer non-stackable discounts on payment terms to everyone. <a href="/faqs#concessions">Learn more about concessions</a>.</p>
 </section>
 
-<!-- Final CTA -->
-<section class="pad-bottom pop small-margin invert">
-  <h2>Take the next step</h2>
-  <p>Let's chat about your project and see if we're the right fit.</p>
-  <p>
-    <a data-cal-link="francescoimola/intro" data-cal-namespace="intro"
-      data-cal-config='{"layout":"month_view","theme":"light"}' style="cursor: pointer;" class="unpadded">Schedule a free introduction</a> →
-  </p>
-  <p>Want to understand my approach first? <a href="/how-i-work">Read how I work</a></p>
+<section class="pad-bottom cap-width give-border selected-work-card">
+	<a href="/portfolio">
+		<h2>See what I was trusted to make. <span class="light">Take a look at some of the best projects from the last
+				decade.</span></h2>
+		<img src="https://res.cloudinary.com/dax6x2pto/image/upload/ezgif.com-optipng_pao87g.png"
+			alt="Project demonstration">
+	</a>
 </section>
+
+{{ ctaSection(
+	"Put a face to the price tag",
+	"Let's schedule a no-pressure 30min chat to see if we're the right fit. You tell me about your project, and I'll tell you a bit about how I work.",
+	"Book a free intro"
+) }}
