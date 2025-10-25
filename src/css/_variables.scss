@@ -7,8 +7,8 @@
 // Magic numbers as variables
 $golden-ratio: 1.618;
 $perfect-fourth: 1.333;
-$opacity-fix: 0.99; // Prevents rendering issues
 $icon-scale: 4.5;
+$base-rem: 1rem;
 
 // Typography
 $font-base: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -16,7 +16,7 @@ $font-base: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 
 $scale-ratio: 1.414; // Type scale ratio
 
-$font-base: clamp(1rem, 1.3vw, 1.2rem);
+$font-base: clamp($base-rem, 1.3vw, 1.2rem);
 $font-sm: calc($font-base / $scale-ratio);
 $font-large: calc($font-base * $scale-ratio);
 $font-xl: calc($font-large * $scale-ratio);
@@ -57,7 +57,6 @@ $colors: (
 // Layout
 $container-width: 54ch;
 $border-width: thin;
-$ext-icon-size: map.get($spacing, sm) + map.get($spacing, xs);
 $header-height: 3rem;
 
 // Breakpoints

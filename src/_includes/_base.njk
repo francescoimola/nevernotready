@@ -9,24 +9,24 @@
 
 	<main class="page-margins">
 		<div class="margin-fix">
-			<div {%if page.url =='/' %} class="intro-wrapper pad-bottom" {% endif %}>
-				<div class="secondary-header">
+			{%if page.url =='/' %}<div class="intro-wrapper pad-bottom" >{% endif %}
+				<div class="secondary-header pad-bottom-large">
 					{%if page.url != '/' %}
 						<h1>{{ navtitle }}</h1>
 					{% else %}
-					<h1 class="cap-width-sm">Delightful things with pixels and words made by Francesco Imola from a seaside town in Kent.</h1>
+					<h1 class="cap-width-sm">Delightful things with pixels and words for people who love what they do. Made by <a href="/">Francesco Imola</a> from a seaside town in Kent.</h1>
 					{% endif %}
-					<div class="secondary-links">{% include "_links.njk" %}</div>
+					{% include "_links.njk" %}
 				</div>
 				{%if page.url == '/' %}
 				{% include "_intro.njk" %}
 				{% endif %}
-			</div>
+			{%if page.url =='/' %}</div>{% endif %}
 			{{ content | safe }}
 		</div>
 	</main>
 
-	{%- include "_footer-hello.njk" -%}
+	{%- include "_footer.njk" -%}
 
 	{% if page.url == '/' %}
 	<div id="rebrand-modal" class="modal">

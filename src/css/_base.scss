@@ -322,25 +322,6 @@ a {
     color: inherit;
   }
 
-  &[href^='tel'] {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  &[href^='http']:not(.no-ext-icon){
-    display: inline-block;
-    max-width: 100%;
-    justify-content: center;
-    cursor: pointer;
-
-    &::after {
-      content: '\00a0 ↗';
-      display: inline-block;
-      width: $ext-icon-size;
-      height: $ext-icon-size;
-      text-decoration: none;
-    }
-  }
 }
 
 i {

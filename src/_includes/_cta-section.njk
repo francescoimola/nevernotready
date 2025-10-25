@@ -6,7 +6,7 @@
 		<a data-cal-link="francescoimola/intro" data-cal-namespace="intro"
 				data-cal-config='{"layout":"month_view","theme":"light"}' class="button-like">{{ primaryButtonText }}</a>
 		{%- if secondaryButtonText !== false %}
-		<a href="mailto:hi@francescoimola.com" class="button-like invert no-ext-icon">{{ secondaryButtonText | default("Copy email instead") }}</a>
+		<a href="mailto:hi@francescoimola.com" class="button-like invert">{{ secondaryButtonText | default("Copy email instead") }}</a>
 		{%- endif %}
 	</div>
 </section>

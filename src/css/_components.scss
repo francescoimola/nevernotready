@@ -64,8 +64,8 @@ button,
   justify-content: flex-start;
   align-items: center;
 
-  a:not(.button-like) {
-    margin-left: map.get($spacing, sm);
+  &:has(.button-like) {
+     gap: map.get($spacing, md);
   }
 }
 
@@ -121,15 +121,9 @@ button,
   justify-content: flex-start;
   gap: map.get($spacing, sm);
   flex-wrap: wrap;
-  max-width: $container-width;
 
   .role {
     color: map.get($colors, text-subtle);
-  }
-
-  .year {
-    font-weight: 500;
-    color: map.get($colors, text-more-subtle);
   }
 
   figure figcaption {

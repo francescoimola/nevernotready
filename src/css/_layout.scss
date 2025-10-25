@@ -59,7 +59,7 @@ main {
   &::before {
     content: '';
     position: fixed;
-    left: clamp(0.25rem, 2vw, 1rem);
+    left: clamp(0.25rem, 2vw, $base-rem);
     top: 0;
     height: 100vh;
     border-left: $border-width dotted map.get($colors, text-more-subtle);
@@ -70,7 +70,7 @@ main {
     content: '';
     position: absolute;
     top: 0;
-    left: calc(-1 * clamp(0.25rem, 2vw, 1rem));
+    left: calc(-1 * clamp(0.25rem, 2vw, $base-rem));
     width: 100vw;
     border-top: $border-width dotted map.get($colors, text-more-subtle);
     pointer-events: none;
@@ -79,6 +79,7 @@ main {
 
 .margin-fix {
   padding-right: map.get($spacing, sm);
+  position: relative;
 }
 
 section {
@@ -150,8 +151,8 @@ section {
 }
 
 .page-margins {
-  margin: map.get($spacing, sm) 0 0 clamp(0.25rem, 2vw, 1rem);
-  padding: map.get($spacing, sm) clamp(0.5rem, 4vw, 2rem) map.get($spacing, md) clamp(0.25rem, 2vw, 1rem);
+  margin: map.get($spacing, sm) 0 0 clamp(0.25rem, 2vw, $base-rem);
+  padding: map.get($spacing, sm) clamp(0.5rem, 4vw, 2rem) map.get($spacing, md) clamp(0.25rem, 2vw, $base-rem);
 }
 
 // ===================================
@@ -159,8 +160,8 @@ section {
 // ===================================
 
 header {
-  padding-inline: clamp(0.25rem, 2vw, 1rem);
-  padding-block: clamp(0.5rem, 1.25vh, 1rem);
+  padding-inline: clamp(0.25rem, 2vw, $base-rem);
+  padding-block: clamp(0.5rem, 1.25vh, $base-rem);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -324,7 +325,6 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: start;
-  @extend .pad-bottom-large;
   gap: map.get($spacing, xl);
   flex-wrap: wrap;
   position: relative;
@@ -339,8 +339,8 @@ nav {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
-  gap: map.get($spacing, xs);
   margin-top: map.get($spacing, xs);
+  gap: map.get($spacing, sm);
 
   @media only screen and (max-width: calc(map.get($breakpoints, md)*1.333)) {
     display: none;
@@ -348,8 +348,9 @@ nav {
   }
 }
 
-.separator {
+.separate-below {
   padding-bottom: map.get($spacing, md);
+  position: relative;
 
   &::after {
     content: '';
@@ -361,41 +362,74 @@ nav {
   }
 }
 
+.separate-above {
+  padding-top: map.get($spacing, md);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: calc(map.get($spacing, 2xl)* -1);
+    top: 0;
+    width: 150vw;
+    border-top: $border-width dotted map.get($colors, text-more-subtle);
+  }
+}
+
 // ===================================
 // FOOTER
 // ===================================
 
 footer {
   border-top: $border-width solid map.get($colors, links);
-  padding: map.get($spacing, 2xl) clamp(0.5rem, 4vw, 2rem) calc(map.get($spacing, 2xl)*2);
-  @include flex(column, map.get($spacing, lg));
-  justify-content: flex-start;
+  padding: map.get($spacing, 2xl) clamp(0.5rem, 4vw, 2rem);
+  @include flex(column, map.get($spacing, xl));
+  justify-content: space-between;
   align-items: start;
   background: map.get($colors, links);
   position: relative;
   z-index: 2;
   color: map.get($colors, bg);
 
-  a:hover {
+  a {
     color: map.get($colors, bg-more-translucent);
+    &:hover {
+    color: map.get($colors, links-subtle);
     text-decoration-color: map.get($colors, bg-more-translucent);
   }
+  }
 
-  h2, p, a, small {
+  * {
     color: map.get($colors, bg);
   }
 
-  .f-innergroup {
-    @include flex(column, map.get($spacing, sm));
-    gap: map.get($spacing, xs);
-    justify-content: flex-start;
-    align-items: stretch;
+  .footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: map.get($spacing, xl);
+    width: 100%;
+  }
 
-    p:first-of-type {
-      margin: 0;
-      padding: 0;
-      color: map.get($colors, bg);
+  .f-group {
+    @include flex(column, map.get($spacing, xs));
+    min-width: min(100%, 15ch);
+    flex: 1 1 15ch;
+
+    .f-heading {
       font-weight: 500;
+      margin-bottom: map.get($spacing, xs);
     }
+
+    nav {
+      @include flex(column, map.get($spacing, xs));
+      align-items: flex-start;
+    }
+  }
+
+  .f-copyright {
+    margin-top: map.get($spacing, sm);
+    padding: map.get($spacing, md) 0 map.get($spacing, xl);
+    border-top: $border-width dotted map.get($colors, bg-more-translucent);
+    width: 100%;
   }
 }

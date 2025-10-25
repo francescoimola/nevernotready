@@ -6,10 +6,10 @@ permalink: "/faqs/"
 navtitle: FAQs
 ---
 
-<section class=" pad-bottom">
-
+<section class="pad-bottom separate-below">
 
 ## Common questions
+
 Find answers to commonly asked questions about how I work, including ballpark fees, project communication and concessions.
 
 </section>
