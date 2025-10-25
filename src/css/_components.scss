@@ -100,6 +100,10 @@ button,
     border-radius: map.get($spacing, xs);
   }
 
+  >* {
+    flex: 1 1 calc(50% - (map.get($spacing, xl) / 2));
+  }
+
   @media only screen and (max-width: map.get($breakpoints, md)) {
     >* {
       flex: 1 1 40%;
@@ -129,10 +133,6 @@ button,
   figure figcaption {
     font-weight: 500;
     font-size: revert;
-  }
-
-  @media only screen and (max-width: map.get($breakpoints, md)) {
-    margin-bottom: map.get($spacing, lg);
   }
 }
 
@@ -195,7 +195,6 @@ button,
 }
 
 .playground {
-  gap: 0;
   column-gap: map.get($spacing, lg);
   margin-bottom: map.get($spacing, xl);
   flex-direction: column;
