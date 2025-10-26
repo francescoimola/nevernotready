@@ -295,10 +295,15 @@ button,
     color: map.get($colors, bg);
   }
 
-  a {
+  a.button-like {
     border: $border-width solid map.get($colors, bg);
   }
+
+  &.green {
+    background: map.get($colors, links);
+  }
 }
+
 .cap-width {
   max-width: $container-width;
 }

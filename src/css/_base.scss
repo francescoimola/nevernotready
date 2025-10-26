@@ -340,7 +340,7 @@ ol {
   color: map.get($colors, text-subtle);
 
   li:last-child {
-    margin-bottom: map.get($spacing, sm);
+    margin-bottom: 0;
   }
 }
 
