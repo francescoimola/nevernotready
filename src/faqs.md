@@ -1,7 +1,7 @@
 ---
 layout: _base.njk
-title: FAQs - Francesco Imola
-description: Everything you need to know about me and my work.
+title: Frequently Asked Questions about working together | Francesco Imola
+description: What I do, how quotes works, and info about concessions. All your questions about working together, answered in plain English.
 permalink: "/faqs/"
 navtitle: FAQs
 ---
@@ -10,7 +10,7 @@ navtitle: FAQs
 
 ## Common questions
 
-Find answers to commonly asked questions about how I work, including ballpark fees, project communication and concessions.
+Find answers to frequently asked questions about how I work, including how projects are quoted, concessions, and how we can communicate throughout.
 
 </section>
 
@@ -78,16 +78,6 @@ I'm committed to doing quality work, and meeting deadlines often hinges on on ho
 I'm flexible about how to keep in touch during a project. If you're worried about missing emails, or maybe you flinch at the very thought of following up on something that was said four emails ago, I got you.
 
 I can set up private Slack and Trello boards for real-time progress and communication at no extra cost. And if email works for you, great! Your project, your choice.
-
-</section>
-
-<section class=" pad-bottom faqs">
-
-## Why should I trust a generalist?
-
-Look, at first even I didn't trust people who openly claim to be "generalists". Growing up, everyone told me to specialise, find a niche, and get great at it. But I didn't do that. And even though I enjoyed the work I've been doing, for years I worried I was spreading myself too thin. Would my love of all things design and marketing and building and creating make me useless?
-
-Somewhere along the way, reality hit: the industry needs generalists more than it likes to admit. And the inferred benefit is, because as a marketing generalist I don't have that one hyper-specialised talent to ram down your throat, I can help you find more holistic answers to your questions.
 
 </section>
 

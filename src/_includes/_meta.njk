@@ -1,6 +1,5 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
 <!-- Site description -->
 {%- if description -%}
@@ -8,14 +7,14 @@
 {%- endif -%}
 
 <!-- Canonical URL -->
-<link rel="canonical" href="https://francescoimola.com{{ page.url }}" />
+<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 
 <!-- Open Graph / Social Media -->
 <meta property="og:title" content="{{ title }}" />
 <meta property="og:site_name" content="Francesco Imola" />
 <meta
   property="og:url"
-  content="https://francescoimola.com{{ page.url }}"
+  content="{{ site.url }}{{ page.url }}"
 />
 <meta property="og:description" content="{{ description }}" />
 <meta property="og:type" content="website" />

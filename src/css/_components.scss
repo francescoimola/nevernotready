@@ -147,9 +147,8 @@ button,
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
-  scrollbar-width: thin;
-  scrollbar-color: map.get($colors, text-subtle) transparent;
 
+  // Webkit scrollbar styling (Safari, Chrome)
   &::-webkit-scrollbar {
     height: $unit;
   }
@@ -160,6 +159,12 @@ button,
 
   &::-webkit-scrollbar-thumb {
     background: map.get($colors, text-subtle);
+  }
+
+  // Standard scrollbar styling (Firefox) - only applied where supported
+  @supports (scrollbar-color: auto) {
+    scrollbar-width: thin;
+    scrollbar-color: map.get($colors, text-subtle) transparent;
   }
 
   picture {
@@ -456,4 +461,8 @@ ul.services-list {
       color: map.get($colors, bg-more-translucent);
     }
   }
+}
+
+.green-text {
+  color: map.get($colors, links);
 }

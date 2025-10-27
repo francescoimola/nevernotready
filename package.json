@@ -3,6 +3,7 @@
   "version": "3.0.3",
   "description": "Delightful things with pixels and words made by Francesco Imola from a seaside town in Kent.",
   "main": "index.html",
+  "url": "https://francescoimola.com",
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy && npm run minify:js",
@@ -27,6 +28,8 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-img": "^6.0.4",
+    "image-size": "^2.0.2",
+    "jsdom": "^27.0.1",
     "terser": "^5.44.0"
   }
 }

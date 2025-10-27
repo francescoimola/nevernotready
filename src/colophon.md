@@ -1,7 +1,7 @@
 ---
 layout: _base.njk
-title: Colophon - Francesco Imola
-description: Everything you need to know about this website
+title: How this site was built | Colophon | Francesco Imola
+description: The fonts, tools, and technical decisions behind how this site was built. Powered by 11ty, hosted on Netlify, and using Ronzino by Collletttivo.
 permalink: "/colophon/"
 navtitle: Colophon
 ---

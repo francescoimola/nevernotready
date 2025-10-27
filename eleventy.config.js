@@ -3,6 +3,10 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItAttrs = require("markdown-it-attrs");
 const Image = require("@11ty/eleventy-img");
+const { promisify } = require('util');
+const { readFile } = require('fs');
+const { imageSize } = require('image-size');
+const { JSDOM } = require('jsdom');
 
 module.exports = function (eleventyConfig) {
   if (eleventyConfig === null || eleventyConfig === undefined) {
@@ -131,6 +135,39 @@ module.exports = function (eleventyConfig) {
       }
     });
 
+    // Add image dimensions transform
+    eleventyConfig.addTransform("img-dimensions", async function (content, outputPath) {
+      if (!outputPath || !outputPath.endsWith(".html")) return content;
+
+      const dom = new JSDOM(content);
+      const imgs = dom.window.document.querySelectorAll(
+        "img[src]:not([width]):not([height])"
+      );
+
+      if (imgs.length === 0) return content;
+
+      for (const img of imgs) {
+        try {
+          let src = img.getAttribute("src");
+          if (src.startsWith("http")) continue;
+
+          let imgPath = src.replace(/^\//, "");
+          let filePath = `./public/${imgPath}`;
+          let buffer = await promisify(readFile)(filePath);
+          let dimensions = imageSize(buffer);
+
+          if (dimensions.width && dimensions.height) {
+            img.setAttribute("width", dimensions.width);
+            img.setAttribute("height", dimensions.height);
+          }
+        } catch (e) {
+          console.log(`Error processing image ${img.getAttribute("src")}: ${e.message}`);
+        }
+      }
+
+      return dom.serialize();
+    });
+
     return {
       dir: {
         input: "src",
@@ -142,4 +179,3 @@ module.exports = function (eleventyConfig) {
     throw error;
   }
 };
-

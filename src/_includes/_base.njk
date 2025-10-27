@@ -14,7 +14,7 @@
 					{%if page.url != '/' %}
 						<h1>{{ navtitle }}</h1>
 					{% else %}
-					<h1 class="cap-width-sm">Delightful things with pixels and words for people who love what they do. Made by <a href="/">Francesco Imola</a> from a seaside town in Kent.</h1>
+					<h1 class="cap-width-sm">Delightful things with pixels and words for people who love what they do. Made by <span class="green-text">Francesco Imola</span> from a seaside town in Kent.</h1>
 					{% endif %}
 					{% include "_links.njk" %}
 				</div>
@@ -33,14 +33,51 @@
 		<div>
 			<p>This site was formerly <b>nevernotready.club</b> and it is now <b>francescoimola.com</b></p>
 			<p>Same work, same person, I'm just finally online under my own name.</p>
-			<button onclick="closeModal()">Makes sense, lemme in</button>
+			<button onclick="closeModal()" type="button">Makes sense, lemme in</button>
 		</div>
 	</div>
 	{% endif %}
 
 	<script src="/assets/app.js" defer></script>
 	{% if "/playground" not in page.url and "/colophon" not in page.url %}
-	<script src="/assets/cal.js" defer></script>
+		<script>
+			// Lazy-load Cal.js on user interaction with booking links
+			(function() {
+				let calLoaded = false;
+
+				function loadCal() {
+					if (calLoaded) return;
+					calLoaded = true;
+
+					const script = document.createElement('script');
+					script.src = '/assets/cal.js';
+					document.head.appendChild(script);
+				}
+
+				function initLazyLoad() {
+					const calLinks = document.querySelectorAll('[data-cal-link]');
+					if (!calLinks.length) return;
+
+					calLinks.forEach(function(link) {
+						// Load on hover (desktop) - gives ~200ms head start
+						link.addEventListener('mouseenter', loadCal, { once: true, passive: true });
+
+						// Load on focus (keyboard navigation)
+						link.addEventListener('focus', loadCal, { once: true, passive: true });
+
+						// Load on touch start (mobile) - before click fires
+						link.addEventListener('touchstart', loadCal, { once: true, passive: true });
+					});
+				}
+
+				// Initialize when DOM is ready
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', initLazyLoad);
+				} else {
+					initLazyLoad();
+				}
+			})();
+		</script>
 	{% endif %}
 </body>
 
