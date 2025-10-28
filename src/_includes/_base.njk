@@ -22,46 +22,6 @@
 	{%- include "_footer.njk" -%}
 
 	<script src="/assets/app.js" defer></script>
-	{% if "/playground" not in page.url and "/colophon" not in page.url %}
-		<script>
-			// Lazy-load Cal.js on user interaction with booking links
-			(function() {
-				let calLoaded = false;
-
-				function loadCal() {
-					if (calLoaded) return;
-					calLoaded = true;
-
-					const script = document.createElement('script');
-					script.src = '/assets/cal.js';
-					document.head.appendChild(script);
-				}
-
-				function initLazyLoad() {
-					const calLinks = document.querySelectorAll('[data-cal-link]');
-					if (!calLinks.length) return;
-
-					calLinks.forEach(function(link) {
-						// Load on hover (desktop) - gives ~200ms head start
-						link.addEventListener('mouseenter', loadCal, { once: true, passive: true });
-
-						// Load on focus (keyboard navigation)
-						link.addEventListener('focus', loadCal, { once: true, passive: true });
-
-						// Load on touch start (mobile) - before click fires
-						link.addEventListener('touchstart', loadCal, { once: true, passive: true });
-					});
-				}
-
-				// Initialize when DOM is ready
-				if (document.readyState === 'loading') {
-					document.addEventListener('DOMContentLoaded', initLazyLoad);
-				} else {
-					initLazyLoad();
-				}
-			})();
-		</script>
-	{% endif %}
 </body>
 
 </html>

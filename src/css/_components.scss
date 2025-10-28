@@ -12,20 +12,20 @@
 
 button,
 .button-like {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
   padding: map.get($spacing, xs) map.get($spacing, sm);
   border: $border-width solid map.get($colors, links);
   border-radius: map.get($spacing, xs);
-  background: map.get($colors, links);
-  color: map.get($colors, bg);
   font-size: $font-base;
   font-family: inherit;
   text-align: inherit;
+  color: map.get($colors, bg);
+  text-decoration: none;
+  background: map.get($colors, links);
   box-shadow: none;
   cursor: pointer;
-  text-decoration: none;
-  width: fit-content;
-  display: inline-block;
-  height: fit-content;
 
   &:hover,
   &:focus-visible {
@@ -45,14 +45,14 @@ button,
 }
 
 .invert {
-  background: map.get($colors, bg);
-  color: map.get($colors, text);
   border: $border-width solid map.get($colors, text-subtle);
+  color: map.get($colors, text);
+  background: map.get($colors, bg);
 
   &:hover,
   &:focus-visible {
-    background: map.get($colors, text-subtle);
     color: map.get($colors, bg);
+    background: map.get($colors, text-subtle);
   }
 }
 
@@ -76,7 +76,6 @@ button,
 .pop {
   padding: map.get($spacing, md) map.get($spacing, md) calc(map.get($spacing, md) * $perfect-fourth) map.get($spacing, md);
   background: map.get($colors, bg);
-  border-radius: map.get($spacing, xs);
   border: $border-width solid map.get($colors, text-subtle);
   border-radius: map.get($spacing, xs);
 
@@ -225,23 +224,6 @@ button,
   }
 }
 
-.whatyouget {
-
-  h2,
-  div {
-    margin-bottom: map.get($spacing, lg);
-  }
-
-  div:last-of-type {
-    margin-bottom: 0;
-  }
-
-  h3 {
-    margin-bottom: map.get($spacing, sm);
-    color: map.get($colors, text-subtle);
-  }
-}
-
 .quote {
   @include flex;
   width: 100%;
@@ -269,30 +251,39 @@ button,
   }
 }
 
-.faqs {
-  h2 {
-    color: map.get($colors, text-more-subtle);
-  }
-
-  ul li {
-    display: revert;
-
-    &:not(:last-child) {
-      padding-bottom: map.get($spacing, sm);
-    }
-  }
-}
-
-// Responsive Components
-@media only screen and (max-width: map.get($breakpoints, sm)) {
-  .ext-link+p {
-    max-width: 95%;
-  }
-}
-
 // ===================================
 // UTILITIES
 // ===================================
+
+.logo {
+  height: clamp(1.618rem, 3vw, 2.617rem);
+  width: auto;
+  max-width: revert;
+}
+
+.pad-top-md {
+  margin-top: map.get($spacing, md);
+}
+
+.pad-top-sm {
+  margin-top: map.get($spacing, sm);
+}
+
+.pad-top-lg {
+  margin-top: map.get($spacing, lg);
+}
+
+.pad-bottom {
+  margin-bottom: map.get($spacing, 2xl);
+}
+
+.pad-bottom-sm {
+  margin-bottom: map.get($spacing, sm);
+}
+
+.pad-bottom-large {
+  margin-bottom: calc(map.get($spacing, xl) * 4);
+}
 
 .invert-bg{
   background: map.get($colors, text);
@@ -322,11 +313,6 @@ button,
   max-width: calc($container-width / $golden-ratio);
 }
 
-
-.hidden {
-  display: none;
-}
-
 .light {
   color: map.get($colors, text-more-subtle);
 }
@@ -341,17 +327,6 @@ ul.plain-list {
   gap: map.get($spacing, xs);
   margin-left: 0;
   color: map.get($colors, text-subtle);
-  list-style: none;
-}
-
-ul.services-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-content: start;
-  flex-wrap: nowrap;
-  gap: map.get($spacing, sm);
-  margin-left: 0;
   list-style: none;
 }
 

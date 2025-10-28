@@ -117,8 +117,14 @@ navtitle: Services & Pricing
 	<a href="/portfolio">
 		<h2>See what I was trusted to make. <span class="light">Some of my best work from the last
 				decade.</span></h2>
-		<img src="https://res.cloudinary.com/dax6x2pto/image/upload/ezgif.com-optipng_pao87g.png"
-			alt="showcase of projects as a fast-moving carousel" loading="lazy" decoding="async">
+		<picture>
+			<source srcset="https://res.cloudinary.com/dax6x2pto/image/upload/f_avif,q_auto:good,w_1400,c_limit/ezgif.com-optipng_pao87g.png"
+				type="image/avif" />
+			<source srcset="https://res.cloudinary.com/dax6x2pto/image/upload/f_webp,q_auto:good,w_1400,c_limit/ezgif.com-optipng_pao87g.png"
+				type="image/webp" />
+			<img src="https://res.cloudinary.com/dax6x2pto/image/upload/f_auto,q_auto:good,w_1400,c_limit/ezgif.com-optipng_pao87g.png"
+				width="1400" height="787" alt="showcase of projects as a fast-moving carousel" loading="lazy" decoding="async">
+		</picture>
 	</a>
 </section>
 

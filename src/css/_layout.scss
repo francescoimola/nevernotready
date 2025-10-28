@@ -7,43 +7,6 @@
 // Layout + Header + Footer
 
 // ===================================
-// Media
-// ===================================
-
-svg,
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  fill: map.get($colors, text);
-  image-rendering: webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-}
-
-.logo {
-  height: clamp(1.618rem, 3vw, 2.617rem);
-  width: auto;
-  max-width: revert;
-}
-
-figure {
-  @include flex(column, map.get($spacing, sm));
-  width: 100%;
-
-  figcaption {
-    margin-top: calc(map.get($spacing, sm) + $border-width);
-  }
-}
-
-details>summary {
-  gap: map.get($spacing, lg);
-
-  h2 {
-    display: inline;
-  }
-}
-
-// ===================================
 // LAYOUT
 // ===================================
 
@@ -86,70 +49,6 @@ section {
   position: relative;
 }
 
-.home-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  text-decoration: none;
-  padding: map.get($spacing, md);
-  background: map.get($colors, bg);
-  border: $border-width solid map.get($colors, text-subtle);
-  border-radius: map.get($spacing, xs);
-
-  &:hover,
-  &:focus-visible {
-    background: map.get($colors, links);
-
-    &,
-    * {
-      color: map.get($colors, bg);
-    }
-  }
-
-  >p {
-    width: 100%;
-    color: map.get($colors, text-subtle);
-  }
-}
-
-.pad-top-md {
-  margin-top: map.get($spacing, md);
-}
-
-.pad-top-sm {
-  margin-top: map.get($spacing, sm);
-}
-
-.pad-top-lg {
-  margin-top: map.get($spacing, lg);
-}
-
-.pad-bottom {
-  margin-bottom: map.get($spacing, 2xl);
-}
-
-.pad-bottom-large {
-  margin-bottom: calc(map.get($spacing, xl) * 4);
-}
-
-.top-divider {
-  border-top: $border-width dotted map.get($colors, text-subtle);
-}
-
-.intro-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: start;
-
-  img {
-    width: clamp(10rem, 10vw, 15rem);
-    height: auto;
-  }
-}
-
 .page-margins {
   margin: map.get($spacing, sm) 0 0 clamp(0.25rem, 2vw, $base-rem);
   padding: map.get($spacing, sm) clamp(0.5rem, 4vw, 2rem) map.get($spacing, md) clamp(0.25rem, 2vw, $base-rem);
@@ -160,19 +59,19 @@ section {
 // ===================================
 
 header {
-  padding-inline: clamp(0.25rem, 2vw, $base-rem);
-  padding-block: clamp(0.5rem, 1.25vh, $base-rem);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  column-gap: map.get($spacing, xl);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 999;
   width: 100%;
+  padding-inline: clamp(0.25rem, 2vw, $base-rem);
+  padding-block: clamp(0.5rem, 1.25vh, $base-rem);
+  column-gap: map.get($spacing, xl);
   background: map.get($colors, bg);
   border-top: $border-width solid map.get($colors, text-more-subtle);
 
@@ -184,11 +83,11 @@ header {
 }
 
 nav {
-  margin: 0;
-  width: 100%;
   @include flex(row, 0);
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  margin: 0;
 
   *{
     white-space: nowrap;
@@ -212,9 +111,9 @@ nav {
   }
 
   .nav-links {
+    @include flex(row, map.get($spacing, sm));
     justify-content: center;
     align-items: center;
-    @include flex(row, map.get($spacing, sm));
     flex-wrap: nowrap;
 
     *:not(:last-child)::after {

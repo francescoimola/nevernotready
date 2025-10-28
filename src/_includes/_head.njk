@@ -3,13 +3,13 @@
   {%- include "_meta.njk" -%}
 
   <!-- Preload critical fonts to reduce render-blocking latency -->
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Ronzino-Regular.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Ronzino-Bold.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Ronzino-Medium.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Ronzino-Oblique.woff2" crossorigin>
-  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
-  {% if "/playground" not in page.url and "/colophon" not in page.url %}
-    <link rel="preconnect" href="https://app.cal.com" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Ronzino-Regular.woff2" crossorigin="anonymous">
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Ronzino-Bold.woff2" crossorigin="anonymous">
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Ronzino-Medium.woff2" crossorigin="anonymous">
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin="anonymous">
+  {% if page.url == '/' %}
+  <!-- Preload LCP image for homepage -->
+  <link rel="preload" as="image" href="https://res.cloudinary.com/dax6x2pto/image/upload/f_avif,q_auto:good,w_1400,c_limit/ezgif.com-optipng_pao87g.png" type="image/avif" fetchpriority="high">
   {% endif %}
   <link rel="preload" as="style" href="{{ '/css/style.css' | url }}" />
   <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />

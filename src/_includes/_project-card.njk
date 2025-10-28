@@ -5,6 +5,7 @@
       <img
         width="{{ image.width | default('100%') }}"
         height="{{ image.height | default('auto') }}"
+        {% if image.width and image.height %}style="aspect-ratio: {{ image.width }} / {{ image.height }}"{% endif %}
         src="{{ image.src }}"
         alt="{{ image.alt }}"
         loading="lazy"

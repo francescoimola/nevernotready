@@ -3,8 +3,7 @@
 	<h2>{{ heading }}</h2>
 	<p>{{ description }}</p>
 	<div class="buttons-wrapper">
-		<button data-cal-link="francescoimola/intro" data-cal-namespace="intro"
-				data-cal-config='{"layout":"month_view","theme":"light"}' class="button-like" type="button">{{ primaryButtonText }}</button>
+		<a href="https://cal.com/francescoimola/intro" class="button-like" type="button" target="_blank">{{ primaryButtonText }}</a>
 		{%- if secondaryButtonText !== false %}
 		<a href="mailto:hi@francescoimola.com" class="button-like invert">{{ secondaryButtonText | default("Copy email instead") }}</a>
 		{%- endif %}
