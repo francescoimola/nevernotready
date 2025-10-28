@@ -9,34 +9,17 @@
 
 	<main class="page-margins">
 		<div class="margin-fix">
-			{%if page.url =='/' %}<div class="intro-wrapper pad-bottom" >{% endif %}
-				<div class="secondary-header pad-bottom-large">
-					{%if page.url != '/' %}
-						<h1>{{ navtitle }}</h1>
-					{% else %}
-					<h1 class="cap-width-sm">Delightful things with pixels and words for people who love what they do. Made by <span class="green-text">Francesco Imola</span> from a seaside town in Kent.</h1>
-					{% endif %}
-					{% include "_links.njk" %}
-				</div>
-				{%if page.url == '/' %}
-				{% include "_intro.njk" %}
-				{% endif %}
-			{%if page.url =='/' %}</div>{% endif %}
+			{% if page.url != '/' %}
+			<div class="secondary-header pad-bottom-large">
+				<h1>{{ navtitle }}</h1>
+				{% include "_links.njk" %}
+			</div>
+			{% endif %}
 			{{ content | safe }}
 		</div>
 	</main>
 
 	{%- include "_footer.njk" -%}
-
-	{% if page.url == '/' %}
-	<div id="rebrand-modal" class="modal">
-		<div>
-			<p>This site was formerly <b>nevernotready.club</b> and it is now <b>francescoimola.com</b></p>
-			<p>Same work, same person, I'm just finally online under my own name.</p>
-			<button onclick="closeModal()" type="button">Makes sense, lemme in</button>
-		</div>
-	</div>
-	{% endif %}
 
 	<script src="/assets/app.js" defer></script>
 	{% if "/playground" not in page.url and "/colophon" not in page.url %}

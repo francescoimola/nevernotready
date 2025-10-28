@@ -3,8 +3,8 @@
   <figure>
     {% if image %}
       <img
-        width="100%"
-        height="auto"
+        width="{{ image.width | default('100%') }}"
+        height="{{ image.height | default('auto') }}"
         src="{{ image.src }}"
         alt="{{ image.alt }}"
         loading="lazy"

@@ -7,6 +7,25 @@ navtitle: Home
 ---
 {%- from "_cta-section.njk" import ctaSection -%}
 
+<div class="intro-wrapper pad-bottom">
+	<div class="secondary-header pad-bottom-large">
+		<h1 class="cap-width-sm">Delightful things with pixels and words for people who love what they do. Made by <span class="green-text">Francesco Imola</span> from a seaside town in Kent.</h1>
+		{% include "_links.njk" %}
+	</div>
+
+	<section class="separate-below">
+		<img src="https://res.cloudinary.com/dax6x2pto/image/upload/c_limit,w_auto,f_auto/dpr_auto/francesco_kngh32.png"
+			class="give-border" alt="close up of Francesco" loading="lazy" decoding="async" />
+		<h2 class="pad-top-lg cap-width-sm">Hello, I'm Francesco. <span class="light">A designer, marketer, and cultural worker based in
+				Folkestone, Kent.</span>
+		</h2>
+		<p class="pad-top-sm">I spent the best part of a decade helping to platform emerging creatives. Now I show people what simple design and non-coercive marketing can do for them. This is my
+				office on the web.</p>
+		<p class="pad-top"><a href="/services" class="button-like invert pad-top-sm">Explore my offering</a><span class="light">&nbsp;
+				<i>or</i>&nbsp;keep browsing ↓</span></p>
+	</section>
+</div>
+
 <section class="pad-bottom cap-width">
 	<div class="simple-sb-flex">
 		<h2>Where I can help</h2>
@@ -93,7 +112,14 @@ navtitle: Home
 
 {{ ctaSection(
 "Let me take it from here",
-"If you're ready to stop hacking things together and work with someone who can spot the opportunities you've been
-sitting on, let's schedule a free 30-minute call to get introduced.",
+"If you're ready to stop hacking things together alone, let's schedule a free 30-minute call to see what I can do for you.",
 "Book a free intro"
 ) }}
+
+<div id="rebrand-modal" class="modal">
+	<div>
+		<p>This site was formerly <b>nevernotready.club</b> and it is now <b>francescoimola.com</b></p>
+		<p>Same work, same person, I'm just finally online under my own name.</p>
+		<button onclick="closeModal()" type="button">Makes sense, lemme in</button>
+	</div>
+</div>

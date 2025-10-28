@@ -304,6 +304,11 @@ button,
     border: $border-width solid map.get($colors, bg);
   }
 
+  a:not(.button-like):hover {
+    color: map.get($colors, links-subtle);
+    text-decoration-color: map.get($colors, bg-more-translucent);
+  }
+
   &.green {
     background: map.get($colors, links);
   }

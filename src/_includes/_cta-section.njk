@@ -1,10 +1,10 @@
 {%- macro ctaSection(heading, description, primaryButtonText, secondaryButtonText) -%}
-<section class="pad-bottom pop cap-width invert-bg">
+<section class="pad-bottom pop cap-width invert-bg" id="book-intro">
 	<h2>{{ heading }}</h2>
 	<p>{{ description }}</p>
 	<div class="buttons-wrapper">
-		<a data-cal-link="francescoimola/intro" data-cal-namespace="intro"
-				data-cal-config='{"layout":"month_view","theme":"light"}' class="button-like">{{ primaryButtonText }}</a>
+		<button data-cal-link="francescoimola/intro" data-cal-namespace="intro"
+				data-cal-config='{"layout":"month_view","theme":"light"}' class="button-like" type="button">{{ primaryButtonText }}</button>
 		{%- if secondaryButtonText !== false %}
 		<a href="mailto:hi@francescoimola.com" class="button-like invert">{{ secondaryButtonText | default("Copy email instead") }}</a>
 		{%- endif %}

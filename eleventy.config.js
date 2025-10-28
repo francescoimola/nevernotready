@@ -149,7 +149,9 @@ module.exports = function (eleventyConfig) {
       for (const img of imgs) {
         try {
           let src = img.getAttribute("src");
-          if (src.startsWith("http")) continue;
+
+          // Skip remote images - only process local images
+          if (src.startsWith("http://") || src.startsWith("https://")) continue;
 
           let imgPath = src.replace(/^\//, "");
           let filePath = `./public/${imgPath}`;
