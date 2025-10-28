@@ -143,10 +143,6 @@ table {
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  ascent-override: 95%;
-  descent-override: 20%;
-  line-gap-override: 0%;
-  size-adjust: 100%;
 }
 
 @font-face {
@@ -156,10 +152,6 @@ table {
   font-weight: 400;
   font-style: italic;
   font-display: swap;
-  ascent-override: 95%;
-  descent-override: 20%;
-  line-gap-override: 0%;
-  size-adjust: 100%;
 }
 
 @font-face {
@@ -169,10 +161,6 @@ table {
   font-weight: 500;
   font-style: italic;
   font-display: swap;
-  ascent-override: 95%;
-  descent-override: 20%;
-  line-gap-override: 0%;
-  size-adjust: 100%;
 }
 
 @font-face {
@@ -182,10 +170,6 @@ table {
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-  ascent-override: 95%;
-  descent-override: 20%;
-  line-gap-override: 0%;
-  size-adjust: 100%;
 }
 
 @font-face {
@@ -195,10 +179,6 @@ table {
   font-weight: 700;
   font-style: italic;
   font-display: swap;
-  ascent-override: 95%;
-  descent-override: 20%;
-  line-gap-override: 0%;
-  size-adjust: 100%;
 }
 
 @font-face {
@@ -208,10 +188,78 @@ table {
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  ascent-override: 95%;
-  descent-override: 20%;
+}
+
+// ===================================
+// Adjusted Fallback Fonts
+// ===================================
+// These create size-adjusted system fonts that match Ronzino's metrics
+// to prevent layout shift when web fonts load
+
+@font-face {
+  font-family: 'Ronzino Fallback';
+  src: local('Arial');
+  font-weight: 400;
+  font-style: normal;
+  ascent-override: 87%;
+  descent-override: 23%;
   line-gap-override: 0%;
-  size-adjust: 100%;
+  size-adjust: 105%;
+}
+
+@font-face {
+  font-family: 'Ronzino Fallback';
+  src: local('Arial');
+  font-weight: 400;
+  font-style: italic;
+  ascent-override: 87%;
+  descent-override: 23%;
+  line-gap-override: 0%;
+  size-adjust: 105%;
+}
+
+@font-face {
+  font-family: 'Ronzino Fallback';
+  src: local('Arial');
+  font-weight: 500;
+  font-style: normal;
+  ascent-override: 86%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 106%;
+}
+
+@font-face {
+  font-family: 'Ronzino Fallback';
+  src: local('Arial');
+  font-weight: 500;
+  font-style: italic;
+  ascent-override: 86%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 106%;
+}
+
+@font-face {
+  font-family: 'Ronzino Fallback';
+  src: local('Arial Bold');
+  font-weight: 700;
+  font-style: normal;
+  ascent-override: 85%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+  size-adjust: 107%;
+}
+
+@font-face {
+  font-family: 'Ronzino Fallback';
+  src: local('Arial Bold');
+  font-weight: 700;
+  font-style: italic;
+  ascent-override: 85%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+  size-adjust: 107%;
 }
 
 // ===================================
@@ -219,7 +267,7 @@ table {
 // ===================================
 
 :root {
-  font-family: Ronzino, sans-serif;
+  font-family: Ronzino, 'Ronzino Fallback', Arial, sans-serif;
 }
 
 html,
