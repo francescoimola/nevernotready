@@ -298,21 +298,65 @@ footer {
   }
   }
 
-  * {
+  h3, a, small, p {
     color: map.get($colors, bg);
   }
 
   .footer-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     gap: map.get($spacing, xl);
     width: 100%;
+
+    .associations {
+    @include flex(row, map.get($spacing, lg));
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    }
+
+    .browsing {
+      grid-area: browsing;
+    }
+
+    .help {
+      grid-area: help;
+    }
+
+    .procastinating {
+      grid-area: procastinating;
+    }
+
+    .lets-talk {
+      grid-area: talk;
+    }
+
+    .credits {
+      grid-area: credits;
+    }
+
+    .associations {
+      grid-area: associations;
+    }
+
+    grid-template-areas:
+      "browsing help credits"
+      "procastinating talk associations";
+    grid-template-rows: auto;
+
+    @media only screen and (max-width: map.get($breakpoints, md)) {
+      grid-template-areas:
+        "browsing"
+        "help"
+        "procastinating"
+        "talk"
+        "associations"
+        "credits";
+      margin-bottom: calc(map.get($spacing, xs)*-1);
+    }
   }
 
   .f-group {
     @include flex(column, map.get($spacing, xs));
-    min-width: min(100%, 15ch);
-    flex: 1 1 15ch;
 
     .f-heading {
       font-weight: 500;
@@ -323,12 +367,5 @@ footer {
       @include flex(column, map.get($spacing, xs));
       align-items: flex-start;
     }
-  }
-
-  .f-copyright {
-    margin-top: map.get($spacing, sm);
-    padding: map.get($spacing, md) 0 map.get($spacing, xl);
-    border-top: $border-width dotted map.get($colors, bg-more-translucent);
-    width: 100%;
   }
 }

@@ -369,8 +369,8 @@ p {
 
 small, .small-link {
   font-size: $font-sm;
-  line-height: $lh-base;
   color: map.get($colors, text-subtle);
+  display: block;
 }
 
 a {
