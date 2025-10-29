@@ -351,11 +351,6 @@ h1 {
   margin: 0;
 }
 
-h3 {
-  font-size: $font-base;
-  line-height: $lh-base;
-}
-
 p {
   margin: 0 0 map.get($spacing, md) 0;
   color: map.get($colors, text-subtle);
@@ -448,7 +443,7 @@ img {
 
 figure {
   @include flex(column, map.get($spacing, sm));
-  width: 100%;
+  width: fit-content;
 
   figcaption {
     margin-top: calc(map.get($spacing, sm) + $border-width);

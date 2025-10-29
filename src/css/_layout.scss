@@ -298,60 +298,68 @@ footer {
   }
   }
 
-  h3, a, small, p {
+  h4, a, small, p {
     color: map.get($colors, bg);
   }
 
   .footer-grid {
     display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: map.get($spacing, xl);
     width: 100%;
+    overflow: clip;
 
-    .associations {
+    .email, .phone {
+      h4 {
+        font-size: $font-xl;
+      }
+    }
+
+    .badges {
+    margin-top: map.get($spacing, lg);
     @include flex(row, map.get($spacing, lg));
     justify-content: flex-start;
     align-items: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    width: fit-content;
+
+      a {
+        flex: 1 1 50%;
+        display: block;
+        line-height: 0;
+
+        img, svg {
+          min-height: map.get($spacing, 2xl);
+          width: auto;
+          object-fit: contain;
+          display: block;
+        }
+      }
+
+      img {
+        filter: brightness(1.1);
+        &:hover {
+          filter: brightness(0.85);
+        }
+      }
     }
 
-    .browsing {
-      grid-area: browsing;
-    }
-
-    .help {
-      grid-area: help;
-    }
-
-    .procastinating {
-      grid-area: procastinating;
-    }
-
-    .lets-talk {
-      grid-area: talk;
-    }
-
-    .credits {
-      grid-area: credits;
-    }
-
-    .associations {
-      grid-area: associations;
-    }
-
-    grid-template-areas:
-      "browsing help credits"
-      "procastinating talk associations";
-    grid-template-rows: auto;
+    .email {grid-column: span 2;}
+    .phone {grid-column: span 2;}
+    hr {grid-column: span 4;}
+    .credits {grid-column: span 2;}
 
     @media only screen and (max-width: map.get($breakpoints, md)) {
-      grid-template-areas:
-        "browsing"
-        "help"
-        "procastinating"
-        "talk"
-        "associations"
-        "credits";
-      margin-bottom: calc(map.get($spacing, xs)*-1);
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: map.get($spacing, sm);
+
+      .credits, hr {
+        grid-column: span 2;
+      }
+
+      .badges {
+        margin-bottom: map.get($spacing, lg);
+      }
     }
   }
 
