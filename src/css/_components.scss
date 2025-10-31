@@ -65,7 +65,7 @@ button,
   align-items: center;
 
   &:has(.button-like) {
-     gap: map.get($spacing, md);
+    gap: map.get($spacing, md);
   }
 }
 
@@ -257,6 +257,132 @@ hr {
   }
 }
 
+.mailing-list-card {
+  position: relative;
+  overflow: clip;
+  height: calc(map.get($spacing, 2xl) * 10);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  h2, p , label, li, span, small {
+    color: map.get($colors, bg);
+  }
+
+  label a:hover, label a:focus {
+    color: map.get($colors, bg-more-translucent);
+    text-decoration-color: map.get($colors, links-subtle);
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(transparent 0%, hsl(129, 25%, 10%, 0.8) 40%, hsl(129, 25%, 5%, 0.9) 50%);
+    z-index: 1;
+  }
+
+  >div {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, xs);
+  width: 100%;
+
+  &:first-of-type {
+    margin-bottom: map.get($spacing, md);
+  }
+
+  .small-like,
+  .small-like a {
+    display: inline;
+    line-height: 0%;
+  }
+
+  input,
+  textarea {
+    padding: map.get($spacing, sm);
+    border: $border-width solid map.get($colors, text-subtle);
+    border-radius: map.get($spacing, xs);
+    background: map.get($colors, bg);
+    resize: vertical;
+    color: inherit;
+
+    &[type="email"] {
+      max-width: 50%;
+    }
+
+    &::placeholder {
+      color: map.get($colors, text-more-subtle);
+    }
+
+    &:focus {
+      outline: $border-width solid map.get($colors, links-subtle);
+      background: map.get($colors, bg-more-translucent);
+    }
+  }
+}
+
+.checkbox-field {
+  label {
+    display: block;
+    padding-right: map.get($spacing, sm);
+    padding-left: 22px;
+    text-indent: -24px;
+
+    * {
+      vertical-align: middle;
+    }
+  }
+
+  input {
+    vertical-align: middle;
+  }
+}
+
+.form-message {
+  display: none;
+  width: fit-content;
+  margin-top: map.get($spacing, md);
+  padding: map.get($spacing, md);
+  border-radius: map.get($spacing, xs);
+  font-size: $font-sm;
+  line-height: $lh-base;
+  text-align: left;
+
+  &.success {
+    display: block;
+    background: map.get($colors, links-subtle);
+    color: map.get($colors, text);
+    border: $border-width solid map.get($colors, links);
+  }
+
+  &.error {
+    display: block;
+    background: color-mix(in srgb, #dc2626 20%, #f9f3f3);
+    color: #7f1d1d;
+    border: $border-width solid #dc2626;
+  }
+}
+
 // ===================================
 // UTILITIES
 // ===================================
@@ -291,14 +417,12 @@ hr {
   margin-bottom: calc(map.get($spacing, xl) * 4);
 }
 
-.invert-bg{
+.invert-bg {
   background: map.get($colors, text);
-  h2, p {
-    color: map.get($colors, bg);
-  }
 
-  a.button-like {
-    border: $border-width solid map.get($colors, bg);
+  h2,
+  p {
+    color: map.get($colors, bg);
   }
 
   a:not(.button-like):hover {
@@ -309,6 +433,10 @@ hr {
   &.green {
     background: map.get($colors, links);
   }
+}
+
+.inverted-button {
+  border: $border-width solid map.get($colors, bg);
 }
 
 .cap-width {
@@ -428,6 +556,7 @@ ul.plain-list {
 
 .selected-work-card {
   background: map.get($colors, bg);
+
   h2 {
     width: fit-content;
     padding: map.get($spacing, md) map.get($spacing, md) 0 map.get($spacing, md);
@@ -440,9 +569,11 @@ ul.plain-list {
 
   &:hover {
     background: map.get($colors, links);
+
     h2 {
       color: map.get($colors, bg);
     }
+
     .light {
       color: map.get($colors, bg-more-translucent);
     }
@@ -461,6 +592,22 @@ ul.plain-list {
     display: block;
     visibility: visible;
   }
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently */
+  -webkit-user-drag: none;
 }
 
 .streamline-freehand--send-email-fly::after {

@@ -11,12 +11,12 @@
         loading="lazy"
       />
       {% if image.title %}
-        <figcaption>{{ image.title }}</figcaption>
+        <figcaption class="noselect">{{ image.title }}</figcaption>
       {% endif %}
     {% endif %}
   </figure>
   {% if role %}
-    <span class="role">{{ role }}</span>
+    <span class="role noselect">{{ role }}</span>
   {% endif %}
   {% if description %}
     <span class="description prevent-orphan">{{ description | safe }}</span>

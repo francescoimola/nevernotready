@@ -298,7 +298,7 @@ footer {
   }
   }
 
-  h4, a, small, p {
+  h3, h4, a, small, p {
     color: map.get($colors, bg);
   }
 
@@ -310,7 +310,7 @@ footer {
     overflow: clip;
 
     .email, .phone {
-      h4 {
+      h3 {
         font-size: $font-xl;
       }
     }

@@ -362,7 +362,11 @@ p {
   }
 }
 
-small, .small-link {
+h3 {
+  font-size: $font-base;
+}
+
+small, .small-like {
   font-size: $font-sm;
   color: map.get($colors, text-subtle);
   display: block;
