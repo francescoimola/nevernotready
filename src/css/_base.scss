@@ -447,6 +447,7 @@ figure {
 
   figcaption {
     margin-top: calc(map.get($spacing, sm) + $border-width);
+    text-align: baseline;
   }
 }
 
