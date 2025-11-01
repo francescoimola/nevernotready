@@ -6,7 +6,7 @@ permalink: "/faqs/"
 navtitle: FAQs
 ---
 
-<section class="pad-bottom separate-below">
+<section class="pad-btt-md separate-below">
 
 ## Common questions
 
@@ -14,7 +14,7 @@ Find answers to frequently asked questions about how I work, including how proje
 
 </section>
 
-<section class=" pad-bottom faqs">
+<section class=" pad-btt-md faqs">
 
 ## Do prices change based on project size?
 
@@ -22,7 +22,7 @@ Smaller projects may sometimes take longer to set-up and coordinate relative to 
 
 </section>
 
-<section class=" pad-bottom faqs">
+<section class=" pad-btt-md faqs">
 
 ## Do you offer concessions? {#concessions}
 
@@ -37,7 +37,7 @@ Below are some of the non-stackable discounts I offer to everyone:
 
 </section>
 
-<section class=" pad-bottom faqs">
+<section class=" pad-btt-md faqs">
 
 ## Are meetings free?
 
@@ -49,7 +49,7 @@ One hour consultations start at £45.
 
 </section>
 
-<section class=" pad-bottom faqs">
+<section class=" pad-btt-md faqs">
 
 ## How do you quote projects?
 
@@ -61,7 +61,7 @@ Providing the brief and project scope remain unchanged, the quoted price is all 
 
 </section>
 
-<section class=" pad-bottom faqs">
+<section class=" pad-btt-md faqs">
 
 ## Can you work to a deadline?
 
@@ -71,7 +71,7 @@ I'm committed to doing quality work, and meeting deadlines often hinges on on ho
 
 </section>
 
-<section class=" pad-bottom faqs">
+<section class=" pad-btt-md faqs">
 
 ## What if I'm worried about email overload?
 
@@ -81,7 +81,7 @@ I can set up private Slack and Trello boards for real-time progress and communic
 
 </section>
 
-<section class=" pad-bottom faqs">
+<section class=" pad-btt-md faqs">
 
 ## Can we meet in person?
 

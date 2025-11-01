@@ -1,65 +1,52 @@
-<footer role="contentinfo">
-  <div class="footer-grid pad-bottom">
-
-    <div class="f-group email">
-      <h3 class="f-heading noselect"><span class="streamline-freehand--send-email-fly"></span> I love a good 'ol email</h3>
-      <a href="mailto:hi@francescoimola.com"  target="_blank" rel="noopener">hi@francescoimola.com</a>
+<footer role="contentinfo" class="page-margins pad-btt-lg">
+  {% if "/contact" not in page.url %}
+  <div class="separate-above">
+    <h3 class="email">I love a good 'ol email</h3>
+    <div class="pad-top-sm">
+      <span class="streamline-freehand--send-email-fly"></span>&nbsp;&nbsp;<a href="mailto:hi@francescoimola.com" target="_blank" rel="noopener">hi@francescoimola.com</a>
     </div>
-
-    <div class="f-group phone">
-      <h3 class="f-heading noselect"><span class="streamline-freehand--phone-retro-1"></span> Ring me instead</h3>
-      <span>(+44) 7356031458</span>
-      <small style="display: inline;">Of course texts are welcome!</small>
+  </div>
+  <br>
+  <div class="pad-btt-md pad-top-sm">
+    <h3 class="phone">Text me instead</h3>
+    <div class="pad-top-sm">
+      <span class="streamline-freehand--phone-retro-1"></span>&nbsp;&nbsp;<span>(+44) 7356031458</span>
     </div>
+  </div>
+  {% endif %}
 
-    <hr>
-
-    <div class="f-group browsing">
-      <h4 class="f-heading noselect">Quick links</h4>
-      <nav>
-        <a href="/portfolio" class="noselect">Portfolio</a>
-        <a href="/services" class="noselect">Services</a>
-        <a href="/how-i-work" class="noselect">How I work</a>
-        <a href="/faqs" class="noselect">FAQs</a>
-      </nav>
+  <div class="side-by-grid cap-width separate-above">
+    <div>
+      <h4>Quick links</h4>
+      <ul class="plain-list">
+        <li><a href="/portfolio" class="noselect">Portfolio</a></li>
+        <li><a href="/services" class="noselect">Services</a></li>
+        <li><a href="/how-i-work" class="noselect">How I work</a></li>
+        <li><a href="/faqs" class="noselect">FAQs</a></li>
+      </ul>
     </div>
-
-    <div class="f-group procastinating">
-      <h4 class="f-heading noselect">Procastinate</h4>
-      <nav>
-        <a href="https://notbadnotbad.substack.com/welcome" target="_blank" rel="noopener" class="noselect">Newsletter</a>
-        <a href="/playground" class="noselect">Playground</a>
-        <a href="mailto:hi@francescoimola.com?subject=CV%20request" class="noselect">Request my CV</a>
-        <a href="/colophon" class="noselect">Colophon</a>
-      </nav>
+  
+    <div>
+      <h4>Procastinate</h4>
+      <ul class="plain-list">
+        <li><a href="https://notbadnotbad.substack.com/welcome" target="_blank" rel="noopener"
+            class="noselect">Newsletter</a></li>
+        <li><a href="/playground" class="noselect">Playground</a></li>
+        <li><a href="mailto:hi@francescoimola.com?subject=CV%20request" class="noselect">Request my CV</a></li>
+        <li><a href="/colophon" class="noselect">Colophon</a></li>
+      </ul>
     </div>
-
-    <hr class="mobile-only">
-
-    <div class="credits">
-      <p>&copy; Francesco Imola 2025.<br>Designed by hand with love and anxiety in Folkestone, Kent</p>
-      <p>This site has been built following low-carbon design and build principles. It is <a
-            href="https://www.websitecarbon.com/website/francescoimola-com/" target="_blank" rel="noopener"
-            class="invert-ink">cleaner than 97% of all web pages globally</a> and it runs on renewable energy.</p>
-      <div class="badges">
-        <a href="https://www.creativesforclimate.co/" target="_blank" rel="noopener" title="Creatives for Climate: global network of creative professionals taking action on climate change">
-            <img src="https://res.cloudinary.com/dax6x2pto/image/upload/c_lfill,w_120,f_auto/dpr_auto/Badge-inverse_raiq2e.png"
-                width="120" height="120" alt="Creatives for Climate badge" loading="lazy" decoding="async" />
-          </a>
-          <a href="https://designdeclares.com/" target="_blank" rel="noopener" title="Design Declares: global declaration of ecological emergency">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 8.76 34 44.48">
-                <path fill="currentColor"
-                  d="M12.2415 53.0077H0.716309V8.96533H12.2415C18.4409 8.96533 21.2054 11.9595 21.2054 18.6748V42.9518C21.2031 49.9049 18.4387 53.0077 12.2415 53.0077ZM9.5045 44.8022H10.4944C11.7261 44.8022 12.2415 44.4556 12.2415 42.3154V19.1957C12.2415 17.0033 11.555 16.8244 10.727 16.8244H9.50222L9.5045 44.8022Z">
-                </path>
-                <path fill="currentColor"
-                  d="M33.7184 14.0295L28.7894 42.1069L23.9038 14.0227C23.6871 11.1848 25.9452 8.76367 28.8122 8.76367C31.6816 8.76367 33.9419 11.1916 33.7184 14.0295Z">
-                </path>
-                <path fill="currentColor"
-                  d="M28.7778 53.2368C31.5252 53.2368 33.7524 51.0395 33.7524 48.3289C33.7524 45.6183 31.5252 43.4209 28.7778 43.4209C26.0304 43.4209 23.8032 45.6183 23.8032 48.3289C23.8032 51.0395 26.0304 53.2368 28.7778 53.2368Z">
-                </path>
-            </svg>
-          </a>
-      </div>
-    </div>
+  </div>
+  <br>
+  <p class="pad-top-md cap-width">&copy; Francesco Imola 2025.<br>Designed by hand with love and anxiety in Folkestone, Kent</p>
+  <p>This site has been built following low-carbon design and build principles. It is <a
+      href="https://www.websitecarbon.com/website/francescoimola-com/" target="_blank" rel="noopener">cleaner than 97%
+      of all web pages globally</a> and it runs on renewable energy.</p>
+  <br>
+  <div class="badges cap-width">
+    <a href="https://designdeclares.com/" target="_blank" rel="noopener"
+      title="Design Declares: global declaration of ecological emergency">{% include "_icons/_declares.njk" %}</a>
+      <a href="https://www.creativesforclimate.co/" target="_blank" rel="noopener"
+      title="Creatives for Climate: global network of creative professionals taking action on climate change">{% include "_icons/_c4c.njk" %}</a>
   </div>
 </footer>

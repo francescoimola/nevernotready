@@ -280,100 +280,25 @@ nav {
 // ===================================
 
 footer {
-  border-top: $border-width solid map.get($colors, links);
-  padding: map.get($spacing, 2xl) clamp(0.5rem, 4vw, 2rem);
-  @include flex(column, map.get($spacing, xl));
-  justify-content: space-between;
-  align-items: start;
-  background: map.get($colors, links);
-  position: relative;
-  z-index: 2;
-  color: map.get($colors, bg);
 
-  a {
-    color: map.get($colors, bg-more-translucent);
-    &:hover {
-    color: map.get($colors, links-subtle);
-    text-decoration-color: map.get($colors, bg-more-translucent);
+  h4 {
+    margin-bottom: map.get($spacing, sm);
   }
-  }
-
-  h3, h4, a, small, p {
-    color: map.get($colors, bg);
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: map.get($spacing, xl);
-    width: 100%;
-    overflow: clip;
-
-    .email, .phone {
-      h3 {
-        font-size: $font-xl;
-      }
-    }
-
     .badges {
-    margin-top: map.get($spacing, lg);
-    @include flex(row, map.get($spacing, lg));
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    width: fit-content;
-
-      a {
-        flex: 1 1 50%;
-        display: block;
-        line-height: 0;
-
-        img, svg {
-          min-height: map.get($spacing, 2xl);
-          width: auto;
-          object-fit: contain;
-          display: block;
-        }
-      }
-
-      img {
-        filter: brightness(1.1);
-        &:hover {
-          filter: brightness(0.85);
-        }
-      }
-    }
-
-    .email {grid-column: span 2;}
-    .phone {grid-column: span 2;}
-    hr {grid-column: span 4;}
-    .credits {grid-column: span 2;}
-
-    @media only screen and (max-width: map.get($breakpoints, md)) {
-      grid-template-columns: 1fr 1fr;
-      margin-bottom: map.get($spacing, sm);
-
-      .credits, hr {
-        grid-column: span 2;
-      }
-
-      .badges {
-        margin-bottom: map.get($spacing, lg);
-      }
-    }
-  }
-
-  .f-group {
-    @include flex(column, map.get($spacing, xs));
-
-    .f-heading {
-      font-weight: 500;
-      margin-bottom: map.get($spacing, xs);
-    }
-
-    nav {
-      @include flex(column, map.get($spacing, xs));
+      @include flex(row, map.get($spacing, sm));
+      justify-content: flex-start;
       align-items: flex-start;
+      flex-wrap: nowrap;
+      width: fit-content;
+
+        svg {
+          height: calc(map.get($spacing, 2xl)*$perfect-fourth);
+          width: auto;
+
+          &.c4c-badge {
+            width: calc(map.get($spacing, 2xl)*$golden-ratio);
+          }
+        }
+
     }
-  }
 }

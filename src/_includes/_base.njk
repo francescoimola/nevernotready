@@ -10,8 +10,8 @@
 	<main class="page-margins">
 		<div class="margin-fix">
 			{% if page.url != '/' %}
-			<div class="secondary-header pad-bottom-large">
-				<h1>{{ navtitle }}</h1>
+			<div class="secondary-header pad-btt-lg">
+				<h1>{{ navtitle | default(title) }}</h1>
 				{% include "_links.njk" %}
 			</div>
 			{% endif %}

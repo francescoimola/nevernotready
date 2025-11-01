@@ -1,0 +1,28 @@
+---
+layout: _base.njk
+title: Blog | Francesco Imola
+description: Tutorials, articles and reflections on design and non-cohercive marketing
+navtitle: Blog
+pagination:
+  data: collections.blog
+  size: 10
+  alias: blog
+---
+
+<div class="pad-btt-md cap-width">
+	<ul class="plain-list">
+	  {%- for post in collections.blog | reverse -%}
+	    <li class="pad-btt-md>
+            {% if post.data.image %}
+			<a href="{{ post.url | url }}">
+            <img src="{{ post.data.image }}" class="give-border" width="645" height="auto" {% if post.data.imageAlt %}alt="{{ post.data.imageAlt }}"{% else %}alt=""{% endif %} loading="lazy"decoding="async" />
+            </a>
+		  {% endif %}
+	      <div class="simple-sb-flex post-header pad-top-md"><h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2><small>{{ post.date | readableDate }}</small></div>
+	      {% if post.data.teaser %}
+	        <p class="pad-top-md">{{ post.data.teaser }}</p>
+	      {% endif %}
+	    </li>
+	  {%- endfor -%}
+	</ul>
+</div>

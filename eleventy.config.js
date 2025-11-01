@@ -1,4 +1,5 @@
 const eleventySass = require("@11tyrocks/eleventy-plugin-sass-lightningcss");
+const pluginDate = require("eleventy-plugin-date");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItAttrs = require("markdown-it-attrs");
@@ -7,6 +8,7 @@ const { promisify } = require('util');
 const { readFile } = require('fs');
 const { imageSize } = require('image-size');
 const { JSDOM } = require('jsdom');
+
 
 module.exports = function (eleventyConfig) {
   if (eleventyConfig === null || eleventyConfig === undefined) {
@@ -19,6 +21,7 @@ module.exports = function (eleventyConfig) {
     }
     eleventyConfig.setLibrary("md", markdownIt(markdownItOptions).use(markdownItAnchor).use(markdownItAttrs))
     eleventyConfig.addPlugin(eleventySass);
+    eleventyConfig.addPlugin(pluginDate);
     eleventyConfig.addPassthroughCopy("fonts");
     eleventyConfig.addPassthroughCopy("assets");
 

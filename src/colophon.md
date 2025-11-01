@@ -5,7 +5,7 @@ description: The fonts, tools, and technical decisions behind how this site was 
 permalink: "/colophon/"
 navtitle: Colophon
 ---
-<section class="pad-bottom separate-below">
+<section class="pad-btt-md separate-below">
 
 ## About
 
@@ -13,7 +13,7 @@ This website closer resembles a big and rather imperfect Venn diagram rather tha
 
 </section>
 
-<section class="pad-bottom">
+<section class="pad-btt-md">
 
 ## Technical {.light}
 
@@ -25,7 +25,7 @@ This website was previously two websites, I used to have a container for everyth
 
 </section>
 
-<section class="pad-bottom">
+<section class="pad-btt-md">
 
 ## AI use {.light}
 
@@ -35,7 +35,7 @@ I'm aware how the use of LLMs carries a carbon footprint. While this site’s co
 
 </section>
 
-<section class="pad-bottom">
+<section class="pad-btt-md">
 
 ## Typography in use {.light}
 
